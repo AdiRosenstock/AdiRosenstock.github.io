@@ -14,6 +14,7 @@
   pages, query strings, and section anchors. `.pages/` is generated and ignored.
   Preserve the unused Sites identity in `.openai/hosting.json`; do not deploy there.
 - Keep the personal, playful motion in the hero and provide a motion pause control.
+- Keep the Northwestern education card purple; the general site palette uses ink and teal.
 - Northwestern education and Bloomberg experience lead the hero. Football is a
   personal interest, not the whole identity. Keep the overview short and title-led;
   put longer stories and role descriptions behind explicit detail controls.
