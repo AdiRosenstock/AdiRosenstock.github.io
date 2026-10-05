@@ -19,7 +19,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;450;500;550;600;650;700&family=Outfit:wght@400;500;550;600;650;700;750&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css?v=1306995dc448">
   <link rel="stylesheet" href="../../projects.css?v=f59dedef0d63">
-  <script src="../../projects.js?v=63bec6bbffc3" defer></script>
+  <link rel="stylesheet" href="../../project-scenes.css?v=a17e7537846b">
+  <script src="../../projects.js?v=f77e3d1883ff" defer></script>
 </head>
 <body class="project-page" data-theme="football">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -35,16 +36,17 @@
   </header>
   <main id="main">
     <div class="project-banner">
+      <svg class="scene-backdrop football-backdrop" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g transform="translate(770 -120) rotate(-10 350 420)"><rect width="660" height="1000" rx="3"/><path d="M0 500h660M150 0v151h360V0M150 1000V849h360v151"/><circle cx="330" cy="500" r="91"/><path class="route-backdrop" d="M76 773 233 617 416 690 536 356 345 259"/><circle cx="76" cy="773" r="8"/><circle cx="233" cy="617" r="8"/><circle cx="416" cy="690" r="8"/><circle cx="536" cy="356" r="8"/><circle cx="345" cy="259" r="8"/></g></svg>
       <div class="section-wrap">
         <div class="project-breadcrumb"><a href="../../#projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg>Selected work</a><span aria-hidden="true">/</span><span>TikiData FC</span></div>
         <section class="project-hero" aria-labelledby="project-title">
           <div class="project-heading"><p class="project-role">Football analytics · Data visualization</p><h1 id="project-title">TikiData FC</h1><p class="project-deck">The game, through a different lens.</p><p class="project-intro">A collection of football analyses that turns performance data into clear visuals about players, form, and unexpected patterns.</p><div class="tag-list"><span>Python</span><span>Pandas</span><span>Matplotlib</span><span>Football data</span></div><div class="project-actions"><a class="button button-primary" href="https://github.com/AdiRosenstock/TikiData.FC" target="_blank" rel="noopener noreferrer">Explore the analyses</a><a class="button button-outline" href="#in-action">See the visuals</a></div></div>
-          <figure class="project-art"><div class="project-chart"><img src="../../assets/tikidata-goals-vs-xg.png" width="990" height="890" alt="Published TikiData chart comparing Premier League players’ goals with expected goals, with overperformance and underperformance bars" fetchpriority="high"></div><figcaption>A published analysis from the repository, rather than a live match feed.</figcaption><p class="hand-note">Watch the match. Ask another question.</p></figure>
+          <figure class="scene-art"><div class="tactics-board"><div class="tactics-top"><strong>Football × data</strong><span>A little tiki-taka</span></div><svg class="tactics-svg" viewBox="0 0 450 280" aria-hidden="true"><g class="pitch-stripes"><path d="M13 13h53v254H13zM120 13h53v254h-53zM227 13h53v254h-53zM334 13h53v254h-53z"/></g><g class="pitch-lines"><rect x="13" y="13" width="424" height="254" rx="2"/><path d="M225 13v254M13 80h65v120H13M437 80h-65v120h65M13 110h26v60H13M437 110h-26v60h26"/><circle cx="225" cy="140" r="36"/><circle cx="225" cy="140" r="2"/><path d="M78 116a29 29 0 0 1 0 48M372 116a29 29 0 0 0 0 48"/></g><path class="tactic-route" d="M75 172 178 106 271 173 373 81"/><g class="tactic-opponent"><path d="m115 78 12 12m0-12-12 12m64 133 12 12m0-12-12 12m110-117 12 12m0-12-12 12m62 67 12 12m0-12-12 12"/></g><g class="tactic-player"><circle cx="75" cy="172" r="9"/><circle cx="178" cy="106" r="9"/><circle cx="271" cy="173" r="9"/><circle cx="373" cy="81" r="9"/></g><g class="tactic-ball"><circle r="6"/><path d="m-2-2 4 0 1 3-3 2-3-2z" fill="#21422e" stroke="none"/></g></svg><div class="scene-controls"><button class="scene-action" id="play-the-move" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7Z"/></svg>Play the move</button><a href="#in-action">See the real analyses</a></div><p class="scene-caption" id="tactics-caption" aria-live="polite">Four players. Three passes. Give the move a go.</p></div><p class="scene-note">See the pattern. Tell the story.</p><figcaption>A tactical board for the football side. The original analysis figures are below.</figcaption></figure>
         </section>
       </div>
     </div>
     <div class="section-wrap">
-      <div class="project-tools"><span>Football analysis, with notebooks behind the visuals.</span><div class="project-utility-actions"><button class="copy-project-link" id="copy-project-link" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg>Copy page link</button></div></div>
+      <div class="project-tools"><span>Football analysis, with notebooks behind the visuals.</span><div class="project-utility-actions"><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg><span>Pause motion</span></button><button class="copy-project-link" id="copy-project-link" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg>Copy page link</button></div></div>
       <p class="project-copy-status" id="project-copy-status" role="status"></p>
       <div class="project-body">
         <nav class="story-nav" aria-label="On this page"><p>On this page</p><a href="#overview" aria-current="location">The project</a><a href="#approach">The approach</a><a href="#build">How it works</a><a href="#decisions">A key decision</a><a href="#in-action">In action</a><a href="#explore">Explore further</a></nav>
