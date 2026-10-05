@@ -7,7 +7,11 @@
 - Commit and push to the GitHub origin at coherent milestones, including after
   completed edits. The user explicitly requested frequent pushes.
 - GitHub Pages is the live hosting provider, as explicitly requested by the user.
-  Push completed changes to `main`; the Pages workflow deploys `dist/` automatically.
+  The origin is `AdiRosenstock/AdiRosenstock.github.io` and the live URL is
+  `https://adirosenstock.github.io/`. Push completed changes to `main`; the Pages
+  workflow copies `dist/` into `.pages/` with `npm run prepare:pages` and deploys it.
+  Keep redirects from the previous `/AdiRosenstock.io/` paths, including project
+  pages, query strings, and section anchors. `.pages/` is generated and ignored.
   Preserve the unused Sites identity in `.openai/hosting.json`; do not deploy there.
 - Keep the personal, playful motion in the hero and provide a motion pause control.
 - Northwestern education and Bloomberg experience lead the hero. Football is a

@@ -66,10 +66,21 @@ The original résumé file is not bundled in the published site.
 
 ## Hosting
 
-Hosted on [GitHub Pages](https://adirosenstock.github.io/AdiRosenstock.io/).
+Hosted on [GitHub Pages](https://adirosenstock.github.io/).
+The repository is [AdiRosenstock.github.io](https://github.com/AdiRosenstock/AdiRosenstock.github.io),
+which makes GitHub Pages serve the portfolio at the account's root address.
 Every push to `main` runs `.github/workflows/pages.yml`, checks the JavaScript,
-and publishes the static files in `dist/`. Relative asset paths support the Pages
-project URL and a future custom domain without changes.
+and prepares `.pages/` from `dist/` with `npm run prepare:pages` before publishing.
+Relative asset and navigation paths work at the root without a build dependency.
+
+The generated artifact also retains `/AdiRosenstock.io/` asset paths and redirects
+its former HTML routes to the new root, preserving query strings and section
+anchors. This keeps existing bookmarks and shared project links working.
+`.pages/` is ignored; edit the original files in `dist/`.
+
+For rollback, revert the root-address migration commit, rename the repository back
+to `AdiRosenstock.io`, update the local `origin` to that repository, and rerun the
+Pages workflow. The rename preserves the repository history and settings.
 
 The HTML references CSS and JavaScript with a 12-character SHA-256 query string.
 Refresh each query string when the corresponding file changes so browsers fetch
