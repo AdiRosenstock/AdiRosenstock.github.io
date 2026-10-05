@@ -46,8 +46,10 @@ The original résumé file is not bundled in the published site.
 - A football/tech hero combines pitch markings, a data grid, an animated passing
   pattern, a portrait, and a football visitors can kick.
 - The selected-work grid includes Career Agent, IMC Prosperity 3, the Airbnb model,
-  DOMUS, and TikiData FC, beneath the featured BanterBoost preview. Short descriptions
-  stay visible, while deeper stories live on each project page. The main palette
+  DOMUS, and TikiData FC, beneath the featured BanterBoost preview. On pointer
+  devices, each card reveals its description and stack on hover or keyboard focus;
+  touch layouts show descriptions below the artwork. Each of those five cards
+  links to its project page, with a separate source link. The main palette
   uses ink and teal; project previews keep their own colors and imagery.
 - The opening shows an animated soccer passing move above Adi’s name and a
   football visitors can kick beside the portrait. Pitch markings connect the
@@ -72,7 +74,7 @@ The original résumé file is not bundled in the published site.
 - Prominent Northwestern and Bloomberg hero buttons open résumé-grounded details.
   BanterBoost retains its existing website link and native detail dialog.
 - Career Agent, IMC Prosperity 3, Airbnb classification, DOMUS, and TikiData FC
-  have dedicated, shareable project pages. Homepage project links open these pages,
+  have dedicated, shareable project pages. Homepage cards open these pages,
   with direct source/product links retained. Each page includes the project context,
   approach, build details, a key decision, and references for deeper exploration.
   Pages have section navigation, copy-link feedback, and links to the next project.
@@ -136,7 +138,7 @@ GitHub Pages is the live provider. Do not store credentials in files.
 
 The complete static pages live in `dist/projects/<slug>/index.html` and share
 `dist/projects.css`, `dist/project-scenes.css`, and `dist/projects.js`.
-All six pages also use `dist/motion.css` and `dist/motion.js` for shared interactions.
+All five pages also use `dist/motion.css` and `dist/motion.js` for shared interactions.
 The scene stylesheet defines each project's visual identity, illustrations,
 responsive layouts, and reduced-motion behavior. There is no build step. The preview
 server supports directory indexes; use `PORT=4174 npm run dev` for another port.

@@ -167,6 +167,77 @@ h2 > span { color: var(--ink); }
 .tikidata-card .card-visual { height: 310px; }
 .tikidata-card .card-copy { align-self: center; }
 
+/* Project artwork becomes the preview; the complete card opens its story. */
+.project-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); align-items: stretch; gap: 34px 24px; }
+.project-card, .domus-card, .tikidata-card {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2;
+  cursor: pointer;
+  border-bottom: 1px solid #cadbd6;
+}
+.project-card .card-visual, .tikidata-card .card-visual { width: 100%; height: 265px; }
+.project-card .card-copy, .tikidata-card .card-copy {
+  position: static;
+  width: 100%;
+  padding: 20px 0 23px;
+  align-self: auto;
+}
+.project-card .card-copy h3 { font-size: 25px; }
+.project-card .card-links { display: flex; justify-content: space-between; gap: 15px; padding-top: 12px; }
+.project-card .card-links > a { position: relative; z-index: 4; display: inline-flex; align-items: center; color: var(--accent); }
+.card-link-cue { display: inline-flex; align-items: center; color: var(--accent); font-weight: 600; }
+.card-link-cue svg { width: 18px; height: 18px; margin-left: 5px; }
+.card-open { position: absolute; inset: 0; z-index: 3; border-radius: 5px; }
+.card-open:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.card-reveal {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 265px;
+  padding: 28px;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #123831e8, #123831f5);
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease, visibility .22s;
+}
+.project-card:hover .card-reveal, .project-card:focus-within .card-reveal {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+.card-description { max-width: 44ch; font-size: 17px; line-height: 1.5; font-weight: 500; }
+.project-card .card-reveal .tag-list { display: flex; margin: 18px 0 0; gap: 6px; }
+.card-reveal .tag-list span { color: #e8f5f1; background: #ffffff25; border: 1px solid #ffffff36; }
+.card-reveal-cue { margin-top: 18px; font-size: 13px; font-weight: 650; color: #cde8de; }
+.domus-card { grid-column: 2 / span 2; }
+.tikidata-card { grid-column: 4 / span 2; }
+.tikidata-card .card-visual { height: 265px; }
+@media (hover: none) {
+  .project-card .card-reveal { position: static; height: auto; padding: 10px 0 0; background: none; color: var(--muted); opacity: 1; visibility: visible; transform: none; }
+  .project-card .card-reveal .tag-list, .card-reveal-cue { display: none; }
+  .card-description { font-size: 14px; line-height: 1.6; }
+}
+@media (max-width: 650px) {
+  .project-card .card-copy { padding: 18px 0 23px; }
+  .project-card .card-reveal { position: static; height: auto; padding: 10px 0 0; background: none; color: var(--muted); opacity: 1; visibility: visible; transform: none; }
+  .project-card .card-reveal .tag-list, .card-reveal-cue { display: none; }
+  .card-description { font-size: 14px; line-height: 1.6; }
+}
+@media (prefers-reduced-motion: reduce) { .card-reveal { transition: none; } }
+@media (max-width: 1050px) and (min-width: 651px) {
+  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project-card, .domus-card, .tikidata-card { grid-column: auto; }
+  .tikidata-card { grid-column: 1 / -1; width: calc(50% - 12px); justify-self: center; }
+}
+
 .about-section { grid-template-columns: .8fr 1.2fr; gap: 120px; padding-block: 135px; }
 .about-copy > p { max-width: 63ch; font-size: 17px; line-height: 1.8; }
 .about-copy > .about-lead { font-size: 24px; line-height: 1.5; }
