@@ -1,4 +1,14 @@
 /* Motion follows the work: traces, folds, passing moves, and reader actions. */
+/* A pitch data point marks the exact pointer location; brackets mark actions. */
+@media (hover:hover) and (pointer:fine) and (forced-colors:none) {
+  body,body *{cursor:url('assets/data-cursor.svg') 16 16,auto!important}
+  body :is(a[href],button:not(:disabled),summary,[role="button"],label[for]),
+  body :is(a[href],button:not(:disabled),summary,[role="button"],label[for]) *{cursor:url('assets/data-cursor-action.svg') 20 20,pointer!important}
+  body :is(input,textarea,[contenteditable="true"],[contenteditable="true"] *){cursor:text!important}
+  body :is(select,iframe){cursor:auto!important}
+  body button:disabled{cursor:default!important}
+  body .contact-form button:disabled{cursor:wait!important}
+}
 .header-motion-toggle{display:none;align-items:center;justify-content:center;flex-shrink:0;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;padding:0;background:transparent;color:var(--muted)}
 .motion-ready .header-motion-toggle{display:flex}
 .header-motion-toggle svg{width:15px;height:15px}
