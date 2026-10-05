@@ -1,8 +1,5 @@
 # Adi Rosenstock’s portfolio
 
-A static, responsive portfolio with selected projects, experience, interests,
-and skills. Inspired by the flow of David Wei’s portfolio; typography,
-composition, colors, content, and interactions are original to this site.
 
 ## Local preview
 
