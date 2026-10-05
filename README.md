@@ -93,9 +93,11 @@ The original résumé file is not bundled in the published site.
   original image URLs in `dist/assets/books/sources.json`. The section also
   recommends How to Take Over the World (Ben Wilson) and Founders (David Senra),
   with the Spotify links Adi supplied. Update the reading status when it changes.
-- The BanterBoost preview uses the current saved product screenshots, with controls
-  to switch between analytics and mini-league views and a link to each live page.
-  The portfolio stays a single scroll surface on desktop and mobile.
+- The BanterBoost preview embeds the actual live public analytics and mini-league
+  pages, with working view controls and a link to open the selected page. Sign-in
+  opens BanterBoost in a new tab. Its origin restriction blocks localhost embeds;
+  verify the frame on `https://adirosenstock.github.io` after publishing. Preserve
+  the live iframe when changing the portfolio's layout.
 - Mobile navigation opens and closes with an accessible toggle and Escape.
 - Visitors can write a message in the contact form without leaving the page.
   Name, reply email, and message are delivered to Adi’s Northwestern inbox through

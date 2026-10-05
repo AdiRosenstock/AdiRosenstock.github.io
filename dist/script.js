@@ -179,18 +179,19 @@ const sectionObserver = new IntersectionObserver(entries => {
 }, { rootMargin: '-18% 0px -58% 0px', threshold: 0 });
 document.querySelectorAll('main section[id]').forEach(section => sectionObserver.observe(section));
 document.querySelector('#year').textContent = String(new Date().getFullYear());
-const banterFallback = document.querySelector('#banterboost-fallback');
+const banterPreview = document.querySelector('#banterboost-preview');
 const banterViews = {
-  analytics: { src: 'https://fplbanterboost.com/l/2267404/analytics', image: 'assets/banterboost-analytics-current.jpg', alt: 'BanterBoost analytics page with player forecasts and mini-league insights', label: 'Open BanterBoost analytics and odds in a new tab' },
-  league: { src: 'https://fplbanterboost.com/l/2267404', image: 'assets/banterboost-league-current.jpg', alt: 'BanterBoost mini-league page showing live standings and team comparisons', label: 'Open BanterBoost live league in a new tab' }
+  analytics: { src: 'https://fplbanterboost.com/l/2267404/analytics', title: 'BanterBoost live analytics and odds', label: 'Open BanterBoost analytics and odds in a new tab', caption: 'Explore the live analytics. Sign-in opens BanterBoost in a new tab.' },
+  league: { src: 'https://fplbanterboost.com/l/2267404', title: 'BanterBoost live mini-league', label: 'Open BanterBoost live league in a new tab', caption: 'Explore the live league. Sign-in opens BanterBoost in a new tab.' }
 };
 document.querySelectorAll('[data-banter-view]').forEach(button => button.addEventListener('click', () => {
   const view = banterViews[button.dataset.banterView];
-  banterFallback.src = view.image;
-  banterFallback.alt = view.alt;
+  banterPreview.src = view.src;
+  banterPreview.title = view.title;
   const openLink = document.querySelector('#banterboost-open');
   openLink.href = view.src;
   openLink.setAttribute('aria-label', view.label);
+  document.querySelector('#banterboost-preview-caption').textContent = view.caption;
   document.querySelectorAll('[data-banter-view]').forEach(option => option.setAttribute('aria-pressed', String(option === button)));
 }));
 

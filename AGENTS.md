@@ -4,6 +4,12 @@
   facts and distinguish team results from individual accomplishments.
 - Check the current live BanterBoost website before updating its screenshots or
   product descriptions. Do not reuse the old repository screenshots.
+- Keep BanterBoost's preview as the actual live iframe, with working analytics and
+  mini-league controls. Preserve it when restyling the portfolio; do not replace it
+  with screenshots. BanterBoost permits framing only from
+  `https://adirosenstock.github.io`, so a blocked localhost frame is expected:
+  verify the live embed on the published portfolio. Sign-in opens the full
+  BanterBoost page in a new tab.
 - Commit and push to the GitHub origin at coherent milestones, including after
   completed edits. The user explicitly requested frequent pushes.
 - GitHub Pages is the live hosting provider, as explicitly requested by the user.
