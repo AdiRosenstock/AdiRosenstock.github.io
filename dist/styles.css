@@ -21,6 +21,7 @@
 @media(max-width:650px){.hero{padding-top:46px}.hero-person{margin:94px auto 0;max-width:420px;padding-top:0}.hero-journey{transform:scale(.9);right:14px;top:-95px}.portrait-frame{aspect-ratio:1/1.02;border-width:9px;border-bottom-width:12px;border-radius:6px}.portrait-note{font-size:24px}.football-play{bottom:107px;right:-6px}.football-button,.football-drawing{width:70px;height:70px}.football-hint{right:52px;bottom:-21px;font-size:20px}.university-note{margin-top:31px;padding-top:21px}.hero-bottom{flex-wrap:wrap;gap:8px;margin-top:17px;padding:20px 0}.hero-bottom>span{flex-basis:calc(100% - 55px);font-size:12px}.hero-bottom>a{order:2}.motion-toggle{order:3;justify-content:flex-start;margin-left:-8px}.cloud-one{top:390px;right:-170px}.cloud-two{bottom:250px}.hero-scene{background:linear-gradient(180deg,#eaf3fc 0%,#f2f6fb 70%,#fffdf7 100%)}}
 @media(max-width:370px){.hero-journey{transform:scale(.8);right:0}.football-hint{font-size:18px}.portrait-caption{flex-direction:column;gap:9px}.football-play{bottom:145px}}
 .journey-origin{bottom:25px}.football-play{bottom:165px;right:-25px}.football-hint{bottom:-12px}.portrait-caption{position:relative;z-index:6}
+.football-hint{background:#fffdf7;padding:1px 8px;border-radius:3px}
 @media(max-width:800px){.football-play{bottom:190px;right:-12px}}
 @media(max-width:650px){.football-play{bottom:168px;right:-5px}.football-hint{bottom:-16px;right:55px}}
 @media(max-width:370px){.football-play{bottom:205px}}
