@@ -27,3 +27,27 @@ Face/identity constraints: Closely preserve Adi's eyes, nose, mouth, eyebrows, f
 Other invariants: Keep the black blazer, open white shirt, seated pose, both hands typing, laptop, desk, and office background. Keep the two illustrative financial market monitors and the code monitor, with the same perspective and daylight. Any screen content remains fictional illustrative financial data and generic code, never real proprietary Bloomberg information. Do not insert real internal screen captures.
 Composition/framing: Square, face near upper center, laptop and hands visible, nearly identical framing to image 1.
 Style: Photorealistic restrained retouching with natural daylight, no glossy beauty filter. No overlaid disclaimer or other added text; the website will display the disclosure separately. No new people, objects, logos or watermark.
+
+
+Further face and haircut refinement with built-in imagegen
+Input: current office portrait; supplied formal headshot for identity.
+
+Use case: identity-preserve
+Asset type: square photorealistic portfolio portrait.
+Input image 1: edit target, Adi's current office portrait.
+Input image 2: supporting facial identity reference, Adi's supplied formal headshot. Do not copy its hairstyle.
+Primary request: Make Adi's face a little slimmer and give him a clearly more professional haircut than in image 1. This is a targeted edit of the person’s face contour and hair only.
+Facial edit: Subtly reduce cheek fullness and under-chin fullness, approximately 5–7%, for a slightly leaner face and cleaner jawline. Keep it natural, healthy and unmistakably the same person. Preserve his eyes, eyebrows, nose, lips, skin tone, age, facial expression, clean-shaven appearance and natural skin texture. Do not exaggerate cheekbones or create hollow cheeks.
+Hair edit: A neat, freshly cut professional short curly haircut. Make the sides and back distinctly shorter with a clean low taper, softly clipped close to the head above and around the ears. Keep a short, controlled textured curly top around 3–4 cm, substantially less bulky than the current haircut; reduce the current crown volume by about 40%. Define a tidy silhouette and naturally clean edges. No floppy curls over the forehead and no loose frizz. Preserve his natural dark hair, curl texture and realistic hairline. The haircut change must be visibly stronger than a simple hair cleanup.
+Preserve everything else: Keep the current slimmer torso, black blazer, white shirt, seated pose, hands on keyboard, laptop, desk, two illustrative financial monitors, generic code screen, background objects, square framing, camera perspective and daylight exactly as in image 1.
+Constraints: Natural photorealistic retouching, no beauty filter, no change of identity, no beard, no added objects, no watermark or overlaid text. All monitor data and code stay fictional illustrative content, not Bloomberg proprietary systems.
+
+Final targeted haircut pass with built-in imagegen
+Input: preceding face refinement.
+
+Use case: identity-preserve
+Input image: edit target, Adi's office portrait with the already slimmed face.
+Primary request: Change ONLY his haircut to a distinctly short, clean, professional haircut. The previous edit barely shortened it; this time the difference must be obvious.
+Haircut specification: A classic short tapered business haircut on naturally curly dark hair. Cut the top to about 1.5–2 cm, with small tight curls lying neatly close to the head. Remove most of the high, wide, fluffy crown silhouette; the hair should sit about half as high above the forehead as in the input. Close tapered sides about 5–8 mm, graduated naturally up into the top. Clearly expose both ears and clean the temple outline. Keep a natural forehead hairline, subtle curl texture and realistic density. Think freshly barbered, office-appropriate short curls with a clean tapered shape, not a voluminous curly mop. No curls hanging down over the forehead. Do not make it straight, bald, spiky, undercut, a skin fade, or a slick wet style.
+Preserve: Keep his exact current face including the slightly leaner cheek and jaw contours. Keep his eyes, nose, mouth, age, expression and skin texture absolutely unchanged. Keep his body, clothing, posture, hands, laptop, office, all screens, desk objects, daylight, framing and perspective unchanged. Do not add or remove any other element.
+Output: Photorealistic square photo with no new text or watermark. Do not beautify or replace the person.

@@ -42,7 +42,7 @@ const portraitSwitch = document.querySelector('#portrait-switch');
 portraitSwitch.addEventListener('click', () => {
   const code = portraitSwitch.getAttribute('aria-pressed') !== 'true';
   const portrait = document.querySelector('#hero-portrait');
-  portrait.src = code ? 'assets/adi-code-portrait.jpg?v=8238bff5cdd2' : 'assets/adi-matchday.webp';
+  portrait.src = code ? 'assets/adi-code-portrait.jpg?v=1d516b193394' : 'assets/adi-matchday.webp';
   portrait.alt = code ? 'Adi Rosenstock working at a laptop in an AI-edited office scene with illustrative market and code screens' : 'Adi Rosenstock supporting Club Sport Cartaginés at Stamford Bridge';
   document.querySelector('#portrait-note').textContent = code ? 'Behind the code.' : 'Football before fantasy.';
   document.querySelector('#portrait-caption').textContent = code ? 'A little of the person behind the code.' : 'Different kit. Same curiosity.';
