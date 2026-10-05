@@ -1,0 +1,10 @@
+{
+  "name": "adi-rosenstock-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node serve.mjs",
+    "check": "node --check dist/script.js"
+  }
+}
