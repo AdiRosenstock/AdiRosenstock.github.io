@@ -277,7 +277,7 @@ function initializeReveals() {
     ['.projects-section .section-heading, .about-title, .experience-section .section-heading, .skills-intro', 'heading'],
     ['.featured-project', 'feature'],
     ['.project-card', 'card'],
-    ['.more-projects > a, .about-copy, .leadership-note', 'copy'],
+    ['.more-projects > a, .about-copy, .leadership-note, .reading-intro, .book-list', 'copy'],
     ['.experience-row', 'timeline'],
     ['.skill-group', 'toolkit'],
     ['.contact-inner > div', 'contact']

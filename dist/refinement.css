@@ -37,7 +37,7 @@ nav a { font-size: 14px; }
 .hello { font-size: 17px; color: var(--muted); margin-bottom: 15px; }
 h1 { font-size: clamp(68px,6.2vw,90px); line-height: 1.02; letter-spacing: -.068em; font-weight: 700; }
 .name-period { color: var(--ink); }
-.hero-role { margin-top: 27px; color: var(--ink); font-size: clamp(19px,1.8vw,23px); font-weight: 600; }
+.hero-role { max-width: 620px; margin-top: 27px; color: var(--ink); font-size: 19px; line-height: 1.5; letter-spacing: -.015em; font-weight: 600; }
 .hero-description { max-width: 530px; margin-top: 12px; font-size: 17px; line-height: 1.65; color: var(--muted); }
 .hero-credentials { grid-column: 1 / -1; width: 100%; max-width: none; margin-top: 66px; gap: 18px; }
 .credential-button {
@@ -178,6 +178,17 @@ h2 > span { color: var(--ink); }
 .skills-section .skill-group .tag-list > .skill-pill { border: 0; border-radius: 4px; background: #fff; padding: 7px 8px; }
 .skill-pill:hover { translate: none; border-color: transparent !important; }
 .skill-pill:hover img { animation: none; }
+.reading-section { padding: 125px 0 135px; background: #f1f6f4; }
+.reading-layout { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); gap: clamp(65px,9vw,130px); align-items: start; }
+.reading-intro { position: sticky; top: 140px; }
+.reading-intro p { max-width: 32ch; margin-top: 24px; color: var(--muted); font-size: 17px; line-height: 1.7; }
+.book-list { border-top: 1px solid #cfddda; }
+.book-entry { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: start; gap: 24px; padding: 24px 0 25px; border-bottom: 1px solid #cfddda; }
+.book-entry h3 { max-width: 26ch; font-family: Georgia, serif; font-size: clamp(23px,2.25vw,29px); font-weight: 400; line-height: 1.25; letter-spacing: -.025em; }
+.book-entry cite { font-style: normal; }
+.book-entry p { margin-top: 8px; color: var(--muted); font-size: 13px; }
+.book-status { padding-top: 7px; color: var(--accent); font-size: 12px; font-weight: 650; white-space: nowrap; }
+.book-favorite { color: #4e2a84; }
 .contact-section { padding-block: 110px; background: #ecf3f1; }
 .contact-inner { gap: 100px; }
 .contact-form { border: 0; padding: 35px; border-radius: 5px; }
@@ -213,6 +224,9 @@ h2 > span { color: var(--ink); }
   .credential-button strong, .northwestern-credential strong { font-size: 21px; }
   .featured-copy { padding-left: 34px; }
   .about-section { gap: 70px; }
+  nav { gap: 17px; }
+  nav a { font-size: 13px; }
+  .reading-layout { gap: 55px; }
 }
 
 @media (max-width: 800px) {
@@ -226,6 +240,9 @@ h2 > span { color: var(--ink); }
   .featured-preview { margin: 28px 28px 28px; }
   .about-section { gap: 42px; }
   .skill-groups { gap: 40px; }
+  .reading-layout { grid-template-columns: minmax(0,.7fr) minmax(0,1.3fr); gap: 35px; }
+  .book-entry { grid-template-columns: 1fr; gap: 6px; }
+  .book-status { padding-top: 0; }
 }
 
 @media (max-width: 650px) {
@@ -236,7 +253,7 @@ h2 > span { color: var(--ink); }
   .hero-copy { padding-bottom: 0; }
   .hello { font-size: 16px; }
   h1 { font-size: clamp(52px,13.2vw,74px); letter-spacing: -.065em; }
-  .hero-role { font-size: 19px; margin-top: 22px; }
+  .hero-role { font-size: 17px; margin-top: 22px; }
   .hero-description { font-size: 15px; line-height: 1.6; }
   .hero-credentials { grid-template-columns: 1fr 1fr; max-width: none; margin-top: 56px; gap: 9px; }
   .credential-button { min-height: 117px; padding: 13px 10px; }
@@ -271,6 +288,12 @@ h2 > span { color: var(--ink); }
   .experience-row { grid-template-columns: 45px 1fr; gap: 18px; padding-block: 25px; }
   .skills-section { padding-block: 85px 95px; }
   .skill-groups { grid-template-columns: 1fr; gap: 30px; margin-top: 35px; }
+  .reading-section { padding-block: 86px 94px; }
+  .reading-layout { grid-template-columns: 1fr; gap: 33px; }
+  .reading-intro { position: static; }
+  .reading-intro p { margin-top: 13px; font-size: 15px; }
+  .book-entry { display: flex; flex-direction: column-reverse; gap: 8px; padding-block: 21px 23px; }
+  .book-entry h3 { font-size: 23px; }
   .contact-section { padding-block: 82px; }
   .contact-inner { gap: 37px; }
   .contact-form { padding: 23px 20px; }

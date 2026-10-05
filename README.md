@@ -91,6 +91,10 @@ The original résumé file is not bundled in the published site.
 - Project cards lead with titles and visuals. About, role descriptions, and leadership
   use native disclosure controls so visitors choose the depth. All toolkit tags are
   visible within their categories, with no extra disclosure controls.
+- The homepage hero names software engineering, data science, product management,
+  and finance/quant interests. A Reading section lists books Adi supplied; *Good to
+  Great* is marked currently reading and *Never Split the Difference* is marked
+  as his all-time favorite. Update the reading status when it changes.
 - The BanterBoost preview embeds the live public analytics and mini-league pages,
   with controls to switch views and open the selected page in a new tab. Google
   sign-in opens the full BanterBoost site in a new tab. BanterBoost permits these
