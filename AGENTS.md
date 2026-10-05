@@ -19,3 +19,5 @@
 - The original résumé is a source document, not a bundled public asset.
 - This is a dependency-free static site. Run `node --check dist/script.js`, check
   changed local asset references, and verify affected interactions in the browser.
+- The stylesheet and script URLs include content-hash query strings to avoid stale
+  browser caches. Refresh those hashes in `dist/index.html` when either file changes.

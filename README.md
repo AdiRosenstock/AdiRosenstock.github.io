@@ -50,7 +50,13 @@ The original résumé file is not bundled in the published site.
   and all content remains visible when JavaScript is disabled.
 - The portrait button switches between the existing football portrait and GitHub avatar.
 - Prominent Northwestern and Bloomberg hero buttons open résumé-grounded details.
-  Four project stories use the same native dialogs, with keyboard dismissal and focus return.
+  BanterBoost retains its existing website link and native detail dialog.
+- Career Agent, IMC Prosperity 3, Airbnb classification, DOMUS, and TikiData FC
+  have dedicated, shareable project pages. Homepage project links open these pages,
+  with direct source/product links retained. Each page includes the project context,
+  approach, build details, a key decision, and references for deeper exploration.
+  Pages have section navigation, copy-link feedback, and links to the next project.
+  The trading page respects the shared motion preference and has a pause control.
 - Project cards lead with titles and visuals. About, role descriptions, leadership,
   and extra toolkit tags use native disclosure controls so visitors choose the depth.
 - The BanterBoost preview switches between current analytics and mini-league screenshots.
@@ -65,5 +71,31 @@ Every push to `main` runs `.github/workflows/pages.yml`, checks the JavaScript,
 and publishes the static files in `dist/`. Relative asset paths support the Pages
 project URL and a future custom domain without changes.
 
+The HTML references CSS and JavaScript with a 12-character SHA-256 query string.
+Refresh each query string when the corresponding file changes so browsers fetch
+the matching version after a deployment.
+
 The unused Sites identity in `.openai/hosting.json` is retained for continuity.
 GitHub Pages is the live provider. Do not store credentials in files.
+
+## Project pages
+
+The complete static pages live in `dist/projects/<slug>/index.html` and share
+`dist/projects.css` and `dist/projects.js`. There is no build step. The preview
+server supports directory indexes; use `PORT=4174 npm run dev` for another port.
+Run `npm run check` before publishing, then check local asset/anchor references
+and affected desktop/mobile interactions in the browser.
+
+- `projects/career-agent/`: local application workspace and architecture.
+- `projects/imc-prosperity/`: team results, strategies, and the five competition rounds.
+- `projects/airbnb-classification/`: methodology, result, and the existing full HTML report.
+- `projects/domus/`: WildHacks team project, host/guest flows, and dependency attribution.
+- `projects/tikidata-fc/`: football analyses, original figures, notebooks, and social visuals.
+
+New content is grounded in the public project repositories. DOMUS's table artwork
+comes from `public/images/hero-meal.png`. TikiData figures come from
+`Expected_Goal_Premier_League_Players/premier_league_goals_vs_xg.png` and
+`Hidden_Gems_Top_5_Leagues/U23_Hidden_Gems_Graph.png`; they are saved analysis
+outputs, not live player statistics. Career Agent uses the existing fictional
+demonstration screenshot. Trading strategy descriptions and rankings are team
+results from the public competition write-up. BanterBoost has no new project page.
