@@ -12,6 +12,26 @@ menuButton.addEventListener('click', () => {
   navigation.classList.toggle('is-open', open);
 });
 navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+// Supplemental preview copy follows hover or focus; Escape restores the artwork.
+const projectPreviews = document.querySelectorAll('.project-card, .featured-project');
+projectPreviews.forEach(card => {
+  card.addEventListener('pointerleave', () => {
+    if (!card.contains(document.activeElement)) card.classList.remove('peek-dismissed');
+  });
+  card.addEventListener('focusout', event => {
+    if (!card.contains(event.relatedTarget) && !card.matches(':hover')) {
+      card.classList.remove('peek-dismissed');
+    }
+  });
+});
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Escape') return;
+  projectPreviews.forEach(card => {
+    if (card.matches(':hover') || card.contains(document.activeElement)) {
+      card.classList.add('peek-dismissed');
+    }
+  });
+});
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
     closeMenu();
