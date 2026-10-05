@@ -39,10 +39,15 @@ The original résumé file is not bundled in the published site.
 
 ## Interactions
 
-- A travel postcard hero connects Costa Rica and Evanston with an animated plane,
-  a floating photo, drifting clouds, and a football visitors can kick.
+- A football/tech hero combines pitch markings, a data grid, an animated passing
+  pattern, a floating photo, and a football visitors can kick.
+- Scroll entrances vary by content: project previews open from opposite sides,
+  cards settle in sequence, experience follows a growing timeline, and toolkit
+  tags appear in groups. Reveals happen once, with keyboard-focus visibility.
+- A small football tracks reading progress along the navigation bar.
 - A persistent pause control and system reduced-motion preference stop ambient motion.
-  Motion also pauses while the opening scene is offscreen.
+  Pausing also reveals all content immediately. Hero motion pauses offscreen,
+  and all content remains visible when JavaScript is disabled.
 - The portrait button switches between the existing football portrait and GitHub avatar.
 - Four project stories use native modal dialogs with keyboard dismissal and focus return.
 - The BanterBoost preview switches between current analytics and mini-league screenshots.

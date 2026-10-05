@@ -27,10 +27,16 @@
       </nav>
       <a class="nav-contact" href="#contact">Let’s talk <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 6l8 6 8-6"/></svg></a>
     </div>
+    <div class="reading-progress" aria-hidden="true"><span class="reading-progress-fill"></span><span class="reading-progress-ball"></span></div>
   </header>
   <main id="main">
     <div class="hero-scene">
-      <div class="scene-cloud cloud-one ambient-motion" aria-hidden="true"></div><div class="scene-cloud cloud-two ambient-motion" aria-hidden="true"></div>
+      <svg class="pitch-backdrop" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs><pattern id="pitch-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#43735c" stroke-width=".6" opacity=".12"/></pattern></defs>
+        <rect width="1440" height="900" fill="url(#pitch-grid)"/>
+        <g class="pitch-markings" transform="translate(655 78) rotate(-9 335 335)"><rect x="0" y="0" width="670" height="670" rx="2"/><path d="M0 335H670"/><circle cx="335" cy="335" r="87"/><circle cx="335" cy="335" r="4" fill="currentColor"/><path d="M190 0V116H480V0M266 0V44H404V0M190 670V554H480V670M266 670V626H404V670"/><path d="M272 116A78 78 0 0 0 398 116M272 554A78 78 0 0 1 398 554"/><path d="M0 18A18 18 0 0 0 18 0M652 0A18 18 0 0 0 670 18M0 652A18 18 0 0 1 18 670M652 670A18 18 0 0 0 670 652"/></g>
+        <g class="pitch-network"><path d="M68 710 190 650 290 727 403 670M1140 110 1301 215 1210 345"/><circle cx="68" cy="710" r="5"/><circle cx="190" cy="650" r="5"/><circle cx="290" cy="727" r="5"/><circle cx="403" cy="670" r="5"/><circle cx="1140" cy="110" r="5"/><circle cx="1301" cy="215" r="5"/><circle cx="1210" cy="345" r="5"/></g>
+      </svg>
     <section class="hero section-wrap" id="home" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="hello">Hey, I’m</p>
@@ -45,9 +51,9 @@
         </div>
       </div>
       <div class="hero-person">
-        <div class="hero-journey" aria-label="From Costa Rica to Evanston">
-          <span class="journey-origin">Costa Rica</span><span class="journey-destination">Evanston</span>
-          <svg class="journey-drawing" viewBox="0 0 340 100" aria-hidden="true"><path class="journey-route" d="M14 68Q164 -28 315 38"/><circle class="journey-dot" cx="14" cy="68" r="3"/><circle class="journey-dot" cx="315" cy="38" r="3"/><g class="journey-plane ambient-motion"><path d="M-14-9 17 0-14 9-8 0Z" fill="#6144b8" stroke="#4d329b" stroke-width="1.1"/><path d="M-8 0 17 0" stroke="#d4c5f5" stroke-width="1"/></g></svg>
+        <div class="hero-tactics" aria-hidden="true">
+          <span class="tactics-note">Football × data</span>
+          <svg class="tactics-drawing" viewBox="0 0 400 105"><path class="passing-route" d="M22 63 132 26 248 68 370 23"/><g class="player-markers"><circle cx="22" cy="63" r="8"/><circle cx="132" cy="26" r="8"/><circle cx="248" cy="68" r="8"/><circle cx="370" cy="23" r="8"/></g><path class="tactics-cross" d="m65 16 9 9m0-9-9 9m112 48 9 9m0-9-9 9m116-35 9 9m0-9-9 9"/><g class="passing-ball ambient-motion"><circle r="5.5" fill="#6144b8" stroke="white" stroke-width="2"/></g></svg>
         </div>
         <div class="photo-float ambient-motion">
         <div class="portrait-frame">

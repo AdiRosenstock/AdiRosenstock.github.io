@@ -147,6 +147,17 @@ document.querySelectorAll('[data-banter-view]').forEach(button => button.addEven
   document.querySelectorAll('[data-banter-view]').forEach(option => option.setAttribute('aria-pressed', String(option === button)));
 }));
 
+const revealTargets = [];
+let revealObserver;
+function revealElement(element) {
+  element.classList.remove('is-pending');
+  element.classList.add('is-revealed');
+  revealObserver?.unobserve(element);
+}
+function revealAll() {
+  revealTargets.forEach(revealElement);
+  revealObserver?.disconnect();
+}
 const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 const motionToggle = document.querySelector('#motion-toggle');
 const football = document.querySelector('#kick-football');
@@ -159,7 +170,10 @@ function updateMotion() {
   motionToggle.disabled = motionPreference.matches;
   motionToggle.querySelector('span').textContent = motionPreference.matches ? 'Motion reduced' : paused ? 'Resume motion' : 'Pause motion';
   motionToggle.querySelector('path').setAttribute('d', paused ? 'm8 5 11 7-11 7Z' : 'M9 5v14M15 5v14');
-  if (paused) football.classList.remove('is-kicking');
+  if (paused) {
+    football.classList.remove('is-kicking');
+    revealAll();
+  }
 }
 updateMotion();
 motionToggle.addEventListener('click', () => {
@@ -185,3 +199,62 @@ const sceneObserver = new IntersectionObserver(([entry]) => {
   document.querySelector('.hero-scene').classList.toggle('motion-offscreen', !entry.isIntersecting);
 });
 sceneObserver.observe(document.querySelector('.hero-scene'));
+
+// Keep all content visible by default. Only scroll-observed content receives
+// the pending class, so a blocked script or unsupported API cannot hide the page.
+function initializeReveals() {
+  if (motionPaused || motionPreference.matches || !('IntersectionObserver' in window)) return;
+  revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) revealElement(entry.target);
+    });
+  }, { rootMargin: '0px 0px -48px 0px', threshold: 0.08 });
+  const groups = [
+    ['.projects-section .section-heading, .about-title, .experience-section .section-heading, .skills-intro', 'heading'],
+    ['.featured-project', 'feature'],
+    ['.project-card', 'card'],
+    ['.more-projects > a, .about-copy, .leadership-note', 'copy'],
+    ['.experience-row', 'timeline'],
+    ['.skill-group', 'toolkit'],
+    ['.contact-inner > div', 'contact']
+  ];
+  groups.forEach(([selector, type]) => {
+    document.querySelectorAll(selector).forEach((element, index) => {
+      element.classList.add('reveal-target', 'reveal-' + type);
+      if (type === 'card' || type === 'contact') element.style.setProperty('--reveal-delay', index * 90 + 'ms');
+      if (type === 'toolkit') element.querySelectorAll('.tag-list > span').forEach((tag, tagIndex) => {
+        tag.style.setProperty('--tag-delay', tagIndex * 45 + 'ms');
+      });
+      revealTargets.push(element);
+      if (element.getBoundingClientRect().top < window.innerHeight - 48) revealElement(element);
+      else {
+        element.classList.add('is-pending');
+        revealObserver.observe(element);
+      }
+    });
+  });
+}
+initializeReveals();
+// Keyboard navigation reveals a focused block immediately, even before scrolling.
+document.addEventListener('focusin', event => {
+  const target = event.target.closest('.reveal-target.is-pending');
+  if (target) revealElement(target);
+});
+
+const experienceTrack = document.querySelector('.experience-list');
+let progressFrame = 0;
+function updateScrollProgress() {
+  progressFrame = 0;
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const pageProgress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+  document.documentElement.style.setProperty('--page-progress', String(pageProgress));
+  const timeline = experienceTrack.getBoundingClientRect();
+  const experienceProgress = Math.min(1, Math.max(0, (window.innerHeight * 0.76 - timeline.top) / timeline.height));
+  experienceTrack.style.setProperty('--experience-progress', String(experienceProgress));
+}
+function scheduleProgress() {
+  if (!progressFrame) progressFrame = requestAnimationFrame(updateScrollProgress);
+}
+window.addEventListener('scroll', scheduleProgress, { passive: true });
+window.addEventListener('resize', scheduleProgress);
+updateScrollProgress();

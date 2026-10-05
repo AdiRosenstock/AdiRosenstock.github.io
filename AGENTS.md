@@ -10,6 +10,9 @@
   Push completed changes to `main`; the Pages workflow deploys `dist/` automatically.
   Preserve the unused Sites identity in `.openai/hosting.json`; do not deploy there.
 - Keep the personal, playful motion in the hero and provide a motion pause control.
+- Use the football/tech visual direction: pitch markings, passing routes, and data
+  points. The user rejected the travel/sky background. Reveal content as it enters
+  the viewport; keep content visible with reduced motion or when JavaScript is off.
 - The original résumé is a source document, not a bundled public asset.
 - This is a dependency-free static site. Run `node --check dist/script.js`, check
   changed local asset references, and verify affected interactions in the browser.
