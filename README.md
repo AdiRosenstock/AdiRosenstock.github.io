@@ -8,8 +8,8 @@ npm run dev
 ```
 
 Open http://127.0.0.1:4173. There are no dependencies or build step.
-`dist/` contains the complete deployable site. Edit `index.html`, `styles.css`,
-and `script.js` there, then refresh the preview.
+`dist/` contains the complete deployable site. Homepage spacing and visual
+refinements live in `refinement.css`; edit the files there, then refresh the preview.
 
 ## Content sources
 
@@ -47,9 +47,8 @@ The original résumé file is not bundled in the published site.
   pattern, a floating photo, and a football visitors can kick.
 - The selected-work grid includes Career Agent, IMC Prosperity 3, the Airbnb model,
   DOMUS, and TikiData FC, beneath the featured BanterBoost preview. Short descriptions
-  appear on card hover or keyboard focus, can be dismissed with Escape, and remain
-  visible on touch screens and narrow layouts. The main palette uses ink and teal;
-  project previews keep their own colors and imagery.
+  stay visible, while deeper stories live on each project page. The main palette
+  uses ink and teal; project previews keep their own colors and imagery.
 - Scroll entrances vary by content: project previews open from opposite sides,
   cards settle in sequence, experience follows a growing timeline, and toolkit
   tags appear in groups. Reveals happen once, with keyboard-focus visibility.
@@ -95,8 +94,8 @@ The original résumé file is not bundled in the published site.
 - The BanterBoost preview embeds the live public analytics and mini-league pages,
   with controls to switch views and open the selected page in a new tab. Google
   sign-in opens the full BanterBoost site in a new tab. BanterBoost permits these
-  embeds only from the production portfolio origin, so localhost cannot display
-  the live frame. The embed stays clear of hover overlays and loads lazily.
+  embeds only from the production portfolio origin, so localhost shows the current
+  saved screenshots instead. The embed loads lazily on the published site.
 - Mobile navigation opens and closes with an accessible toggle and Escape.
 - Visitors can write a message in the contact form without leaving the page.
   Name, reply email, and message are delivered to Adi’s Northwestern inbox through
