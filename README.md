@@ -30,6 +30,13 @@ and `script.js` there, then refresh the preview.
 - Organization logos supplied by Adi, with official links to impaKt, MusclePoints
   (now MUSCLE), Vértice, and Hanoar Hatzioni. Role details and dates come from the résumé.
 
+- Project logos: IMC’s wordmark SVG from [its official site](https://www.imc.com/us),
+  Airbnb’s original Bélo SVG from [its Newsroom](https://news.airbnb.com/images/belo.svg),
+  and TikiData FC’s profile badge from [its public Instagram](https://www.instagram.com/tikidata.fc/).
+  Bundled locally for the homepage previews and project story headers. IMC’s
+  single-color wordmark uses ink on the light background; the other marks retain
+  their original colors.
+
 Internship results are résumé-reported. The portfolio does not claim that FPL’s
 manager population is BanterBoost’s customer count. Trading results are team results.
 The original résumé file is not bundled in the published site.

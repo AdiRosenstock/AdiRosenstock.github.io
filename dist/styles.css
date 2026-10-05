@@ -130,3 +130,14 @@
 .portrait-scene{position:relative}
 .portrait-disclaimer{margin:12px 6px 0;font-size:12px;line-height:1.65;color:var(--muted)}
 .portrait-disclaimer[hidden]{display:none}
+
+/* Original project marks accompany each preview's existing visual story. */
+.preview-brand-line{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:30px}
+.preview-brand-line p{font-size:13px;font-weight:550}
+.preview-logo{flex-shrink:0;object-fit:contain}
+.preview-logo-imc{width:86px;height:16px}
+.preview-logo-airbnb{width:28px;height:30px}
+.airbnb-visual .model-preview-folds{top:auto;bottom:72px;right:25px}
+.tikidata-card-title{display:flex;align-items:center;gap:12px;max-width:calc(100% - 48px)}
+.preview-logo-tikidata{width:48px;height:48px;border-radius:50%}
+@media(min-width:651px) and (max-width:800px){.tikidata-card-title{flex-direction:column;align-items:flex-start;top:22px;max-width:190px;gap:8px}.tikidata-card-title strong{font-size:23px}}
