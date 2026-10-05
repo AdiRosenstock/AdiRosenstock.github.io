@@ -35,9 +35,10 @@ const projects = {
     lead: 'A personal interest became a product: live Fantasy Premier League analytics built around the rivalries that make a mini-league worth following.',
     sections: [
       ['The problem', 'A league table tells you who is winning, but leaves you to work out why. Captain choices, bench points, transfers, and differentials are scattered across teams and fixtures.'],
-      ['What I built', 'An end-to-end platform with FPL data pipelines, live scoring, team comparisons, season analysis, transfer planning, and an AI insights assistant. I also built Google sign-in, subscription payments, and the interface.'],
-      ['One decision that matters', 'League facts are calculated before they reach the assistant. Direct statistical questions use typed, league-scoped code; generated stories are grounded in those facts.']
-    ], outcome: 'Built and launched independently in September 2026.', links: [['Explore the product', 'https://fplbanterboost.com']]
+      ['What I built', 'An end-to-end platform with FPL data pipelines, live scores, mini-league stories, team comparisons, season analysis, and transfer planning. The Pundit explains league decisions and writes gameweek roasts from actual league data. I also built Google sign-in, subscription payments, and the interface.'],
+      ['Forecasts with traceable sources', 'The analytics product estimates expected points, goals, assists, and clean sheets over upcoming matches. Player comparisons and squad-specific transfer suggestions sit alongside available Kalshi, Polymarket, and sportsbook quotes. Every number names its source; experimental model estimates stay separate from market prices.'],
+      ['One decision that matters', 'League facts are calculated before they reach The Pundit. Direct statistical questions use typed, league-scoped code; generated stories are grounded in those facts. Forecast methodology and accuracy evidence are visible in the product.']
+    ], outcome: 'Built and launched independently in September 2026.', links: [['Explore the product', 'https://fplbanterboost.com'], ['Explore current analytics', 'https://fplbanterboost.com/l/2267404/analytics']]
   },
   career: {
     category: 'Career Agent · Open-source software', title: 'Less application admin. More control.',
@@ -133,3 +134,15 @@ const sectionObserver = new IntersectionObserver(entries => {
 }, { rootMargin: '-18% 0px -58% 0px', threshold: 0 });
 document.querySelectorAll('main section[id]').forEach(section => sectionObserver.observe(section));
 document.querySelector('#year').textContent = String(new Date().getFullYear());
+const banterScreens = {
+  analytics: { src: 'assets/banterboost-analytics-current.jpg', alt: 'Current live BanterBoost analytics page showing player forecasts, market odds, and model estimates', caption: 'Player forecasts and market odds, with their sources.' },
+  league: { src: 'assets/banterboost-league-current.jpg', alt: 'Current live BanterBoost mini-league interface showing gameweek stories and league analysis', caption: 'Live mini-leagues, gameweek stories, and decisions that matter.' }
+};
+document.querySelectorAll('[data-banter-view]').forEach(button => button.addEventListener('click', () => {
+  const screen = banterScreens[button.dataset.banterView];
+  const preview = document.querySelector('#banterboost-preview');
+  preview.src = screen.src;
+  preview.alt = screen.alt;
+  document.querySelector('#banterboost-preview-caption').textContent = screen.caption;
+  document.querySelectorAll('[data-banter-view]').forEach(option => option.setAttribute('aria-pressed', String(option === button)));
+}));
