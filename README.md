@@ -53,7 +53,13 @@ The original résumé file is not bundled in the published site.
   with direct source/product links retained. Each page includes the project context,
   approach, build details, a key decision, and references for deeper exploration.
   Pages have section navigation, copy-link feedback, and links to the next project.
-  The trading page respects the shared motion preference and has a pause control.
+  Every page respects the shared motion preference and has a pause control.
+  Career Agent has a research/preparation/review packet illustration; IMC has
+  switchable strategy sketches; Airbnb illustrates five-fold validation; DOMUS
+  switches between guest and host journeys; TikiData has a playable passing move.
+  SVG backgrounds and page-specific palettes relate each scene to its project.
+  Interactive illustrations are distinguished from actual project screenshots,
+  results, and analysis figures. Content remains visible without JavaScript.
 - Project cards lead with titles and visuals. About, role descriptions, leadership,
   and extra toolkit tags use native disclosure controls so visitors choose the depth.
 - The BanterBoost preview switches between current analytics and mini-league screenshots.
@@ -94,7 +100,9 @@ GitHub Pages is the live provider. Do not store credentials in files.
 ## Project pages
 
 The complete static pages live in `dist/projects/<slug>/index.html` and share
-`dist/projects.css` and `dist/projects.js`. There is no build step. The preview
+`dist/projects.css`, `dist/project-scenes.css`, and `dist/projects.js`.
+The scene stylesheet defines each project's visual identity, illustrations,
+responsive layouts, and reduced-motion behavior. There is no build step. The preview
 server supports directory indexes; use `PORT=4174 npm run dev` for another port.
 Run `npm run check` before publishing, then check local asset/anchor references
 and affected desktop/mobile interactions in the browser.
