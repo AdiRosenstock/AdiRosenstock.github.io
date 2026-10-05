@@ -46,6 +46,7 @@
 .experience-list::after{background:#538266;transform:scaleY(var(--experience-progress,0))}
 .experience-row{position:relative}.experience-row::before{content:'';position:absolute;left:-26px;top:37px;width:11px;height:11px;background:#fff;border:2px solid #538266;border-radius:50%;z-index:1}
 /* Each kind of content has its own entrance, triggered once on scroll. */
+.projects-section,.experience-section,.contact-section{overflow:clip}
 .reveal-target{transition:opacity .65s ease;transition-delay:var(--reveal-delay,0ms)}.reveal-target.is-pending{opacity:0}
 .reveal-heading>*{transition:clip-path .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}.reveal-heading.is-pending>*{clip-path:inset(0 100% 0 0);transform:translateX(-14px)}
 .reveal-feature .featured-copy,.reveal-feature .featured-preview{transition:transform .8s cubic-bezier(.22,1,.36,1)}.reveal-feature.is-pending .featured-copy{transform:translateX(-22px)}.reveal-feature.is-pending .featured-preview{transform:translateX(48px) scale(.97)}
