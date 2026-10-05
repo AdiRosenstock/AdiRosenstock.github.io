@@ -179,33 +179,18 @@ const sectionObserver = new IntersectionObserver(entries => {
 }, { rootMargin: '-18% 0px -58% 0px', threshold: 0 });
 document.querySelectorAll('main section[id]').forEach(section => sectionObserver.observe(section));
 document.querySelector('#year').textContent = String(new Date().getFullYear());
-const localBanterPreview = ['localhost', '127.0.0.1'].includes(location.hostname);
-const banterPreview = document.querySelector('#banterboost-preview');
 const banterFallback = document.querySelector('#banterboost-fallback');
-if (!localBanterPreview) {
-  document.body.classList.add('live-banter-preview');
-  banterPreview.src = banterPreview.dataset.src;
-} else {
-  banterPreview.setAttribute('aria-hidden', 'true');
-  document.querySelector('#banterboost-preview-caption').textContent = 'Captured view for local preview. Open the full site for live data.';
-}
 const banterViews = {
-  analytics: { src: 'https://fplbanterboost.com/l/2267404/analytics', image: 'assets/banterboost-analytics-current.jpg', alt: 'BanterBoost analytics page with player forecasts and mini-league insights', title: 'BanterBoost live analytics and odds', label: 'Open BanterBoost analytics and odds in a new tab', caption: 'Explore the live analytics. Sign-in opens BanterBoost in a new tab.' },
-  league: { src: 'https://fplbanterboost.com/l/2267404', image: 'assets/banterboost-league-current.jpg', alt: 'BanterBoost mini-league page showing live standings and team comparisons', title: 'BanterBoost live mini-league', label: 'Open BanterBoost live league in a new tab', caption: 'Explore the live league. Sign-in opens BanterBoost in a new tab.' }
+  analytics: { src: 'https://fplbanterboost.com/l/2267404/analytics', image: 'assets/banterboost-analytics-current.jpg', alt: 'BanterBoost analytics page with player forecasts and mini-league insights', label: 'Open BanterBoost analytics and odds in a new tab' },
+  league: { src: 'https://fplbanterboost.com/l/2267404', image: 'assets/banterboost-league-current.jpg', alt: 'BanterBoost mini-league page showing live standings and team comparisons', label: 'Open BanterBoost live league in a new tab' }
 };
 document.querySelectorAll('[data-banter-view]').forEach(button => button.addEventListener('click', () => {
   const view = banterViews[button.dataset.banterView];
-  if (localBanterPreview) {
-    banterFallback.src = view.image;
-    banterFallback.alt = view.alt;
-  } else {
-    banterPreview.src = view.src;
-    banterPreview.title = view.title;
-  }
+  banterFallback.src = view.image;
+  banterFallback.alt = view.alt;
   const openLink = document.querySelector('#banterboost-open');
   openLink.href = view.src;
   openLink.setAttribute('aria-label', view.label);
-  document.querySelector('#banterboost-preview-caption').textContent = localBanterPreview ? 'Captured view for local preview. Open the full site for live data.' : view.caption;
   document.querySelectorAll('[data-banter-view]').forEach(option => option.setAttribute('aria-pressed', String(option === button)));
 }));
 
@@ -277,7 +262,7 @@ function initializeReveals() {
     ['.projects-section .section-heading, .about-title, .experience-section .section-heading, .skills-intro', 'heading'],
     ['.featured-project', 'feature'],
     ['.project-card', 'card'],
-    ['.more-projects > a, .about-copy, .leadership-note, .reading-intro, .book-list', 'copy'],
+    ['.more-projects > a, .about-copy, .leadership-note, .reading-intro, .book-list, .podcast-recs', 'copy'],
     ['.experience-row', 'timeline'],
     ['.skill-group', 'toolkit'],
     ['.contact-inner > div', 'contact']

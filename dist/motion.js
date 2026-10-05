@@ -88,7 +88,7 @@
   }
   const previewControls = [...document.querySelectorAll('[data-banter-view], #portrait-switch')];
   previewControls.forEach(control => control.addEventListener('click', () => {
-    const image = document.querySelector(control.id === 'portrait-switch' ? '#hero-portrait' : '#banterboost-preview');
+    const image = document.querySelector(control.id === 'portrait-switch' ? '#hero-portrait' : '#banterboost-fallback');
     if (!image || paused()) return;
     if (image.complete) fadePreview(image);
     else image.addEventListener('load', () => fadePreview(image), { once: true });

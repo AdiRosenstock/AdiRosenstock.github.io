@@ -44,22 +44,17 @@ The original résumé file is not bundled in the published site.
 ## Interactions
 
 - A football/tech hero combines pitch markings, a data grid, an animated passing
-  pattern, a floating photo, and a football visitors can kick.
+  pattern, a portrait, and a football visitors can kick.
 - The selected-work grid includes Career Agent, IMC Prosperity 3, the Airbnb model,
   DOMUS, and TikiData FC, beneath the featured BanterBoost preview. Short descriptions
   stay visible, while deeper stories live on each project page. The main palette
   uses ink and teal; project previews keep their own colors and imagery.
-- Scroll entrances vary by content: project previews open from opposite sides,
-  cards settle in sequence, experience follows a growing timeline, and toolkit
-  tags appear in groups. Reveals happen once, with keyboard-focus visibility.
-- Motion also includes a staggered hero arrival, pointer-responsive preview artwork,
-  an illustrative trading trace, validation-fold bars, and a passing ball in TikiData’s
-  card. Links, toolkit logos, native details, dialogs, and project galleries respond
-  to the reader; experience metrics receive drawn emphasis on arrival. The header
-  keeps a pause control available at every scroll position. Shared motion stops
-  when paused or reduced; preview loops only run
-  while visible, and browser visibility pauses ambient motion.
-- A small football tracks reading progress along the navigation bar.
+- The opening shows an animated soccer passing move above Adi’s name and a
+  football visitors can kick beside the portrait. Pitch markings connect the
+  football and technical sides of the portfolio. The portrait stays steady.
+- Homepage scroll entrances use one restrained movement; content reveals once,
+  and keyboard focus makes pending content visible immediately. The header
+  keeps the motion pause control available throughout the page.
 - A persistent pause control and system reduced-motion preference stop ambient motion.
   Pausing also reveals all content immediately. Hero motion pauses offscreen,
   and all content remains visible when JavaScript is disabled.
@@ -88,18 +83,19 @@ The original résumé file is not bundled in the published site.
   SVG backgrounds and page-specific palettes relate each scene to its project.
   Interactive illustrations are distinguished from actual project screenshots,
   results, and analysis figures. Content remains visible without JavaScript.
-- Project cards lead with titles and visuals. About, role descriptions, and leadership
+- Project cards lead with titles and visuals. The About biography is always shown. Role descriptions and leadership
   use native disclosure controls so visitors choose the depth. All toolkit tags are
   visible within their categories, with no extra disclosure controls.
 - The homepage hero names software engineering, data science, product management,
   and finance/quant interests. A Reading section lists books Adi supplied; *Good to
   Great* is marked currently reading and *Never Split the Difference* is marked
-  as his all-time favorite. Update the reading status when it changes.
-- The BanterBoost preview embeds the live public analytics and mini-league pages,
-  with controls to switch views and open the selected page in a new tab. Google
-  sign-in opens the full BanterBoost site in a new tab. BanterBoost permits these
-  embeds only from the production portfolio origin, so localhost shows the current
-  saved screenshots instead. The embed loads lazily on the published site.
+  as his all-time favorite. Covers come from the Open Library Covers API, with
+  original image URLs in `dist/assets/books/sources.json`. The section also
+  recommends How to Take Over the World (Ben Wilson) and Founders (David Senra),
+  with the Spotify links Adi supplied. Update the reading status when it changes.
+- The BanterBoost preview uses the current saved product screenshots, with controls
+  to switch between analytics and mini-league views and a link to each live page.
+  The portfolio stays a single scroll surface on desktop and mobile.
 - Mobile navigation opens and closes with an accessible toggle and Escape.
 - Visitors can write a message in the contact form without leaving the page.
   Name, reply email, and message are delivered to Adi’s Northwestern inbox through

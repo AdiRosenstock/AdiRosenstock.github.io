@@ -1,0 +1,36 @@
+{
+  "source": "Open Library Covers API",
+  "note": "Publisher cover artwork; converted to WebP for the reading recommendations.",
+  "covers": [
+    {
+      "file": "good-to-great.webp",
+      "title": "Good to Great",
+      "source_url": "https://covers.openlibrary.org/b/id/7431270-L.jpg"
+    },
+    {
+      "file": "zero-to-one.webp",
+      "title": "Zero to One",
+      "source_url": "https://covers.openlibrary.org/b/id/9002334-L.jpg"
+    },
+    {
+      "file": "never-split.webp",
+      "title": "Never Split the Difference",
+      "source_url": "https://covers.openlibrary.org/b/id/8365942-L.jpg"
+    },
+    {
+      "file": "simeone.webp",
+      "title": "Simeone partido a partido",
+      "source_url": "https://covers.openlibrary.org/b/id/12342438-L.jpg"
+    },
+    {
+      "file": "thinking-fast-slow.webp",
+      "title": "Thinking, Fast and Slow",
+      "source_url": "https://covers.openlibrary.org/b/id/13290711-L.jpg"
+    },
+    {
+      "file": "dispara.webp",
+      "title": "Dispara, yo ya estoy muerto",
+      "source_url": "https://covers.openlibrary.org/b/id/13341501-L.jpg"
+    }
+  ]
+}

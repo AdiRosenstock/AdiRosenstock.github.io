@@ -17,7 +17,8 @@
 - Keep the Northwestern education card purple; the general site palette uses ink and teal.
 - Northwestern education and Bloomberg experience lead the hero. Football is a
   personal interest, not the whole identity. Keep the overview short and title-led;
-  put longer stories and role descriptions behind explicit detail controls.
+  put project stories and role descriptions behind explicit detail controls. Keep
+  the About me biography visible without opening a disclosure.
 - Use the football/tech visual direction: pitch markings, passing routes, and data
   points. The user rejected the travel/sky background. Reveal content as it enters
   the viewport; keep content visible with reduced motion or when JavaScript is off.
@@ -33,3 +34,12 @@
   accessible send/error states. Preserve visitor text after failed delivery,
   prevent duplicate submissions, and never commit email or API credentials.
   An activation-required response is a failure, not a sent message.
+
+- Keep the user’s design direction: smooth, spacious, and personal, inspired by
+  David Wei (https://dawei25.github.io/davidwei/) and Jose Vergara
+  (https://www.joseavergara.com/). The opening should show a soccer passing
+  animation immediately on desktop and mobile. Preserve soccer motion when
+  simplifying the page, along with the pause and reduced-motion behavior.
+- The Reading section includes real book covers, current-reading and favorite
+  markers, and the user’s two favorite podcasts: How to Take Over the World
+  (Ben Wilson) and Founders (David Senra), linked to the supplied Spotify shows.

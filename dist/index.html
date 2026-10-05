@@ -18,11 +18,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;450;500;550;600;650;700&family=Outfit:wght@400;500;550;600;650;700;750&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=6eca0f6a4c70">
   <link rel="stylesheet" href="toolkit.css?v=495e7fa69b26">
-  <script src="script.js?v=ef63509261ea" defer></script>
+  <script src="script.js?v=91ce679b8fc5" defer></script>
   <script src="contact.js?v=0df259927064" defer></script>
   <link rel="stylesheet" href="motion.css?v=bbf2fb7b4285">
-  <link rel="stylesheet" href="refinement.css?v=280e78843479">
-  <script src="motion.js?v=41d4063e220d" defer></script>
+  <link rel="stylesheet" href="refinement.css?v=c5b13d02e79c">
+  <script src="motion.js?v=9fd13d612775" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -31,7 +31,7 @@
       <a class="wordmark" href="#home" aria-label="Adi Rosenstock home">adi<span class="wordmark-dot">.</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Open navigation"><span></span><span></span></button>
       <nav id="navigation" aria-label="Main navigation">
-        <a href="#projects">Work</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Toolkit</a><a href="#reading">Reading</a>
+        <a href="#projects">Work</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Toolkit</a><a href="#reading">Reading</a><a class="mobile-contact-link" href="#contact">Contact</a>
       </nav>
       <a class="nav-contact" href="#contact">Let’s talk <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 6l8 6 8-6"/></svg></a><button class="header-motion-toggle" type="button" aria-label="Pause motion" title="Pause motion" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg></button>
     </div>
@@ -47,9 +47,13 @@
       </svg>
     <section class="hero section-wrap" id="home" aria-labelledby="hero-title">
       <div class="hero-copy">
+        <div class="hero-tactics" aria-hidden="true">
+          <span class="tactics-note">On the clock</span>
+          <svg class="tactics-drawing" viewBox="0 0 400 105"><path class="passing-route" d="M22 63 132 26 248 68 370 23"/><g class="player-markers"><circle cx="22" cy="63" r="8"/><circle cx="132" cy="26" r="8"/><circle cx="248" cy="68" r="8"/><circle cx="370" cy="23" r="8"/></g><path class="tactics-cross" d="m65 16 9 9m0-9-9 9m112 48 9 9m0-9-9 9m116-35 9 9m0-9-9 9"/><g class="passing-ball ambient-motion"><circle r="10" fill="#fff" stroke="#233238" stroke-width="1.2"/><path d="m0-4 4 3-1.5 4H-2.5L-4-1Z M-3-9 3-9 0-6Z M-9-2-6 0-8 4Z M8-5 9 1 6-1Z M-4 9-3 5 1 7Z M6 7 3 5 6 3Z" fill="#233238"/></g></svg>
+        </div>
         <p class="hello">Hey, I’m</p>
         <h1 id="hero-title">Adi<br>Rosenstock<span class="name-period">.</span></h1>
-        <p class="hero-role">Software engineer, data scientist, product management, finance &amp; quant</p>
+        <p class="hero-role"><span>Software engineer, data scientist</span><span>Product management, finance &amp; quant</span></p>
         <p class="hero-description">I build data systems and products, most recently at Bloomberg and through BanterBoost.</p>
         <div class="hero-actions"><a class="button button-primary" href="#projects">Explore my work</a><a class="button button-outline" href="#contact">Get in touch</a></div>
         <div class="social-links">
@@ -60,10 +64,6 @@
       </div>
       <div class="hero-person">
         <div class="portrait-scene">
-        <div class="hero-tactics" aria-hidden="true">
-          <span class="tactics-note">On the clock</span>
-          <svg class="tactics-drawing" viewBox="0 0 400 105"><path class="passing-route" d="M22 63 132 26 248 68 370 23"/><g class="player-markers"><circle cx="22" cy="63" r="8"/><circle cx="132" cy="26" r="8"/><circle cx="248" cy="68" r="8"/><circle cx="370" cy="23" r="8"/></g><path class="tactics-cross" d="m65 16 9 9m0-9-9 9m112 48 9 9m0-9-9 9m116-35 9 9m0-9-9 9"/><g class="passing-ball ambient-motion"><circle r="5.5" fill="#23635b" stroke="white" stroke-width="2"/></g></svg>
-        </div>
         <div class="photo-float ambient-motion">
         <div class="portrait-frame">
           <img id="hero-portrait" src="assets/adi-code-portrait.jpg?v=1d516b193394" width="1254" height="1254" alt="Adi Rosenstock working at a laptop in an AI-edited office scene with illustrative market and code screens" aria-describedby="portrait-disclaimer" fetchpriority="high">
@@ -90,10 +90,9 @@
         <article class="featured-project">
           <div class="featured-copy"><div class="project-type"><img src="assets/banterboost-mark.webp" width="36" height="36" alt="">Founder & sole engineer</div><h3>BanterBoost</h3><p class="project-tagline">Live league analysis, forecasts, and an AI pundit for Fantasy Premier League.</p><div class="tag-list"><span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>AI</span></div><div class="project-actions"><a class="button button-primary" href="https://fplbanterboost.com" target="_blank" rel="noopener noreferrer" aria-describedby="banterboost-summary">Visit BanterBoost</a><button class="text-link" type="button" data-project="banterboost" aria-label="BanterBoost details">Details <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div></div>
           <div class="featured-preview">
-            <div class="preview-browser"><span class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>fplbanterboost.com</span><a id="banterboost-open" href="https://fplbanterboost.com/l/2267404/analytics" target="_blank" rel="noopener noreferrer" aria-label="Open BanterBoost analytics and odds in a new tab">Open full site <span aria-hidden="true">↗</span></a></div>
-            <div class="featured-image"><img class="preview-fallback" id="banterboost-fallback" src="assets/banterboost-analytics-current.jpg" width="979" height="680" alt="BanterBoost analytics page with player forecasts and mini-league insights" loading="lazy"><iframe id="banterboost-preview" data-src="https://fplbanterboost.com/l/2267404/analytics" title="BanterBoost live analytics and odds" width="979" height="560" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" aria-describedby="banterboost-preview-caption"></iframe><p class="sr-only" id="banterboost-summary">Live FPL mini-leagues, player forecasts, and an AI analyst that explains the numbers behind the banter.</p></div>
-            <div class="preview-switcher" role="group" aria-label="BanterBoost live pages"><button type="button" data-banter-view="analytics" aria-pressed="true">Analytics & odds</button><button type="button" data-banter-view="league" aria-pressed="false">Live league</button></div>
-            <span class="preview-label" id="banterboost-preview-caption" aria-live="polite">Explore the live analytics. Sign-in opens BanterBoost in a new tab.</span>
+            <div class="preview-browser"><span>Product preview</span><a id="banterboost-open" href="https://fplbanterboost.com/l/2267404/analytics" target="_blank" rel="noopener noreferrer" aria-label="Open BanterBoost analytics and odds in a new tab">Open live site <span aria-hidden="true">↗</span></a></div>
+            <div class="featured-image"><img class="preview-fallback" id="banterboost-fallback" src="assets/banterboost-analytics-current.jpg" width="979" height="680" alt="BanterBoost analytics page with player forecasts and mini-league insights" loading="lazy"><p class="sr-only" id="banterboost-summary">Live FPL mini-leagues, player forecasts, and an AI analyst that explains the numbers behind the banter.</p></div>
+            <div class="preview-switcher" role="group" aria-label="BanterBoost product views"><button type="button" data-banter-view="analytics" aria-pressed="true">Analytics & odds</button><button type="button" data-banter-view="league" aria-pressed="false">Mini-league</button></div>
           </div>
         </article>
         <div class="project-grid">
@@ -122,8 +121,14 @@
     </section>
 
     <section class="about-section section-wrap" id="about" aria-labelledby="about-title">
-      <div class="about-title"><h2 id="about-title">Beyond the code</h2><div class="personal-details"><span>🇨🇷 Costa Rican</span><span>🌎 Three languages</span></div></div>
-      <div class="about-copy"><div class="interest-list" aria-label="Personal interests"><span>Football</span><span>Chess</span><span>NBA</span><span>Hiking & surfing</span><span>Travel</span></div><details class="about-details"><summary>More about me</summary><div class="detail-copy"><p>I’m a senior at Northwestern studying Computer Science, Data Science, and Economics. I’ve worked on financial data at Bloomberg, machine learning at impaKt, and software quality at MusclePoints. Outside those roles, I build products of my own.</p><p>Football was part of my life long before it became a dataset. I captained Furati FC in Costa Rica’s U20 second division, and I still follow FC Barcelona, Cartaginés, and the Premier League. BanterBoost is where the builder and the footballer finally met.</p><p>Away from the keyboard, you’ll find me following the NBA, playing chess, hiking, surfing, or looking for the next place to travel.</p></div></details><div class="language-row"><strong>English</strong><strong>Español</strong><strong lang="he">עברית</strong></div></div>
+      <div class="about-title"><h2 id="about-title">About me</h2><div class="personal-details"><span>🇨🇷 Costa Rican</span><span>🌎 Three languages</span></div></div>
+      <div class="about-copy">
+        <p class="about-lead">I’m a senior at Northwestern studying Computer Science, Data Science, and Economics.</p>
+        <p>I’ve worked on financial data at Bloomberg, machine learning at impaKt, and software quality at MusclePoints. Outside those roles, I build products of my own.</p>
+        <p>Football was part of my life long before it became a dataset. I captained Furati FC in Costa Rica’s U20 second division, and I still follow FC Barcelona, Cartaginés, and the Premier League. BanterBoost is where the builder and the footballer finally met.</p>
+        <p>Away from the keyboard, you’ll find me following the NBA, playing chess, hiking, surfing, or looking for the next place to travel.</p>
+        <div class="language-row"><strong>English</strong><strong>Español</strong><strong lang="he">עברית</strong></div>
+      </div>
     </section>
 
     <section class="experience-section" id="experience" aria-labelledby="experience-title"><div class="section-wrap">
@@ -152,15 +157,22 @@
       <div class="section-wrap reading-layout">
         <div class="reading-intro">
           <h2 id="reading-title">Reading</h2>
-          <p>What I’m reading now, plus books I’ve liked in business, behavior, football, and fiction.</p>
+          <p>Books I’ve liked, what I’m reading now, and two podcasts I recommend.</p>
         </div>
-        <div class="book-list" aria-label="Books I am reading and have enjoyed">
-          <article class="book-entry"><div><h3><cite>Good to Great</cite></h3><p>Jim Collins</p></div><span class="book-status">Currently reading</span></article>
-          <article class="book-entry"><div><h3><cite>Zero to One</cite></h3><p>Peter Thiel with Blake Masters</p></div></article>
-          <article class="book-entry"><div><h3><cite>Never Split the Difference</cite></h3><p>Chris Voss with Tahl Raz</p></div><span class="book-status book-favorite">My all-time favorite</span></article>
-          <article class="book-entry"><div><h3><cite lang="es">Simeone. Partido a partido: Si se cree, se puede</cite></h3><p>Diego Pablo Simeone</p></div></article>
-          <article class="book-entry"><div><h3><cite>Thinking, Fast and Slow</cite></h3><p>Daniel Kahneman</p></div></article>
-          <article class="book-entry"><div><h3><cite lang="es">Dispara, yo ya estoy muerto</cite></h3><p>Julia Navarro</p></div></article>
+        <div class="reading-content">
+          <div class="book-list" aria-label="Books I am reading and have enjoyed">
+            <article class="book-entry"><img class="book-cover" src="assets/books/good-to-great.webp" width="329" height="499" alt="Cover of Good to Great" loading="lazy" decoding="async"><div class="book-copy"><h3><cite>Good to Great</cite></h3><p>Jim Collins</p><span class="book-status">Currently reading</span></div></article>
+            <article class="book-entry"><img class="book-cover" src="assets/books/zero-to-one.webp" width="432" height="500" alt="Cover of Zero to One" loading="lazy" decoding="async"><div class="book-copy"><h3><cite>Zero to One</cite></h3><p>Peter Thiel with Blake Masters</p></div></article>
+            <article class="book-entry"><img class="book-cover" src="assets/books/never-split.webp" width="330" height="500" alt="Cover of Never Split the Difference" loading="lazy" decoding="async"><div class="book-copy"><h3><cite>Never Split the Difference</cite></h3><p>Chris Voss with Tahl Raz</p><span class="book-status book-favorite">My all-time favorite</span></div></article>
+            <article class="book-entry"><img class="book-cover" src="assets/books/simeone.webp" width="313" height="500" alt="Cover of Simeone partido a partido" loading="lazy" decoding="async"><div class="book-copy"><h3><cite lang="es">Simeone. Partido a partido: Si se cree, se puede</cite></h3><p>Diego Pablo Simeone</p></div></article>
+            <article class="book-entry"><img class="book-cover" src="assets/books/thinking-fast-slow.webp" width="386" height="500" alt="Cover of Thinking, Fast and Slow" loading="lazy" decoding="async"><div class="book-copy"><h3><cite>Thinking, Fast and Slow</cite></h3><p>Daniel Kahneman</p></div></article>
+            <article class="book-entry"><img class="book-cover" src="assets/books/dispara.webp" width="324" height="500" alt="Cover of Dispara, yo ya estoy muerto" loading="lazy" decoding="async"><div class="book-copy"><h3><cite lang="es">Dispara, yo ya estoy muerto</cite></h3><p>Julia Navarro</p></div></article>
+          </div>
+          <div class="podcast-recs" aria-labelledby="podcast-title">
+            <h3 id="podcast-title">Podcasts I recommend</h3>
+            <a class="podcast-entry" href="https://open.spotify.com/show/1gqvQ7h7BxNSVoQVTnwihr" target="_blank" rel="noopener noreferrer"><span><strong>How to Take Over the World</strong><small>Ben Wilson</small></span><span class="podcast-link">Spotify <span aria-hidden="true">↗</span></span></a>
+            <a class="podcast-entry" href="https://open.spotify.com/show/7txiovdzPARhjm18NwMUYj" target="_blank" rel="noopener noreferrer"><span><strong>Founders</strong><small>David Senra</small></span><span class="podcast-link">Spotify <span aria-hidden="true">↗</span></span></a>
+          </div>
         </div>
       </div>
     </section>
