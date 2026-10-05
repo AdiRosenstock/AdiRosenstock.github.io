@@ -130,3 +130,18 @@ There are no attachments or automatic replies to visitors. Shared CSS and
 For delivery checks, send only a clearly labeled setup/test message to Adi’s inbox;
 use mocked responses for success, error, and retry behavior. Confirm the provider
 accepts submissions after inbox activation before calling delivery ready.
+
+## Toolkit and logos
+
+The toolkit keeps names alongside decorative technology logos, with more tools
+available in native disclosure controls. It covers software, data/AI, platforms
+and APIs, and finance/analysis. Skills come from the current résumé, Adi’s GitHub
+profile, Career Agent’s package manifest, the TikiData FC write-up, and the Airbnb
+classification notebook/methodology. No proficiency ratings are invented.
+
+Twenty-one SVG logos are bundled in `dist/assets/skills/` from
+[Devicon](https://github.com/devicons/devicon), pinned to revision
+`7330accdbc47e2dc0c19789a48533c4a3c50fe58`. That folder contains the MIT license
+and original source URLs/checksums in `sources.json`. Concepts without a suitable
+brand logo keep their readable text label. `dist/toolkit.css` is scoped to this
+section and its URL is versioned with its content hash.
