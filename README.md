@@ -61,7 +61,12 @@ The original résumé file is not bundled in the published site.
   and extra toolkit tags use native disclosure controls so visitors choose the depth.
 - The BanterBoost preview switches between current analytics and mini-league screenshots.
 - Mobile navigation opens and closes with an accessible toggle and Escape.
-- Email opens the visitor’s mail app; copy reports clipboard success or a usable fallback.
+- Visitors can write a message in the contact form without leaving the page.
+  Name, reply email, and message are delivered to Adi’s Northwestern inbox through
+  FormSubmit, with required-field validation, a spam honeypot, send progress, and
+  confirmation. A failed or unconfirmed request preserves the typed message and
+  offers retry or direct email. Repeated clicks cannot send parallel submissions.
+- Direct email and copy remain available as alternative contact options.
 - Navigation highlights the section in view; reduced motion disables smooth scrolling.
 
 ## Hosting
@@ -110,3 +115,21 @@ comes from `public/images/hero-meal.png`. TikiData figures come from
 outputs, not live player statistics. Career Agent uses the existing fictional
 demonstration screenshot. Trading strategy descriptions and rankings are team
 results from the public competition write-up. BanterBoost has no new project page.
+
+## Contact delivery
+
+The contact form posts to FormSubmit’s AJAX endpoint for
+`adirosenstock2026@u.northwestern.edu`. `dist/contact.js` handles submission and
+accessible status messages; no secret keys are stored in the client. FormSubmit
+requires a one-time activation email to the recipient before accepting messages.
+Do not treat a setup response requesting activation as successful delivery.
+
+The native form action remains available if JavaScript is unavailable. It uses
+FormSubmit’s normal flow and returns to `?message=sent#contact`. The provider’s
+default CAPTCHA applies to that native flow. AJAX submissions use the honeypot.
+There are no attachments or automatic replies to visitors. Shared CSS and
+`contact.js` references use content hashes, as do the existing scripts.
+
+For delivery checks, send only a clearly labeled setup/test message to Adi’s inbox;
+use mocked responses for success, error, and retry behavior. Confirm the provider
+accepts submissions after inbox activation before calling delivery ready.

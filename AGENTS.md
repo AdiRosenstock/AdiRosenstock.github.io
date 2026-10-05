@@ -26,3 +26,9 @@
 - The stylesheet and script URLs include content-hash query strings to avoid stale
   browser caches. Refresh those hashes in every affected HTML page when a shared
   stylesheet or script changes, including `dist/index.html` and project pages.
+
+- The contact form delivers to Adi’s Northwestern inbox through FormSubmit. Keep
+  direct email as a fallback, required labels/validation, the honeypot, and
+  accessible send/error states. Preserve visitor text after failed delivery,
+  prevent duplicate submissions, and never commit email or API credentials.
+  An activation-required response is a failure, not a sent message.
