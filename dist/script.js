@@ -46,7 +46,6 @@ portraitSwitch.addEventListener('click', () => {
   portrait.alt = code ? 'Adi Rosenstock working at a laptop in an AI-edited office scene with illustrative market and code screens' : 'Adi Rosenstock supporting Club Sport Cartaginés at Stamford Bridge';
   document.querySelector('#portrait-note').textContent = code ? 'Behind the code.' : 'Football before fantasy.';
   document.querySelector('#portrait-caption').textContent = code ? 'At work.' : 'At the match.';
-  document.querySelector('.tactics-note').textContent = code ? 'On the clock' : 'Off the clock';
   portrait.width = code ? 1254 : 1448;
   portrait.height = code ? 1254 : 1086;
   document.querySelector('#portrait-disclaimer').hidden = !code;

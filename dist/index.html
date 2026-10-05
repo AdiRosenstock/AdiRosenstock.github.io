@@ -18,11 +18,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;450;500;550;600;650;700&family=Outfit:wght@400;500;550;600;650;700;750&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=fd1e82521a29">
   <link rel="stylesheet" href="toolkit.css?v=495e7fa69b26">
-  <script src="script.js?v=7e5b65ad26ec" defer></script>
+  <script src="script.js?v=cd211d999a60" defer></script>
   <script src="contact.js?v=0df259927064" defer></script>
-  <link rel="stylesheet" href="motion.css?v=bbf2fb7b4285">
+  <link rel="stylesheet" href="motion.css?v=1dc9264be1da">
   <link rel="stylesheet" href="refinement.css?v=c0c56ba00ddc">
-  <script src="motion.js?v=9fd13d612775" defer></script>
+  <script src="motion.js?v=a6755fd8d662" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -39,6 +39,20 @@
   </header>
   <main id="main">
     <div class="hero-scene">
+      <svg class="opening-play" viewBox="0 0 1440 900" preserveAspectRatio="xMinYMin slice" aria-hidden="true">
+        <g transform="translate(25 210)">
+        <path class="opening-route" id="opening-pass-path" pathLength="1000" d="M0 0 C120 -85 240 -82 360 -5 S623 146 740 15 S1010 -110 1170 8 S1395 185 1485 102"/>
+        <g class="opening-ball"><circle r="18" fill="#fff" stroke="#233238" stroke-width="2"/><path d="m0-8 8 6-3 9H-5l-3-9Z M-5-16 5-16 0-12Z M-16-4l6 3-3 8-5-1Z M16-4l-6 3 3 8 5-1Z M-8 15l3-6 7 4 1 5Z M8 15l-3-6-7 4-1 5Z" fill="#233238"/><animateMotion dur="9s" repeatCount="indefinite" keyPoints="0;.28;.28;.56;.56;1;1" keyTimes="0;.23;.32;.55;.64;.91;1" calcMode="linear" rotate="auto"><mpath href="#opening-pass-path"/></animateMotion></g>
+        </g>
+        <g class="opening-markers"><circle cx="127" cy="148" r="7"/><circle cx="580" cy="287" r="7"/><circle cx="973" cy="139" r="7"/><circle cx="1373" cy="337" r="7"/></g>
+      </svg>
+      <svg class="opening-play opening-play-mobile" viewBox="0 0 390 790" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+        <g transform="translate(20 132)">
+        <path class="opening-route" id="opening-pass-mobile-path" pathLength="1000" d="M0 0 C55 -78 123 -72 179 1 S293 70 404 -36"/>
+        <g class="opening-ball"><circle r="12" fill="#fff" stroke="#233238" stroke-width="1.8"/><path d="m0-5 5 4-2 6h-6l-2-6Z M-4-10 4-10 0-7Z M-10-2l4 2-2 5-3-1Z M10-2 6 0l2 5 3-1Z M-5 9l2-4 5 3 1 3Z" fill="#233238"/><animateMotion dur="5.8s" repeatCount="indefinite" keyPoints="0;.42;.42;1;1" keyTimes="0;.36;.49;.88;1" calcMode="linear" rotate="auto"><mpath href="#opening-pass-mobile-path"/></animateMotion></g>
+        </g>
+        <g class="opening-markers"><circle cx="81" cy="82" r="5"/><circle cx="245" cy="176" r="5"/><circle cx="364" cy="139" r="5"/></g>
+      </svg>
       <svg class="pitch-backdrop" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
         <defs><pattern id="pitch-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#43735c" stroke-width=".6" opacity=".12"/></pattern></defs>
         <rect width="1440" height="900" fill="url(#pitch-grid)"/>
@@ -47,10 +61,6 @@
       </svg>
     <section class="hero section-wrap" id="home" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <div class="hero-tactics" aria-hidden="true">
-          <span class="tactics-note">On the clock</span>
-          <svg class="tactics-drawing" viewBox="0 0 400 105"><path class="passing-route" d="M22 63 132 26 248 68 370 23"/><g class="player-markers"><circle cx="22" cy="63" r="8"/><circle cx="132" cy="26" r="8"/><circle cx="248" cy="68" r="8"/><circle cx="370" cy="23" r="8"/></g><path class="tactics-cross" d="m65 16 9 9m0-9-9 9m112 48 9 9m0-9-9 9m116-35 9 9m0-9-9 9"/><g class="passing-ball ambient-motion"><circle r="10" fill="#fff" stroke="#233238" stroke-width="1.2"/><path d="m0-4 4 3-1.5 4H-2.5L-4-1Z M-3-9 3-9 0-6Z M-9-2-6 0-8 4Z M8-5 9 1 6-1Z M-4 9-3 5 1 7Z M6 7 3 5 6 3Z" fill="#233238"/></g></svg>
-        </div>
         <p class="hello">Hey, I’m</p>
         <h1 id="hero-title">Adi<br>Rosenstock<span class="name-period">.</span></h1>
         <p class="hero-role"><span>Software engineer, data scientist</span><span>Product management, finance &amp; quant</span></p>

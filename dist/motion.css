@@ -22,6 +22,38 @@
 @keyframes welcome-in{from{opacity:0;translate:0 16px}to{opacity:1;translate:0 0}}
 .motion-intro-complete.scene-enhanced .scene-art,.motion-intro-complete.scene-enhanced .project-heading{animation:none}
 
+/* An opening passing play fills the hero, then settles into its pitch diagram. */
+.opening-play{position:absolute;inset:0;width:100%;height:100%;z-index:0;overflow:hidden;pointer-events:none}
+.opening-play-mobile{display:none}
+.opening-route{fill:none;stroke:#23635b;stroke-width:2;stroke-opacity:.28;stroke-linecap:round;stroke-dasharray:1000;stroke-dashoffset:0}
+.opening-markers circle{fill:#f4f7f7;stroke:#23635b;stroke-width:2;opacity:.46}
+.opening-ball{filter:drop-shadow(0 5px 5px #193d3740)}
+.motion-ready:not(.motion-intro-complete) .opening-route{animation:opening-route-draw 1.85s cubic-bezier(.2,.8,.2,1) both}
+.motion-ready:not(.motion-intro-complete) .opening-markers circle{animation:opening-marker-in .45s ease-out both}
+.motion-ready .opening-markers circle:nth-child(1){animation-delay:.3s}
+.motion-ready .opening-markers circle:nth-child(2){animation-delay:.8s}
+.motion-ready .opening-markers circle:nth-child(3){animation-delay:1.3s}
+.motion-ready .opening-markers circle:nth-child(4){animation-delay:1.7s}
+.motion-ready:not(.motion-intro-complete) .hero-copy>.hello{animation-delay:.1s}
+.motion-ready:not(.motion-intro-complete) .hero-copy>h1{animation:opening-headline .9s cubic-bezier(.22,1,.36,1) .25s both}
+.motion-ready:not(.motion-intro-complete) .hero-role{animation-delay:.7s}
+.motion-ready:not(.motion-intro-complete) .hero-description{animation-delay:.82s}
+.motion-ready:not(.motion-intro-complete) .hero-actions{animation-delay:.97s}
+.motion-ready:not(.motion-intro-complete) .social-links{animation-delay:1.1s}
+.motion-ready:not(.motion-intro-complete) .hero-credentials>button:first-child{animation-delay:1.15s}
+.motion-ready:not(.motion-intro-complete) .hero-credentials>button:last-child{animation-delay:1.3s}
+.motion-ready:not(.motion-intro-complete) .portrait-frame{animation:opening-portrait .9s cubic-bezier(.22,1,.36,1) .55s both}
+@keyframes opening-route-draw{from{stroke-dashoffset:1000;stroke-opacity:.68}to{stroke-dashoffset:0;stroke-opacity:.28}}
+@keyframes opening-marker-in{from{opacity:0;transform:scale(.3);transform-origin:center}to{opacity:.46;transform:scale(1);transform-origin:center}}
+@keyframes opening-headline{from{opacity:0;clip-path:inset(0 100% 0 0);transform:translateX(-18px)}to{opacity:1;clip-path:inset(0 0 0 0);transform:none}}
+@keyframes opening-portrait{from{opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(22px)}to{opacity:1;clip-path:inset(0);transform:none}}
+@media(max-width:650px){
+  .opening-play:not(.opening-play-mobile){display:none}
+  .opening-play-mobile{display:block;height:790px}
+  .opening-play-mobile .opening-route{stroke-width:1.6;stroke-opacity:.35}
+  .motion-ready:not(.motion-intro-complete) .hero-copy>h1{animation-delay:.2s}
+}
+
 .button,.nav-contact,.skill-pill,.source-list a,.build-flow li{transition:translate .22s ease,background-color .22s ease,border-color .22s ease}
 .button svg,.text-link svg,.card-links svg,.source-list svg,.nav-contact svg,.copy-email svg{transition:transform .25s cubic-bezier(.22,1,.36,1)}
 .button:hover,.button:focus-visible,.nav-contact:hover,.nav-contact:focus-visible{translate:0 -2px}
@@ -86,6 +118,7 @@ dialog[open]::backdrop{animation:backdrop-open .2s ease both}
 @media(hover:none){.skill-pill:hover,.project-page .build-flow li:hover,.project-page .source-list a:hover{translate:none}.skill-pill:hover img{animation:none}.motion-ready .project-card:hover .card-visual>img{transform:none}}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
+  .opening-ball{display:none}
   .motion-ready .project-card .card-visual>img{transform:none!important}
   .button,.nav-contact,.skill-pill,.source-list a,.build-flow li,.scene-controls button{translate:none!important}
   .mini-pitch-ball{offset-distance:0%}

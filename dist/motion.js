@@ -5,6 +5,7 @@
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
   const pageMotionToggle = document.querySelector('#motion-toggle');
   const headerMotionToggle = document.querySelector('.header-motion-toggle');
+  const openingPlays = [...document.querySelectorAll('.opening-play')];
   const paused = () => body.classList.contains('motion-paused') || reducedMotion.matches;
   const surfaces = [...document.querySelectorAll('.project-card')];
   const previewAnimations = new Set();
@@ -49,6 +50,10 @@
   finePointer.addEventListener('change', resetPointer);
 
   function syncMotion() {
+    openingPlays.forEach(play => {
+      if (paused() || document.hidden) play.pauseAnimations();
+      else play.unpauseAnimations();
+    });
     if (headerMotionToggle && pageMotionToggle) {
       const label = pageMotionToggle.querySelector('span').textContent;
       headerMotionToggle.setAttribute('aria-label', label);
@@ -69,7 +74,7 @@
   body.classList.add('motion-ready');
   syncMotion();
   // Intro motion only runs on arrival, never again after resuming motion.
-  setTimeout(() => body.classList.add('motion-intro-complete'), 1200);
+  setTimeout(() => body.classList.add('motion-intro-complete'), 2400);
 
   const viewTargets = document.querySelectorAll('.project-card, .featured-project, .project-gallery, .skill-group');
   if ('IntersectionObserver' in window) {
@@ -97,6 +102,7 @@
   function syncVisibility() {
     body.classList.toggle('motion-document-hidden', document.hidden);
     if (document.hidden) resetPointer();
+    syncMotion();
   }
   document.addEventListener('visibilitychange', syncVisibility);
   syncVisibility();
