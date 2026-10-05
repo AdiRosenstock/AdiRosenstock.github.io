@@ -1,0 +1,14 @@
+Tool: built-in imagegen
+Mode: edit
+Input: Adi’s supplied Photo 1.jpg
+Website asset: dist/assets/adi-code-portrait.jpg
+
+Use case: identity-preserve
+Asset type: homepage portrait for Adi Rosenstock's personal software/data portfolio, nearly square 1:1 composition.
+Input image 1: edit target. Edit the supplied photograph, keeping the exact same person recognizable.
+Primary request: Replace the crowded event setting with a realistic Bloomberg-style financial engineering office, with two Bloomberg terminals and a code editor behind him.
+Subject invariants: Preserve his facial features, curly dark hair, age, natural skin texture, expression, black blazer and white shirt, seated posture and both hands typing on the same laptop. Do not beautify, stylize, change his face, or invent a different person. Remove the event lanyard.
+Scene/backdrop: A clean contemporary office workstation. Two background monitors display characteristic dark Bloomberg market screens with compact orange, amber and white financial tables and small price charts; another background display shows syntax-highlighted code. They sit naturally on desks behind him, with correct perspective and softly readable detail. Keep a subtle office interior, with glass and daylight. Replace the large picnic table with a proportionate professional desk under his laptop, leaving his hands and laptop unchanged.
+Composition/framing: Natural editorial photo, waist-up with face near upper center, laptop and hands visible in the lower third. Crop away excess empty foreground. Leave enough space above his curly hair and keep both sides of his body inside the square crop.
+Lighting/mood: Natural daylight matching the subject; restrained screen glow, balanced realistic exposure, crisp face and gently softened background.
+Constraints: Photorealistic, believable compositing, preserve identity above all. No overlaid title, slogan, watermark, or giant company logo. Do not add people.

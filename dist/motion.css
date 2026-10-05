@@ -1,0 +1,92 @@
+/* Motion follows the work: traces, folds, passing moves, and reader actions. */
+.header-motion-toggle{display:none;align-items:center;justify-content:center;flex-shrink:0;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;padding:0;background:transparent;color:var(--muted)}
+.motion-ready .header-motion-toggle{display:flex}
+.header-motion-toggle svg{width:15px;height:15px}
+.header-motion-toggle:hover{background:var(--section);color:var(--accent);border-color:var(--accent)}
+.header-motion-toggle:disabled{cursor:default}
+@media(min-width:651px){.motion-ready .nav-wrap nav,.motion-ready .nav-contact{margin-left:auto}}
+.motion-ready:not(.motion-intro-complete) .hero-copy>.hello,
+.motion-ready:not(.motion-intro-complete) .hero-copy>h1,
+.motion-ready:not(.motion-intro-complete) .hero-role,
+.motion-ready:not(.motion-intro-complete) .hero-description,
+.motion-ready:not(.motion-intro-complete) .hero-credentials>button,
+.motion-ready:not(.motion-intro-complete) .hero-actions,
+.motion-ready:not(.motion-intro-complete) .social-links{animation:welcome-in .65s cubic-bezier(.22,1,.36,1) both}
+.motion-ready .hero-copy>h1{animation-delay:70ms}
+.motion-ready .hero-role{animation-delay:140ms}
+.motion-ready .hero-description{animation-delay:200ms}
+.motion-ready .hero-credentials>button:first-child{animation-delay:250ms}
+.motion-ready .hero-credentials>button:last-child{animation-delay:320ms}
+.motion-ready .hero-actions{animation-delay:380ms}
+.motion-ready .social-links{animation-delay:440ms}
+@keyframes welcome-in{from{opacity:0;translate:0 16px}to{opacity:1;translate:0 0}}
+.motion-intro-complete.scene-enhanced .scene-art,.motion-intro-complete.scene-enhanced .project-heading{animation:none}
+
+.button,.nav-contact,.skill-pill,.source-list a,.build-flow li{transition:translate .22s ease,background-color .22s ease,border-color .22s ease}
+.button svg,.text-link svg,.card-links svg,.source-list svg,.nav-contact svg,.copy-email svg{transition:transform .25s cubic-bezier(.22,1,.36,1)}
+.button:hover,.button:focus-visible,.nav-contact:hover,.nav-contact:focus-visible{translate:0 -2px}
+.text-link:hover svg,.text-link:focus-visible svg,.card-links a:hover svg,.card-links a:focus-visible svg{transform:translateX(4px)}
+.source-list a:hover svg,.source-list a:focus-visible svg{transform:translate(3px,-3px)}
+.nav-contact:hover svg,.nav-contact:focus-visible svg{transform:rotate(-8deg)}
+.contact-form .button:hover svg,.contact-form .button:focus-visible svg{transform:translate(3px,-3px)}
+nav a[aria-current]::after{animation:nav-trace .25s ease both;transform-origin:left}
+@keyframes nav-trace{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* Preview art moves within a stationary card; titles and controls stay steady. */
+.motion-ready .project-card .card-visual>img{transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.motion-ready .project-card:hover .card-visual>img,
+.motion-ready .project-card:focus-within .card-visual>img{transform:translate3d(var(--art-x,0px),var(--art-y,0px),0) scale(1.055)}
+.preview-trace{position:absolute;left:0;bottom:0;width:100%;height:64px;fill:none;stroke:#285273;stroke-width:2;opacity:.2;pointer-events:none}
+.preview-trace path{stroke-dasharray:100;stroke-dashoffset:0}
+.motion-ready .motion-visible .preview-trace path{animation:preview-trace 1.2s ease-out both}
+.project-card:hover .preview-trace path,.project-card:focus-within .preview-trace path{animation:preview-trace 1s ease-out both}
+@keyframes preview-trace{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+.model-preview-folds{position:absolute;top:21px;right:20px;display:flex;align-items:end;gap:4px;height:25px;pointer-events:none}
+.model-preview-folds i{display:block;width:6px;height:19px;background:#76a39c;border-radius:2px;transform-origin:bottom}
+.model-preview-folds i:nth-child(2){height:14px;--fold-delay:70ms}
+.model-preview-folds i:nth-child(3){height:23px;--fold-delay:140ms}
+.model-preview-folds i:nth-child(4){height:17px;--fold-delay:210ms}
+.model-preview-folds i:nth-child(5){height:25px;background:#b06476;--fold-delay:280ms}
+.motion-ready .motion-visible .model-preview-folds i{animation:fold-rise .65s cubic-bezier(.22,1,.36,1) both;animation-delay:var(--fold-delay,0ms)}
+@keyframes fold-rise{from{opacity:.4;transform:scaleY(.15)}to{opacity:1;transform:scaleY(1)}}
+.mini-pitch-ball{offset-path:path('M113 151 L210 72 L308 142 L393 64');offset-distance:0%;fill:#28543c;stroke:#fff;stroke-width:2}
+.motion-ready .motion-visible .mini-pitch-ball{animation:preview-pass 5s cubic-bezier(.35,0,.25,1) infinite}
+@keyframes preview-pass{0%,12%{offset-distance:0%}32%,42%{offset-distance:33%}62%,72%{offset-distance:66%}92%,100%{offset-distance:100%}}
+.motion-ready .project-card:hover .mini-pitch-route,
+.motion-ready .project-card:focus-within .mini-pitch-route{animation:route-flow 1s linear 3}
+@keyframes route-flow{to{stroke-dashoffset:-22}}
+
+.skill-pill:hover{translate:0 -3px;border-color:#adc8c0!important}
+.skill-pill:hover img{animation:tool-pop .5s cubic-bezier(.22,1,.36,1)}
+@keyframes tool-pop{0%,100%{transform:none}35%{transform:translateY(-4px) rotate(-8deg)}65%{transform:translateY(1px) rotate(4deg)}}
+.impact-row strong{position:relative;display:inline-block}
+.impact-row strong::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:currentColor;opacity:.35;transform-origin:left;pointer-events:none}
+.motion-ready .is-revealed .impact-row strong::after{animation:measure-mark .7s cubic-bezier(.22,1,.36,1) .3s both}
+@keyframes measure-mark{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.contact-field label{transition:color .2s ease}
+.contact-field:focus-within label{color:var(--accent)}
+details[open]>.detail-copy{animation:note-open .3s cubic-bezier(.22,1,.36,1) both}
+@keyframes note-open{from{opacity:0;translate:0 -7px}to{opacity:1;translate:0 0}}
+dialog[open]{animation:dialog-open .24s cubic-bezier(.22,1,.36,1) both}
+dialog[open]::backdrop{animation:backdrop-open .2s ease both}
+@keyframes dialog-open{from{opacity:0;transform:translateY(10px) scale(.975)}to{opacity:1;transform:none}}
+@keyframes backdrop-open{from{opacity:0}to{opacity:1}}
+.motion-ready .project-gallery.motion-visible img{animation:gallery-arrive .7s ease-out both}
+@keyframes gallery-arrive{from{opacity:.5;translate:0 9px}to{opacity:1;translate:0 0}}
+.project-page .build-flow li:hover{translate:0 -3px}
+.project-page .source-list a:hover{translate:3px 0}
+.scene-controls button{transition:background-color .2s ease,border-color .2s ease,translate .2s ease}
+.scene-controls button:hover,.scene-controls button:focus-visible{translate:0 -2px}
+
+/* The existing pause control covers every new animation, including previews. */
+.motion-paused *:not(.ambient-motion),.motion-paused *::before,.motion-paused *::after{animation:none!important;transition:none!important}
+.motion-paused .project-card .card-visual>img{transform:none!important}
+.motion-document-hidden .ambient-motion{animation-play-state:paused!important}
+.motion-paused .mini-pitch-ball,.motion-document-hidden .mini-pitch-ball{animation-play-state:paused!important}
+@media(hover:none){.skill-pill:hover,.project-page .build-flow li:hover,.project-page .source-list a:hover{translate:none}.skill-pill:hover img{animation:none}.motion-ready .project-card:hover .card-visual>img{transform:none}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .motion-ready .project-card .card-visual>img{transform:none!important}
+  .button,.nav-contact,.skill-pill,.source-list a,.build-flow li,.scene-controls button{translate:none!important}
+  .mini-pitch-ball{offset-distance:0%}
+}

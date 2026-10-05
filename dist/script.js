@@ -42,12 +42,15 @@ const portraitSwitch = document.querySelector('#portrait-switch');
 portraitSwitch.addEventListener('click', () => {
   const code = portraitSwitch.getAttribute('aria-pressed') !== 'true';
   const portrait = document.querySelector('#hero-portrait');
-  portrait.src = code ? 'assets/adi-avatar.jpg' : 'assets/adi-matchday.webp';
-  portrait.alt = code ? 'Adi’s illustrated GitHub avatar: a developer with a Costa Rican flag pin' : 'Adi Rosenstock supporting Club Sport Cartaginés at Stamford Bridge';
-  document.querySelector('#portrait-note').textContent = code ? 'The GitHub version of me.' : 'Football before fantasy.';
-  document.querySelector('#portrait-caption').textContent = code ? 'Different kit. Same curiosity.' : 'A little of the person behind the code.';
+  portrait.src = code ? 'assets/adi-code-portrait.jpg' : 'assets/adi-matchday.webp';
+  portrait.alt = code ? 'Adi Rosenstock at his laptop, with an edited Bloomberg-style office background showing market terminals and code' : 'Adi Rosenstock supporting Club Sport Cartaginés at Stamford Bridge';
+  document.querySelector('#portrait-note').textContent = code ? 'Behind the code.' : 'Football before fantasy.';
+  document.querySelector('#portrait-caption').textContent = code ? 'A little of the person behind the code.' : 'Different kit. Same curiosity.';
+  document.querySelector('.tactics-note').textContent = code ? 'On the clock' : 'Off the clock';
+  portrait.width = code ? 1254 : 1448;
+  portrait.height = code ? 1254 : 1086;
   portraitSwitch.setAttribute('aria-pressed', String(code));
-  portraitSwitch.firstChild.textContent = code ? 'Back to matchday ' : 'See my code side ';
+  portraitSwitch.firstChild.textContent = code ? 'See my football side ' : 'See my code side ';
 });
 const projects = {
   northwestern: {
@@ -215,11 +218,13 @@ function updateMotion() {
   }
 }
 updateMotion();
-motionToggle.addEventListener('click', () => {
+function toggleMotion() {
   motionPaused = !motionPaused;
   try { localStorage.setItem('adi-motion-paused', String(motionPaused)); } catch { /* Motion still works without storage. */ }
   updateMotion();
-});
+}
+motionToggle.addEventListener('click', toggleMotion);
+document.addEventListener('portfolio:toggle-motion', toggleMotion);
 motionPreference.addEventListener('change', updateMotion);
 let touches = 0;
 football.addEventListener('click', () => {

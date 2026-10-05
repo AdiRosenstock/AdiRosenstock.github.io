@@ -54,11 +54,13 @@ function updateMotion() {
   motionToggle.querySelector('path').setAttribute('d', paused ? 'm8 5 11 7-11 7Z' : 'M9 5v14M15 5v14');
 }
 updateMotion();
-motionToggle?.addEventListener('click', () => {
+function toggleMotion() {
   motionPaused = !motionPaused;
   try { localStorage.setItem('adi-motion-paused', String(motionPaused)); } catch { /* Optional preference. */ }
   updateMotion();
-});
+}
+motionToggle?.addEventListener('click', toggleMotion);
+document.addEventListener('portfolio:toggle-motion', toggleMotion);
 motionPreference.addEventListener('change', updateMotion);
 if ('IntersectionObserver' in window) {
   const storyNavigation = document.querySelector('.story-nav');

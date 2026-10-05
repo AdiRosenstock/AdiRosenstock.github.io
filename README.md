@@ -46,11 +46,23 @@ The original résumé file is not bundled in the published site.
 - Scroll entrances vary by content: project previews open from opposite sides,
   cards settle in sequence, experience follows a growing timeline, and toolkit
   tags appear in groups. Reveals happen once, with keyboard-focus visibility.
+- Motion also includes a staggered hero arrival, pointer-responsive preview artwork,
+  an illustrative trading trace, validation-fold bars, and a passing ball in TikiData’s
+  card. Links, toolkit logos, native details, dialogs, and project galleries respond
+  to the reader; experience metrics receive drawn emphasis on arrival. The header
+  keeps a pause control available at every scroll position. Shared motion stops
+  when paused or reduced; preview loops only run
+  while visible, and browser visibility pauses ambient motion.
 - A small football tracks reading progress along the navigation bar.
 - A persistent pause control and system reduced-motion preference stop ambient motion.
   Pausing also reveals all content immediately. Hero motion pauses offscreen,
   and all content remains visible when JavaScript is disabled.
-- The portrait button switches between the existing football portrait and GitHub avatar.
+- The homepage opens with Adi’s supplied laptop portrait, edited with the built-in
+  imagegen tool to add two Bloomberg-style market terminals and a code screen.
+  `dist/assets/adi-code-portrait.jpg` is the optimized website asset; the exact
+  generation prompt is in `portrait-imagegen-prompt.txt`. The portrait switch
+  keeps the existing football photo available, with matching captions and alt text.
+  The office background is edited, not a documentary photo of a Bloomberg office.
 - Prominent Northwestern and Bloomberg hero buttons open résumé-grounded details.
   BanterBoost retains its existing website link and native detail dialog.
 - Career Agent, IMC Prosperity 3, Airbnb classification, DOMUS, and TikiData FC
@@ -107,6 +119,7 @@ GitHub Pages is the live provider. Do not store credentials in files.
 
 The complete static pages live in `dist/projects/<slug>/index.html` and share
 `dist/projects.css`, `dist/project-scenes.css`, and `dist/projects.js`.
+All six pages also use `dist/motion.css` and `dist/motion.js` for shared interactions.
 The scene stylesheet defines each project's visual identity, illustrations,
 responsive layouts, and reduced-motion behavior. There is no build step. The preview
 server supports directory indexes; use `PORT=4174 npm run dev` for another port.

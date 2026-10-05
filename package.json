@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node serve.mjs",
-    "check": "node --check dist/script.js && node --check dist/projects.js && node --check dist/contact.js && node --check serve.mjs && node --check prepare-pages.mjs",
+    "check": "node --check dist/script.js && node --check dist/projects.js && node --check dist/contact.js && node --check dist/motion.js && node --check serve.mjs && node --check prepare-pages.mjs",
     "prepare:pages": "node prepare-pages.mjs"
   }
 }
