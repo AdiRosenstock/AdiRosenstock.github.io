@@ -20,4 +20,5 @@
 - This is a dependency-free static site. Run `node --check dist/script.js`, check
   changed local asset references, and verify affected interactions in the browser.
 - The stylesheet and script URLs include content-hash query strings to avoid stale
-  browser caches. Refresh those hashes in `dist/index.html` when either file changes.
+  browser caches. Refresh those hashes in every affected HTML page when a shared
+  stylesheet or script changes, including `dist/index.html` and project pages.

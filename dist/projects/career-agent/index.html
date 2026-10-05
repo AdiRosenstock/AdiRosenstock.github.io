@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6144b8">
+  <meta name="description" content="A local application workspace that brings job research, sourced answers, documents, and application review into one place.">
+  <meta property="og:title" content="Career Agent | Adi Rosenstock">
+  <meta property="og:description" content="A local application workspace that brings job research, sourced answers, documents, and application review into one place.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adirosenstock.github.io/AdiRosenstock.io/projects/career-agent/">
+  <meta property="og:image" content="https://adirosenstock.github.io/AdiRosenstock.io/assets/career-agent.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://adirosenstock.github.io/AdiRosenstock.io/projects/career-agent/">
+  <title>Career Agent | Adi Rosenstock</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%236144b8'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-size='32' font-weight='700' fill='white'%3Ear%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;450;500;550;600;650;700&family=Outfit:wght@400;500;550;600;650;700;750&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css?v=a335134a2558">
+  <link rel="stylesheet" href="../../projects.css?v=f59dedef0d63">
+  <script src="../../projects.js?v=63bec6bbffc3" defer></script>
+</head>
+<body class="project-page" data-theme="software">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="wordmark" href="../../" aria-label="Adi Rosenstock home">adi<span class="wordmark-dot">.</span></a>
+      <a class="project-home" href="../../#projects">All projects</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Open navigation"><span></span><span></span></button>
+      <nav id="navigation" aria-label="Project navigation"><a href="#overview">Overview</a><a href="#build">Build details</a><a href="#explore">Explore</a></nav>
+      <a class="nav-contact" href="../../#contact">Let’s talk <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 6l8 6 8-6"/></svg></a>
+    </div>
+    <div class="reading-progress" aria-hidden="true"><span class="reading-progress-fill"></span><span class="reading-progress-ball"></span></div>
+  </header>
+  <main id="main">
+    <div class="project-banner">
+      <div class="section-wrap">
+        <div class="project-breadcrumb"><a href="../../#projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg>Selected work</a><span aria-hidden="true">/</span><span>Career Agent</span></div>
+        <section class="project-hero" aria-labelledby="project-title">
+          <div class="project-heading"><p class="project-role">Creator · Open-source software</p><h1 id="project-title">Career Agent</h1><p class="project-deck">Less application admin. More control.</p><p class="project-intro">A local application workspace that brings job research, sourced answers, documents, and application review into one place.</p><div class="tag-list"><span>TypeScript</span><span>React</span><span>Express</span><span>SQLite</span><span>AI agents</span></div><div class="project-actions"><a class="button button-primary" href="https://github.com/AdiRosenstock/career-agent-public" target="_blank" rel="noopener noreferrer">Explore the source</a><a class="button button-outline" href="#in-action">See the workspace</a></div></div>
+          <figure class="project-art"><div class="screen-frame"><div class="screen-bar"><span class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Career Agent / Application desk</span></div><img src="../../assets/career-agent.png" width="1440" height="1089" alt="Career Agent application desk showing fictional demonstration jobs, filters, and a review queue" fetchpriority="high"></div><figcaption>Fictional demonstration data from the public project.</figcaption><p class="hand-note">Your applications. Your decisions.</p></figure>
+        </section>
+      </div>
+    </div>
+    <div class="section-wrap">
+      <div class="project-tools"><span>A personal workflow, made reusable for other job seekers.</span><div class="project-utility-actions"><button class="copy-project-link" id="copy-project-link" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg>Copy page link</button></div></div>
+      <p class="project-copy-status" id="project-copy-status" role="status"></p>
+      <div class="project-body">
+        <nav class="story-nav" aria-label="On this page"><p>On this page</p><a href="#overview" aria-current="location">The project</a><a href="#approach">The approach</a><a href="#build">How it works</a><a href="#decisions">A key decision</a><a href="#in-action">In action</a><a href="#explore">Explore further</a></nav>
+        <div class="story-content">
+          <section class="story-section" id="overview" aria-labelledby="overview-title"><h2 id="overview-title">The project</h2><div class="story-overview"><div class="story-prose"><p>Applying for jobs creates a lot of disconnected work: researching a role, checking requirements, finding the right résumé, drafting answers, and remembering what was submitted. I built Career Agent to keep those pieces together in a workspace on the candidate’s own computer.</p><p>The React dashboard is the system of record. A user saves their profile and preferences once, then works with their own assistant to research opportunities and prepare applications. The candidate reviews the exact answers and documents before asking the assistant to submit an approved batch.</p></div><dl class="project-facts"><div><dt>My role</dt><dd>Creator of the application and shared agent workflow</dd></div><div><dt>Format</dt><dd>Single-user local application; MIT licensed</dd></div><div><dt>Storage</dt><dd>SQLite by default; optional Supabase</dd></div></dl></div></section>
+          <section class="story-section" id="approach" aria-labelledby="approach-title"><h2 id="approach-title">From research to a reviewed application</h2><div class="feature-list"><div class="feature-row"><h3>Discover and assess</h3><p>Public Greenhouse, Lever, and Ashby feeds bring in opportunities. Role fit, compensation, and sponsorship checks retain the evidence behind a decision.</p></div><div class="feature-row"><h3>Prepare with facts</h3><p>Saved profile facts, reusable answers, document choices, and missing questions become a versioned review packet. Duplicate checks compare employer and role identities.</p></div><div class="feature-row"><h3>Review and record</h3><p>The user reviews exact packets and authorizes submission separately. History distinguishes confirmed submissions, failures, uncertain results, and manual handoffs.</p></div></div></section>
+          <section class="story-section" id="build" aria-labelledby="build-title"><h2 id="build-title">How it works</h2><p>A typed domain engine sits between the interface, storage, and agent tools. It owns application state and approval rules; the assistant handles research and employer forms.</p><ol class="build-flow"><li><h3>Dashboard and API</h3><p>React presents profile, opportunities, review packets, and history. A loopback Express API validates requests.</p></li><li><h3>Domain engine</h3><p>Shared TypeScript contracts coordinate evidence, eligibility, packet versions, duplicate checks, and attempt transitions.</p></li><li><h3>Storage and agents</h3><p>SQLite transactions or Supabase revision checks persist state. A typed CLI connects the shared workflow to an assistant.</p></li></ol><p class="build-note">Original PDFs are preserved and verified with SHA-256. The public repository and this preview use fictional examples.</p></section>
+          <section class="story-section" id="decisions" aria-labelledby="decisions-title"><h2 id="decisions-title">A key decision</h2><div class="decision-note"><h3>An approval belongs to an exact version.</h3><p>Changing application answers or documents invalidates an older approval. A prepared packet and a confirmed submission are separate states, and uncertain outcomes need reconciliation before a retry.</p><p>That separation is the core engineering choice: the assistant can do repetitive work while the candidate keeps control over what is sent. The dashboard does not launch an invisible background agent.</p></div></section>
+          <section class="story-section" id="in-action" aria-labelledby="in-action-title"><h2 id="in-action-title">In action</h2><figure class="project-gallery"><a class="gallery-image" href="../../assets/career-agent.png" target="_blank" rel="noopener noreferrer" aria-label="View full-size image: Career Agent dashboard with fictional jobs, status filters, and an application review queue"><img id="gallery-image" src="../../assets/career-agent.png" alt="Career Agent dashboard with fictional jobs, status filters, and an application review queue" loading="lazy"></a><figcaption><span>The public demo shows the application desk without exposing personal application records.</span><a href="../../assets/career-agent.png" target="_blank" rel="noopener noreferrer">View full-size image</a></figcaption></figure></section>
+          <section class="story-section" id="explore" aria-labelledby="explore-title"><h2 id="explore-title">Explore further</h2><p>Follow the work into the code, analysis, and documentation.</p><ul class="source-list"><li><a href="https://github.com/AdiRosenstock/career-agent-public" target="_blank" rel="noopener noreferrer"><div><strong>Source and getting started</strong><span>Installation, fictional demo, and the full candidate workflow.</span></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 4H4v16h16v-6"/></svg></a></li><li><a href="https://github.com/AdiRosenstock/career-agent-public/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener noreferrer"><div><strong>Architecture</strong><span>Components, state transitions, evidence rules, and storage boundaries.</span></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 4H4v16h16v-6"/></svg></a></li><li><a href="https://github.com/AdiRosenstock/career-agent-public/blob/main/docs/DESIGN_DECISIONS.md" target="_blank" rel="noopener noreferrer"><div><strong>Design decisions</strong><span>Why local storage, versioned approval, and confirmed outcomes matter.</span></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 4H4v16h16v-6"/></svg></a></li></ul><p class="source-note">Project details and the demonstration image come from the public Career Agent repository.</p></section>
+        </div>
+      </div>
+    </div>
+    <aside class="project-next" aria-label="More projects"><div class="section-wrap"><a href="../../#projects" class="text-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg>All selected work</a><a class="next-link" href="../imc-prosperity/"><div><p>Explore another project</p><h2>IMC Prosperity 3</h2></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div></aside>
+  </main>
+  <footer class="site-footer section-wrap"><a class="wordmark" href="../../">adi<span class="wordmark-dot">.</span></a><span>Built with curiosity.</span><span>© <span id="year">2026</span> Adi Rosenstock</span><a href="#main">Back to top</a></footer>
+</body>
+</html>

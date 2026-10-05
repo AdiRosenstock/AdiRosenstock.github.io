@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6144b8">
+  <meta name="description" content="A classification project using Airbnb listings from three markets to estimate the probability that a host has Superhost status.">
+  <meta property="og:title" content="Airbnb Superhost model | Adi Rosenstock">
+  <meta property="og:description" content="A classification project using Airbnb listings from three markets to estimate the probability that a host has Superhost status.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adirosenstock.github.io/AdiRosenstock.io/projects/airbnb-classification/">
+  <meta property="og:image" content="https://adirosenstock.github.io/AdiRosenstock.io/assets/adi-avatar.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://adirosenstock.github.io/AdiRosenstock.io/projects/airbnb-classification/">
+  <title>Airbnb Superhost model | Adi Rosenstock</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%236144b8'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-size='32' font-weight='700' fill='white'%3Ear%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;450;500;550;600;650;700&family=Outfit:wght@400;500;550;600;650;700;750&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css?v=a335134a2558">
+  <link rel="stylesheet" href="../../projects.css?v=f59dedef0d63">
+  <script src="../../projects.js?v=63bec6bbffc3" defer></script>
+</head>
+<body class="project-page" data-theme="software">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="wordmark" href="../../" aria-label="Adi Rosenstock home">adi<span class="wordmark-dot">.</span></a>
+      <a class="project-home" href="../../#projects">All projects</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Open navigation"><span></span><span></span></button>
+      <nav id="navigation" aria-label="Project navigation"><a href="#overview">Overview</a><a href="#build">Build details</a><a href="#explore">Explore</a></nav>
+      <a class="nav-contact" href="../../#contact">Let’s talk <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 6l8 6 8-6"/></svg></a>
+    </div>
+    <div class="reading-progress" aria-hidden="true"><span class="reading-progress-fill"></span><span class="reading-progress-ball"></span></div>
+  </header>
+  <main id="main">
+    <div class="project-banner">
+      <div class="section-wrap">
+        <div class="project-breadcrumb"><a href="../../#projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg>Selected work</a><span aria-hidden="true">/</span><span>Airbnb Superhost model</span></div>
+        <section class="project-hero" aria-labelledby="project-title">
+          <div class="project-heading"><p class="project-role">Individual project · Northwestern STAT 303-3</p><h1 id="project-title">Airbnb Superhost model</h1><p class="project-deck">What makes a Superhost?</p><p class="project-intro">A classification project using Airbnb listings from three markets to estimate the probability that a host has Superhost status.</p><div class="tag-list"><span>Python</span><span>CatBoost</span><span>Scikit-learn</span><span>Feature engineering</span></div><div class="project-actions"><a class="button button-primary" href="https://adirosenstock.github.io/Airbnb-Classification-Problem-Kaggle/Airbnb_Classification_Problem.html" target="_blank" rel="noopener noreferrer">Open the full report</a><a class="button button-outline" href="https://github.com/AdiRosenstock/Airbnb-Classification-Problem-Kaggle" target="_blank" rel="noopener noreferrer">View source</a></div></div>
+          <figure class="project-art"><div class="model-board"><h2>Superhost classification</h2><p class="model-score">0.9908</p><p class="model-caption">Competition ROC-AUC</p><dl><div><dt>Final placement</dt><dd>2nd of 124</dd></div><div><dt>Training listings</dt><dd>5,510</dd></div><div><dt>Cross-validation</dt><dd>5 folds</dd></div><div><dt>Final model</dt><dd>CatBoost</dd></div></dl></div><p class="hand-note">Good predictions start with good questions.</p></figure>
+        </section>
+      </div>
+    </div>
+    <div class="section-wrap">
+      <div class="project-tools"><span>The full notebook is also available as a readable GitHub Pages report.</span><div class="project-utility-actions"><button class="copy-project-link" id="copy-project-link" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg>Copy page link</button></div></div>
+      <p class="project-copy-status" id="project-copy-status" role="status"></p>
+      <div class="project-body">
+        <nav class="story-nav" aria-label="On this page"><p>On this page</p><a href="#overview" aria-current="location">The project</a><a href="#approach">The approach</a><a href="#build">How it works</a><a href="#decisions">A key decision</a><a href="#in-action">Model details</a><a href="#explore">Explore further</a></nav>
+        <div class="story-content">
+          <section class="story-section" id="overview" aria-labelledby="overview-title"><h2 id="overview-title">The project</h2><div class="story-overview"><div class="story-prose"><p>For Northwestern’s STAT 303-3 machine learning competition, I modeled Superhost status using anonymized listings from Chicago, Asheville, and Kauai. The task was to submit probabilities, with ROC-AUC as the competition metric.</p><p>The training data included 5,510 listings, with 57 columns including the target; the test set contained 3,308 listings. Features mixed prices, reviews, availability, property categories, text, and boolean flags. My final CatBoost submission placed second among 124 participants with a ROC-AUC of 0.9908.</p></div><dl class="project-facts"><div><dt>My role</dt><dd>Data cleaning, feature engineering, model comparison, and final submission</dd></div><div><dt>Context</dt><dd>STAT 303-3: Data Science with Python III</dd></div><div><dt>Evaluation</dt><dd>Competition ROC-AUC; 5-fold stratified validation</dd></div></dl></div></section>
+          <section class="story-section" id="approach" aria-labelledby="approach-title"><h2 id="approach-title">Making mixed listing data usable</h2><div class="feature-list"><div class="feature-row"><h3>Clean the fields</h3><p>I handled inconsistent currency and percentage formats, missing values, and categorical encodings before fitting the models.</p></div><div class="feature-row"><h3>Engineer features</h3><p>Amenities, descriptions, host behavior, and availability offered ways to turn raw listing fields into model inputs.</p></div><div class="feature-row"><h3>Compare models</h3><p>I explored Random Forest, bagged trees, decision trees, AdaBoost, XGBoost, and a stacked ensemble. CatBoost gave the best validation performance and produced the final probabilities.</p></div></div></section>
+          <section class="story-section" id="build" aria-labelledby="build-title"><h2 id="build-title">How it works</h2><p>The pipeline moved from raw listing fields to probability estimates. Five-fold stratified cross-validation preserved class balance while guiding model selection and tuning.</p><ol class="build-flow"><li><h3>Prepare listings</h3><p>Clean formats, impute missing data, and construct useful numeric and categorical features.</p></li><li><h3>Validate models</h3><p>Tune candidate models using five stratified folds and compare their ROC-AUC.</p></li><li><h3>Submit probabilities</h3><p>Use the tuned CatBoost classifier to predict Superhost probabilities for the held-out test listings.</p></li></ol><p class="build-note">The published final configuration uses 500 estimators, a 0.05 learning rate, depth 8, and class weighting. The notebook contains the implementation and tuning work.</p></section>
+          <section class="story-section" id="decisions" aria-labelledby="decisions-title"><h2 id="decisions-title">A key decision</h2><div class="decision-note"><h3>Choose the model through comparison.</h3><p>I did not start and end with one classifier. Comparing tree-based models and ensembles helped establish whether extra complexity improved validation performance.</p><p>CatBoost was the final choice after those comparisons. The reported 0.9908 is the competition score, and the linked report lets visitors inspect the preprocessing and modeling choices behind it.</p></div></section>
+          <section class="story-section" id="in-action" aria-labelledby="in-action-title"><h2 id="in-action-title">Model details</h2><div class="feature-list"><div class="feature-row"><h3>The three markets</h3><p>Chicago, Illinois; Asheville, North Carolina; and Kauai Island, Hawaii.</p></div><div class="feature-row"><h3>Final configuration</h3><p>CatBoostClassifier: 500 estimators, learning rate 0.05, depth 8, subsample 0.75, regularization 1, class weight 5, and random seed 1.</p></div><div class="feature-row"><h3>Inspect the analysis</h3><p>The full report includes the code and modeling process. Open it below to follow the work in detail.</p></div></div></section>
+          <section class="story-section" id="explore" aria-labelledby="explore-title"><h2 id="explore-title">Explore further</h2><p>Follow the work into the code, analysis, and documentation.</p><ul class="source-list"><li><a href="https://adirosenstock.github.io/Airbnb-Classification-Problem-Kaggle/Airbnb_Classification_Problem.html" target="_blank" rel="noopener noreferrer"><div><strong>Full HTML report</strong><span>Read the notebook in your browser, including the complete analysis and code.</span></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 4H4v16h16v-6"/></svg></a></li><li><a href="https://github.com/AdiRosenstock/Airbnb-Classification-Problem-Kaggle" target="_blank" rel="noopener noreferrer"><div><strong>Repository and methodology</strong><span>Dataset description, preprocessing, model choices, and reported competition result.</span></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 4H4v16h16v-6"/></svg></a></li></ul><p class="source-note">Data sizes, model settings, and competition results come from the project’s public README and report.</p></section>
+        </div>
+      </div>
+    </div>
+    <aside class="project-next" aria-label="More projects"><div class="section-wrap"><a href="../../#projects" class="text-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg>All selected work</a><a class="next-link" href="../domus/"><div><p>Explore another project</p><h2>DOMUS</h2></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div></aside>
+  </main>
+  <footer class="site-footer section-wrap"><a class="wordmark" href="../../">adi<span class="wordmark-dot">.</span></a><span>Built with curiosity.</span><span>© <span id="year">2026</span> Adi Rosenstock</span><a href="#main">Back to top</a></footer>
+</body>
+</html>

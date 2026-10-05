@@ -7,7 +7,7 @@ const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=u
 http.createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
-    const relative = pathname === '/' ? 'index.html' : pathname.replace(/^\/+/, '');
+    const relative = pathname.endsWith('/') ? pathname.replace(/^\/+/, '') + 'index.html' : pathname.replace(/^\/+/, '');
     const target = path.resolve(root, relative);
     if (!target.startsWith(root + path.sep) && target !== path.join(root, 'index.html')) {
       response.writeHead(403).end('Forbidden'); return;
@@ -16,4 +16,6 @@ http.createServer(async (request, response) => {
     response.writeHead(200, { 'Content-Type': mime[path.extname(target)] || 'application/octet-stream', 'Cache-Control': 'no-store' });
     response.end(content);
   } catch { response.writeHead(404).end('Not found'); }
-}).listen(4173, '127.0.0.1', () => console.log('Local: http://127.0.0.1:4173'));
+}).listen(Number(process.env.PORT || 4173), '127.0.0.1', function () {
+  console.log(`Local: http://127.0.0.1:${this.address().port}`);
+});
