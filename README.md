@@ -30,6 +30,8 @@ and `script.js` there, then refresh the preview.
   was replaced after review of the live product.
 - Career Agent’s public README and fictional demo screenshot: product capabilities
   and architecture. No personal application records appear in the screenshot.
+- Organization logos supplied by Adi, with official links to impaKt, MusclePoints
+  (now MUSCLE), Vértice, and Hanoar Hatzioni. Role details and dates come from the résumé.
 
 Internship results are résumé-reported. The portfolio does not claim that FPL’s
 manager population is BanterBoost’s customer count. Trading results are team results.
@@ -46,5 +48,10 @@ The original résumé file is not bundled in the published site.
 
 ## Hosting
 
-The private Sites identity and static output directory are in `.openai/hosting.json`.
-Keep that identity when publishing further changes. Do not store credentials in files.
+Hosted on [GitHub Pages](https://adirosenstock.github.io/AdiRosenstock.io/).
+Every push to `main` runs `.github/workflows/pages.yml`, checks the JavaScript,
+and publishes the static files in `dist/`. Relative asset paths support the Pages
+project URL and a future custom domain without changes.
+
+The unused Sites identity in `.openai/hosting.json` is retained for continuity.
+GitHub Pages is the live provider. Do not store credentials in files.
