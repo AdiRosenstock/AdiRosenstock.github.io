@@ -179,16 +179,19 @@ const sectionObserver = new IntersectionObserver(entries => {
 }, { rootMargin: '-18% 0px -58% 0px', threshold: 0 });
 document.querySelectorAll('main section[id]').forEach(section => sectionObserver.observe(section));
 document.querySelector('#year').textContent = String(new Date().getFullYear());
-const banterScreens = {
-  analytics: { src: 'assets/banterboost-analytics-current.jpg', alt: 'Current live BanterBoost analytics page showing player forecasts, market odds, and model estimates', caption: 'Player forecasts and market odds, with their sources.' },
-  league: { src: 'assets/banterboost-league-current.jpg', alt: 'Current live BanterBoost mini-league interface showing gameweek stories and league analysis', caption: 'Live mini-leagues, gameweek stories, and decisions that matter.' }
+const banterViews = {
+  analytics: { src: 'https://fplbanterboost.com/l/2267404/analytics', title: 'BanterBoost live analytics and odds', label: 'Open BanterBoost analytics and odds in a new tab', caption: 'Explore the live analytics. Sign-in opens BanterBoost in a new tab.' },
+  league: { src: 'https://fplbanterboost.com/l/2267404', title: 'BanterBoost live mini-league', label: 'Open BanterBoost live league in a new tab', caption: 'Explore the live league. Sign-in opens BanterBoost in a new tab.' }
 };
 document.querySelectorAll('[data-banter-view]').forEach(button => button.addEventListener('click', () => {
-  const screen = banterScreens[button.dataset.banterView];
+  const view = banterViews[button.dataset.banterView];
   const preview = document.querySelector('#banterboost-preview');
-  preview.src = screen.src;
-  preview.alt = screen.alt;
-  document.querySelector('#banterboost-preview-caption').textContent = screen.caption;
+  preview.src = view.src;
+  preview.title = view.title;
+  const openLink = document.querySelector('#banterboost-open');
+  openLink.href = view.src;
+  openLink.setAttribute('aria-label', view.label);
+  document.querySelector('#banterboost-preview-caption').textContent = view.caption;
   document.querySelectorAll('[data-banter-view]').forEach(option => option.setAttribute('aria-pressed', String(option === button)));
 }));
 

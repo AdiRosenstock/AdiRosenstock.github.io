@@ -92,7 +92,11 @@ The original résumé file is not bundled in the published site.
 - Project cards lead with titles and visuals. About, role descriptions, and leadership
   use native disclosure controls so visitors choose the depth. All toolkit tags are
   visible within their categories, with no extra disclosure controls.
-- The BanterBoost preview switches between current analytics and mini-league screenshots.
+- The BanterBoost preview embeds the live public analytics and mini-league pages,
+  with controls to switch views and open the selected page in a new tab. Google
+  sign-in opens the full BanterBoost site in a new tab. BanterBoost permits these
+  embeds only from the production portfolio origin, so localhost cannot display
+  the live frame. The embed stays clear of hover overlays and loads lazily.
 - Mobile navigation opens and closes with an accessible toggle and Escape.
 - Visitors can write a message in the contact form without leaving the page.
   Name, reply email, and message are delivered to Adi’s Northwestern inbox through
