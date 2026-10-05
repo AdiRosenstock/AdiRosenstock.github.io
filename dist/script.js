@@ -146,3 +146,42 @@ document.querySelectorAll('[data-banter-view]').forEach(button => button.addEven
   document.querySelector('#banterboost-preview-caption').textContent = screen.caption;
   document.querySelectorAll('[data-banter-view]').forEach(option => option.setAttribute('aria-pressed', String(option === button)));
 }));
+
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+const motionToggle = document.querySelector('#motion-toggle');
+const football = document.querySelector('#kick-football');
+let motionPaused = false;
+try { motionPaused = localStorage.getItem('adi-motion-paused') === 'true'; } catch { /* Optional preference storage. */ }
+function updateMotion() {
+  const paused = motionPaused || motionPreference.matches;
+  document.body.classList.toggle('motion-paused', paused);
+  motionToggle.setAttribute('aria-pressed', String(paused));
+  motionToggle.disabled = motionPreference.matches;
+  motionToggle.querySelector('span').textContent = motionPreference.matches ? 'Motion reduced' : paused ? 'Resume motion' : 'Pause motion';
+  motionToggle.querySelector('path').setAttribute('d', paused ? 'm8 5 11 7-11 7Z' : 'M9 5v14M15 5v14');
+  if (paused) football.classList.remove('is-kicking');
+}
+updateMotion();
+motionToggle.addEventListener('click', () => {
+  motionPaused = !motionPaused;
+  try { localStorage.setItem('adi-motion-paused', String(motionPaused)); } catch { /* Motion still works without storage. */ }
+  updateMotion();
+});
+motionPreference.addEventListener('change', updateMotion);
+let touches = 0;
+football.addEventListener('click', () => {
+  if (football.classList.contains('is-kicking')) return;
+  touches += 1;
+  const reactions = ['Nice touch.', 'Still got it.', 'One more before the next project?'];
+  const reaction = reactions[(touches - 1) % reactions.length];
+  document.querySelector('#football-hint').textContent = reaction;
+  document.querySelector('#football-status').textContent = reaction;
+  if (!motionPaused && !motionPreference.matches) football.classList.add('is-kicking');
+});
+football.addEventListener('animationend', event => {
+  if (event.target === football) football.classList.remove('is-kicking');
+});
+const sceneObserver = new IntersectionObserver(([entry]) => {
+  document.querySelector('.hero-scene').classList.toggle('motion-offscreen', !entry.isIntersecting);
+});
+sceneObserver.observe(document.querySelector('.hero-scene'));

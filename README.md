@@ -39,6 +39,10 @@ The original résumé file is not bundled in the published site.
 
 ## Interactions
 
+- A travel postcard hero connects Costa Rica and Evanston with an animated plane,
+  a floating photo, drifting clouds, and a football visitors can kick.
+- A persistent pause control and system reduced-motion preference stop ambient motion.
+  Motion also pauses while the opening scene is offscreen.
 - The portrait button switches between the existing football portrait and GitHub avatar.
 - Four project stories use native modal dialogs with keyboard dismissal and focus return.
 - The BanterBoost preview switches between current analytics and mini-league screenshots.
