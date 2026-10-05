@@ -30,6 +30,23 @@ portraitSwitch.addEventListener('click', () => {
   portraitSwitch.firstChild.textContent = code ? 'Back to matchday ' : 'See my code side ';
 });
 const projects = {
+  northwestern: {
+    category: 'Education · Expected June 2027', title: 'Northwestern University',
+    lead: 'B.A. in Computer Science, Data Science, and Economics at the Weinberg College of Arts and Sciences.',
+    sections: [
+      ['Three ways to think about a problem', 'Computer Science gives me the tools to build. Data Science helps me find patterns and test assumptions. Economics connects those models to the decisions people make.'],
+      ['Beyond the classroom', 'Investment research with Northwestern Capital Management and TAMID, quantitative trading in IMC Prosperity 3, and independent software projects.']
+    ], outcome: 'Class of 2027 · 3.7 cumulative GPA · 3.9 major GPA.', links: []
+  },
+  bloomberg: {
+    category: 'Bloomberg · Data Engineer Intern · Summer 2026', title: 'Financial data at scale.',
+    lead: 'Company Financials – Consumer team, Princeton, New Jersey. June–August 2026.',
+    sections: [
+      ['Data engineering', 'Built a production Python and SQL pipeline reconciling 2.3 million financial records across 860 companies and 1,489 fields, surfacing more than 21,000 data quality updates.'],
+      ['Agentic AI', 'Developed a system to investigate financial data discrepancies, with specialized agents, a custom MCP server, and SEC 10-K/10-Q XBRL extraction for independent verification.'],
+      ['The impact', 'The solution automated resolution of 71% of flagged cases, reduced manual review by more than 63%, and saved approximately 200 analyst-hours per month.']
+    ], outcome: '2.3M+ records · 860 companies · 71% of flagged cases automated.', links: []
+  },
   banterboost: {
     category: 'BanterBoost · Founder & sole engineer', title: 'Football data, with a point of view.',
     lead: 'A personal interest became a product: live Fantasy Premier League analytics built around the rivalries that make a mini-league worth following.',
@@ -93,13 +110,15 @@ document.querySelectorAll('[data-project]').forEach(button => button.addEventLis
     add('p', '', body, section);
   });
   add('p', 'dialog-outcome', project.outcome);
-  const links = add('div', 'dialog-links', '');
-  project.links.forEach(([label, href]) => {
-    const anchor = add('a', '', label, links);
-    anchor.href = href;
-    anchor.target = '_blank';
-    anchor.rel = 'noopener noreferrer';
-  });
+  if (project.links.length) {
+    const links = add('div', 'dialog-links', '');
+    project.links.forEach(([label, href]) => {
+      const anchor = add('a', '', label, links);
+      anchor.href = href;
+      anchor.target = '_blank';
+      anchor.rel = 'noopener noreferrer';
+    });
+  }
   dialog.showModal();
   document.body.style.overflow = 'hidden';
 }));
@@ -258,3 +277,4 @@ function scheduleProgress() {
 window.addEventListener('scroll', scheduleProgress, { passive: true });
 window.addEventListener('resize', scheduleProgress);
 updateScrollProgress();
+document.querySelectorAll('details').forEach(details => details.addEventListener('toggle', scheduleProgress));

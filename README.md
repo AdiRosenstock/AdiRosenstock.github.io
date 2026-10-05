@@ -49,7 +49,10 @@ The original résumé file is not bundled in the published site.
   Pausing also reveals all content immediately. Hero motion pauses offscreen,
   and all content remains visible when JavaScript is disabled.
 - The portrait button switches between the existing football portrait and GitHub avatar.
-- Four project stories use native modal dialogs with keyboard dismissal and focus return.
+- Prominent Northwestern and Bloomberg hero buttons open résumé-grounded details.
+  Four project stories use the same native dialogs, with keyboard dismissal and focus return.
+- Project cards lead with titles and visuals. About, role descriptions, leadership,
+  and extra toolkit tags use native disclosure controls so visitors choose the depth.
 - The BanterBoost preview switches between current analytics and mini-league screenshots.
 - Mobile navigation opens and closes with an accessible toggle and Escape.
 - Email opens the visitor’s mail app; copy reports clipboard success or a usable fallback.

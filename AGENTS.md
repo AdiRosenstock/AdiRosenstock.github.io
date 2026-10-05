@@ -10,6 +10,9 @@
   Push completed changes to `main`; the Pages workflow deploys `dist/` automatically.
   Preserve the unused Sites identity in `.openai/hosting.json`; do not deploy there.
 - Keep the personal, playful motion in the hero and provide a motion pause control.
+- Northwestern education and Bloomberg experience lead the hero. Football is a
+  personal interest, not the whole identity. Keep the overview short and title-led;
+  put longer stories and role descriptions behind explicit detail controls.
 - Use the football/tech visual direction: pitch markings, passing routes, and data
   points. The user rejected the travel/sky background. Reveal content as it enters
   the viewport; keep content visible with reduced motion or when JavaScript is off.
