@@ -15,13 +15,14 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2323635b'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-size='32' font-weight='700' fill='white'%3Ear%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="assets/jabulani.png" as="image" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;450;500;550;600;650;700&family=Outfit:wght@400;500;550;600;650;700;750&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=fd1e82521a29">
   <link rel="stylesheet" href="toolkit.css?v=495e7fa69b26">
   <script src="script.js?v=cd211d999a60" defer></script>
   <script src="contact.js?v=0df259927064" defer></script>
   <link rel="stylesheet" href="motion.css?v=1dc9264be1da">
-  <link rel="stylesheet" href="refinement.css?v=2aa0ce9fce47">
+  <link rel="stylesheet" href="refinement.css?v=4f9fcc5675ea">
   <script src="motion.js?v=a6755fd8d662" defer></script>
 </head>
 <body>
@@ -40,16 +41,18 @@
   <main id="main">
     <div class="hero-scene">
       <svg class="opening-play" viewBox="0 0 1440 900" preserveAspectRatio="xMinYMin slice" aria-hidden="true">
+        <defs><clipPath id="jabulani-desktop-clip"><circle r="18"/></clipPath></defs>
         <g transform="translate(25 210)">
         <path class="opening-route" id="opening-pass-path" pathLength="1000" d="M0 0 C120 -85 240 -82 360 -5 S623 146 740 15 S1010 -110 1170 8 S1395 185 1485 102"/>
-        <g class="opening-ball"><circle r="18" fill="#fff" stroke="#233238" stroke-width="2"/><path d="m0-8 8 6-3 9H-5l-3-9Z M-5-16 5-16 0-12Z M-16-4l6 3-3 8-5-1Z M16-4l-6 3 3 8 5-1Z M-8 15l3-6 7 4 1 5Z M8 15l-3-6-7 4-1 5Z" fill="#233238"/><animateMotion dur="9s" repeatCount="indefinite" keyPoints="0;.28;.28;.56;.56;1;1" keyTimes="0;.23;.32;.55;.64;.91;1" calcMode="linear" rotate="auto"><mpath href="#opening-pass-path"/></animateMotion></g>
+        <g class="opening-ball"><image href="assets/jabulani.png" x="-21.5" y="-20" width="43" height="43" clip-path="url(#jabulani-desktop-clip)"/><circle r="18" fill="none" stroke="#354447" stroke-width="1.2"/><animateMotion dur="9s" repeatCount="indefinite" calcMode="paced" rotate="auto"><mpath href="#opening-pass-path"/></animateMotion></g>
         </g>
         <g class="opening-markers"><circle cx="127" cy="148" r="7"/><circle cx="580" cy="287" r="7"/><circle cx="973" cy="139" r="7"/><circle cx="1373" cy="337" r="7"/></g>
       </svg>
       <svg class="opening-play opening-play-mobile" viewBox="0 0 390 790" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+        <defs><clipPath id="jabulani-mobile-clip"><circle r="12"/></clipPath></defs>
         <g transform="translate(20 132)">
         <path class="opening-route" id="opening-pass-mobile-path" pathLength="1000" d="M0 0 C55 -78 123 -72 179 1 S293 70 404 -36"/>
-        <g class="opening-ball"><circle r="12" fill="#fff" stroke="#233238" stroke-width="1.8"/><path d="m0-5 5 4-2 6h-6l-2-6Z M-4-10 4-10 0-7Z M-10-2l4 2-2 5-3-1Z M10-2 6 0l2 5 3-1Z M-5 9l2-4 5 3 1 3Z" fill="#233238"/><animateMotion dur="5.8s" repeatCount="indefinite" keyPoints="0;.42;.42;1;1" keyTimes="0;.36;.49;.88;1" calcMode="linear" rotate="auto"><mpath href="#opening-pass-mobile-path"/></animateMotion></g>
+        <g class="opening-ball"><image href="assets/jabulani.png" x="-14.35" y="-13.3" width="28.7" height="28.7" clip-path="url(#jabulani-mobile-clip)"/><circle r="12" fill="none" stroke="#354447" stroke-width="1.1"/><animateMotion dur="5.8s" repeatCount="indefinite" calcMode="paced" rotate="auto"><mpath href="#opening-pass-mobile-path"/></animateMotion></g>
         </g>
         <g class="opening-markers"><circle cx="81" cy="82" r="5"/><circle cx="245" cy="176" r="5"/><circle cx="364" cy="139" r="5"/></g>
       </svg>
@@ -81,7 +84,7 @@
         </div>
         <div class="portrait-caption"><span id="portrait-caption">At work.</span><button id="portrait-switch" type="button" aria-pressed="true">View matchday photo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-12-2 14"/></svg></button></div>
         </div>
-        <div class="football-play"><button id="kick-football" class="football-button" type="button" aria-label="Kick the football"><svg class="football-drawing ambient-motion" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#fffdf7" stroke="#25252e" stroke-width="2"/><path d="m40 25 14 10-5 16H31l-5-16Z" fill="#25252e"/><path d="m34 7 6 9 6-9M8 28l11 4-6 14-7-1M25 70l3-12 15 3 1 13M62 64l-7-10 12-9 7 7M69 22l-12 3-5-13" fill="#25252e" stroke="#25252e" stroke-width="1.5"/><path d="m40 16 0 9M19 32l7 3M28 58l3-7M55 54l-6-3M57 25l-3 10" stroke="#25252e" stroke-width="1.5"/></svg></button><span class="football-hint" id="football-hint">Go on, give it a kick.</span></div>
+        <div class="football-play"><button id="kick-football" class="football-button" type="button" aria-label="Kick the Jabulani football"><span class="football-drawing jabulani-button-art ambient-motion" aria-hidden="true"></span></button><span class="football-hint" id="football-hint">Go on, give it a kick.</span></div>
         <p class="sr-only" id="football-status" aria-live="polite"></p>
         </div>
         <p class="portrait-disclaimer" id="portrait-disclaimer">Background recreated with AI to respect workplace confidentiality. Screens are illustrative and do not show Bloomberg’s internal systems or proprietary code.</p>
