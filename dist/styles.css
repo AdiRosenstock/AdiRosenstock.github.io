@@ -125,3 +125,8 @@
   .project-card .card-copy .project-peek{margin-top:12px;padding:0;line-height:1.75;color:var(--muted)}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.reveal-target.is-pending{opacity:1;transform:none;clip-path:none}.reveal-target.is-pending *{opacity:1;transform:none!important;clip-path:none!important}.reading-progress-ball{transform:none}}
+
+/* Keep the football anchored to the photo while the disclosure flows below it. */
+.portrait-scene{position:relative}
+.portrait-disclaimer{margin:12px 6px 0;font-size:12px;line-height:1.65;color:var(--muted)}
+.portrait-disclaimer[hidden]{display:none}

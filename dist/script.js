@@ -42,13 +42,16 @@ const portraitSwitch = document.querySelector('#portrait-switch');
 portraitSwitch.addEventListener('click', () => {
   const code = portraitSwitch.getAttribute('aria-pressed') !== 'true';
   const portrait = document.querySelector('#hero-portrait');
-  portrait.src = code ? 'assets/adi-code-portrait.jpg' : 'assets/adi-matchday.webp';
-  portrait.alt = code ? 'Adi Rosenstock at his laptop, with an edited Bloomberg-style office background showing market terminals and code' : 'Adi Rosenstock supporting Club Sport Cartaginés at Stamford Bridge';
+  portrait.src = code ? 'assets/adi-code-portrait.jpg?v=8238bff5cdd2' : 'assets/adi-matchday.webp';
+  portrait.alt = code ? 'Adi Rosenstock working at a laptop in an AI-edited office scene with illustrative market and code screens' : 'Adi Rosenstock supporting Club Sport Cartaginés at Stamford Bridge';
   document.querySelector('#portrait-note').textContent = code ? 'Behind the code.' : 'Football before fantasy.';
   document.querySelector('#portrait-caption').textContent = code ? 'A little of the person behind the code.' : 'Different kit. Same curiosity.';
   document.querySelector('.tactics-note').textContent = code ? 'On the clock' : 'Off the clock';
   portrait.width = code ? 1254 : 1448;
   portrait.height = code ? 1254 : 1086;
+  document.querySelector('#portrait-disclaimer').hidden = !code;
+  if (code) portrait.setAttribute('aria-describedby', 'portrait-disclaimer');
+  else portrait.removeAttribute('aria-describedby');
   portraitSwitch.setAttribute('aria-pressed', String(code));
   portraitSwitch.firstChild.textContent = code ? 'See my football side ' : 'See my code side ';
 });

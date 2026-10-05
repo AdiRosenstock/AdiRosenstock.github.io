@@ -12,3 +12,18 @@ Scene/backdrop: A clean contemporary office workstation. Two background monitors
 Composition/framing: Natural editorial photo, waist-up with face near upper center, laptop and hands visible in the lower third. Crop away excess empty foreground. Leave enough space above his curly hair and keep both sides of his body inside the square crop.
 Lighting/mood: Natural daylight matching the subject; restrained screen glow, balanced realistic exposure, crisp face and gently softened background.
 Constraints: Photorealistic, believable compositing, preserve identity above all. No overlaid title, slogan, watermark, or giant company logo. Do not add people.
+
+
+Refinement with built-in imagegen
+Inputs: previous edited portrait; Adi’s supplied formal headshot (identity reference).
+
+Use case: identity-preserve
+Asset type: realistic square portrait for Adi Rosenstock's personal portfolio.
+Input image 1: edit target, the previously edited laptop portrait in an illustrative finance office.
+Input image 2: supporting identity reference, Adi's formal headshot. Use it to keep his exact recognizable face and natural facial proportions.
+Primary request: Make the man in image 1 subtly slimmer and give him a more professional haircut. Keep the same office portrait composition.
+Specific edits: Slightly reduce the volume of the blazer around the upper arms and torso to create a natural, modestly slimmer silhouette, roughly 5–8%, without making him skinny or changing shoulder anatomy. Give him a neat professional haircut suitable for an engineering office: shorter tidy sides with a soft taper, controlled shorter curly texture on top, clean natural hairline. Keep his naturally dark curly hair; do not turn it straight or slicked back. The change should be clearly visible while still looking like him.
+Face/identity constraints: Closely preserve Adi's eyes, nose, mouth, eyebrows, face shape and recognizable likeness as supported by the formal headshot. Preserve his age, skin tone, expression and natural skin texture. Do not reshape his facial structure or produce a generic model. Keep his clean-shaven appearance.
+Other invariants: Keep the black blazer, open white shirt, seated pose, both hands typing, laptop, desk, and office background. Keep the two illustrative financial market monitors and the code monitor, with the same perspective and daylight. Any screen content remains fictional illustrative financial data and generic code, never real proprietary Bloomberg information. Do not insert real internal screen captures.
+Composition/framing: Square, face near upper center, laptop and hands visible, nearly identical framing to image 1.
+Style: Photorealistic restrained retouching with natural daylight, no glossy beauty filter. No overlaid disclaimer or other added text; the website will display the disclosure separately. No new people, objects, logos or watermark.

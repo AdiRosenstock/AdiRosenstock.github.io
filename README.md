@@ -62,7 +62,12 @@ The original résumé file is not bundled in the published site.
   `dist/assets/adi-code-portrait.jpg` is the optimized website asset; the exact
   generation prompt is in `portrait-imagegen-prompt.txt`. The portrait switch
   keeps the existing football photo available, with matching captions and alt text.
-  The office background is edited, not a documentary photo of a Bloomberg office.
+  Adi requested a subtly slimmer silhouette and a tidier professional haircut;
+  his supplied formal headshot guides the identity-preserving refinement.
+  A visible disclosure beneath the office portrait explains that the background
+  was recreated with AI for workplace confidentiality and the screens are
+  illustrative, with no Bloomberg internal systems or proprietary code shown.
+  The disclosure hides when visitors switch to the unedited football photo.
 - Prominent Northwestern and Bloomberg hero buttons open résumé-grounded details.
   BanterBoost retains its existing website link and native detail dialog.
 - Career Agent, IMC Prosperity 3, Airbnb classification, DOMUS, and TikiData FC
