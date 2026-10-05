@@ -65,8 +65,9 @@ The original résumé file is not bundled in the published site.
   SVG backgrounds and page-specific palettes relate each scene to its project.
   Interactive illustrations are distinguished from actual project screenshots,
   results, and analysis figures. Content remains visible without JavaScript.
-- Project cards lead with titles and visuals. About, role descriptions, leadership,
-  and extra toolkit tags use native disclosure controls so visitors choose the depth.
+- Project cards lead with titles and visuals. About, role descriptions, and leadership
+  use native disclosure controls so visitors choose the depth. All toolkit tags are
+  visible within their categories, with no extra disclosure controls.
 - The BanterBoost preview switches between current analytics and mini-league screenshots.
 - Mobile navigation opens and closes with an accessible toggle and Escape.
 - Visitors can write a message in the contact form without leaving the page.
