@@ -1,9 +1,9 @@
 /* Motion follows the work: traces, folds, passing moves, and reader actions. */
-/* The pointer is a compact terminal prompt, with a filled caret on actions. */
+/* A market chart is drawn into the pointer itself; actions brighten the chart. */
 @media (hover:hover) and (pointer:fine) and (forced-colors:none) {
-  body,body *{cursor:url('assets/terminal-cursor.svg') 3 5,auto!important}
+  body,body *{cursor:url('assets/market-cursor.svg') 2 2,auto!important}
   body :is(a[href],button:not(:disabled),summary,[role="button"],label[for]),
-  body :is(a[href],button:not(:disabled),summary,[role="button"],label[for]) *{cursor:url('assets/terminal-cursor-action.svg') 3 5,pointer!important}
+  body :is(a[href],button:not(:disabled),summary,[role="button"],label[for]) *{cursor:url('assets/market-cursor-action.svg') 2 2,pointer!important}
   body :is(input,textarea,[contenteditable="true"],[contenteditable="true"] *){cursor:text!important}
   body :is(select,iframe){cursor:auto!important}
   body button:disabled{cursor:default!important}
