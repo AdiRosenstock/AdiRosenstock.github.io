@@ -1,13 +1,12 @@
 /* Motion follows the work: traces, folds, passing moves, and reader actions. */
-/* Interactive controls use a market-signal reticle distinct from the chart pointer. */
+/* Both cursor states share a hotspot, so moving over controls does not jump. */
 @media (hover:hover) and (pointer:fine) and (forced-colors:none) {
-  body,body *{cursor:url('assets/market-cursor.svg') 2 2,auto!important}
-  body :is(a[href],button:not(:disabled),summary,[role="button"],label[for],.project-card),
-  body :is(a[href],button:not(:disabled),summary,[role="button"],label[for],.project-card) *{cursor:url('assets/market-cursor-action.svg?v=bc1e4ba7abb2') 18 18,pointer!important}
-  body :is(input,textarea,[contenteditable="true"],[contenteditable="true"] *){cursor:text!important}
-  body :is(select,iframe){cursor:auto!important}
-  body button:disabled{cursor:default!important}
-  body .contact-form button:disabled{cursor:wait!important}
+  body{cursor:url('assets/market-cursor.svg') 2 2,auto}
+  body :is(a[href],button:not(:disabled),summary,[role="button"],label[for],.project-card){cursor:url('assets/market-cursor-action.svg?v=719271ef922f') 2 2,pointer}
+  body :is(input,textarea,[contenteditable="true"]){cursor:text}
+  body :is(select,iframe){cursor:auto}
+  body button:disabled{cursor:default}
+  body .contact-form button:disabled{cursor:wait}
 }
 .header-motion-toggle{display:none;align-items:center;justify-content:center;flex-shrink:0;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;padding:0;background:transparent;color:var(--muted)}
 .motion-ready .header-motion-toggle{display:flex}
