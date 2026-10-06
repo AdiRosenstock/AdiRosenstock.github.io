@@ -28,7 +28,8 @@
 - Use the football/tech visual direction: pitch markings, passing routes, and data
   points. The user rejected the travel/sky background. Reveal content as it enters
   the viewport; keep content visible with reduced motion or when JavaScript is off.
-- The original résumé is a source document, not a bundled public asset.
+- Adi requested a public résumé link in the hero. Keep the supplied PDF bundled
+  in `dist/assets/` and linked from the homepage; preserve its contents.
 - This is a dependency-free static site. Run `node --check dist/script.js`, check
   changed local asset references, and verify affected interactions in the browser.
 - The stylesheet and script URLs include content-hash query strings to avoid stale

@@ -41,7 +41,8 @@ refinements live in `refinement.css`; edit the files there, then refresh the pre
 
 Internship results are résumé-reported. The portfolio does not claim that FPL’s
 manager population is BanterBoost’s customer count. Trading results are team results.
-The original résumé file is not bundled in the published site.
+Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s public
+“View résumé” link, as requested. The PDF itself is unmodified.
 
 ## Interactions
 
