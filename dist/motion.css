@@ -1,7 +1,7 @@
 /* Motion follows the work: traces, folds, passing moves, and reader actions. */
-/* A familiar arrow with a small teal detail keeps the pointer precise. */
+/* A precise arrow carries a small code glyph without cursor animation. */
 @media (hover:hover) and (pointer:fine) and (forced-colors:none) {
-  body,body *{cursor:url('assets/data-cursor.svg') 2 2,auto!important}
+  body,body *{cursor:url('assets/code-cursor.svg') 2 2,auto!important}
   body :is(a[href],button:not(:disabled),summary,[role="button"],label[for]),
   body :is(a[href],button:not(:disabled),summary,[role="button"],label[for]) *{cursor:pointer!important}
   body :is(input,textarea,[contenteditable="true"],[contenteditable="true"] *){cursor:text!important}

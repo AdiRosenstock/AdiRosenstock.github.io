@@ -5,22 +5,18 @@
   }
 
   .motion-ready:not(.motion-paused) .tuki-sprite {
-    animation: tuki-wave .9s steps(4) infinite;
-  }
-
-  .motion-ready:not(.motion-paused) .tuki-trigger {
-    transform: rotate(-11deg);
-    transition: transform .2s ease;
-  }
-
-  .motion-ready:not(.motion-paused) .tuki-intro:is(:hover, :focus-within) .tuki-trigger {
-    transform: none;
+    animation: tuki-flap .72s steps(4) infinite;
   }
 
   .motion-ready:not(.motion-paused) .tuki-intro:is(:hover, :focus-within),
   .motion-ready:not(.motion-paused) .tuki-intro:is(:hover, :focus-within) .tuki-sprite {
     animation-play-state: paused;
   }
+}
+
+@keyframes tuki-flap {
+  from { background-position: 0 0; }
+  to { background-position: var(--tuki-flight-end) 0; }
 }
 
 @keyframes tuki-fly {
