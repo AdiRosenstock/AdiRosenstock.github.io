@@ -42,14 +42,14 @@ const portraitControls = document.querySelectorAll('[data-portrait-switch]');
 const familyPhotos = [
   {
     scene: 'matchday', src: 'assets/adi-and-eitan-matchday.jpg?v=ce1a99056b9c', width: 640, height: 640,
-    alt: 'Adi Rosenstock on the left with his dad, Eitan Rosenstock, on the right at a football match',
-    caption: 'Dad & me, on matchday.', nextLabel: 'Show the family photo at Cerro Chirripó',
+    alt: 'Adi Rosenstock on the left with his dad, Eitan Rosenstock, on the right at the 2022 Qatar World Cup',
+    caption: 'With my dad at the 2022 Qatar World Cup.', nextLabel: 'Show the family photo at Cerro Chirripó in 2017',
     dadArrow: 'M84 1 C96 13 91 25 77 33 Q70 37 67 43 M66 37 67 43 73 41'
   },
   {
     scene: 'hike', src: 'assets/rosenstock-family-chirripo.jpg?v=eeedc2a7537d', width: 1024, height: 768,
-    alt: 'The Rosenstock family at Cerro Chirripó, with dad Eitan on the left and mom Katherine on the right',
-    caption: 'Family at Cerro Chirripó.', nextLabel: 'Show dad and me on matchday',
+    alt: 'The Rosenstock family at Cerro Chirripó, Costa Rica’s highest point, in 2017, with dad Eitan on the left and mom Katherine on the right',
+    caption: 'Family at Cerro Chirripó, Costa Rica’s highest point, in 2017.', nextLabel: 'Show dad and me at the 2022 Qatar World Cup',
     dadArrow: 'M16 1 C31 10 33 24 22 36 M23 30 22 36 28 34'
   }
 ];
