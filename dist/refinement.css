@@ -78,7 +78,7 @@ h1 { font-size: clamp(68px,6.2vw,90px); line-height: 1.02; letter-spacing: -.068
   background: #e7eeeb;
 }
 .portrait-frame img { object-position: 50% 40%; }
-#hero-portrait[src*="adi-professional.png"] { object-position: 50% 30%; }
+#hero-portrait[src*="adi-professional"] { object-position: 50% 12%; }
 .portrait-note { display: none; }
 .portrait-caption { padding: 16px 0 0; align-items: center; }
 .portrait-caption > span { max-width: 220px; line-height: 1.45; }

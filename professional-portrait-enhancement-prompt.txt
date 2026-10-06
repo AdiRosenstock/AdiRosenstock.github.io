@@ -1,0 +1,10 @@
+Built-in imagegen edit of Professional Picture.png.
+
+Use case: identity-preserve.
+Asset type: high-resolution professional portrait for Adi Rosenstock's personal portfolio.
+Input image 1: edit target and exact identity reference.
+Primary request: enhance this low-resolution studio portrait and make his expression only slightly friendlier. Restore clear, realistic photographic detail in the face, eyes, curls, suit and tie. Relax the brow and lips very slightly and add a small, natural closed-mouth smile, with warm direct eye contact. The result should feel approachable and professional, not cheerful or exaggerated.
+Keep the same person unmistakably recognizable: preserve facial proportions, eyes, nose, jawline, age, skin tone, hairstyle, body shape, posture, black suit, pale blue checked shirt, blue tie, and gray mottled studio backdrop. No slimming or other facial reshaping.
+Composition: retain the original head-and-upper-torso portrait and camera angle, with a little breathing room above the hair. Remove the black bands by continuing the same gray background. Keep enough of the torso for the website's near-square crop.
+Style: photorealistic studio photograph, high-resolution portrait at least 1536 pixels tall, natural skin texture, fine realistic hair strands and fabric details, subtle clean studio lighting.
+Avoid: teeth showing, big grin, changed identity, beauty-filter smoothing, plastic skin, oversharpened halos, new objects, text, watermarks, borders, office or Bloomberg background.

@@ -42,12 +42,12 @@ const portraitSwitch = document.querySelector('#portrait-switch');
 portraitSwitch.addEventListener('click', () => {
   const professional = portraitSwitch.getAttribute('aria-pressed') !== 'true';
   const portrait = document.querySelector('#hero-portrait');
-  portrait.src = professional ? 'assets/adi-professional.png?v=2e9d6198f88a' : 'assets/adi-matchday.webp';
+  portrait.src = professional ? 'assets/adi-professional-enhanced.jpg?v=2cb7acec4bea' : 'assets/adi-matchday.webp';
   portrait.alt = professional ? 'Adi Rosenstock in a dark suit and blue tie against a gray studio background' : 'Adi Rosenstock supporting Club Sport Cartaginés at Stamford Bridge';
   document.querySelector('#portrait-note').textContent = professional ? 'Behind the code.' : 'Football before fantasy.';
   document.querySelector('#portrait-caption').textContent = professional ? 'The person behind the code.' : 'At the match.';
-  portrait.width = professional ? 300 : 1448;
-  portrait.height = professional ? 413 : 1086;
+  portrait.width = professional ? 1069 : 1448;
+  portrait.height = professional ? 1472 : 1086;
   portraitSwitch.setAttribute('aria-pressed', String(professional));
   portraitSwitch.firstChild.textContent = professional ? 'View matchday photo ' : 'View professional photo ';
 });
