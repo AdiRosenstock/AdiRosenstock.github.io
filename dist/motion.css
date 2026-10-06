@@ -1,9 +1,9 @@
 /* Motion follows the work: traces, folds, passing moves, and reader actions. */
-/* A market chart is drawn into the pointer itself; actions brighten the chart. */
+/* The market chart becomes a familiar hand over interactive controls. */
 @media (hover:hover) and (pointer:fine) and (forced-colors:none) {
   body,body *{cursor:url('assets/market-cursor.svg') 2 2,auto!important}
-  body :is(a[href],button:not(:disabled),summary,[role="button"],label[for]),
-  body :is(a[href],button:not(:disabled),summary,[role="button"],label[for]) *{cursor:url('assets/market-cursor-action.svg') 2 2,pointer!important}
+  body :is(a[href],button:not(:disabled),summary,[role="button"],label[for],.project-card),
+  body :is(a[href],button:not(:disabled),summary,[role="button"],label[for],.project-card) *{cursor:pointer!important}
   body :is(input,textarea,[contenteditable="true"],[contenteditable="true"] *){cursor:text!important}
   body :is(select,iframe){cursor:auto!important}
   body button:disabled{cursor:default!important}
