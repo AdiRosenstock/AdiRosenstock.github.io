@@ -58,7 +58,7 @@ h1 { font-size: clamp(68px,6.2vw,90px); line-height: 1.02; letter-spacing: -.068
 .button:hover, .button:focus-visible { transform: translateY(-2px); translate: none; }
 .social-links { display: none; }
 .hero-person { max-width: 420px; margin-top: 20px; }
-.portrait-scene { padding-top: 54px; }
+.portrait-scene { padding-top: 78px; }
 .hero-tactics { top: -100px; left: 0; right: auto; width: 330px; height: 87px; transform: none; opacity: 1; }
 .tactics-note { display: none; }
 .tactics-cross { display: block; opacity: .45; }
@@ -79,18 +79,23 @@ h1 { font-size: clamp(68px,6.2vw,90px); line-height: 1.02; letter-spacing: -.068
 }
 .portrait-frame img { object-position: 50% 40%; }
 .portrait-photo { position: relative; }
-.portrait-photo .portrait-frame { aspect-ratio: 1; }
+.portrait-photo .portrait-frame { aspect-ratio: 4 / 3; }
+.portrait-photo-button { display: block; width: 100%; padding: 0; }
 .portrait-photo #hero-portrait { object-position: 50% 50%; }
-.dad-annotation { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
-.dad-annotation[hidden] { display: none; }
-.dad-link { position: absolute; top: -53px; right: 3px; display: flex; flex-direction: column; align-items: center; color: var(--accent-dark); line-height: 1; pointer-events: auto; transform: rotate(3deg); }
-.dad-label { font-family: 'Caveat', cursive; font-size: 27px; font-weight: 600; }
-.dad-link-label { display: flex; align-items: center; gap: 3px; margin-top: 6px; font-size: 11px; line-height: 1.2; }
-.dad-link-label svg { width: 12px; height: 12px; }
-.dad-link:hover .dad-link-label, .dad-link:focus-visible .dad-link-label { text-decoration: underline; text-underline-offset: 3px; }
-.dad-arrow { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--accent-dark); }
-.dad-arrow path { vector-effect: non-scaling-stroke; stroke-width: 1.8; }
-.dad-arrow .dad-arrow-outline { stroke: #fff; stroke-width: 4.5; }
+.parent-annotation { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.parent-annotation[hidden] { display: none; }
+.parent-link { position: absolute; top: -53px; right: 3px; display: flex; flex-direction: column; align-items: center; color: var(--accent-dark); line-height: 1; pointer-events: auto; transform: rotate(3deg); }
+.parent-label { font-family: 'Caveat', cursive; font-size: 27px; font-weight: 600; }
+.parent-link-label { display: flex; align-items: center; gap: 3px; margin-top: 6px; font-size: 11px; line-height: 1.2; }
+.parent-link-label svg { width: 12px; height: 12px; }
+.parent-link:hover .parent-link-label, .parent-link:focus-visible .parent-link-label { text-decoration: underline; text-underline-offset: 3px; }
+.parent-arrow { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--accent-dark); }
+.parent-arrow path { vector-effect: non-scaling-stroke; stroke-width: 1.8; }
+.parent-arrow .parent-arrow-outline { stroke: #fff; stroke-width: 4.5; }
+.portrait-photo[data-scene="hike"] .parent-link { top: -74px; min-width: 90px; }
+.portrait-photo[data-scene="hike"] .parent-label { font-size: 25px; line-height: 1.04; }
+.portrait-photo[data-scene="hike"] .parent-label span { display: block; }
+.portrait-photo[data-scene="hike"] #dad-annotation .parent-link { left: 3px; right: auto; transform: rotate(-3deg); }
 .portrait-note { display: none; }
 .portrait-caption { padding: 16px 0 0; align-items: center; }
 .portrait-caption > span { max-width: 220px; line-height: 1.45; }
@@ -301,6 +306,13 @@ h2 > span { color: var(--ink); }
 .personal-details { margin-top: 30px; gap: 14px; font-size: 18px; line-height: 1.5; }
 .interest-list { gap: 12px 24px; font-size: 25px; font-weight: 550; }
 .about-details { margin-top: 34px; }
+.about-stadium-photo { max-width: 380px; margin: 34px 0 0; }
+.about-stadium-frame { overflow: hidden; border-radius: 5px; aspect-ratio: 4 / 5; background: var(--section); }
+.about-stadium-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; transition: transform .45s cubic-bezier(.22,1,.36,1); }
+.about-stadium-photo figcaption { margin-top: 12px; font-size: 13px; color: var(--muted); }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .motion-ready:not(.motion-paused) .about-stadium-photo:hover img { transform: scale(1.025); }
+}
 .language-row { margin-top: 35px; }
 .experience-section { padding: 110px 0 115px; background: #fff; }
 .experience-list { margin-top: 35px; }
@@ -416,7 +428,7 @@ h2 > span { color: var(--ink); }
   .hero-actions { margin-top: 22px; }
   .hero-person { max-width: 420px; margin: 48px auto 0; }
   .hero-tactics { top: -110px; width: min(340px,100%); height: 90px; transform: none; }
-  .portrait-scene { padding-top: 54px; }
+  .portrait-scene { padding-top: 78px; }
   .tuki-intro { --tuki-frame: 96px; --tuki-height: 128px; --tuki-flight-end: -384px; --tuki-half: 48px; --tuki-note-half: min(131px, calc(50vw - 24px)); top: 8px; margin-left: -48px; }
   .tuki-sprite { background-size: 384px 128px; }
   .tuki-note { width: min(262px, calc(100vw - 48px)); }

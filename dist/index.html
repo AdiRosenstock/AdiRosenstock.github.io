@@ -19,12 +19,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;450;500;550;600;650;700&family=Outfit:wght@400;500;550;600;650;700;750&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=cf88f4f1192d">
   <link rel="stylesheet" href="toolkit.css?v=495e7fa69b26">
-  <script src="script.js?v=13b3c8a21fcb" defer></script>
+  <script src="script.js?v=9a1c4ef2ca17" defer></script>
   <script src="contact.js?v=0df259927064" defer></script>
   <link rel="stylesheet" href="motion.css?v=87b9e9d64242">
-  <link rel="stylesheet" href="refinement.css?v=78b8d86fc860">
+  <link rel="stylesheet" href="refinement.css?v=d131cdd6fb69">
   <link rel="stylesheet" href="tuki-intro.css?v=3c61c8d85bca">
-  <script src="motion.js?v=a6755fd8d662" defer></script>
+  <script src="motion.js?v=a23a2c0f9b05" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -83,16 +83,20 @@
       <div class="hero-person">
         <div class="portrait-scene">
         <div class="photo-float ambient-motion">
-        <div class="portrait-photo">
-        <div class="portrait-frame">
+        <div class="portrait-photo" data-scene="matchday">
+        <button class="portrait-frame portrait-photo-button" id="portrait-photo-button" type="button" data-portrait-switch aria-label="Show the family photo at Cerro Chirripó" aria-controls="hero-portrait portrait-caption">
           <img id="hero-portrait" src="assets/adi-and-eitan-matchday.jpg?v=ce1a99056b9c" width="640" height="640" alt="Adi Rosenstock on the left with his dad, Eitan Rosenstock, on the right at a football match" fetchpriority="high">
+        </button>
+        <div class="parent-annotation" id="dad-annotation">
+          <a class="parent-link" href="https://www.linkedin.com/in/eitan-rosenstock-87425671/" target="_blank" rel="noopener noreferrer" aria-label="My dad, Eitan Rosenstock — view his LinkedIn profile (opens in a new tab)"><span class="parent-label">My dad,<span> Eitan</span></span><span class="parent-link-label">LinkedIn <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
+          <svg class="parent-arrow" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="parent-arrow-outline" d="M84 1 C96 13 91 25 77 33 Q70 37 67 43 M66 37 67 43 73 41"/><path d="M84 1 C96 13 91 25 77 33 Q70 37 67 43 M66 37 67 43 73 41"/></svg>
         </div>
-        <div class="dad-annotation" id="dad-annotation">
-          <a class="dad-link" href="https://www.linkedin.com/in/eitan-rosenstock-87425671/" target="_blank" rel="noopener noreferrer" aria-label="My dad, Eitan Rosenstock — view his LinkedIn profile (opens in a new tab)"><span class="dad-label">My dad, Eitan</span><span class="dad-link-label">LinkedIn <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
-          <svg class="dad-arrow" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="dad-arrow-outline" d="M84 1 C96 13 91 25 77 33 Q70 37 67 43 M66 37 67 43 73 41"/><path d="M84 1 C96 13 91 25 77 33 Q70 37 67 43 M66 37 67 43 73 41"/></svg>
+        <div class="parent-annotation" id="mom-annotation" hidden>
+          <a class="parent-link" href="https://www.linkedin.com/in/katherinegutreiman/" target="_blank" rel="noopener noreferrer" aria-label="My mom, Katherine Gutreiman — view her LinkedIn profile (opens in a new tab)"><span class="parent-label">My mom,<span> Katherine</span></span><span class="parent-link-label">LinkedIn <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
+          <svg class="parent-arrow" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="parent-arrow-outline" d="M84 1 C99 10 100 30 86 44 M87 38 86 44 92 42"/><path d="M84 1 C99 10 100 30 86 44 M87 38 86 44 92 42"/></svg>
         </div>
         </div>
-        <div class="portrait-caption"><span id="portrait-caption">Dad &amp; me, on matchday.</span><button id="portrait-switch" type="button" aria-pressed="true">Another matchday photo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-12-2 14"/></svg></button></div>
+        <div class="portrait-caption"><span id="portrait-caption" aria-live="polite">Dad &amp; me, on matchday.</span><button id="portrait-switch" type="button" data-portrait-switch aria-label="Show the family photo at Cerro Chirripó" aria-controls="hero-portrait portrait-caption">Click photo to switch <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16m-4-4 4 4-4 4M20 16H4m4-4-4 4 4 4"/></svg></button></div>
         </div>
         <div class="football-play"><button id="kick-football" class="football-button" type="button" aria-label="Kick the Brazuca football"><span class="football-drawing brazuca-button-art ambient-motion" aria-hidden="true"></span></button><span class="football-hint" id="football-hint">Go on, give it a kick.</span></div>
         <p class="sr-only" id="football-status" aria-live="polite"></p>
@@ -157,6 +161,7 @@
 
     <section class="about-section section-wrap" id="about" aria-labelledby="about-title">
       <div class="about-title">
+        <div class="about-intro">
         <h2 id="about-title">About me</h2>
         <div class="personal-details">
           <span>🇨🇷 Costa Rican</span>
@@ -164,6 +169,11 @@
           <span>⚽ Former Professional Soccer Player</span>
           <span>💻 Tech, Data and Finance</span>
         </div>
+        </div>
+        <figure class="about-stadium-photo">
+          <div class="about-stadium-frame"><img src="assets/adi-matchday.webp" width="1448" height="1086" alt="Adi Rosenstock kissing the Club Sport Cartaginés crest at a football stadium" loading="lazy"></div>
+          <figcaption>Football before fantasy.</figcaption>
+        </figure>
       </div>
       <div class="about-copy">
         <p class="about-lead">I’m a senior at Northwestern studying Computer Science, Data Science, and Economics.</p>

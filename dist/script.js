@@ -38,19 +38,37 @@ document.addEventListener('keydown', event => {
     menuButton.focus();
   }
 });
-const portraitSwitch = document.querySelector('#portrait-switch');
-portraitSwitch.addEventListener('click', () => {
-  const family = portraitSwitch.getAttribute('aria-pressed') !== 'true';
+const portraitControls = document.querySelectorAll('[data-portrait-switch]');
+const familyPhotos = [
+  {
+    scene: 'matchday', src: 'assets/adi-and-eitan-matchday.jpg?v=ce1a99056b9c', width: 640, height: 640,
+    alt: 'Adi Rosenstock on the left with his dad, Eitan Rosenstock, on the right at a football match',
+    caption: 'Dad & me, on matchday.', nextLabel: 'Show the family photo at Cerro Chirripó',
+    dadArrow: 'M84 1 C96 13 91 25 77 33 Q70 37 67 43 M66 37 67 43 73 41'
+  },
+  {
+    scene: 'hike', src: 'assets/rosenstock-family-chirripo.jpg?v=eeedc2a7537d', width: 1024, height: 768,
+    alt: 'The Rosenstock family at Cerro Chirripó, with dad Eitan on the left and mom Katherine on the right',
+    caption: 'Family at Cerro Chirripó.', nextLabel: 'Show dad and me on matchday',
+    dadArrow: 'M16 1 C31 10 33 24 22 36 M23 30 22 36 28 34'
+  }
+];
+let familyPhotoIndex = 0;
+function switchFamilyPhoto() {
+  familyPhotoIndex = (familyPhotoIndex + 1) % familyPhotos.length;
+  const photo = familyPhotos[familyPhotoIndex];
   const portrait = document.querySelector('#hero-portrait');
-  portrait.src = family ? 'assets/adi-and-eitan-matchday.jpg?v=ce1a99056b9c' : 'assets/adi-matchday.webp';
-  portrait.alt = family ? 'Adi Rosenstock on the left with his dad, Eitan Rosenstock, on the right at a football match' : 'Adi Rosenstock supporting Club Sport Cartaginés at Stamford Bridge';
-  document.querySelector('#portrait-caption').textContent = family ? 'Dad & me, on matchday.' : 'At the match.';
-  document.querySelector('#dad-annotation').hidden = !family;
-  portrait.width = family ? 640 : 1448;
-  portrait.height = family ? 640 : 1086;
-  portraitSwitch.setAttribute('aria-pressed', String(family));
-  portraitSwitch.firstChild.textContent = family ? 'Another matchday photo ' : 'Back to Dad & me ';
-});
+  portrait.src = photo.src;
+  portrait.alt = photo.alt;
+  portrait.width = photo.width;
+  portrait.height = photo.height;
+  document.querySelector('.portrait-photo').dataset.scene = photo.scene;
+  document.querySelector('#portrait-caption').textContent = photo.caption;
+  document.querySelector('#mom-annotation').hidden = photo.scene !== 'hike';
+  document.querySelectorAll('#dad-annotation .parent-arrow path').forEach(path => path.setAttribute('d', photo.dadArrow));
+  portraitControls.forEach(control => control.setAttribute('aria-label', photo.nextLabel));
+}
+portraitControls.forEach(control => control.addEventListener('click', switchFamilyPhoto));
 const projects = {
   northwestern: {
     category: 'Education · Expected June 2027', title: 'Northwestern University',
@@ -256,10 +274,10 @@ function initializeReveals() {
     });
   }, { rootMargin: '0px 0px -48px 0px', threshold: 0.08 });
   const groups = [
-    ['.projects-section .section-heading, .about-title, .experience-section .section-heading, .skills-intro', 'heading'],
+    ['.projects-section .section-heading, .about-intro, .experience-section .section-heading, .skills-intro', 'heading'],
     ['.featured-project', 'feature'],
     ['.project-card', 'card'],
-    ['.more-projects > a, .about-copy, .leadership-note, .reading-intro, .book-list, .podcast-recs', 'copy'],
+    ['.more-projects > a, .about-copy, .about-stadium-photo, .leadership-note, .reading-intro, .book-list, .podcast-recs', 'copy'],
     ['.experience-row', 'timeline'],
     ['.skill-group', 'toolkit'],
     ['.contact-inner > div', 'contact']

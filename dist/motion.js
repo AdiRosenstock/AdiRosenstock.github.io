@@ -91,9 +91,9 @@
     previewAnimations.add(animation);
     animation.finished.then(() => previewAnimations.delete(animation), () => previewAnimations.delete(animation));
   }
-  const previewControls = [...document.querySelectorAll('[data-banter-view], #portrait-switch')];
+  const previewControls = [...document.querySelectorAll('[data-banter-view], [data-portrait-switch]')];
   previewControls.forEach(control => control.addEventListener('click', () => {
-    const image = document.querySelector(control.id === 'portrait-switch' ? '#hero-portrait' : '#banterboost-fallback');
+    const image = document.querySelector(control.hasAttribute('data-portrait-switch') ? '#hero-portrait' : '#banterboost-fallback');
     if (!image || paused()) return;
     if (image.complete) fadePreview(image);
     else image.addEventListener('load', () => fadePreview(image), { once: true });
