@@ -9,7 +9,7 @@
   --display: 'DM Sans', sans-serif;
 }
 
-html { scroll-padding-top: 82px; }
+html { scroll-padding-top: 108px; }
 body { line-height: 1.6; }
 h1, h2, h3 { font-family: var(--display); }
 .section-wrap { width: min(1160px, calc(100% - 112px)); }
@@ -21,13 +21,11 @@ nav { gap: 29px; }
 nav a { font-size: 14px; }
 .mobile-contact-link { display: none; }
 .nav-contact { border-color: transparent; padding-inline: 12px; }
-.reading-progress-ball { display: none; }
-.reading-progress { height: 2px; }
 
 .hero-scene { background: #fff; }
 .pitch-backdrop { opacity: .4; }
 .hero {
-  min-height: calc(100svh - 74px);
+  min-height: calc(100svh - 104px);
   grid-template-columns: minmax(0,1.18fr) minmax(350px,.82fr);
   column-gap: clamp(64px,8vw,130px);
   row-gap: 0;
@@ -386,7 +384,7 @@ h2 > span { color: var(--ink); }
 }
 
 @media (max-width: 650px) {
-  html { scroll-padding-top: 72px; }
+  html { scroll-padding-top: 104px; }
   .section-wrap, .nav-wrap { width: calc(100% - 42px); }
   .nav-wrap { height: 67px; }
   .nav-wrap { gap: 17px; }

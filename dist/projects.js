@@ -74,12 +74,19 @@ if ('IntersectionObserver' in window) {
   }, { rootMargin: '-15% 0px -55% 0px', threshold: 0 });
   document.querySelectorAll('.story-section').forEach(section => observer.observe(section));
 }
+const matchProgress = document.querySelector('.reading-progress');
+const matchMinute = document.querySelector('.match-minute');
 let progressFrame = 0;
 function updateProgress() {
   progressFrame = 0;
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
   const progress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+  const minute = Math.round(progress * 90);
   document.documentElement.style.setProperty('--page-progress', String(progress));
+  document.documentElement.style.setProperty('--page-progress-percent', `${progress * 100}%`);
+  matchMinute.textContent = `${String(minute).padStart(2, '0')}′`;
+  matchProgress.setAttribute('aria-valuenow', String(minute));
+  matchProgress.setAttribute('aria-valuetext', `Match minute ${minute} of 90`);
 }
 function scheduleProgress() {
   if (!progressFrame) progressFrame = requestAnimationFrame(updateProgress);

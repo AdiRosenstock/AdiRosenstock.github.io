@@ -291,12 +291,19 @@ document.addEventListener('focusin', event => {
 });
 
 const experienceTrack = document.querySelector('.experience-list');
+const matchProgress = document.querySelector('.reading-progress');
+const matchMinute = document.querySelector('.match-minute');
 let progressFrame = 0;
 function updateScrollProgress() {
   progressFrame = 0;
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
   const pageProgress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+  const minute = Math.round(pageProgress * 90);
   document.documentElement.style.setProperty('--page-progress', String(pageProgress));
+  document.documentElement.style.setProperty('--page-progress-percent', `${pageProgress * 100}%`);
+  matchMinute.textContent = `${String(minute).padStart(2, '0')}′`;
+  matchProgress.setAttribute('aria-valuenow', String(minute));
+  matchProgress.setAttribute('aria-valuetext', `Match minute ${minute} of 90`);
   const timeline = experienceTrack.getBoundingClientRect();
   const experienceProgress = Math.min(1, Math.max(0, (window.innerHeight * 0.76 - timeline.top) / timeline.height));
   experienceTrack.style.setProperty('--experience-progress', String(experienceProgress));

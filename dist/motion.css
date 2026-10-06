@@ -1,4 +1,19 @@
 /* Motion follows the work: traces, folds, passing moves, and reader actions. */
+html{scroll-padding-top:120px}
+/* A match clock turns page progress into a 0–90 minute journey. */
+.reading-progress{position:relative;bottom:auto;left:auto;display:flex;align-items:center;gap:16px;height:30px;padding-inline:max(48px,calc((100% - 1280px)/2));background:#f4f8f6;border-top:1px solid #e3ece8;color:var(--accent-dark);font-family:var(--display);font-size:11px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.match-clock{display:inline-flex;align-items:baseline;gap:8px;min-width:75px}
+.match-clock-label{color:#69827b;font-size:9px;letter-spacing:.08em}
+.match-minute{font-size:13px}
+.match-track{position:relative;flex:1;height:3px;background:#c9ded7;border-radius:99px}
+.match-track .reading-progress-fill{border-radius:inherit}
+.match-half{position:absolute;left:50%;top:-10px;translate:-50% 0;color:#6e8c83;font-size:9px;font-weight:600}
+.match-half::after{content:'';position:absolute;left:50%;top:10px;height:8px;border-left:1px solid #769e92}
+.reading-progress-ball{display:block;top:50%;left:var(--page-progress-percent,0%);width:14px;height:14px;border:1px solid #58736c;background:#fff url('assets/jabulani.png') center/cover no-repeat;transform:translate(-50%,-50%);box-shadow:0 1px 3px #153c3226}
+.reading-progress-ball::after{display:none}
+.match-full-time{min-width:44px;text-align:right}
+.match-full-time span{margin-left:3px;color:#69827b;font-size:9px;letter-spacing:.06em}
+@media(max-width:650px){.reading-progress{gap:10px;padding-inline:21px}.match-clock{min-width:28px}.match-clock-label,.match-full-time span{display:none}.match-full-time{min-width:28px}}
 /* Both cursor states share a hotspot, so moving over controls does not jump. */
 @media (hover:hover) and (pointer:fine) and (forced-colors:none) {
   body{cursor:url('assets/market-cursor.svg') 2 2,auto}

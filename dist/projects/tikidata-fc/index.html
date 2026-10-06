@@ -20,8 +20,8 @@
   <link rel="stylesheet" href="../../styles.css?v=fd1e82521a29">
   <link rel="stylesheet" href="../../projects.css?v=65e095dc62cd">
   <link rel="stylesheet" href="../../project-scenes.css?v=0528ad829eec">
-  <script src="../../projects.js?v=8e5467495258" defer></script>
-  <link rel="stylesheet" href="../../motion.css?v=3c7e4ca71bb5">
+  <script src="../../projects.js?v=01fc02fb4dab" defer></script>
+  <link rel="stylesheet" href="../../motion.css?v=87b9e9d64242">
   <script src="../../motion.js?v=a6755fd8d662" defer></script>
 </head>
 <body class="project-page" data-theme="football">
@@ -34,7 +34,11 @@
       <nav id="navigation" aria-label="Project navigation"><a href="#overview">Overview</a><a href="#build">Build details</a><a href="#explore">Explore</a></nav>
       <a class="nav-contact" href="../../#contact">Let’s talk <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 6l8 6 8-6"/></svg></a><button class="header-motion-toggle" type="button" aria-label="Pause motion" title="Pause motion" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg></button>
     </div>
-    <div class="reading-progress" aria-hidden="true"><span class="reading-progress-fill"></span><span class="reading-progress-ball"></span></div>
+    <div class="reading-progress" role="progressbar" aria-label="Page scroll, match minute" aria-valuemin="0" aria-valuemax="90" aria-valuenow="0" aria-valuetext="Match minute 0 of 90">
+      <span class="match-clock" aria-hidden="true"><span class="match-clock-label">MATCH</span><span class="match-minute">00′</span></span>
+      <span class="match-track" aria-hidden="true"><span class="reading-progress-fill"></span><span class="match-half">45′</span><span class="reading-progress-ball"></span></span>
+      <span class="match-full-time" aria-hidden="true">90′ <span>FT</span></span>
+    </div>
   </header>
   <main id="main">
     <div class="project-banner">
