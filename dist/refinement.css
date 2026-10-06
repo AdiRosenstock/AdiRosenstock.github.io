@@ -287,7 +287,7 @@ h2 > span { color: var(--ink); }
 .about-section { grid-template-columns: .8fr 1.2fr; gap: 120px; padding-block: 135px; }
 .about-copy > p { max-width: 63ch; font-size: 17px; line-height: 1.8; }
 .about-copy > .about-lead { font-size: 24px; line-height: 1.5; }
-.personal-details { margin-top: 30px; }
+.personal-details { margin-top: 30px; gap: 14px; font-size: 18px; line-height: 1.5; }
 .interest-list { gap: 12px 24px; font-size: 25px; font-weight: 550; }
 .about-details { margin-top: 34px; }
 .language-row { margin-top: 35px; }
@@ -430,6 +430,7 @@ h2 > span { color: var(--ink); }
   .project-card .card-copy { padding: 21px 0 27px; }
   .card-copy h3 { font-size: 23px; }
   .about-section { grid-template-columns: 1fr; padding-block: 88px; gap: 30px; }
+  .personal-details { gap: 11px; font-size: 16px; }
   .about-copy > p { font-size: 16px; line-height: 1.75; }
   .about-copy > .about-lead { font-size: 22px; }
   .interest-list { font-size: 22px; }
