@@ -1,0 +1,16 @@
+/* Tuki arrives after the hero copy and portrait have entered. */
+@media (prefers-reduced-motion: no-preference) {
+  .motion-ready:not(.motion-intro-complete):not(.motion-paused) .tuki-intro {
+    animation: tuki-arrive .82s cubic-bezier(.22, 1, .36, 1) 1.42s both;
+  }
+
+  .motion-ready:not(.motion-intro-complete):not(.motion-paused) .tuki-sprite {
+    animation: tuki-wave .76s steps(4) 1.54s 1;
+  }
+}
+
+@keyframes tuki-arrive {
+  0% { opacity: 0; transform: translate(-28px, 24px) rotate(-8deg) scale(.82); }
+  68% { opacity: 1; transform: translate(3px, -9px) rotate(3deg) scale(1.04); }
+  100% { opacity: 1; transform: none; }
+}
