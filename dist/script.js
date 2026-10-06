@@ -40,16 +40,16 @@ document.addEventListener('keydown', event => {
 });
 const portraitSwitch = document.querySelector('#portrait-switch');
 portraitSwitch.addEventListener('click', () => {
-  const professional = portraitSwitch.getAttribute('aria-pressed') !== 'true';
+  const family = portraitSwitch.getAttribute('aria-pressed') !== 'true';
   const portrait = document.querySelector('#hero-portrait');
-  portrait.src = professional ? 'assets/adi-professional-enhanced.jpg?v=2cb7acec4bea' : 'assets/adi-matchday.webp';
-  portrait.alt = professional ? 'Adi Rosenstock in a dark suit and blue tie against a gray studio background' : 'Adi Rosenstock supporting Club Sport Cartaginés at Stamford Bridge';
-  document.querySelector('#portrait-note').textContent = professional ? 'Behind the code.' : 'Football before fantasy.';
-  document.querySelector('#portrait-caption').textContent = professional ? 'The person behind the code.' : 'At the match.';
-  portrait.width = professional ? 1069 : 1448;
-  portrait.height = professional ? 1472 : 1086;
-  portraitSwitch.setAttribute('aria-pressed', String(professional));
-  portraitSwitch.firstChild.textContent = professional ? 'View matchday photo ' : 'View professional photo ';
+  portrait.src = family ? 'assets/adi-and-eitan-matchday.jpg?v=ce1a99056b9c' : 'assets/adi-matchday.webp';
+  portrait.alt = family ? 'Adi Rosenstock on the left with his dad, Eitan Rosenstock, on the right at a football match' : 'Adi Rosenstock supporting Club Sport Cartaginés at Stamford Bridge';
+  document.querySelector('#portrait-caption').textContent = family ? 'Dad & me, on matchday.' : 'At the match.';
+  document.querySelector('#dad-annotation').hidden = !family;
+  portrait.width = family ? 640 : 1448;
+  portrait.height = family ? 640 : 1086;
+  portraitSwitch.setAttribute('aria-pressed', String(family));
+  portraitSwitch.firstChild.textContent = family ? 'Another matchday photo ' : 'Back to Dad & me ';
 });
 const projects = {
   northwestern: {

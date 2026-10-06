@@ -63,13 +63,12 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
 - A persistent pause control and system reduced-motion preference stop ambient motion.
   Pausing also reveals all content immediately. Hero motion pauses offscreen,
   and all content remains visible when JavaScript is disabled.
-- The homepage opens with a higher-resolution version of Adi’s supplied
-  professional studio portrait, enhanced with the built-in imagegen tool for
-  clearer detail and a subtle, relaxed closed-mouth smile. The original is
-  preserved at `dist/assets/adi-professional.png`; the active image is
-  `dist/assets/adi-professional-enhanced.jpg`. The exact edit prompt is saved in
-  `professional-portrait-enhancement-prompt.txt`. The portrait switch keeps the
-  existing football photo available, with matching captions, dimensions, and alt text.
+- The homepage opens with Adi’s supplied matchday photo with his dad, Eitan
+  Rosenstock, copied unchanged to `dist/assets/adi-and-eitan-matchday.jpg`.
+  A handwritten “My dad, Eitan” note links to the LinkedIn profile Adi selected,
+  with a curved arrow pointing toward Eitan on the right. The note and arrow
+  hide when switching to the other matchday photo. Captions, dimensions, and
+  alt text update with the photo. The professional headshot is no longer used.
   The AI office portrait and its disclosure are no longer used on the homepage.
 - Prominent Northwestern and Bloomberg hero buttons open résumé-grounded details.
   BanterBoost retains its existing website link and native detail dialog.
