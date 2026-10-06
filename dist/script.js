@@ -70,7 +70,7 @@ const projects = {
       ['Data engineering', 'Built a production Python and SQL pipeline reconciling 2.3 million financial records across 860 companies and 1,489 fields, surfacing more than 21,000 data quality updates.'],
       ['Agentic AI', 'Developed a system to investigate financial data discrepancies, with specialized agents, a custom MCP server, and SEC 10-K/10-Q XBRL extraction for independent verification.'],
       ['The impact', 'The solution automated resolution of 71% of flagged cases, reduced manual review by more than 63%, and saved approximately 200 analyst-hours per month.']
-    ], outcome: '2.3M+ records · 860 companies · 71% of flagged cases automated.', links: []
+    ], outcome: '2.3M+ records · 860 companies · 71% of flagged cases automated.', links: [['Bloomberg website', 'https://www.bloomberg.com/'], ['View recommendation letter', 'assets/bloomberg-recommendation-letter.pdf']]
   },
   banterboost: {
     category: 'BanterBoost · Founder & sole engineer', title: 'Football data, with a point of view.',

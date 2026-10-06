@@ -27,8 +27,10 @@ refinements live in `refinement.css`; edit the files there, then refresh the pre
   was replaced after review of the live product.
 - Career Agent’s public README and fictional demo screenshot: product capabilities
   and architecture. No personal application records appear in the screenshot.
-- Organization logos supplied by Adi, with official links to impaKt, MusclePoints
-  (now MUSCLE), Vértice, and Hanoar Hatzioni. Role details and dates come from the résumé.
+- Organization logos supplied by Adi, with official links to Bloomberg, impaKt,
+  MusclePoints (now MUSCLE), Vértice, and Hanoar Hatzioni. Role details and dates
+  come from the résumé. The Bloomberg experience links to Adi’s supplied
+  recommendation letter, bundled as a public PDF in `dist/assets/`.
 
 - Project logos: IMC’s wordmark SVG from [its official site](https://www.imc.com/us),
   Airbnb’s original Bélo SVG from [its Newsroom](https://news.airbnb.com/images/belo.svg),
