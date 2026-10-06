@@ -370,10 +370,7 @@ h2 > span { color: var(--ink); }
 .reveal-copy.is-pending, .reveal-contact.is-pending { transform: translateY(20px); }
 .motion-ready .project-card .card-visual > img { transition: transform .6s cubic-bezier(.22,1,.36,1); }
 .motion-ready .project-card:hover .card-visual > img,
-.motion-ready .project-card:focus-within .card-visual > img { transform: scale(1.025); }
-.motion-ready .motion-visible .preview-trace path,
-.motion-ready .motion-visible .model-preview-folds i,
-.motion-ready .motion-visible .mini-pitch-ball,
+.motion-ready .project-card:focus-within .card-visual > img { transform: translate3d(var(--art-x,0px),var(--art-y,0px),0) scale(1.04); }
 .motion-ready .is-revealed .impact-row strong::after { animation: none; }
 
 @media (max-width: 1050px) {

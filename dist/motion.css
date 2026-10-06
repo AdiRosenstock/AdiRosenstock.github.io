@@ -92,24 +92,52 @@ nav a[aria-current]::after{animation:nav-trace .25s ease both;transform-origin:l
 .motion-ready .project-card .card-visual>img{transition:transform .35s cubic-bezier(.22,1,.36,1)}
 .motion-ready .project-card:hover .card-visual>img,
 .motion-ready .project-card:focus-within .card-visual>img{transform:translate3d(var(--art-x,0px),var(--art-y,0px),0) scale(1.055)}
-.preview-trace{position:absolute;left:0;bottom:0;width:100%;height:64px;fill:none;stroke:#285273;stroke-width:2;opacity:.2;pointer-events:none}
-.preview-trace path{stroke-dasharray:100;stroke-dashoffset:0}
-.motion-ready .motion-visible .preview-trace path{animation:preview-trace 1.2s ease-out both}
-.project-card:hover .preview-trace path,.project-card:focus-within .preview-trace path{animation:preview-trace 1s ease-out both}
+/* Each preview has its own repeating story while it is in view. */
+.career-preview-scan{position:absolute;top:0;bottom:0;left:21px;width:28%;background:linear-gradient(90deg,transparent,#5e9fbc20 70%,#508ba445 99%,transparent);opacity:0;pointer-events:none}
+.motion-ready .motion-visible .career-preview-scan{animation:career-scan 5.8s ease-in-out infinite}
+.motion-ready .motion-visible .career-visual>img{animation:workspace-pan 10s ease-in-out infinite alternate}
+@keyframes career-scan{0%,12%{transform:translateX(-110%);opacity:0}22%{opacity:1}72%{opacity:1}88%,100%{transform:translateX(370%);opacity:0}}
+@keyframes workspace-pan{from{translate:0 0}to{translate:0 -9px}}
+.preview-trace{position:absolute;left:0;bottom:0;width:100%;height:64px;fill:none;stroke:#285273;stroke-width:2;pointer-events:none}
+.preview-trace-line{opacity:.25;stroke-dasharray:100;stroke-dashoffset:0}
+.preview-trace-signal{stroke-width:3;stroke-linecap:round;stroke-dasharray:8 100;stroke-dashoffset:8;opacity:0}
+.motion-ready .motion-visible .preview-trace-line{animation:preview-trace 1.3s ease-out both}
+.motion-ready .motion-visible .preview-trace-signal{animation:trace-signal 5.4s linear infinite}
 @keyframes preview-trace{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+@keyframes trace-signal{0%{stroke-dashoffset:8;opacity:0}8%,85%{opacity:.85}100%{stroke-dashoffset:-100;opacity:0}}
 .model-preview-folds{position:absolute;top:21px;right:20px;display:flex;align-items:end;gap:4px;height:25px;pointer-events:none}
 .model-preview-folds i{display:block;width:6px;height:19px;background:#76a39c;border-radius:2px;transform-origin:bottom}
-.model-preview-folds i:nth-child(2){height:14px;--fold-delay:70ms}
-.model-preview-folds i:nth-child(3){height:23px;--fold-delay:140ms}
-.model-preview-folds i:nth-child(4){height:17px;--fold-delay:210ms}
-.model-preview-folds i:nth-child(5){height:25px;background:#b06476;--fold-delay:280ms}
-.motion-ready .motion-visible .model-preview-folds i{animation:fold-rise .65s cubic-bezier(.22,1,.36,1) both;animation-delay:var(--fold-delay,0ms)}
-@keyframes fold-rise{from{opacity:.4;transform:scaleY(.15)}to{opacity:1;transform:scaleY(1)}}
-.mini-pitch-ball{offset-path:path('M113 151 L210 72 L308 142 L393 64');offset-distance:0%;fill:#28543c;stroke:#fff;stroke-width:2}
-.motion-ready .motion-visible .mini-pitch-ball{animation:preview-pass 5s cubic-bezier(.35,0,.25,1) infinite}
-@keyframes preview-pass{0%,12%{offset-distance:0%}32%,42%{offset-distance:33%}62%,72%{offset-distance:66%}92%,100%{offset-distance:100%}}
-.motion-ready .project-card:hover .mini-pitch-route,
-.motion-ready .project-card:focus-within .mini-pitch-route{animation:route-flow 1s linear 3}
+.model-preview-folds i:nth-child(2){height:14px;--fold-delay:-.4s}
+.model-preview-folds i:nth-child(3){height:23px;--fold-delay:-.8s}
+.model-preview-folds i:nth-child(4){height:17px;--fold-delay:-1.2s}
+.model-preview-folds i:nth-child(5){height:25px;background:#b06476;--fold-delay:-1.6s}
+.motion-ready .motion-visible .model-preview-folds i{animation:fold-wave 3.8s ease-in-out infinite;animation-delay:var(--fold-delay,0s)}
+@keyframes fold-wave{0%,100%{opacity:.6;transform:scaleY(.45)}45%,60%{opacity:1;transform:scaleY(1)}}
+.airbnb-visual .score-position{position:relative}
+.airbnb-visual .score-position::before{content:'';position:absolute;left:0;right:0;top:-1px;height:2px;background:linear-gradient(90deg,transparent 35%,#5b9690 50%,transparent 65%);background-size:250% 100%;opacity:0;pointer-events:none}
+.motion-ready .motion-visible .score-position::before{animation:model-signal 5.2s ease-in-out infinite}
+@keyframes model-signal{0%{background-position:100% 0;opacity:0}15%,80%{opacity:.7}100%{background-position:0 0;opacity:0}}
+.motion-ready .motion-visible .domus-visual>img{animation:table-pan 14s ease-in-out infinite alternate}
+.motion-ready .motion-visible .domus-card-wordmark{animation:table-note 7s ease-in-out infinite}
+@keyframes table-pan{from{scale:1;translate:0 0}to{scale:1.085;translate:-1% 1%}}
+@keyframes table-note{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -4px;rotate:-1deg}}
+.mini-pitch-ball{transform:translate(113px,151px);fill:#28543c;stroke:#fff;stroke-width:2}
+.mini-pitch-halos{fill:none;stroke:#34644a;stroke-width:1.5;pointer-events:none}
+.mini-pitch-halos circle{opacity:0;transform-box:fill-box;transform-origin:center}
+.mini-pitch-halos circle:nth-child(2){--receive-delay:1.8s}
+.mini-pitch-halos circle:nth-child(3){--receive-delay:3.6s}
+.mini-pitch-halos circle:nth-child(4){--receive-delay:5.2s}
+.mini-pitch-data circle{transform-box:fill-box;transform-origin:center}
+.mini-pitch-data circle:nth-child(2){--data-delay:-.6s}
+.mini-pitch-data circle:nth-child(3){--data-delay:-1.2s}
+.mini-pitch-data circle:nth-child(4){--data-delay:-1.8s}
+.motion-ready .motion-visible .mini-pitch-ball{animation:preview-pass 6s cubic-bezier(.35,0,.25,1) infinite}
+.motion-ready .motion-visible .mini-pitch-halos circle{animation:pass-receiver 6s ease-out infinite;animation-delay:var(--receive-delay,0s)}
+.motion-ready .motion-visible .mini-pitch-data circle{animation:data-point 3.6s ease-in-out infinite;animation-delay:var(--data-delay,0s)}
+.motion-ready .motion-visible .mini-pitch-route{animation:route-flow 1.8s linear infinite}
+@keyframes preview-pass{0%,10%{transform:translate(113px,151px);opacity:1}30%,40%{transform:translate(210px,72px)}60%,70%{transform:translate(308px,142px)}87%,94%{transform:translate(393px,64px);opacity:1}98%,100%{transform:translate(393px,64px);opacity:0}}
+@keyframes pass-receiver{0%{opacity:.6;transform:scale(.85)}15%{opacity:0;transform:scale(2.6)}16%,100%{opacity:0;transform:scale(.85)}}
+@keyframes data-point{0%,100%{opacity:.5;transform:scale(.85)}50%{opacity:1;transform:scale(1.35)}}
 @keyframes route-flow{to{stroke-dashoffset:-22}}
 
 .skill-pill:hover{translate:0 -3px;border-color:#adc8c0!important}
@@ -138,6 +166,7 @@ dialog[open]::backdrop{animation:backdrop-open .2s ease both}
 .motion-paused *:not(.ambient-motion),.motion-paused *::before,.motion-paused *::after{animation:none!important;transition:none!important}
 .motion-paused .project-card .card-visual>img{transform:none!important}
 .motion-document-hidden .ambient-motion{animation-play-state:paused!important}
+.motion-document-hidden .project-card *,.motion-document-hidden .project-card *::before,.motion-document-hidden .project-card *::after{animation-play-state:paused!important}
 .motion-paused .mini-pitch-ball,.motion-document-hidden .mini-pitch-ball{animation-play-state:paused!important}
 @media(hover:none){.skill-pill:hover,.project-page .build-flow li:hover,.project-page .source-list a:hover{translate:none}.skill-pill:hover img{animation:none}.motion-ready .project-card:hover .card-visual>img{transform:none}}
 @media(prefers-reduced-motion:reduce){
@@ -145,5 +174,5 @@ dialog[open]::backdrop{animation:backdrop-open .2s ease both}
   .opening-ball{display:none}
   .motion-ready .project-card .card-visual>img{transform:none!important}
   .button,.nav-contact,.skill-pill,.source-list a,.build-flow li,.scene-controls button{translate:none!important}
-  .mini-pitch-ball{offset-distance:0%}
+  .mini-pitch-ball{transform:translate(113px,151px)}
 }
