@@ -63,17 +63,11 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
 - A persistent pause control and system reduced-motion preference stop ambient motion.
   Pausing also reveals all content immediately. Hero motion pauses offscreen,
   and all content remains visible when JavaScript is disabled.
-- The homepage opens with Adi’s supplied laptop portrait, edited with the built-in
-  imagegen tool to add two Bloomberg-style market terminals and a code screen.
-  `dist/assets/adi-code-portrait.jpg` is the optimized website asset; the exact
-  generation prompt is in `portrait-imagegen-prompt.txt`. The portrait switch
-  keeps the existing football photo available, with matching captions and alt text.
-  Adi requested subtle facial and silhouette refinements and a neat tapered haircut;
-  his supplied formal headshot guides the identity-preserving refinement.
-  A visible disclosure beneath the office portrait explains that the background
-  was recreated with AI for workplace confidentiality and the screens are
-  illustrative, with no Bloomberg internal systems or proprietary code shown.
-  The disclosure hides when visitors switch to the unedited football photo.
+- The homepage opens with Adi’s supplied professional studio portrait,
+  copied unchanged from `Professional Picture.png` to
+  `dist/assets/adi-professional.png`. The portrait switch keeps the existing
+  football photo available, with matching captions, dimensions, and alt text.
+  The AI office portrait and its disclosure are no longer used on the homepage.
 - Prominent Northwestern and Bloomberg hero buttons open résumé-grounded details.
   BanterBoost retains its existing website link and native detail dialog.
 - Career Agent, IMC Prosperity 3, Airbnb classification, DOMUS, and TikiData FC
