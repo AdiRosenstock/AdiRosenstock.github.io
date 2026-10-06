@@ -1,9 +1,9 @@
 /* Motion follows the work: traces, folds, passing moves, and reader actions. */
-/* A pitch data point marks the exact pointer location; brackets mark actions. */
+/* A familiar arrow with a small teal detail keeps the pointer precise. */
 @media (hover:hover) and (pointer:fine) and (forced-colors:none) {
-  body,body *{cursor:url('assets/data-cursor.svg') 16 16,auto!important}
+  body,body *{cursor:url('assets/data-cursor.svg') 2 2,auto!important}
   body :is(a[href],button:not(:disabled),summary,[role="button"],label[for]),
-  body :is(a[href],button:not(:disabled),summary,[role="button"],label[for]) *{cursor:url('assets/data-cursor-action.svg') 20 20,pointer!important}
+  body :is(a[href],button:not(:disabled),summary,[role="button"],label[for]) *{cursor:pointer!important}
   body :is(input,textarea,[contenteditable="true"],[contenteditable="true"] *){cursor:text!important}
   body :is(select,iframe){cursor:auto!important}
   body button:disabled{cursor:default!important}

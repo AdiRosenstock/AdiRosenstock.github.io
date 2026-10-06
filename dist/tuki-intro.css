@@ -1,16 +1,32 @@
-/* Tuki arrives after the hero copy and portrait have entered. */
+/* Tuki follows the passing play after the hero has entered. */
 @media (prefers-reduced-motion: no-preference) {
-  .motion-ready:not(.motion-intro-complete):not(.motion-paused) .tuki-intro {
-    animation: tuki-arrive .82s cubic-bezier(.22, 1, .36, 1) 1.42s both;
+  .motion-ready:not(.motion-paused) .tuki-intro {
+    animation: tuki-fly 29s linear 2.4s infinite both;
   }
 
-  .motion-ready:not(.motion-intro-complete):not(.motion-paused) .tuki-sprite {
-    animation: tuki-wave .76s steps(4) 1.54s 1;
+  .motion-ready:not(.motion-paused) .tuki-sprite {
+    animation: tuki-wave .9s steps(4) infinite;
+  }
+
+  .motion-ready:not(.motion-paused) .tuki-trigger {
+    transform: rotate(-11deg);
+    transition: transform .2s ease;
+  }
+
+  .motion-ready:not(.motion-paused) .tuki-intro:is(:hover, :focus-within) .tuki-trigger {
+    transform: none;
+  }
+
+  .motion-ready:not(.motion-paused) .tuki-intro:is(:hover, :focus-within),
+  .motion-ready:not(.motion-paused) .tuki-intro:is(:hover, :focus-within) .tuki-sprite {
+    animation-play-state: paused;
   }
 }
 
-@keyframes tuki-arrive {
-  0% { opacity: 0; transform: translate(-28px, 24px) rotate(-8deg) scale(.82); }
-  68% { opacity: 1; transform: translate(3px, -9px) rotate(3deg) scale(1.04); }
-  100% { opacity: 1; transform: none; }
+@keyframes tuki-fly {
+  0% { transform: translate3d(-60vw, 8px, 0) rotate(-6deg); }
+  20% { transform: translate3d(-36vw, -7px, 0) rotate(2deg); }
+  45% { transform: translate3d(-6vw, 11px, 0) rotate(-3deg); }
+  70% { transform: translate3d(24vw, -9px, 0) rotate(3deg); }
+  100% { transform: translate3d(60vw, 6px, 0) rotate(-4deg); }
 }
