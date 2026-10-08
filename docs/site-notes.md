@@ -25,8 +25,9 @@ refinements live in `refinement.css`; edit the files there, then refresh the pre
   (America/Chicago). Its existing About page and approved public assets provide
   the founder biography, football portrait, and logo. The old lineup screenshot
   was replaced after review of the live product.
-- Career Agent’s public README and fictional demo screenshot: product capabilities
-  and architecture. No personal application records appear in the screenshot.
+- Career Agent’s October 8, 2026 public README, design notes, and fictional demo screenshot: The Goat workflow, Codex and Claude Code setup, saved candidate choices, three submission modes, exact-batch approvals, and confirmation evidence. No personal application records appear in the screenshot.
+- [Recruiting Agent](https://github.com/AdiRosenstock/Recruiting_Agent) public README: startup-focused discovery, explainable scoring, fact-checked research, and human-reviewed outreach. Its drafts are never sent automatically.
+- [README Preview](https://github.com/AdiRosenstock/readme-reader) public source: a single HTML file with GitHub-flavored Markdown preview, local drafts, import, and export. The original HTML is copied into `dist/tools/readme-preview/` as a live demo. Its rendering libraries load from a CDN; the source repository is the canonical place for updates.
 - Organization logos supplied by Adi, with official links to Bloomberg, impaKt,
   MusclePoints (now MUSCLE), Vértice, and Hanoar Hatzioni. Role details and dates
   come from the résumé. The Bloomberg experience links to Adi’s supplied
@@ -82,12 +83,14 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
   approach, build details, a key decision, and references for deeper exploration.
   Pages have section navigation, copy-link feedback, and links to the next project.
   Every page respects the shared motion preference and has a pause control.
-  Career Agent has a research/preparation/review packet illustration; IMC has
+  Career Agent has a research/preparation/submission packet illustration; IMC has
   switchable strategy sketches; Airbnb illustrates five-fold validation; DOMUS
   switches between guest and host journeys; TikiData has a playable passing move.
   SVG backgrounds and page-specific palettes relate each scene to its project.
+  Every story includes a specific reading cue beside its original artifact.
   Interactive illustrations are distinguished from actual project screenshots,
   results, and analysis figures. Content remains visible without JavaScript.
+- The projects section ends with a lighter pair of public side builds: Recruiting Agent and the playable README Preview tool.
 - Project cards lead with titles and visuals. The About biography is always shown. Role descriptions and leadership
   use native disclosure controls so visitors choose the depth. All toolkit tags are
   visible within their categories, with no extra disclosure controls.

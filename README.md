@@ -29,7 +29,7 @@ Fantasy Premier League is more fun when the banter has numbers behind it. I buil
 
 ### [Career Agent](https://github.com/AdiRosenstock/career-agent-public) · Creator
 
-An open-source, local workspace for researching jobs, preparing sourced answers, and reviewing applications before submission. I built the **React, Express, TypeScript, and SQLite** application and its shared agent workflow. An approval applies to an exact version of an application packet, so edits require another review.
+An open-source, local workspace for researching jobs, preparing sourced answers, and completing applications. I built the **React, Express, TypeScript, and SQLite** application and its shared workflow, **The Goat**, for Codex and Claude Code. Candidates choose whether to submit themselves, approve an exact batch, or authorize automatic submission after a separate warning. An approval applies to an exact packet version, and submissions need confirmation evidence.
 
 [Read the project story](https://adirosenstock.github.io/projects/career-agent/) · [Explore the source](https://github.com/AdiRosenstock/career-agent-public)
 
@@ -41,6 +41,8 @@ An open-source, local workspace for researching jobs, preparing sourced answers,
 | [IMC Prosperity 3](https://adirosenstock.github.io/projects/imc-prosperity/) | Our team’s Python trading strategies, options pricing, and [candid five-round write-up](https://github.com/AdiRosenstock/IMC_Prosperity_3). |
 | [DOMUS](https://adirosenstock.github.io/projects/domus/) | A [WildHacks team project](https://github.com/AdiRosenstock/DOMUS) connecting guests and hosts for Shabbat dinners and cultural gatherings. |
 | [TikiData FC](https://adirosenstock.github.io/projects/tikidata-fc/) | My [football data notebooks and visuals](https://github.com/AdiRosenstock/TikiData.FC) on expected goals, player form, and emerging talent. |
+
+The homepage also features [Recruiting Agent](https://github.com/AdiRosenstock/Recruiting_Agent), my startup-focused job research and outreach system, and [README Preview](https://adirosenstock.github.io/tools/readme-preview/), a one-file Markdown editor you can try in the browser.
 
 ## About this site
 

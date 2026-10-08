@@ -118,7 +118,7 @@ function setSelected(selector, selected) {
 const packetStages = {
   research: { kind: 'Research notes', title: 'Start with the facts.', checks: ['Role requirements', 'Source links', 'Duplicate checks'], caption: 'A role is assessed against saved preferences, with source evidence kept alongside it.' },
   prepare: { kind: 'Prepared packet', title: 'Bring the pieces together.', checks: ['Saved profile facts', 'Questions to answer', 'Original documents'], caption: 'Answers and document choices become a versioned packet. Missing personal answers stay in the review queue.' },
-  review: { kind: 'Candidate review', title: 'Your approval comes next.', checks: ['Review exact answers', 'Approve this version', 'Record confirmation'], caption: 'The candidate reviews the exact packet. Submission is a separate action, and history requires confirmation evidence.' }
+  review: { kind: 'Choose your finish line', title: 'You set the submission mode.', checks: ['Submit yourself', 'Approve an exact batch', 'Authorize automatic submission'], caption: 'The Goat follows the candidate’s saved choice. A submission is recorded only with confirmation evidence.' }
 };
 document.querySelectorAll('[data-career-stage]').forEach(button => button.addEventListener('click', () => {
   const stage = packetStages[button.dataset.careerStage];

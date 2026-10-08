@@ -1,0 +1,630 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>README Preview</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.9/purify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<style>
+  :root{
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+    --radius: 6px;
+  }
+  [data-theme="dark"]{
+    --canvas: #0d1117;
+    --canvas-inset: #010409;
+    --subtle: #161b22;
+    --border: #30363d;
+    --border-muted: #21262d;
+    --fg: #e6edf3;
+    --fg-muted: #9198a1;
+    --accent: #4493f8;
+    --shell: #010409;
+    --shell-fg: #e6edf3;
+    --neutral-hover: #1f242c;
+    --code-bg: rgba(110,118,129,0.4);
+    --danger: #f85149; --success: #3fb950; --attention: #d29922; --done: #ab7df8; --note: #4493f8;
+    --tok-key:#ff7b72; --tok-str:#a5d6ff; --tok-num:#79c0ff; --tok-com:#8b949e; --tok-fn:#d2a8ff; --tok-attr:#79c0ff; --tok-tag:#7ee787;
+    --shadow: 0 1px 0 rgba(0,0,0,.4);
+  }
+  [data-theme="light"]{
+    --canvas: #ffffff;
+    --canvas-inset: #f6f8fa;
+    --subtle: #f6f8fa;
+    --border: #d1d9e0;
+    --border-muted: #d8dee4;
+    --fg: #1f2328;
+    --fg-muted: #59636e;
+    --accent: #0969da;
+    --shell: #f6f8fa;
+    --shell-fg: #1f2328;
+    --neutral-hover: #eaeef2;
+    --code-bg: rgba(129,139,152,0.16);
+    --danger: #cf222e; --success: #1a7f37; --attention: #9a6700; --done: #8250df; --note: #0969da;
+    --tok-key:#cf222e; --tok-str:#0a3069; --tok-num:#0550ae; --tok-com:#59636e; --tok-fn:#8250df; --tok-attr:#0550ae; --tok-tag:#116329;
+    --shadow: 0 1px 0 rgba(31,35,40,.04);
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; background:var(--shell); color:var(--shell-fg);
+    font-family:var(--sans); font-size:14px; line-height:1.5;
+    display:flex; flex-direction:column;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    display:flex; align-items:center; gap:12px;
+    padding:10px 16px; border-bottom:1px solid var(--border);
+    background:var(--canvas); flex:0 0 auto; flex-wrap:wrap;
+  }
+  .brand{display:flex; align-items:center; gap:9px; margin-right:auto; min-width:0}
+  .mark{
+    width:26px;height:20px;border:1.6px solid var(--fg);border-radius:4px;
+    display:grid;place-items:center;font:700 10px/1 var(--mono);letter-spacing:-.5px;
+    flex:0 0 auto;
+  }
+  .brand h1{
+    font-size:13px; margin:0; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .btn{
+    font:inherit; font-size:12px; font-weight:500; color:var(--fg);
+    background:var(--subtle); border:1px solid var(--border); border-radius:var(--radius);
+    padding:5px 12px; cursor:pointer; display:inline-flex; align-items:center; gap:6px;
+    box-shadow:var(--shadow); white-space:nowrap;
+  }
+  .btn:hover{background:var(--neutral-hover)}
+  .btn:focus-visible, .tab:focus-visible, textarea:focus-visible, [contenteditable]:focus-visible{
+    outline:2px solid var(--accent); outline-offset:2px;
+  }
+  .btn svg{width:14px;height:14px;fill:currentColor}
+
+  /* ---------- layout ---------- */
+  .panes{flex:1 1 auto; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); min-height:0}
+  .pane{display:flex; flex-direction:column; min-width:0; min-height:0}
+  .pane.write{border-right:1px solid var(--border); background:var(--canvas)}
+  .pane.read{background:var(--canvas-inset); overflow:auto}
+
+  .pane-head{
+    display:flex; align-items:center; gap:8px; padding:8px 14px;
+    border-bottom:1px solid var(--border); color:var(--fg-muted);
+    font:600 11px/1 var(--sans); letter-spacing:.12em; text-transform:uppercase;
+    flex:0 0 auto;
+  }
+  .pane-head .spacer{margin-left:auto}
+
+  textarea{
+    flex:1 1 auto; width:100%; resize:none; border:0; outline:0; padding:16px 18px;
+    background:var(--canvas); color:var(--fg);
+    font-family:var(--mono); font-size:13px; line-height:1.7; tab-size:2;
+  }
+  .counts{
+    flex:0 0 auto; padding:7px 14px; border-top:1px solid var(--border);
+    color:var(--fg-muted); font:400 11px/1 var(--mono); display:flex; gap:14px; flex-wrap:wrap;
+  }
+  .counts b{font-weight:600; color:var(--fg)}
+
+  /* ---------- github file card (the signature) ---------- */
+  .repo{max-width:1012px; margin:0 auto; padding:20px 16px 64px}
+  .crumb{
+    display:flex; align-items:center; gap:5px; margin-bottom:14px;
+    font-size:17px; color:var(--fg); flex-wrap:wrap;
+  }
+  .crumb .owner{color:var(--accent)}
+  .crumb .repo-name{color:var(--accent); font-weight:600}
+  .crumb [contenteditable]{
+    border-bottom:1px dashed transparent; padding:0 1px; border-radius:3px; min-width:1ch;
+  }
+  .crumb [contenteditable]:hover{border-bottom-color:var(--border)}
+  .crumb .slash{color:var(--fg-muted)}
+  .crumb .pill{
+    font-size:11px; padding:1px 7px; border:1px solid var(--border); border-radius:2em;
+    color:var(--fg-muted); margin-left:4px;
+  }
+  .card{background:var(--canvas); border:1px solid var(--border); border-radius:var(--radius)}
+  .card-head{
+    display:flex; align-items:center; gap:8px; padding:8px 16px;
+    border-bottom:1px solid var(--border); font-size:14px; font-weight:600; color:var(--fg);
+    background:var(--canvas); border-radius:var(--radius) var(--radius) 0 0;
+  }
+  .card-head svg{width:16px;height:16px;fill:var(--fg-muted); flex:0 0 auto}
+  .outline-wrap{margin-left:auto; position:relative}
+  .outline-btn{
+    background:transparent; border:0; padding:4px; border-radius:var(--radius);
+    color:var(--fg-muted); cursor:pointer; display:grid; place-items:center;
+  }
+  .outline-btn:hover{background:var(--neutral-hover); color:var(--fg)}
+  .outline-btn svg{width:16px;height:16px;fill:currentColor}
+  .outline{
+    position:absolute; right:0; top:calc(100% + 6px); width:300px; max-height:340px; overflow:auto;
+    background:var(--canvas); border:1px solid var(--border); border-radius:var(--radius);
+    box-shadow:0 8px 24px rgba(1,4,9,.3); padding:6px; z-index:20; display:none;
+  }
+  .outline.open{display:block}
+  .outline .oh{padding:6px 8px; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--fg-muted); font-weight:600}
+  .outline button{
+    display:block; width:100%; text-align:left; background:transparent; border:0; cursor:pointer;
+    color:var(--fg); font:inherit; font-size:13px; padding:5px 8px; border-radius:var(--radius);
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  .outline button:hover{background:var(--neutral-hover)}
+  .outline .lv3{padding-left:22px; color:var(--fg-muted)}
+  .outline .lv4,.outline .lv5,.outline .lv6{padding-left:36px; color:var(--fg-muted)}
+  .outline .empty{padding:8px; color:var(--fg-muted); font-size:12px}
+
+  /* ---------- rendered markdown (github fidelity) ---------- */
+  .markdown-body{
+    padding:32px; color:var(--fg); font-family:var(--sans); font-size:16px; line-height:1.5;
+    word-wrap:break-word; overflow-wrap:break-word;
+  }
+  .markdown-body > *:first-child{margin-top:0 !important}
+  .markdown-body > *:last-child{margin-bottom:0 !important}
+  .markdown-body p, .markdown-body ul, .markdown-body ol, .markdown-body blockquote,
+  .markdown-body table, .markdown-body pre, .markdown-body details{margin:0 0 16px}
+  .markdown-body h1,.markdown-body h2,.markdown-body h3,
+  .markdown-body h4,.markdown-body h5,.markdown-body h6{
+    margin:24px 0 16px; font-weight:600; line-height:1.25; position:relative;
+  }
+  .markdown-body h1{font-size:2em; padding-bottom:.3em; border-bottom:1px solid var(--border-muted)}
+  .markdown-body h2{font-size:1.5em; padding-bottom:.3em; border-bottom:1px solid var(--border-muted)}
+  .markdown-body h3{font-size:1.25em}
+  .markdown-body h4{font-size:1em}
+  .markdown-body h5{font-size:.875em}
+  .markdown-body h6{font-size:.85em; color:var(--fg-muted)}
+  .markdown-body .anchor{
+    position:absolute; left:-20px; top:50%; transform:translateY(-50%);
+    opacity:0; text-decoration:none; padding-right:4px;
+  }
+  .markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,
+  .markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{opacity:1}
+  .markdown-body .anchor svg{width:16px;height:16px;fill:var(--fg-muted); vertical-align:middle}
+  .markdown-body a{color:var(--accent); text-decoration:none}
+  .markdown-body a:hover{text-decoration:underline}
+  .markdown-body strong{font-weight:600}
+  .markdown-body img{max-width:100%; border-radius:2px; vertical-align:middle}
+  .markdown-body hr{height:.25em; padding:0; margin:24px 0; background:var(--border); border:0}
+  .markdown-body ul,.markdown-body ol{padding-left:2em}
+  .markdown-body li+li{margin-top:.25em}
+  .markdown-body li>ul,.markdown-body li>ol{margin:.25em 0 0}
+  .markdown-body li.task-list-item{list-style:none}
+  .markdown-body li.task-list-item input{margin:0 .35em .25em -1.4em; vertical-align:middle}
+  .markdown-body blockquote{
+    padding:0 1em; color:var(--fg-muted); border-left:.25em solid var(--border);
+  }
+  .markdown-body code{
+    font-family:var(--mono); font-size:85%; padding:.2em .4em;
+    background:var(--code-bg); border-radius:var(--radius); white-space:break-spaces;
+  }
+  .markdown-body pre{
+    padding:16px; overflow:auto; background:var(--subtle); border-radius:var(--radius);
+    font-size:85%; line-height:1.45;
+  }
+  .markdown-body pre code{padding:0; background:transparent; font-size:100%; white-space:pre}
+  .table-scroll{overflow-x:auto; margin-bottom:16px}
+  .markdown-body table{border-collapse:collapse; border-spacing:0; margin:0; width:max-content; max-width:100%}
+  .markdown-body th,.markdown-body td{padding:6px 13px; border:1px solid var(--border)}
+  .markdown-body th{font-weight:600; background:var(--subtle)}
+  .markdown-body tr:nth-child(2n) td{background:var(--subtle)}
+  .markdown-body kbd{
+    font-family:var(--mono); font-size:11px; padding:3px 5px; line-height:10px; color:var(--fg);
+    background:var(--subtle); border:1px solid var(--border); border-radius:var(--radius);
+    box-shadow:inset 0 -1px 0 var(--border);
+  }
+  .markdown-body summary{cursor:pointer; font-weight:600}
+
+  /* github alerts */
+  .markdown-body .alert{
+    padding:8px 16px; border-left:.25em solid; margin-bottom:16px; color:var(--fg);
+  }
+  .markdown-body .alert p:last-child{margin-bottom:0}
+  .markdown-body .alert .alert-title{
+    display:flex; align-items:center; gap:8px; font-weight:600; margin-bottom:4px; font-size:14px;
+  }
+  .markdown-body .alert svg{width:16px;height:16px;fill:currentColor}
+  .alert-note{border-color:var(--note)} .alert-note .alert-title{color:var(--note)}
+  .alert-tip{border-color:var(--success)} .alert-tip .alert-title{color:var(--success)}
+  .alert-important{border-color:var(--done)} .alert-important .alert-title{color:var(--done)}
+  .alert-warning{border-color:var(--attention)} .alert-warning .alert-title{color:var(--attention)}
+  .alert-caution{border-color:var(--danger)} .alert-caution .alert-title{color:var(--danger)}
+
+  /* syntax */
+  .hljs-keyword,.hljs-selector-tag,.hljs-literal,.hljs-type{color:var(--tok-key)}
+  .hljs-string,.hljs-meta .hljs-string,.hljs-regexp{color:var(--tok-str)}
+  .hljs-number,.hljs-variable,.hljs-template-variable,.hljs-attr,.hljs-attribute{color:var(--tok-attr)}
+  .hljs-comment,.hljs-quote{color:var(--tok-com); font-style:italic}
+  .hljs-title,.hljs-title.function_,.hljs-section{color:var(--tok-fn)}
+  .hljs-name,.hljs-tag,.hljs-built_in,.hljs-symbol,.hljs-bullet{color:var(--tok-tag)}
+  .hljs-meta,.hljs-doctag{color:var(--tok-num)}
+  .hljs-emphasis{font-style:italic} .hljs-strong{font-weight:600}
+
+  /* ---------- mobile ---------- */
+  .tabs{display:none; gap:4px; padding:8px 12px; border-bottom:1px solid var(--border); background:var(--canvas)}
+  .tab{
+    flex:1; font:600 12px/1 var(--sans); letter-spacing:.08em; text-transform:uppercase;
+    padding:9px; border:1px solid var(--border); border-radius:var(--radius);
+    background:transparent; color:var(--fg-muted); cursor:pointer;
+  }
+  .tab[aria-selected="true"]{background:var(--subtle); color:var(--fg)}
+  @media (max-width:900px){
+    .panes{grid-template-columns:1fr}
+    .tabs{display:flex}
+    .pane.write{border-right:0}
+    body[data-view="read"] .pane.write{display:none}
+    body[data-view="write"] .pane.read{display:none}
+    .markdown-body{padding:16px}
+    .repo{padding:14px 10px 40px}
+    .brand h1{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none !important; animation:none !important}}
+
+  .toast{
+    position:fixed; left:50%; bottom:22px; transform:translateX(-50%) translateY(8px);
+    background:var(--fg); color:var(--canvas); font-size:13px; font-weight:500;
+    padding:8px 16px; border-radius:var(--radius); opacity:0; pointer-events:none;
+    transition:opacity .18s, transform .18s; z-index:60;
+  }
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+  .drop{outline:2px dashed var(--accent); outline-offset:-8px}
+</style>
+
+<body data-theme="dark" data-view="write">
+
+<header class="topbar">
+  <div class="brand">
+    <div class="mark">M↓</div>
+    <h1>Readme Preview</h1>
+  </div>
+  <input type="file" id="fileInput" accept=".md,.markdown,.mdown,.mkd,.txt,text/markdown,text/plain" hidden>
+  <button class="btn" id="import">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8.53 1.22a.75.75 0 0 0-1.06 0L3.72 4.97a.75.75 0 0 0 1.06 1.06l2.47-2.47v6.69a.75.75 0 0 0 1.5 0V3.56l2.47 2.47a.75.75 0 1 0 1.06-1.06ZM1.75 9.5a.75.75 0 0 1 .75.75v3c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-3a.75.75 0 0 1 1.5 0v3A1.75 1.75 0 0 1 13.25 15H2.75A1.75 1.75 0 0 1 1 13.25v-3a.75.75 0 0 1 .75-.75Z"></path></svg>
+    Import .md
+  </button>
+  <button class="btn" id="sample">Load sample</button>
+  <button class="btn" id="copy">Copy Markdown</button>
+  <button class="btn" id="download">Download .md</button>
+  <button class="btn" id="theme"><span id="themeLabel">Light</span></button>
+</header>
+
+<div class="tabs" role="tablist">
+  <button class="tab" role="tab" id="tabWrite" aria-selected="true">Write</button>
+  <button class="tab" role="tab" id="tabRead" aria-selected="false">Preview</button>
+</div>
+
+<main class="panes">
+  <section class="pane write">
+    <div class="pane-head">
+      <span>README.md</span>
+      <span class="spacer"></span>
+      <span id="saveState">saved</span>
+    </div>
+    <textarea id="src" spellcheck="false" placeholder="# Paste or type your README here"></textarea>
+    <div class="counts">
+      <span><b id="cWords">0</b> words</span>
+      <span><b id="cChars">0</b> characters</span>
+      <span><b id="cLines">0</b> lines</span>
+      <span><b id="cRead">0</b> min read</span>
+    </div>
+  </section>
+
+  <section class="pane read">
+    <div class="repo">
+      <div class="crumb">
+        <span class="owner" contenteditable="true" spellcheck="false" id="owner">your-name</span>
+        <span class="slash">/</span>
+        <span class="repo-name" contenteditable="true" spellcheck="false" id="repo">your-repo</span>
+        <span class="pill">Public</span>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z"></path></svg>
+          <span>README.md</span>
+          <div class="outline-wrap">
+            <button class="outline-btn" id="outlineBtn" aria-label="Show outline" aria-expanded="false">
+              <svg viewBox="0 0 16 16"><path d="M0 1.75A.75.75 0 0 1 .75 1h14.5a.75.75 0 0 1 0 1.5H.75A.75.75 0 0 1 0 1.75Zm4 5A.75.75 0 0 1 4.75 6h10.5a.75.75 0 0 1 0 1.5H4.75A.75.75 0 0 1 4 6.75ZM0 11.75a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75Z"></path></svg>
+            </button>
+            <div class="outline" id="outline"><div class="oh">Outline</div><div id="outlineList"></div></div>
+          </div>
+        </div>
+        <article class="markdown-body" id="out"></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const SAMPLE = `# Project Aurora
+
+A tiny toolkit for turning messy CSV exports into clean, typed records.
+
+## Install
+
+\`\`\`bash
+npm install project-aurora
+\`\`\`
+
+## Quick start
+
+\`\`\`js
+import { parse } from "project-aurora";
+
+const rows = parse(csvText, {
+  trim: true,
+  types: { id: Number, active: Boolean }
+});
+
+console.log(rows[0]); // { id: 1, active: true }
+\`\`\`
+
+> [!NOTE]
+> Aurora reads the header row to infer column names. Pass \`headers: false\` if your file has none.
+
+## Options
+
+| Option | Type | Default | What it does |
+| --- | --- | :---: | --- |
+| \`trim\` | boolean | \`true\` | Strips whitespace from every cell |
+| \`types\` | object | \`{}\` | Coerces named columns to a type |
+| \`skip\` | number | \`0\` | Ignores this many leading rows |
+
+## Roadmap
+
+- [x] Type coercion
+- [x] Streaming parser
+- [ ] Browser build
+- [ ] Column validation
+  - [ ] Custom rules
+
+> [!WARNING]
+> Version 2 renames \`toObject()\` to \`parse()\`. Update your imports before upgrading.
+
+## Contributing
+
+1. Fork the repo and create a branch
+2. Run \`npm test\` before opening a pull request
+3. Keep commits small — one idea per commit
+
+Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop the watcher.
+
+---
+
+Released under the **MIT** licence. See [LICENSE](./LICENSE) for details.
+`;
+
+const ALERT_ICONS = {
+  note:'<path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path>',
+  tip:'<path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path>',
+  important:'<path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path>',
+  warning:'<path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path>',
+  caution:'<path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path>'
+};
+const LINK_ICON = '<svg viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>';
+
+const $ = id => document.getElementById(id);
+const src = $('src'), out = $('out'), toastEl = $('toast');
+const ready = typeof marked !== 'undefined' && typeof DOMPurify !== 'undefined';
+
+function toast(msg){
+  toastEl.textContent = msg; toastEl.classList.add('show');
+  clearTimeout(toast._t); toast._t = setTimeout(()=>toastEl.classList.remove('show'), 1800);
+}
+
+function slug(text){
+  return text.toLowerCase().trim()
+    .replace(/[^\w\- ]+/g,'').replace(/\s+/g,'-').replace(/^-+|-+$/g,'') || 'section';
+}
+
+function render(){
+  const md = src.value;
+  if(!ready){
+    out.innerHTML = '<p><strong>Renderer unavailable.</strong> The Markdown library could not load — check your connection and reload the page. Your text is safe in the editor.</p>';
+    return;
+  }
+  const raw = marked.parse(md, {gfm:true, breaks:false});
+  out.innerHTML = DOMPurify.sanitize(raw, {ADD_ATTR:['target','rel','align','type','checked','disabled']});
+
+  // GitHub alerts: > [!NOTE] etc.
+  out.querySelectorAll('blockquote').forEach(bq=>{
+    const first = bq.querySelector('p');
+    if(!first) return;
+    const m = first.innerHTML.match(/^\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*(<br\s*\/?>)?\s*/i);
+    if(!m) return;
+    const kind = m[1].toLowerCase();
+    first.innerHTML = first.innerHTML.slice(m[0].length);
+    const div = document.createElement('div');
+    div.className = 'alert alert-'+kind;
+    div.innerHTML = '<div class="alert-title"><svg viewBox="0 0 16 16">'+ALERT_ICONS[kind]+'</svg>'+
+      kind.charAt(0).toUpperCase()+kind.slice(1)+'</div>';
+    while(bq.firstChild) div.appendChild(bq.firstChild);
+    bq.replaceWith(div);
+  });
+
+  // heading anchors
+  const used = {};
+  out.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach(h=>{
+    let id = slug(h.textContent);
+    if(used[id] != null){ used[id]++; id = id+'-'+used[id]; } else used[id] = 0;
+    h.id = id;
+    const a = document.createElement('a');
+    a.className = 'anchor'; a.href = '#'+id; a.setAttribute('aria-hidden','true');
+    a.innerHTML = LINK_ICON;
+    h.prepend(a);
+  });
+
+  // task lists
+  out.querySelectorAll('li input[type="checkbox"]').forEach(cb=>{
+    cb.disabled = true;
+    cb.closest('li')?.classList.add('task-list-item');
+  });
+
+  // tables scroll on narrow screens
+  out.querySelectorAll('table').forEach(t=>{
+    if(t.parentElement.classList.contains('table-scroll')) return;
+    const w = document.createElement('div'); w.className='table-scroll';
+    t.replaceWith(w); w.appendChild(t);
+  });
+
+  // links open externally, anchors scroll in place
+  out.querySelectorAll('a[href]').forEach(a=>{
+    if(a.classList.contains('anchor')) return;
+    if(a.getAttribute('href').startsWith('#')) return;
+    a.target = '_blank'; a.rel = 'noopener noreferrer';
+  });
+
+  // syntax highlight
+  if(typeof hljs !== 'undefined'){
+    out.querySelectorAll('pre code').forEach(c=>{ try{ hljs.highlightElement(c); }catch(e){} });
+  }
+
+  buildOutline();
+  updateCounts(md);
+}
+
+function buildOutline(){
+  const list = $('outlineList');
+  const hs = [...out.querySelectorAll('h1,h2,h3,h4,h5,h6')];
+  if(!hs.length){ list.innerHTML = '<div class="empty">Add a heading to build an outline.</div>'; return; }
+  list.innerHTML = '';
+  hs.forEach(h=>{
+    const b = document.createElement('button');
+    b.className = 'lv'+h.tagName[1];
+    b.textContent = h.textContent;
+    b.onclick = ()=>{ h.scrollIntoView({behavior:'smooth', block:'start'}); closeOutline(); };
+    list.appendChild(b);
+  });
+}
+
+function updateCounts(md){
+  const words = md.trim() ? md.trim().split(/\s+/).length : 0;
+  $('cWords').textContent = words.toLocaleString();
+  $('cChars').textContent = md.length.toLocaleString();
+  $('cLines').textContent = (md ? md.split('\n').length : 0).toLocaleString();
+  $('cRead').textContent = Math.max(1, Math.round(words/220));
+}
+
+// ---- storage (localStorage; drafts stay on this device) ----
+const KEY = 'readme-preview:draft';
+let saveTimer;
+function save(){
+  $('saveState').textContent = 'saving…';
+  try{
+    localStorage.setItem(KEY, JSON.stringify({
+      md: src.value, owner: $('owner').textContent, repo: $('repo').textContent,
+      theme: document.body.dataset.theme
+    }));
+    $('saveState').textContent = 'saved';
+  }catch(e){ $('saveState').textContent = 'not saved'; }
+}
+function queueSave(){ clearTimeout(saveTimer); saveTimer = setTimeout(save, 600); }
+
+function load(){
+  try{
+    const d = JSON.parse(localStorage.getItem(KEY));
+    src.value = d.md ?? SAMPLE;
+    if(d.owner) $('owner').textContent = d.owner;
+    if(d.repo) $('repo').textContent = d.repo;
+    if(d.theme) setTheme(d.theme);
+  }catch(e){
+    src.value = SAMPLE;
+  }
+  render();
+}
+
+// ---- theme ----
+function setTheme(t){
+  document.body.dataset.theme = t;
+  $('themeLabel').textContent = t === 'dark' ? 'Light' : 'Dark';
+}
+$('theme').onclick = ()=>{
+  setTheme(document.body.dataset.theme === 'dark' ? 'light' : 'dark');
+  queueSave();
+};
+
+// ---- outline ----
+function closeOutline(){ $('outline').classList.remove('open'); $('outlineBtn').setAttribute('aria-expanded','false'); }
+$('outlineBtn').onclick = e=>{
+  e.stopPropagation();
+  const open = $('outline').classList.toggle('open');
+  $('outlineBtn').setAttribute('aria-expanded', String(open));
+};
+document.addEventListener('click', closeOutline);
+$('outline').onclick = e=> e.stopPropagation();
+
+// ---- actions ----
+$('sample').onclick = ()=>{ src.value = SAMPLE; render(); queueSave(); toast('Sample README loaded'); };
+
+$('copy').onclick = async ()=>{
+  try{ await navigator.clipboard.writeText(src.value); toast('Markdown copied'); }
+  catch(e){ src.select(); document.execCommand('copy'); toast('Markdown copied'); }
+};
+
+$('download').onclick = ()=>{
+  const blob = new Blob([src.value], {type:'text/markdown'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'README.md';
+  a.click(); URL.revokeObjectURL(a.href);
+  toast('README.md downloaded');
+};
+
+// ---- editor ----
+let renderTimer;
+src.addEventListener('input', ()=>{
+  clearTimeout(renderTimer); renderTimer = setTimeout(render, 120);
+  $('saveState').textContent = 'editing…';
+  queueSave();
+});
+src.addEventListener('keydown', e=>{
+  if(e.key === 'Tab'){
+    e.preventDefault();
+    const s = src.selectionStart, en = src.selectionEnd;
+    src.setRangeText('  ', s, en, 'end');
+    src.dispatchEvent(new Event('input'));
+  }
+});
+['owner','repo'].forEach(id=>{
+  $(id).addEventListener('input', queueSave);
+  $(id).addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); e.target.blur(); } });
+});
+
+// ---- import a .md file (button or drag & drop) ----
+async function importFile(f){
+  if(!f) return;
+  if(!/\.(md|markdown|mdown|mkd|txt)$/i.test(f.name)){
+    toast('That file type isn\u2019t Markdown \u2014 pick a .md file'); return;
+  }
+  if(src.value.trim() && src.value !== SAMPLE){
+    if(!confirm('Importing ' + f.name + ' replaces what\u2019s in the editor. Continue?')) return;
+  }
+  try{
+    src.value = await f.text();
+  }catch(err){
+    toast('Couldn\u2019t read that file \u2014 try again'); return;
+  }
+  const base = f.name.replace(/\.(md|markdown|mdown|mkd|txt)$/i,'');
+  if(base && base.toLowerCase() !== 'readme') $('repo').textContent = base;
+  render(); queueSave();
+  src.scrollTop = 0;
+  toast(f.name + ' imported');
+}
+
+$('import').onclick = ()=> $('fileInput').click();
+$('fileInput').onchange = e=>{ importFile(e.target.files[0]); e.target.value = ''; };
+
+document.addEventListener('dragover', e=>{ e.preventDefault(); document.body.classList.add('drop'); });
+document.addEventListener('dragleave', e=>{ if(e.relatedTarget === null) document.body.classList.remove('drop'); });
+document.addEventListener('drop', e=>{
+  e.preventDefault(); document.body.classList.remove('drop');
+  importFile(e.dataTransfer.files[0]);
+});
+
+// ---- mobile tabs ----
+$('tabWrite').onclick = ()=>{ document.body.dataset.view='write'; $('tabWrite').setAttribute('aria-selected','true'); $('tabRead').setAttribute('aria-selected','false'); };
+$('tabRead').onclick = ()=>{ document.body.dataset.view='read'; $('tabRead').setAttribute('aria-selected','true'); $('tabWrite').setAttribute('aria-selected','false'); };
+
+load();
+</script>
+</body>
