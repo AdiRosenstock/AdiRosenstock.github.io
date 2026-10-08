@@ -24,6 +24,7 @@ nav a { font-size: 14px; }
 
 .hero-scene { background: #fff; }
 .pitch-backdrop { opacity: .4; }
+.opening-play:not(.opening-play-mobile) { transform: translateY(-40px); }
 .hero {
   min-height: calc(100svh - 104px);
   grid-template-columns: minmax(0,1.18fr) minmax(350px,.82fr);
@@ -33,7 +34,7 @@ nav a { font-size: 14px; }
   padding-top: 122px;
 }
 .hero-copy { padding-bottom: 18px; }
-.hello { position: relative; top: 26px; font-size: 17px; color: var(--muted); margin-bottom: 15px; }
+.hello { font-size: 17px; color: var(--muted); margin-bottom: 15px; }
 h1 { font-size: clamp(68px,6.2vw,90px); line-height: 1.02; letter-spacing: -.068em; font-weight: 700; }
 .name-period { color: var(--ink); }
 .hero-role { max-width: 620px; margin-top: 27px; color: var(--ink); font-size: 19px; line-height: 1.5; letter-spacing: -.015em; font-weight: 600; }
@@ -414,7 +415,7 @@ h2 > span { color: var(--ink); }
   .mobile-contact-link { display: block; }
   .hero { min-height: 0; grid-template-columns: 1fr; padding-top: 138px; gap: 0; }
   .hero-copy { padding-bottom: 0; }
-  .hello { top: 0; font-size: 16px; }
+  .hello { font-size: 16px; }
   h1 { font-size: clamp(52px,13.2vw,74px); letter-spacing: -.065em; }
   .hero-role { font-size: 17px; margin-top: 22px; }
   .hero-description { font-size: 15px; line-height: 1.6; }
