@@ -76,7 +76,7 @@
   // Intro motion only runs on arrival, never again after resuming motion.
   setTimeout(() => body.classList.add('motion-intro-complete'), 2400);
 
-  const viewTargets = document.querySelectorAll('.project-card, .featured-project, .project-gallery, .skill-group');
+  const viewTargets = document.querySelectorAll('.project-card, .featured-project, .brief-feature, .project-gallery, .skill-group');
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => entry.target.classList.toggle('motion-visible', entry.isIntersecting));

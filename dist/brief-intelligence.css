@@ -31,6 +31,26 @@
 .brief-preview-results>div:nth-child(2) b{width:61%}.brief-preview-results>div:nth-child(3) b{width:80%}
 .brief-feature-visual>p{font-size:11px;color:#4a737a;margin-top:13px}
 
+/* A quiet search cycle runs only while this feature is in view. */
+.brief-preview-query{position:relative;overflow:hidden}
+.brief-preview-query::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 10%,#65a3ae24 50%,transparent 90%);transform:translateX(-100%);opacity:0}
+.brief-preview-filters span,.brief-preview-results>div,.brief-preview-results i,.brief-preview-results b{transition:none}
+.motion-ready .brief-feature.motion-visible .brief-preview-query::after{animation:brief-query-sweep 8s ease-in-out infinite}
+.motion-ready .brief-feature.motion-visible .brief-preview-filters span{animation:brief-filter-select 8s ease-in-out infinite}
+.motion-ready .brief-feature.motion-visible .brief-preview-filters span:nth-child(2){animation-delay:.45s}
+.motion-ready .brief-feature.motion-visible .brief-preview-filters span:nth-child(3){animation-delay:.9s}
+.motion-ready .brief-feature.motion-visible .brief-preview-results>div{animation:brief-result-arrive 8s ease-in-out infinite}
+.motion-ready .brief-feature.motion-visible .brief-preview-results>div:nth-child(2){animation-delay:.65s}
+.motion-ready .brief-feature.motion-visible .brief-preview-results>div:nth-child(3){animation-delay:1.3s}
+.motion-ready .brief-feature.motion-visible .brief-preview-results>div i{animation:brief-result-mark 8s ease-in-out infinite}
+.motion-ready .brief-feature.motion-visible .brief-preview-results>div:nth-child(2) i{animation-delay:.65s}
+.motion-ready .brief-feature.motion-visible .brief-preview-results>div:nth-child(3) i{animation-delay:1.3s}
+@keyframes brief-query-sweep{0%,8%{transform:translateX(-100%);opacity:0}12%{opacity:1}37%{transform:translateX(100%);opacity:1}42%,100%{transform:translateX(100%);opacity:0}}
+@keyframes brief-filter-select{0%,36%,65%,100%{background:#eef5f5;border-color:#c9dddf;color:#326675}43%,55%{background:#1c6773;border-color:#1c6773;color:#fff}}
+@keyframes brief-result-arrive{0%,48%,75%,100%{background:transparent}55%,67%{background:#e9f5f5}}
+@keyframes brief-result-mark{0%,48%,75%,100%{background:#e8f1f1;border-color:#9dbec4}55%,67%{background:#63a7b0;border-color:#37818c}}
+.motion-document-hidden .brief-feature *,.motion-document-hidden .brief-feature *::before,.motion-document-hidden .brief-feature *::after{animation-play-state:paused!important}
+
 .project-page[data-theme=brief]{--project-accent:#1c6874;--project-wash:#eef5f6;--scene-line:#bed4d9;--scene-ink:#173b4b;--accent:#1c6874;--accent-dark:#173b4b;--accent-wash:#eef5f6}
 [data-theme=brief] .brief-banner{background:#eef5f6}
 .brief-banner-lines{position:absolute;inset:0 0 0 45%;pointer-events:none;overflow:hidden;opacity:.44}

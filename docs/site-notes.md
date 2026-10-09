@@ -51,7 +51,7 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
 
 - A football/tech hero combines pitch markings, a data grid, an animated passing
   pattern, a portrait, and a football visitors can kick.
-- Selected work features Brief Intelligence, with a full project page and public video demo. The selected-work grid includes Career Agent, IMC Prosperity 3, the Airbnb model,
+- Selected work features Brief Intelligence, with a full project page and public video demo. Its homepage preview cycles through searching, filtering, and matching only while visible; the existing motion pause and reduced-motion preference stop the cycle. The selected-work grid includes Career Agent, IMC Prosperity 3, the Airbnb model,
   DOMUS, and TikiData FC, beneath the featured BanterBoost preview. On pointer
   devices, each card reveals its description and stack on hover or keyboard focus;
   touch layouts show descriptions below the artwork. Each of those five cards
