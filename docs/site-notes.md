@@ -29,6 +29,7 @@ refinements live in `refinement.css`; edit the files there, then refresh the pre
 - [Recruiting Agent](https://github.com/AdiRosenstock/Recruiting_Agent) public README: startup-focused discovery, explainable scoring, fact-checked research, and human-reviewed outreach. Its drafts are never sent automatically.
 - [README Preview](https://github.com/AdiRosenstock/readme-reader) public source: a single HTML file with GitHub-flavored Markdown preview, local drafts, import, and export. The original HTML is copied into `dist/tools/readme-preview/` as a live demo. Its rendering libraries load from a CDN; the source repository is the canonical place for updates.
 - [STAT 362: Advanced Machine Learning](https://github.com/AdiRosenstock/STAT-362-Advanced-Machine-Learning) public coursework repository: running Python notebooks cover gradient descent and SVMs; Homework 1 includes a logistic regression implementation using gradient descent. Present it as coursework, not a standalone product or case study.
+- Brief Intelligence: Adi's [public demo](https://www.youtube.com/watch?v=GVULpFCQ97A), the team's [public data/classification pipeline](https://github.com/ZBraffmanNorthwestern/briefintelligence), private app commit history, and the CS 338 final report support the project page. Northwestern's [faculty profile](https://www.law.northwestern.edu/faculty/profiles/AmparoGrauRuiz/) confirms Professor Maria Amparo Grau Ruiz's affiliation. Credit the three-person team, distinguish Adi's search/interface work, and keep private app files and configuration out of the site.
 - Organization logos supplied by Adi, with official links to Bloomberg, impaKt,
   MusclePoints (now MUSCLE), Vértice, and Hanoar Hatzioni. Role details and dates
   come from the résumé. The Bloomberg experience links to Adi’s supplied
@@ -50,7 +51,7 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
 
 - A football/tech hero combines pitch markings, a data grid, an animated passing
   pattern, a portrait, and a football visitors can kick.
-- The selected-work grid includes Career Agent, IMC Prosperity 3, the Airbnb model,
+- Selected work features Brief Intelligence, with a full project page and public video demo. The selected-work grid includes Career Agent, IMC Prosperity 3, the Airbnb model,
   DOMUS, and TikiData FC, beneath the featured BanterBoost preview. On pointer
   devices, each card reveals its description and stack on hover or keyboard focus;
   touch layouts show descriptions below the artwork. Each of those five cards
@@ -78,7 +79,7 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
   The AI office portrait and its disclosure are no longer used on the homepage.
 - Prominent Northwestern and Bloomberg hero buttons open résumé-grounded details.
   BanterBoost retains its existing website link and native detail dialog.
-- Career Agent, IMC Prosperity 3, Airbnb classification, DOMUS, and TikiData FC
+- Brief Intelligence, Career Agent, IMC Prosperity 3, Airbnb classification, DOMUS, and TikiData FC
   have dedicated, shareable project pages. Homepage cards open these pages,
   with direct source/product links retained. Each page includes the project context,
   approach, build details, a key decision, and references for deeper exploration.
@@ -145,7 +146,7 @@ GitHub Pages is the live provider. Do not store credentials in files.
 
 The complete static pages live in `dist/projects/<slug>/index.html` and share
 `dist/projects.css`, `dist/project-scenes.css`, and `dist/projects.js`.
-All five pages also use `dist/motion.css` and `dist/motion.js` for shared interactions.
+All six pages also use `dist/motion.css` and `dist/motion.js` for shared interactions.
 The scene stylesheet defines each project's visual identity, illustrations,
 responsive layouts, and reduced-motion behavior. There is no build step. The preview
 server supports directory indexes; use `PORT=4174 npm run dev` for another port.
@@ -153,6 +154,7 @@ Run `npm run check` before publishing, then check local asset/anchor references
 and affected desktop/mobile interactions in the browser.
 
 - `projects/career-agent/`: local application workspace and architecture.
+- `projects/brief-intelligence/`: Northwestern Pritzker School of Law team project, with the public video demo, search contribution, and team pipeline attribution.
 - `projects/imc-prosperity/`: team results, strategies, and the five competition rounds.
 - `projects/airbnb-classification/`: methodology, result, and the existing full HTML report.
 - `projects/domus/`: WildHacks team project, host/guest flows, and dependency attribution.

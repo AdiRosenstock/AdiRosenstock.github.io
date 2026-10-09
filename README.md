@@ -33,6 +33,10 @@ An open-source, local workspace for researching jobs, preparing sourced answers,
 
 [Read the project story](https://adirosenstock.github.io/projects/career-agent/) · [Explore the source](https://github.com/AdiRosenstock/career-agent-public)
 
+### [Brief Intelligence](https://adirosenstock.github.io/projects/brief-intelligence/) · Northwestern CS 338 team project
+
+We built a legal research tool for Professor Maria Amparo Grau Ruiz at Northwestern Pritzker School of Law. It helps researchers search more than 20,000 EU court cases by title, identifier, and abstract, then narrow results by topic and year. My work centered on search and the results interface. The application repository is private; the public [demo](https://www.youtube.com/watch?v=GVULpFCQ97A) and [team classification pipeline](https://github.com/ZBraffmanNorthwestern/briefintelligence) show the project without sharing private configuration.
+
 ### More projects
 
 | Project | What to explore |
