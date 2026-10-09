@@ -42,8 +42,6 @@ An open-source, local workspace for researching jobs, preparing sourced answers,
 | [DOMUS](https://adirosenstock.github.io/projects/domus/) | A [WildHacks team project](https://github.com/AdiRosenstock/DOMUS) connecting guests and hosts for Shabbat dinners and cultural gatherings. |
 | [TikiData FC](https://adirosenstock.github.io/projects/tikidata-fc/) | My [football data notebooks and visuals](https://github.com/AdiRosenstock/TikiData.FC) on expected goals, player form, and emerging talent. |
 
-The homepage also features [Recruiting Agent](https://github.com/AdiRosenstock/Recruiting_Agent), my startup-focused job research and outreach system, and [README Preview](https://adirosenstock.github.io/tools/readme-preview/), a one-file Markdown editor you can try in the browser.
-
 ## About this site
 
 This repository is the source for [adirosenstock.github.io](https://adirosenstock.github.io/). I built it as a dependency-free static site with interactive project stories, a live BanterBoost preview, responsive layouts, keyboard-friendly controls, and a motion pause option. The football details are personal: I captained Furati FC in Costa Rica’s U20 second division, and the game still shapes what I build.
