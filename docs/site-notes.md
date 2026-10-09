@@ -28,6 +28,7 @@ refinements live in `refinement.css`; edit the files there, then refresh the pre
 - Career Agent’s October 8, 2026 public README, design notes, and fictional demo screenshot: The Goat workflow, Codex and Claude Code setup, saved candidate choices, three submission modes, exact-batch approvals, and confirmation evidence. No personal application records appear in the screenshot.
 - [Recruiting Agent](https://github.com/AdiRosenstock/Recruiting_Agent) public README: startup-focused discovery, explainable scoring, fact-checked research, and human-reviewed outreach. Its drafts are never sent automatically.
 - [README Preview](https://github.com/AdiRosenstock/readme-reader) public source: a single HTML file with GitHub-flavored Markdown preview, local drafts, import, and export. The original HTML is copied into `dist/tools/readme-preview/` as a live demo. Its rendering libraries load from a CDN; the source repository is the canonical place for updates.
+- [STAT 362: Advanced Machine Learning](https://github.com/AdiRosenstock/STAT-362-Advanced-Machine-Learning) public coursework repository: running Python notebooks cover gradient descent and SVMs; Homework 1 includes a logistic regression implementation using gradient descent. Present it as coursework, not a standalone product or case study.
 - Organization logos supplied by Adi, with official links to Bloomberg, impaKt,
   MusclePoints (now MUSCLE), Vértice, and Hanoar Hatzioni. Role details and dates
   come from the résumé. The Bloomberg experience links to Adi’s supplied

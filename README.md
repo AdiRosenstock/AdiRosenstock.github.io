@@ -41,6 +41,7 @@ An open-source, local workspace for researching jobs, preparing sourced answers,
 | [IMC Prosperity 3](https://adirosenstock.github.io/projects/imc-prosperity/) | Our team’s Python trading strategies, options pricing, and [candid five-round write-up](https://github.com/AdiRosenstock/IMC_Prosperity_3). |
 | [DOMUS](https://adirosenstock.github.io/projects/domus/) | A [WildHacks team project](https://github.com/AdiRosenstock/DOMUS) connecting guests and hosts for Shabbat dinners and cultural gatherings. |
 | [TikiData FC](https://adirosenstock.github.io/projects/tikidata-fc/) | My [football data notebooks and visuals](https://github.com/AdiRosenstock/TikiData.FC) on expected goals, player form, and emerging talent. |
+| [STAT 362: Advanced Machine Learning](https://github.com/AdiRosenstock/STAT-362-Advanced-Machine-Learning) | Northwestern coursework: notebooks on gradient descent and SVMs, plus a logistic regression model implemented from scratch. |
 
 ## About this site
 
