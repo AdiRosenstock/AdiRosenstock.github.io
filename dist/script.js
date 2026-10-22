@@ -98,13 +98,11 @@ const projects = {
     ], outcome: 'Built and launched independently in September 2026.', links: [['Explore the product', 'https://fplbanterboost.com'], ['Explore current analytics', 'https://fplbanterboost.com/l/2267404/analytics']]
   },
   career: {
-    category: 'TUKI · Private development in progress', title: 'Building a dependable application engine.',
-    lead: 'I’m currently working on TUKI, with provider-independent inference and durable background orchestration in progress.',
+    category: 'TUKI · In private development', title: 'Your next move deserves an edge.',
+    lead: 'An independent AI career project by Adi Rosenstock. Big ambition, a high bar, and more to come.',
     sections: [
-      ['The foundation', 'The working baseline uses React, TypeScript, Express, and SQLite, with optional Supabase. It keeps candidate facts, job feeds, versioned approval packets, and confirmation evidence together.'],
-      ['The current boundary', 'Codex or Claude Code currently handles browser work through an external agent workflow. The inherited baseline is separate from the engine capabilities now being developed.'],
-      ['What I’m working on', 'Provider-independent inference and durable background orchestration are ongoing development work. TUKI remains private and is not presented as a production-ready release.']
-    ], outcome: 'Private development in progress. Earlier dashboard artwork uses fictional data.', links: [['Read the project story', 'projects/tuki/']]
+      ['More when it’s ready', 'TUKI is staying under wraps for now. If you’re curious, let’s start a conversation.']
+    ], outcome: 'In private development.', links: [['Meet TUKI', 'projects/tuki/']]
   },
   trading: {
     category: 'IMC Prosperity 3 · Team Literal Zero', title: 'Finding an edge in the noise.',

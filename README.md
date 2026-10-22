@@ -27,13 +27,11 @@ Fantasy Premier League is more fun when the banter has numbers behind it. I buil
 
 <img src="dist/assets/banterboost-analytics-current.jpg" alt="BanterBoost analytics and odds page showing player forecasts and market odds" width="760">
 
-### [TUKI](https://adirosenstock.github.io/projects/tuki/) · Creator · Currently in development
+### [TUKI](https://adirosenstock.github.io/projects/tuki/) · Creator · In private development
 
-I’m currently working on **TUKI**, a private job application engine. The ongoing work focuses on **provider-independent inference** and **durable background orchestration**; these are development goals, not completed product claims.
+**Your next move deserves an edge.** TUKI is my independent AI career project. Big ambition, a high bar, and more to come. The details are staying under wraps for now.
 
-The inherited working baseline has a **React, TypeScript, Express, and SQLite** dashboard with optional Supabase, configured Greenhouse/Lever/Ashby feeds, candidate facts, versioned approval packets, and evidence-based submission records. Browser work currently runs through an external Codex or Claude Code workflow. TUKI builds on that foundation and remains private, with no public release or installation offered.
-
-[Read the project story](https://adirosenstock.github.io/projects/tuki/)
+[Meet TUKI](https://adirosenstock.github.io/projects/tuki/) · [Get in touch](https://adirosenstock.github.io/#contact)
 
 ### [Brief Intelligence](https://adirosenstock.github.io/projects/brief-intelligence/) · Northwestern Pritzker School of Law team project
 

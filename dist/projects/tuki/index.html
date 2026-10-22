@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="TUKI is Adi Rosenstock’s private job application engine, currently in development. Explore the working baseline and ongoing inference and orchestration work.">
+  <meta name="description" content="TUKI. Your next move deserves an edge. A private AI career project by Adi Rosenstock.">
   <meta property="og:title" content="TUKI | Adi Rosenstock">
-  <meta property="og:description" content="TUKI is Adi Rosenstock’s private job application engine, currently in development. Explore the working baseline and ongoing inference and orchestration work.">
+  <meta property="og:description" content="TUKI. Your next move deserves an edge. A private AI career project by Adi Rosenstock.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://adirosenstock.github.io/projects/tuki/">
-  <meta property="og:image" content="https://adirosenstock.github.io/assets/career-agent.png">
+  <meta property="og:image" content="https://adirosenstock.github.io/assets/tuki-preview.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://adirosenstock.github.io/projects/tuki/">
   <title>TUKI | Adi Rosenstock</title>
@@ -19,19 +19,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;450;500;550;600;650;700&family=Outfit:wght@400;500;550;600;650;700;750&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css?v=a1caf9555590">
   <link rel="stylesheet" href="../../projects.css?v=65e095dc62cd">
-  <link rel="stylesheet" href="../../project-scenes.css?v=8227dfbbdb65">
-  <script src="../../projects.js?v=fcfb5cc2b918" defer></script>
+  <link rel="stylesheet" href="../../tuki.css?v=010211d5c7c0">
+  <script src="../../projects.js?v=29141b03f5d4" defer></script>
   <link rel="stylesheet" href="../../motion.css?v=c4485212f3f1">
   <script src="../../motion.js?v=99ee663d77c3" defer></script>
 </head>
-<body class="project-page" data-theme="career">
+<body class="project-page tuki-page" data-theme="career">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="nav-wrap">
       <a class="wordmark" href="../../" aria-label="Adi Rosenstock home"><img src="../../assets/adi-wordmark.png" width="480" height="295" alt="adi."></a>
       <a class="project-home" href="../../#projects">All projects</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Open navigation"><span></span><span></span></button>
-      <nav id="navigation" aria-label="Project navigation"><a href="#overview">Overview</a><a href="#build">Build details</a><a href="#explore">Explore</a></nav>
+      <nav id="navigation" aria-label="Project navigation"><a href="#overview">TUKI</a><a href="#explore">Get in touch</a></nav>
       <a class="nav-contact" href="../../#contact">Let’s talk <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 6l8 6 8-6"/></svg></a><button class="header-motion-toggle" type="button" aria-label="Pause motion" title="Pause motion" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg></button>
     </div>
     <div class="reading-progress" role="progressbar" aria-label="Page scroll, match minute" aria-valuemin="0" aria-valuemax="90" aria-valuenow="0" aria-valuetext="Match minute 0 of 90">
@@ -42,29 +42,29 @@
   </header>
   <main id="main">
     <div class="project-banner">
-      <svg class="scene-backdrop career-backdrop" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><pattern id="desk-grid" width="46" height="46" patternUnits="userSpaceOnUse"><path d="M46 0H0V46"/></pattern></defs><rect width="1440" height="760" fill="url(#desk-grid)" stroke="none"/><g transform="rotate(12 1220 140)"><rect class="document-outline" x="1160" y="-40" width="165" height="230" rx="6"/><path d="M1184 42h92m-92 22h105m-105 22h83m-83 42h105m-105 22h65"/></g><g transform="rotate(-12 785 660)"><rect class="document-outline" x="720" y="550" width="155" height="220" rx="5"/><path d="M743 595h84m-84 24h107m-107 24h96m-96 47h107"/></g><path d="M1030 25v79h-80v61M1310 550h-103v95h-103" stroke-dasharray="4 7"/><circle cx="950" cy="165" r="5"/><circle cx="1104" cy="645" r="5"/></svg>
       <div class="section-wrap">
         <div class="project-breadcrumb"><a href="../../#projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg>Selected work</a><span aria-hidden="true">/</span><span>TUKI</span></div>
-        <section class="project-hero" aria-labelledby="project-title">
-          <div class="project-heading"><p class="project-role">Creator · Private development in progress</p><h1 id="project-title">TUKI</h1><p class="project-deck">Building a job application engine that keeps its evidence.</p><p class="project-intro">I’m currently working on TUKI: a private job application engine. I’m building provider-independent inference and durable background orchestration on top of a working local dashboard and application workflow.</p><div class="tag-list"><span>TypeScript</span><span>React</span><span>Express</span><span>SQLite</span><span>Codex &amp; Claude Code</span></div><div class="project-actions"><a class="button button-primary" href="#explore">What I’m working on</a><a class="button button-outline" href="#in-action">See the earlier prototype</a></div></div>
-          <figure class="scene-art"><div class="career-desk"><div class="desk-toolbar"><strong>Application desk</strong><span>A packet, from start to finish</span></div><span class="desk-note" aria-hidden="true">Your choice. Your record.</span><div class="desk-packet" id="career-packet"><div class="packet-top"><span id="packet-kind">Research notes</span><span class="packet-stamp" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4 4 10-10"/></svg></span></div><h2 id="packet-title">Start with the facts.</h2><ul class="packet-checks" id="packet-checks"><li>Role requirements</li><li>Source links</li><li>Duplicate checks</li></ul></div><div class="scene-controls" role="group" aria-label="Explore an application packet"><button type="button" data-career-stage="research" aria-pressed="true">Research</button><button type="button" data-career-stage="prepare" aria-pressed="false">Prepare</button><button type="button" data-career-stage="review" aria-pressed="false">Submit</button></div><p class="scene-caption" id="career-caption" aria-live="polite">A role is assessed against saved preferences, with source evidence kept alongside it.</p></div><p class="scene-note">From scattered tabs to a clear next step.</p><figcaption>An illustration of the inherited application workflow, not a live TUKI demo.</figcaption></figure>
+        <section class="project-hero tuki-hero" id="overview" aria-labelledby="project-title">
+          <div class="project-heading">
+            <p class="project-role">An independent project by Adi Rosenstock</p>
+            <h1 id="project-title">TUKI</h1>
+            <p class="project-deck">Your next move deserves an edge.</p>
+            <p class="project-intro">A private AI career project. Big ambition, a high bar, and more to come.</p>
+            <div class="project-actions"><a class="button button-primary" href="../../#contact">Talk with Adi</a><a class="button button-outline" href="../../#projects">Explore my work</a></div>
+            <p class="tuki-status"><span aria-hidden="true"></span>In private development</p>
+          </div>
+          <div class="tuki-brand-art" aria-hidden="true"><span class="tuki-brand-orbit"></span><span class="tuki-brand-bird"></span><span class="tuki-brand-note">Costa Rican ambition.</span></div>
         </section>
       </div>
     </div>
     <div class="section-wrap">
-      <div class="project-tools"><span>Private development in progress. The working baseline and current engine work are described separately below.</span><div class="project-utility-actions"><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg><span>Pause motion</span></button><button class="copy-project-link" id="copy-project-link" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg>Copy page link</button></div></div>
+      <div class="project-tools"><span>Quietly ambitious.</span><div class="project-utility-actions"><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg><span>Pause motion</span></button><button class="copy-project-link" id="copy-project-link" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg>Copy page link</button></div></div>
       <p class="project-copy-status" id="project-copy-status" role="status"></p>
-      <div class="project-body">
-        <nav class="story-nav" aria-label="On this page"><p>On this page</p><a href="#overview" aria-current="location">The project</a><a href="#approach">Working baseline</a><a href="#build">Architecture</a><a href="#decisions">A key decision</a><a href="#in-action">Earlier prototype</a><a href="#explore">Current work</a></nav>
-        <div class="story-content">
-          <section class="story-section" id="overview" aria-labelledby="overview-title"><h2 id="overview-title">The project</h2><div class="story-overview"><div class="story-prose"><p>I’m currently developing TUKI to bring job research, candidate facts, prepared answers, and application outcomes into one dependable workflow. The project is private and still in progress.</p><p>I’m building on an existing local application baseline rather than starting from an empty dashboard. That baseline already has candidate records, job feeds, versioned review packets, and evidence-based submission records. The next engine work focuses on how inference runs and how work continues reliably in the background.</p></div><dl class="project-facts"><div><dt>My role</dt><dd>Creator, actively developing the engine</dd></div><div><dt>Status</dt><dd>Private development in progress</dd></div><div><dt>Working baseline</dt><dd>React, TypeScript, Express, SQLite; optional Supabase</dd></div></dl></div></section>
-          <section class="story-section" id="approach" aria-labelledby="approach-title"><h2 id="approach-title">The working baseline</h2><p>These capabilities belong to the existing application foundation. They are the starting point for TUKI’s ongoing engine work.</p><div class="feature-list"><div class="feature-row"><h3>Research with sources</h3><p>Configured Greenhouse, Lever, and Ashby feeds supply opportunities. Saved candidate preferences and source evidence help assess roles.</p></div><div class="feature-row"><h3>Prepare from candidate facts</h3><p>The dashboard keeps verified facts, preferences, original documents, and missing personal answers together. Answers and document choices become versioned application packets.</p></div><div class="feature-row"><h3>Record permission and outcomes</h3><p>The baseline separates candidate submission, exact-batch review, and authorized automatic submission. Approval follows the current packet version; a submission record needs confirmation evidence.</p></div></div></section>
-          <section class="story-section" id="build" aria-labelledby="build-title"><h2 id="build-title">How the baseline works</h2><p>The existing TypeScript domain engine owns application state, approval rules, and evidence. Browser work currently runs through an external Codex or Claude Code workflow.</p><ol class="build-flow"><li><h3>Dashboard and API</h3><p>React presents candidate setup, opportunities, missing answers, review packets, and history. Express provides the local API.</p></li><li><h3>Application engine</h3><p>Typed contracts connect candidate facts, eligibility, duplicate checks, packet versions, and submission attempts.</p></li><li><h3>Storage and external agent</h3><p>SQLite is the default store, with optional Supabase. A bounded CLI supplies work to Codex or Claude Code; their browser tools handle supported employer forms.</p></li></ol><p class="build-note">This is the working foundation, not a claim that TUKI’s new inference and background orchestration are complete.</p></section>
-          <section class="story-section" id="decisions" aria-labelledby="decisions-title"><h2 id="decisions-title">A rule worth preserving</h2><div class="decision-note"><h3>Approval belongs to a version. Completion needs evidence.</h3><p>The baseline binds review approval to the exact answers and documents. A changed packet needs fresh approval. Automatic submission requires its own risk acknowledgment and a current request to apply.</p><p>A prepared packet, a filled browser form, and a confirmed submission are different states. I want the new engine to preserve those distinctions as inference and background execution evolve.</p></div></section>
-          <section class="story-section" id="in-action" aria-labelledby="in-action-title"><h2 id="in-action-title">Earlier prototype</h2><figure class="project-gallery"><a class="gallery-image" href="../../assets/career-agent.png" target="_blank" rel="noopener noreferrer" aria-label="View full-size earlier prototype with fictional application data"><img id="gallery-image" src="../../assets/career-agent.png" alt="Earlier application dashboard prototype with fictional jobs and a review queue; not the current TUKI interface" loading="lazy"></a><figcaption><span>Earlier prototype with fictional data. This image documents the inherited dashboard, not TUKI’s current interface or completed engine.</span><a href="../../assets/career-agent.png" target="_blank" rel="noopener noreferrer">View full-size image</a></figcaption></figure><div class="artifact-context"><strong>A foundation, with more work ahead.</strong><p>The prototype makes the candidate record and review process visible. The current development effort is underneath that interface: inference boundaries and durable execution.</p></div></section>
-          <section class="story-section" id="explore" aria-labelledby="explore-title"><h2 id="explore-title">What I’m working on now</h2><p>I’m currently working on two engine concerns. Both are development work in progress, not released capabilities.</p><div class="feature-list"><div class="feature-row"><h3>Provider-independent inference</h3><p>I’m working toward an inference layer that can support different model providers without tying application rules to a single provider.</p></div><div class="feature-row"><h3>Durable background orchestration</h3><p>I’m working on how application tasks can continue in the background with persisted progress and recoverable execution, while keeping permission and evidence tied to the application record.</p></div></div><p class="source-note">TUKI is private and in active development. There is no public release, source download, or installation offered here.</p></section>
-        </div>
-      </div>
+      <section class="tuki-invitation" id="explore" aria-labelledby="explore-title">
+        <div><h2 id="explore-title">More when it’s ready.</h2><p>TUKI is staying under wraps for now. If you’re curious, let’s start a conversation.</p></div>
+        <a class="button button-outline" href="../../#contact">Get in touch</a>
+      </section>
+      <div class="tuki-legacy-anchors" aria-hidden="true"><span id="approach"></span><span id="build"></span><span id="decisions"></span><span id="in-action"></span></div>
     </div>
     <aside class="project-next" aria-label="More projects"><div class="section-wrap"><a href="../../#projects" class="text-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg>All selected work</a><a class="next-link" href="../imc-prosperity/"><div><p>Explore another project</p><h2>IMC Prosperity 3</h2></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div></aside>
   </main>

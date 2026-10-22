@@ -2,6 +2,10 @@
 
 - This is Adi Rosenstock’s personal portfolio. Preserve the current résumé-grounded
   facts and distinguish team results from individual accomplishments.
+- Keep TUKI as a confident, brief private-project teaser. Do not publish its product
+  mechanics, architecture, stack, integrations, roadmap, or dashboard screenshots
+  in pages, scripts, assets, metadata, README, or other public documentation.
+  Use broad AI career positioning, honest private-development status, and contact links.
 - Check the current live BanterBoost website before updating its screenshots or
   product descriptions. Do not reuse the old repository screenshots.
 - Keep BanterBoost's preview as the actual live iframe, with working analytics and

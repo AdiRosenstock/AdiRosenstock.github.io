@@ -105,7 +105,7 @@ function animateChange(element) {
   void element.offsetWidth;
   element.classList.add('scene-change');
 }
-document.querySelectorAll('.desk-packet, .gathering-card').forEach(element => {
+document.querySelectorAll('.gathering-card').forEach(element => {
   element.addEventListener('animationend', event => {
     if (event.target === element) element.classList.remove('scene-change');
   });
@@ -115,25 +115,6 @@ function setSelected(selector, selected) {
     button.setAttribute('aria-pressed', String(button === selected));
   });
 }
-const packetStages = {
-  research: { kind: 'Research notes', title: 'Start with the facts.', checks: ['Role requirements', 'Source links', 'Duplicate checks'], caption: 'A role is assessed against saved preferences, with source evidence kept alongside it.' },
-  prepare: { kind: 'Prepared packet', title: 'Bring the pieces together.', checks: ['Saved profile facts', 'Questions to answer', 'Original documents'], caption: 'Answers and document choices become a versioned packet. Missing personal answers stay in the review queue.' },
-  review: { kind: 'Choose your finish line', title: 'You set the submission mode.', checks: ['Submit yourself', 'Approve an exact batch', 'Authorize automatic submission'], caption: 'The inherited workflow follows the candidate’s saved choice. A submission is recorded only with confirmation evidence.' }
-};
-document.querySelectorAll('[data-career-stage]').forEach(button => button.addEventListener('click', () => {
-  const stage = packetStages[button.dataset.careerStage];
-  document.querySelector('#packet-kind').textContent = stage.kind;
-  document.querySelector('#packet-title').textContent = stage.title;
-  const checks = stage.checks.map(text => {
-    const item = document.createElement('li');
-    item.textContent = text;
-    return item;
-  });
-  document.querySelector('#packet-checks').replaceChildren(...checks);
-  document.querySelector('#career-caption').textContent = stage.caption;
-  setSelected('[data-career-stage]', button);
-  animateChange(document.querySelector('#career-packet'));
-}));
 const tradingSketches = {
   reversion: { caption: 'Look for a price stretched away from its reference, then test whether it tends to return.', x: 'Time', y: 'Relative price', reference: 'Fair value', label: 'Illustration of prices moving around a fair-value line' },
   basket: { caption: 'Compare a basket’s price with the value of its components. The gap is a research signal to test.', x: 'Time', y: 'Basket and components', reference: '', label: 'Illustrative basket price in blue and component value in orange, showing a temporary gap' },

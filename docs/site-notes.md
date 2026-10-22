@@ -25,7 +25,7 @@ refinements live in `refinement.css`; edit the files there, then refresh the pre
   (America/Chicago). Its existing About page and approved public assets provide
   the founder biography, football portrait, and logo. The old lineup screenshot
   was replaced after review of the live product.
-- TUKI: Adi’s current development brief and the inherited local application baseline. Present provider-independent inference and durable background orchestration as work in progress. The retained fictional screenshot is an earlier prototype, not the current TUKI interface. The project is private; offer no public source, download, or installation links.
+- TUKI: a private AI career project by Adi. Its public presence is a brief branded teaser. Keep product mechanics, stack, integrations, roadmap, screenshots, and implementation details out of all published copy, scripts, assets, and metadata. Offer contact and portfolio links; do not invent performance claims or a release date.
 - [Recruiting Agent](https://github.com/AdiRosenstock/Recruiting_Agent) public README: startup-focused discovery, explainable scoring, fact-checked research, and human-reviewed outreach. Its drafts are never sent automatically.
 - [README Preview](https://github.com/AdiRosenstock/readme-reader) public source: a single HTML file with GitHub-flavored Markdown preview, local drafts, import, and export. The original HTML is copied into `dist/tools/readme-preview/` as a live demo. Its rendering libraries load from a CDN; the source repository is the canonical place for updates.
 - [STAT 362: Advanced Machine Learning](https://github.com/AdiRosenstock/STAT-362-Advanced-Machine-Learning) public coursework repository: running Python notebooks cover gradient descent and SVMs; Homework 1 includes a logistic regression implementation using gradient descent. Present it as coursework, not a standalone product or case study.
@@ -81,15 +81,16 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
   BanterBoost retains its existing website link and native detail dialog.
 - Brief Intelligence, TUKI, IMC Prosperity 3, Airbnb classification, DOMUS, and TikiData FC
   have dedicated, shareable project pages. Homepage cards open these pages,
-  with direct source/product links retained only where public. Each page includes the project context,
+  with direct source/product links retained only where public. Public case studies include project context,
   approach, build details, a key decision, and references for deeper exploration.
+  TUKI is a compact private-project teaser, with a contact invitation instead of a case study.
   Pages have section navigation, copy-link feedback, and links to the next project.
   Every page respects the shared motion preference and has a pause control.
-  TUKI has a research/preparation/submission packet illustration; IMC has
+  TUKI uses branding and the existing toucan mascot; IMC has
   switchable strategy sketches; Airbnb illustrates five-fold validation; DOMUS
   switches between guest and host journeys; TikiData has a playable passing move.
   SVG backgrounds and page-specific palettes relate each scene to its project.
-  Every story includes a specific reading cue beside its original artifact.
+  Public case studies include a specific reading cue beside their original artifacts.
   Interactive illustrations are distinguished from actual project screenshots,
   results, and analysis figures. Content remains visible without JavaScript.
 - The projects section ends with a lighter pair of public side builds: Recruiting Agent and the playable README Preview tool.
@@ -154,7 +155,7 @@ server supports directory indexes; use `PORT=4174 npm run dev` for another port.
 Run `npm run check` before publishing, then check local asset/anchor references
 and affected desktop/mobile interactions in the browser.
 
-- `projects/tuki/`: private job application engine in active development; working baseline, current inference/orchestration work, and earlier prototype.
+- `projects/tuki/`: branded private AI career project teaser, with no product walkthrough or technical disclosure.
 - `projects/career-agent/`: redirect to TUKI, preserving query strings and anchors.
 - `projects/brief-intelligence/`: Northwestern Pritzker School of Law team project, with the public video demo, search contribution, and team pipeline attribution.
 - `projects/imc-prosperity/`: team results, strategies, and the five competition rounds.
@@ -166,8 +167,8 @@ New content is grounded in the public project repositories. DOMUS's table artwor
 comes from `public/images/hero-meal.png`. TikiData figures come from
 `Expected_Goal_Premier_League_Players/premier_league_goals_vs_xg.png` and
 `Hidden_Gems_Top_5_Leagues/U23_Hidden_Gems_Graph.png`; they are saved analysis
-outputs, not live player statistics. TUKI uses the existing fictional
-demonstration screenshot, explicitly labeled as an earlier prototype. Trading strategy descriptions and rankings are team
+outputs, not live player statistics. TUKI uses a local brand graphic; the former
+dashboard screenshot is removed from deployed assets. Trading strategy descriptions and rankings are team
 results from the public competition write-up. BanterBoost has no new project page.
 
 ## Contact delivery
@@ -193,7 +194,7 @@ accepts submissions after inbox activation before calling delivery ready.
 The toolkit keeps names alongside decorative technology logos, with more tools
 available in native disclosure controls. It covers software, data/AI, platforms
 and APIs, and finance/analysis. Skills come from the current résumé, Adi’s GitHub
-profile, TUKI’s package manifest, the TikiData FC write-up, and the Airbnb
+profile, the TikiData FC write-up, and the Airbnb
 classification notebook/methodology. No proficiency ratings are invented.
 
 Twenty-one SVG logos are bundled in `dist/assets/skills/` from

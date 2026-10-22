@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#eaf1f9"/>
+  <g fill="none" stroke="#bbcee2" stroke-width="2">
+    <ellipse cx="1070" cy="245" rx="250" ry="165" transform="rotate(-35 1070 245)"/>
+    <ellipse cx="1070" cy="245" rx="310" ry="205" transform="rotate(-35 1070 245)"/>
+  </g>
+  <circle cx="1018" cy="77" r="11" fill="#315c8e"/>
+  <g fill="#193754" font-family="Arial, Helvetica, sans-serif">
+    <text x="80" y="106" font-size="26">Private development</text>
+    <text x="66" y="382" font-size="244" font-weight="700" letter-spacing="-16">TUKI</text>
+    <text x="80" y="472" font-size="38" letter-spacing="-1">Your next move deserves an edge.</text>
+    <text x="80" y="554" font-size="22" fill="#49647e">A project by Adi Rosenstock</text>
+  </g>
+</svg>
