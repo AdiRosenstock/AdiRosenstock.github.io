@@ -27,11 +27,13 @@ Fantasy Premier League is more fun when the banter has numbers behind it. I buil
 
 <img src="dist/assets/banterboost-analytics-current.jpg" alt="BanterBoost analytics and odds page showing player forecasts and market odds" width="760">
 
-### [Career Agent](https://github.com/AdiRosenstock/career-agent-public) · Creator
+### [TUKI](https://adirosenstock.github.io/projects/tuki/) · Creator · Currently in development
 
-An open-source, local workspace for researching jobs, preparing sourced answers, and completing applications. I built the **React, Express, TypeScript, and SQLite** application and its shared workflow, **The Goat**, for Codex and Claude Code. Candidates choose whether to submit themselves, approve an exact batch, or authorize automatic submission after a separate warning. An approval applies to an exact packet version, and submissions need confirmation evidence.
+I’m currently working on **TUKI**, a private job application engine. The ongoing work focuses on **provider-independent inference** and **durable background orchestration**; these are development goals, not completed product claims.
 
-[Read the project story](https://adirosenstock.github.io/projects/career-agent/) · [Explore the source](https://github.com/AdiRosenstock/career-agent-public)
+The inherited working baseline has a **React, TypeScript, Express, and SQLite** dashboard with optional Supabase, configured Greenhouse/Lever/Ashby feeds, candidate facts, versioned approval packets, and evidence-based submission records. Browser work currently runs through an external Codex or Claude Code workflow. TUKI builds on that foundation and remains private, with no public release or installation offered.
+
+[Read the project story](https://adirosenstock.github.io/projects/tuki/)
 
 ### [Brief Intelligence](https://adirosenstock.github.io/projects/brief-intelligence/) · Northwestern Pritzker School of Law team project
 

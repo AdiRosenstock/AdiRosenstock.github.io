@@ -98,13 +98,13 @@ const projects = {
     ], outcome: 'Built and launched independently in September 2026.', links: [['Explore the product', 'https://fplbanterboost.com'], ['Explore current analytics', 'https://fplbanterboost.com/l/2267404/analytics']]
   },
   career: {
-    category: 'Career Agent · Open-source software', title: 'Less application admin. More control.',
-    lead: 'A personal application workflow turned into a reusable, local-first workspace for other job seekers.',
+    category: 'TUKI · Private development in progress', title: 'Building a dependable application engine.',
+    lead: 'I’m currently working on TUKI, with provider-independent inference and durable background orchestration in progress.',
     sections: [
-      ['The problem', 'Job research, documents, application answers, and submission history easily become disconnected. Automation only helps if it can use accurate facts and keep the candidate in control.'],
-      ['What I built', 'A TypeScript application with a React dashboard, an Express API, local SQLite or Supabase storage, and a shared agent workflow. It keeps research, prepared answers, document checks, duplicate checks, and review history together.'],
-      ['One decision that matters', 'Preparation and submission are separate steps. Submission needs a current reviewed packet, and an application is only recorded as submitted when there is confirmation evidence. The repository ships with fictional examples.']
-    ], outcome: 'Open source under the MIT license. Personal candidate data stays in each user’s own workspace.', links: [['Explore the repository', 'https://github.com/AdiRosenstock/career-agent-public']]
+      ['The foundation', 'The working baseline uses React, TypeScript, Express, and SQLite, with optional Supabase. It keeps candidate facts, job feeds, versioned approval packets, and confirmation evidence together.'],
+      ['The current boundary', 'Codex or Claude Code currently handles browser work through an external agent workflow. The inherited baseline is separate from the engine capabilities now being developed.'],
+      ['What I’m working on', 'Provider-independent inference and durable background orchestration are ongoing development work. TUKI remains private and is not presented as a production-ready release.']
+    ], outcome: 'Private development in progress. Earlier dashboard artwork uses fictional data.', links: [['Read the project story', 'projects/tuki/']]
   },
   trading: {
     category: 'IMC Prosperity 3 · Team Literal Zero', title: 'Finding an edge in the noise.',

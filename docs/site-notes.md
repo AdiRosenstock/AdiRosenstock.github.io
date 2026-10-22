@@ -25,7 +25,7 @@ refinements live in `refinement.css`; edit the files there, then refresh the pre
   (America/Chicago). Its existing About page and approved public assets provide
   the founder biography, football portrait, and logo. The old lineup screenshot
   was replaced after review of the live product.
-- Career Agent’s October 8, 2026 public README, design notes, and fictional demo screenshot: The Goat workflow, Codex and Claude Code setup, saved candidate choices, three submission modes, exact-batch approvals, and confirmation evidence. No personal application records appear in the screenshot.
+- TUKI: Adi’s current development brief and the inherited local application baseline. Present provider-independent inference and durable background orchestration as work in progress. The retained fictional screenshot is an earlier prototype, not the current TUKI interface. The project is private; offer no public source, download, or installation links.
 - [Recruiting Agent](https://github.com/AdiRosenstock/Recruiting_Agent) public README: startup-focused discovery, explainable scoring, fact-checked research, and human-reviewed outreach. Its drafts are never sent automatically.
 - [README Preview](https://github.com/AdiRosenstock/readme-reader) public source: a single HTML file with GitHub-flavored Markdown preview, local drafts, import, and export. The original HTML is copied into `dist/tools/readme-preview/` as a live demo. Its rendering libraries load from a CDN; the source repository is the canonical place for updates.
 - [STAT 362: Advanced Machine Learning](https://github.com/AdiRosenstock/STAT-362-Advanced-Machine-Learning) public coursework repository: running Python notebooks cover gradient descent and SVMs; Homework 1 includes a logistic regression implementation using gradient descent. Present it as coursework, not a standalone product or case study.
@@ -51,11 +51,11 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
 
 - A football/tech hero combines pitch markings, a data grid, an animated passing
   pattern, a portrait, and a football visitors can kick.
-- Selected work features Brief Intelligence, with a full project page and public video demo. Its homepage preview cycles through searching, filtering, and matching only while visible; the existing motion pause and reduced-motion preference stop the cycle. The selected-work grid includes Career Agent, IMC Prosperity 3, the Airbnb model,
+- Selected work features Brief Intelligence, with a full project page and public video demo. Its homepage preview cycles through searching, filtering, and matching only while visible; the existing motion pause and reduced-motion preference stop the cycle. The selected-work grid includes TUKI, IMC Prosperity 3, the Airbnb model,
   DOMUS, and TikiData FC, beneath the featured BanterBoost preview. On pointer
   devices, each card reveals its description and stack on hover or keyboard focus;
   touch layouts show descriptions below the artwork. Each of those five cards
-  links to its project page, with a separate source link. The main palette
+  links to its project page. Public projects retain separate source links; TUKI shows its private development status. The main palette
   uses ink and teal; project previews keep their own colors and imagery.
 - The opening shows an animated soccer passing move above Adi’s name and a
   football visitors can kick beside the portrait. Pitch markings connect the
@@ -79,13 +79,13 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
   The AI office portrait and its disclosure are no longer used on the homepage.
 - Prominent Northwestern and Bloomberg hero buttons open résumé-grounded details.
   BanterBoost retains its existing website link and native detail dialog.
-- Brief Intelligence, Career Agent, IMC Prosperity 3, Airbnb classification, DOMUS, and TikiData FC
+- Brief Intelligence, TUKI, IMC Prosperity 3, Airbnb classification, DOMUS, and TikiData FC
   have dedicated, shareable project pages. Homepage cards open these pages,
-  with direct source/product links retained. Each page includes the project context,
+  with direct source/product links retained only where public. Each page includes the project context,
   approach, build details, a key decision, and references for deeper exploration.
   Pages have section navigation, copy-link feedback, and links to the next project.
   Every page respects the shared motion preference and has a pause control.
-  Career Agent has a research/preparation/submission packet illustration; IMC has
+  TUKI has a research/preparation/submission packet illustration; IMC has
   switchable strategy sketches; Airbnb illustrates five-fold validation; DOMUS
   switches between guest and host journeys; TikiData has a playable passing move.
   SVG backgrounds and page-specific palettes relate each scene to its project.
@@ -128,7 +128,8 @@ Relative asset and navigation paths work at the root without a build dependency.
 
 The generated artifact also retains `/AdiRosenstock.io/` asset paths and redirects
 its former HTML routes to the new root, preserving query strings and section
-anchors. This keeps existing bookmarks and shared project links working.
+anchors. The old project route resolves directly to `/projects/tuki/` from both
+the root and `/AdiRosenstock.io/` paths. This keeps existing bookmarks and shared project links working.
 `.pages/` is ignored; edit the original files in `dist/`.
 
 For rollback, revert the root-address migration commit, rename the repository back
@@ -153,7 +154,8 @@ server supports directory indexes; use `PORT=4174 npm run dev` for another port.
 Run `npm run check` before publishing, then check local asset/anchor references
 and affected desktop/mobile interactions in the browser.
 
-- `projects/career-agent/`: local application workspace and architecture.
+- `projects/tuki/`: private job application engine in active development; working baseline, current inference/orchestration work, and earlier prototype.
+- `projects/career-agent/`: redirect to TUKI, preserving query strings and anchors.
 - `projects/brief-intelligence/`: Northwestern Pritzker School of Law team project, with the public video demo, search contribution, and team pipeline attribution.
 - `projects/imc-prosperity/`: team results, strategies, and the five competition rounds.
 - `projects/airbnb-classification/`: methodology, result, and the existing full HTML report.
@@ -164,8 +166,8 @@ New content is grounded in the public project repositories. DOMUS's table artwor
 comes from `public/images/hero-meal.png`. TikiData figures come from
 `Expected_Goal_Premier_League_Players/premier_league_goals_vs_xg.png` and
 `Hidden_Gems_Top_5_Leagues/U23_Hidden_Gems_Graph.png`; they are saved analysis
-outputs, not live player statistics. Career Agent uses the existing fictional
-demonstration screenshot. Trading strategy descriptions and rankings are team
+outputs, not live player statistics. TUKI uses the existing fictional
+demonstration screenshot, explicitly labeled as an earlier prototype. Trading strategy descriptions and rankings are team
 results from the public competition write-up. BanterBoost has no new project page.
 
 ## Contact delivery
@@ -191,7 +193,7 @@ accepts submissions after inbox activation before calling delivery ready.
 The toolkit keeps names alongside decorative technology logos, with more tools
 available in native disclosure controls. It covers software, data/AI, platforms
 and APIs, and finance/analysis. Skills come from the current résumé, Adi’s GitHub
-profile, Career Agent’s package manifest, the TikiData FC write-up, and the Airbnb
+profile, TUKI’s package manifest, the TikiData FC write-up, and the Airbnb
 classification notebook/methodology. No proficiency ratings are invented.
 
 Twenty-one SVG logos are bundled in `dist/assets/skills/` from

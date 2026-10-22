@@ -21,7 +21,7 @@ async function redirectPages(directory) {
       await redirectPages(path);
     } else if (entry.name.endsWith('.html')) {
       const route = relative(source, path).split('\\').join('/').replace(/index\.html$/, '');
-      const target = site + route;
+      const target = site + (route === 'projects/career-agent/' ? 'projects/tuki/' : route);
       await writeFile(join(legacy, relative(source, path)), `<!doctype html>
 <html lang="en">
 <head>
