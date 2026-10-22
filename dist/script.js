@@ -38,6 +38,54 @@ document.addEventListener('keydown', event => {
     menuButton.focus();
   }
 });
+// The name story works as a native disclosure; video loads only when requested.
+const chiquiIntro = document.querySelector('.chiqui-intro');
+const chiquiGoalLink = document.querySelector('#chiqui-goal-link');
+const chiquiGoalDialog = document.querySelector('#chiqui-goal-dialog');
+const chiquiGoalFrame = document.querySelector('#chiqui-goal-frame');
+let chiquiPreviousOverflow = '';
+if (typeof chiquiGoalDialog.showModal === 'function') {
+  chiquiGoalLink.setAttribute('aria-haspopup', 'dialog');
+  chiquiGoalLink.setAttribute('aria-controls', 'chiqui-goal-dialog');
+}
+function positionChiquiNote() {
+  if (!chiquiIntro.open) return;
+  const bounds = chiquiIntro.getBoundingClientRect();
+  const width = chiquiIntro.querySelector('.tuki-note').getBoundingClientRect().width;
+  const center = Math.max(width / 2 + 12, Math.min(window.innerWidth - width / 2 - 12, bounds.left + bounds.width / 2));
+  chiquiIntro.style.setProperty('--chiqui-note-left', `${center - bounds.left}px`);
+  chiquiIntro.style.setProperty('--chiqui-arrow-left', `${bounds.left + bounds.width / 2 - center + width / 2 - 6}px`);
+}
+chiquiIntro.addEventListener('toggle', positionChiquiNote);
+window.addEventListener('resize', positionChiquiNote);
+
+chiquiGoalLink.addEventListener('click', event => {
+  if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || typeof chiquiGoalDialog.showModal !== 'function') return;
+  event.preventDefault();
+  chiquiPreviousOverflow = document.body.style.overflow;
+  chiquiGoalDialog.showModal();
+  document.body.style.overflow = 'hidden';
+  chiquiGoalFrame.src = chiquiGoalFrame.dataset.src;
+});
+chiquiGoalDialog.querySelector('.chiqui-goal-close').addEventListener('click', () => chiquiGoalDialog.close());
+chiquiGoalDialog.addEventListener('click', event => {
+  const box = chiquiGoalDialog.getBoundingClientRect();
+  if (event.target === chiquiGoalDialog && (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom)) chiquiGoalDialog.close();
+});
+chiquiGoalDialog.addEventListener('close', () => {
+  chiquiGoalFrame.removeAttribute('src');
+  document.body.style.overflow = chiquiPreviousOverflow;
+  chiquiGoalLink.focus({ preventScroll: true });
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && chiquiIntro.open && !chiquiGoalDialog.open) {
+    chiquiIntro.open = false;
+    chiquiIntro.querySelector('summary').focus({ preventScroll: true });
+  }
+});
+document.addEventListener('click', event => {
+  if (!chiquiGoalDialog.open && !chiquiIntro.contains(event.target) && !chiquiGoalDialog.contains(event.target)) chiquiIntro.open = false;
+});
 const portraitControls = document.querySelectorAll('[data-portrait-switch]');
 const familyPhotos = [
   {
@@ -98,8 +146,8 @@ const projects = {
     ], outcome: 'Built and launched independently in September 2026.', links: [['Explore the product', 'https://fplbanterboost.com'], ['Explore current analytics', 'https://fplbanterboost.com/l/2267404/analytics']]
   },
   career: {
-    category: 'TUKI · In private development', title: 'Your next move deserves an edge.',
-    lead: 'An independent AI career project by Adi Rosenstock. Big ambition, a high bar, and more to come.',
+    category: 'TUKI · In private development', title: 'Building the future of job search.',
+    lead: 'A new chapter for careers, powered by AI. An independent project by Adi Rosenstock, in private development.',
     sections: [
       ['More when it’s ready', 'TUKI is staying under wraps for now. If you’re curious, let’s start a conversation.']
     ], outcome: 'In private development.', links: [['Meet TUKI', 'projects/tuki/']]
@@ -160,7 +208,7 @@ document.querySelectorAll('[data-project]').forEach(button => button.addEventLis
   dialog.showModal();
   document.body.style.overflow = 'hidden';
 }));
-document.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
 dialog.addEventListener('click', event => {
   const box = dialog.getBoundingClientRect();
   if (event.target === dialog && (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom)) dialog.close();

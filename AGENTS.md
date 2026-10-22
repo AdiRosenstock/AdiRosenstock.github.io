@@ -24,6 +24,9 @@
   pages, query strings, and section anchors. `.pages/` is generated and ignored.
   Preserve the unused Sites identity in `.openai/hosting.json`; do not deploy there.
 - Keep the personal, playful motion in the hero and provide a motion pause control.
+  The personal assistant/toucan is Chiqui, named after Randall “Chiqui” Brenes
+  of Club Sport Cartaginés. TUKI remains the separate career project’s name.
+  Keep Chiqui’s goal-video link and the requested 3:56–5:32 segment.
 - Keep the Northwestern education card purple; the general site palette uses ink and teal.
 - Northwestern education and Bloomberg experience lead the hero. Football is a
   personal interest, not the whole identity. Keep the overview short and title-led;

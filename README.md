@@ -29,7 +29,7 @@ Fantasy Premier League is more fun when the banter has numbers behind it. I buil
 
 ### [TUKI](https://adirosenstock.github.io/projects/tuki/) · Creator · In private development
 
-**Your next move deserves an edge.** TUKI is my independent AI career project. Big ambition, a high bar, and more to come. The details are staying under wraps for now.
+**Building the future of job search.** TUKI is my independent AI career project. A new chapter for careers, powered by AI. In private development, with the details under wraps until it’s ready.
 
 [Meet TUKI](https://adirosenstock.github.io/projects/tuki/) · [Get in touch](https://adirosenstock.github.io/#contact)
 

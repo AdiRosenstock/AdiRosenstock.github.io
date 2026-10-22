@@ -25,7 +25,7 @@ refinements live in `refinement.css`; edit the files there, then refresh the pre
   (America/Chicago). Its existing About page and approved public assets provide
   the founder biography, football portrait, and logo. The old lineup screenshot
   was replaced after review of the live product.
-- TUKI: a private AI career project by Adi. Its public presence is a brief branded teaser. Keep product mechanics, stack, integrations, roadmap, screenshots, and implementation details out of all published copy, scripts, assets, and metadata. Offer contact and portfolio links; do not invent performance claims or a release date.
+- TUKI: a private AI career project by Adi. Its public presence leads with “Building the future of job search.” and stays a brief branded teaser. Keep product mechanics, stack, integrations, roadmap, screenshots, and implementation details out of all published copy, scripts, assets, and metadata. Offer contact and portfolio links; do not invent performance claims or a release date.
 - [Recruiting Agent](https://github.com/AdiRosenstock/Recruiting_Agent) public README: startup-focused discovery, explainable scoring, fact-checked research, and human-reviewed outreach. Its drafts are never sent automatically.
 - [README Preview](https://github.com/AdiRosenstock/readme-reader) public source: a single HTML file with GitHub-flavored Markdown preview, local drafts, import, and export. The original HTML is copied into `dist/tools/readme-preview/` as a live demo. Its rendering libraries load from a CDN; the source repository is the canonical place for updates.
 - [STAT 362: Advanced Machine Learning](https://github.com/AdiRosenstock/STAT-362-Advanced-Machine-Learning) public coursework repository: running Python notebooks cover gradient descent and SVMs; Homework 1 includes a logistic regression implementation using gradient descent. Present it as coursework, not a standalone product or case study.
@@ -48,6 +48,14 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
 “View résumé” link, as requested. The PDF itself is unmodified.
 
 ## Interactions
+
+- Chiqui is Adi’s personal assistant and the toucan above the hero, named after
+  Randall “Chiqui” Brenes, the Club Sport Cartaginés legend. Keep his shirt and
+  flight animation. His native disclosure works on touch, keyboard, and without
+  JavaScript. The goal video loads only when requested, plays the supplied
+  YouTube segment from 236 to 332 seconds (3:56–5:32), stops when the dialog
+  closes, and retains a direct timestamped YouTube link as a fallback.
+  TUKI remains the private career project’s name.
 
 - A football/tech hero combines pitch markings, a data grid, an animated passing
   pattern, a portrait, and a football visitors can kick.

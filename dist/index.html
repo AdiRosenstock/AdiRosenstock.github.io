@@ -19,12 +19,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;450;500;550;600;650;700&family=Outfit:wght@400;500;550;600;650;700;750&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=a1caf9555590">
   <link rel="stylesheet" href="toolkit.css?v=495e7fa69b26">
-  <script src="script.js?v=f679789cc8f1" defer></script>
+  <script src="script.js?v=c06ed2765bda" defer></script>
   <script src="contact.js?v=0df259927064" defer></script>
   <link rel="stylesheet" href="motion.css?v=c4485212f3f1">
   <link rel="stylesheet" href="refinement.css?v=cbe8fdacc8a4">
   <link rel="stylesheet" href="brief-intelligence.css?v=bbef64c9c557">
-  <link rel="stylesheet" href="tuki-intro.css?v=3c61c8d85bca">
+  <link rel="stylesheet" href="tuki-intro.css?v=a7c1318feb10">
   <link rel="stylesheet" href="tuki.css?v=010211d5c7c0">
   <script src="motion.js?v=99ee663d77c3" defer></script>
 </head>
@@ -110,13 +110,17 @@
       </div>
       <div class="hero-bottom"><span>Scroll to explore</span><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg><span>Pause motion</span></button><a href="#projects" aria-label="Scroll to selected work"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-5-5 5 5 5-5"/></svg></a></div>
     </section>
-      <div class="tuki-intro">
-        <button class="tuki-trigger" type="button" aria-label="Meet Tuki" aria-describedby="tuki-description">
+      <details class="tuki-intro chiqui-intro">
+        <summary class="tuki-trigger" aria-label="Meet Chiqui" aria-controls="chiqui-description">
           <span class="tuki-sprite" aria-hidden="true"></span>
-          <span class="tuki-prompt">Meet Tuki</span>
-        </button>
-        <p class="tuki-note" id="tuki-description" role="tooltip"><strong>Meet Tuki.</strong> Adi’s personal assistant: a Costa Rican toucan in a Club Sport Cartaginés shirt.</p>
-      </div>
+          <span class="tuki-prompt">Meet Chiqui</span>
+        </summary>
+        <div class="tuki-note" id="chiqui-description">
+          <p><strong>Meet Chiqui.</strong> My personal assistant, with a little Costa Rican flair.</p>
+          <p>Named after Randall “Chiqui” Brenes, a Club Sport Cartaginés legend. Same shirt. Same spirit.</p>
+          <a class="chiqui-goal-link" id="chiqui-goal-link" href="https://www.youtube.com/watch?v=FVC9uSXpPK8&amp;t=236s" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7Z"/></svg><span>Watch his goal vs. Iker Casillas<small>3:56–5:32</small></span></a>
+        </div>
+      </details>
     </div>
 
     <section class="projects-section" id="projects" aria-labelledby="projects-title">
@@ -151,8 +155,8 @@
         </article>
         <div class="project-grid">
           <article class="project-card career-card">
-            <div class="card-visual career-visual tuki-preview"><img src="assets/tuki-preview.svg" width="1200" height="630" alt="TUKI. Your next move deserves an edge. Private development." loading="lazy"></div>
-            <div class="card-copy"><h3>TUKI</h3><div class="card-reveal"><p class="card-description" id="career-summary">Your next move deserves an edge. A private AI career project, with more to come.</p><span class="card-reveal-cue" aria-hidden="true">Meet TUKI</span></div><div class="card-links"><span>In private development</span><span class="card-link-cue" aria-hidden="true">View project <svg viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></div></div>
+            <div class="card-visual career-visual tuki-preview"><img src="assets/tuki-preview.svg?v=f7438b399b3f" width="1200" height="630" alt="TUKI. Building the future of job search. Private development." loading="lazy"></div>
+            <div class="card-copy"><h3>TUKI</h3><div class="card-reveal"><p class="card-description" id="career-summary">Building the future of job search. A new chapter for careers, powered by AI. In private development.</p><span class="card-reveal-cue" aria-hidden="true">Meet TUKI</span></div><div class="card-links"><span>In private development</span><span class="card-link-cue" aria-hidden="true">View project <svg viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></div></div>
             <a class="card-open" href="projects/tuki/" aria-label="View TUKI project page" aria-describedby="career-summary"></a>
           </article>
           <article class="project-card trading-card">
@@ -296,5 +300,12 @@
   </main>
   <footer class="site-footer section-wrap"><a class="wordmark" href="#home"><img src="assets/adi-wordmark.png" width="480" height="295" alt="adi."></a><span>© <span id="year">2026</span> Adi Rosenstock</span><a href="#home">Back to top</a></footer>
   <dialog id="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" type="button" aria-label="Close details"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button><div id="dialog-content"></div></dialog>
+  <dialog class="chiqui-goal-dialog" id="chiqui-goal-dialog" aria-labelledby="chiqui-goal-title" aria-describedby="chiqui-goal-description">
+    <button class="dialog-close chiqui-goal-close" type="button" aria-label="Close goal video"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+    <h2 id="chiqui-goal-title">The goal behind the name.</h2>
+    <p id="chiqui-goal-description">Randall “Chiqui” Brenes vs. Iker Casillas. Costa Rica vs. Spain, 2011. Clip: 3:56–5:32.</p>
+    <iframe id="chiqui-goal-frame" title="Randall Chiqui Brenes scores against Iker Casillas, from 3:56 to 5:32" data-src="https://www.youtube-nocookie.com/embed/FVC9uSXpPK8?start=236&amp;end=332&amp;autoplay=1&amp;rel=0" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <a class="chiqui-youtube-link" href="https://www.youtube.com/watch?v=FVC9uSXpPK8&amp;t=236s" target="_blank" rel="noopener noreferrer">Watch on YouTube from 3:56<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 4H4v16h16v-6"/></svg></a>
+  </dialog>
 </body>
 </html>
