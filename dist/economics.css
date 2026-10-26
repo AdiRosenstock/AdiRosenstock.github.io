@@ -9,7 +9,13 @@
 }
 .economics-visual p { font-size: 12px; color: #5e6b70; }
 .economics-visual strong { display: block; margin-top: 7px; font-family: var(--display); font-size: 21px; line-height: 1.3; font-weight: 550; letter-spacing: -.5px; }
-.economics-visual img { width: 100%; height: 160px; object-fit: contain; }
+.economics-preview-chart { width: 100%; height: 160px; fill: none; stroke: none; flex-shrink: 0; }
+.economics-preview-labels { font-family: var(--body); stroke: none; }
+.economics-preview-track, .economics-preview-trace { fill: none; stroke: #23635b; stroke-width: 4; stroke-linecap: round; }
+.economics-preview-track { opacity: .22; }
+.economics-preview-trace { stroke-dasharray: 100; stroke-dashoffset: 0; }
+.economics-preview-cursor, .economics-preview-milestone { opacity: 0; }
+.economics-preview-milestone { fill: #23635b; fill-opacity: .12; stroke: #23635b; stroke-width: 2; transform-box: fill-box; transform-origin: center; }
 .project-page[data-theme=economics] {
   --project-accent: #23635b;
   --project-wash: #edf4f2;
@@ -27,10 +33,71 @@
 .economics-results dd { margin: 7px 0 0; font-family: var(--display); font-size: 30px; line-height: 1.3; color: var(--scene-ink); }
 @media (max-width: 650px) {
   .economics-visual { padding: 19px 20px 8px; }
-  .economics-visual img { height: 140px; }
+  .economics-preview-chart { height: 140px; }
   .economics-board { padding: 24px 18px 18px; }
   .economics-board h2 { font-size: 24px; }
   .economics-results { grid-template-columns: 1fr; gap: 19px; }
   .economics-results div { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
   .economics-results dd { margin: 0; font-size: 28px; white-space: nowrap; }
+}
+
+/* One eight-second pass follows the actual model curve. The full chart remains
+   readable without JavaScript and whenever the shared motion control is paused. */
+.motion-ready .economics-card .economics-preview-trace { animation: economics-trace 8s linear infinite; animation-play-state: paused; }
+.motion-ready .economics-card .economics-preview-cursor { animation: economics-cursor 8s linear infinite; animation-play-state: paused; }
+.motion-ready .economics-card .economics-preview-milestone { animation: economics-milestone 8s ease-out infinite; animation-play-state: paused; }
+.motion-ready .economics-card.motion-visible .economics-preview-trace,
+.motion-ready .economics-card.motion-visible .economics-preview-cursor,
+.motion-ready .economics-card.motion-visible .economics-preview-milestone { animation-play-state: running; }
+@keyframes economics-trace {
+  0%, 10% { stroke-dashoffset: 100; opacity: 1; }
+  74%, 90% { stroke-dashoffset: 0; opacity: 1; }
+  98%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+/* Marker timings use cumulative path length, keeping it at the drawn endpoint.
+   Coordinates sample the deterministic curve every half-generation. */
+@keyframes economics-cursor {
+  0%, 10% { transform: translate(64px, 44px); opacity: 1; }
+  15.437% { transform: translate(80.00px, 89.25px); opacity: 1; }
+  19.522% { transform: translate(96.00px, 121.55px); opacity: 1; }
+  22.755% { transform: translate(112.00px, 145.16px); opacity: 1; }
+  25.450% { transform: translate(128.00px, 162.76px); opacity: 1; }
+  27.808% { transform: translate(144.00px, 176.06px); opacity: 1; }
+  29.957% { transform: translate(160.00px, 186.26px); opacity: 1; }
+  31.978% { transform: translate(176.00px, 194.14px); opacity: 1; }
+  33.920% { transform: translate(192.00px, 200.29px); opacity: 1; }
+  35.812% { transform: translate(208.00px, 205.12px); opacity: 1; }
+  37.675% { transform: translate(224.00px, 208.93px); opacity: 1; }
+  39.519% { transform: translate(240.00px, 211.94px); opacity: 1; }
+  41.351% { transform: translate(256.00px, 214.34px); opacity: 1; }
+  43.176% { transform: translate(272.00px, 216.25px); opacity: 1; }
+  44.996% { transform: translate(288.00px, 217.78px); opacity: 1; }
+  46.813% { transform: translate(304.00px, 219.00px); opacity: 1; }
+  48.628% { transform: translate(320.00px, 219.98px); opacity: 1; }
+  50.442% { transform: translate(336.00px, 220.77px); opacity: 1; }
+  52.256% { transform: translate(352.00px, 221.40px); opacity: 1; }
+  54.068% { transform: translate(368.00px, 221.90px); opacity: 1; }
+  55.881% { transform: translate(384.00px, 222.31px); opacity: 1; }
+  57.693% { transform: translate(400.00px, 222.64px); opacity: 1; }
+  59.505% { transform: translate(416.00px, 222.90px); opacity: 1; }
+  61.317% { transform: translate(432.00px, 223.12px); opacity: 1; }
+  63.129% { transform: translate(448.00px, 223.29px); opacity: 1; }
+  64.941% { transform: translate(464.00px, 223.43px); opacity: 1; }
+  66.753% { transform: translate(480.00px, 223.54px); opacity: 1; }
+  68.564% { transform: translate(496.00px, 223.63px); opacity: 1; }
+  70.376% { transform: translate(512.00px, 223.70px); opacity: 1; }
+  72.188% { transform: translate(528.00px, 223.76px); opacity: 1; }
+  74%, 90% { transform: translate(544.00px, 223.81px); opacity: 1; }
+  98%, 100% { transform: translate(544.00px, 223.81px); opacity: 0; }
+}
+@keyframes economics-milestone {
+  0%, 53.881% { opacity: 0; transform: scale(.65); }
+  56.881% { opacity: 1; transform: scale(.9); }
+  67.881% { opacity: 0; transform: scale(1.8); }
+  100% { opacity: 0; transform: scale(.65); }
+}
+.motion-document-hidden .economics-card .economics-preview-chart * { animation-play-state: paused !important; }
+.motion-paused .economics-card .economics-preview-chart * { animation: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .economics-card .economics-preview-chart * { animation: none !important; }
 }

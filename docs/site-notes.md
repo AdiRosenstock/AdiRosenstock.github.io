@@ -66,6 +66,13 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
   touch layouts show descriptions below the artwork. Each of those six cards
   links to its project page. Public projects retain separate source links; TUKI shows its private development status. The main palette
   uses ink and teal; project previews keep their own colors and imagery.
+- The Paradox of Equality homepage preview traces its deterministic consumption
+  curve, follows it with a moving point, and highlights the below-1% milestone at
+  generation 10. The eight-second cycle uses the shared visible-card observer;
+  it freezes offscreen or when the document is hidden. Pause motion and system
+  reduced motion show the complete static chart. The project page retains the
+  original static SVG. Both previews use the same model coordinates; the inline
+  homepage path samples every 0.1 generation and the marker every 0.5 generation.
 - The opening shows an animated soccer passing move above Adi’s name and a
   football visitors can kick beside the portrait. Pitch markings connect the
   football and technical sides of the portfolio. The portrait stays steady.
