@@ -45,6 +45,7 @@ We built a legal research tool for Professor Maria Amparo Grau Ruiz at Northwest
 | [IMC Prosperity 3](https://adirosenstock.github.io/projects/imc-prosperity/) | Our team’s Python trading strategies, options pricing, and [candid five-round write-up](https://github.com/AdiRosenstock/IMC_Prosperity_3). |
 | [DOMUS](https://adirosenstock.github.io/projects/domus/) | A [WildHacks team project](https://github.com/AdiRosenstock/DOMUS) connecting guests and hosts for Shabbat dinners and cultural gatherings. |
 | [TikiData FC](https://adirosenstock.github.io/projects/tikidata-fc/) | My [football data notebooks and visuals](https://github.com/AdiRosenstock/TikiData.FC) on expected goals, player form, and emerging talent. |
+| [The Paradox of Equality](https://adirosenstock.github.io/projects/malthusian-rebellion/) | ECON 324 coursework on redistribution and population growth in a Malthusian economy, with analytical equilibria and 5,000 Monte Carlo simulations per scenario. [Paper and Python notebook](https://github.com/AdiRosenstock/malthusian-rebellion). |
 | [STAT 362: Advanced Machine Learning](https://github.com/AdiRosenstock/STAT-362-Advanced-Machine-Learning) | Northwestern coursework: notebooks on gradient descent and SVMs, plus a logistic regression model implemented from scratch. |
 
 ## About this site

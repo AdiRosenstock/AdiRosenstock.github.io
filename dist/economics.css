@@ -1,0 +1,36 @@
+/* ECON 324: let the adjustment curve explain the project. */
+.economics-visual {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px 20px 12px;
+  background: #edf4f2;
+  color: #184c46;
+}
+.economics-visual p { font-size: 12px; color: #5e6b70; }
+.economics-visual strong { display: block; margin-top: 7px; font-family: var(--display); font-size: 21px; line-height: 1.3; font-weight: 550; letter-spacing: -.5px; }
+.economics-visual img { width: 100%; height: 160px; object-fit: contain; }
+.project-page[data-theme=economics] {
+  --project-accent: #23635b;
+  --project-wash: #edf4f2;
+  --scene-ink: #184c46;
+  --scene-line: #bdd2cb;
+}
+.economics-board { padding: 30px 24px 22px; border: 1px solid #bdd2cb; border-radius: 8px; background: #fff; }
+.economics-board h2 { max-width: 22ch; font-size: 25px; line-height: 1.3; letter-spacing: -.6px; }
+.economics-board > p { margin-top: 10px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.economics-board img { margin-top: 20px; width: 100%; height: auto; }
+.economics-board .economics-chart-note { padding-top: 12px; border-top: 1px solid var(--line); font-size: 12px; }
+.economics-results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin: 27px 0 0; }
+.economics-results div { padding-top: 17px; border-top: 2px solid var(--project-accent); }
+.economics-results dt { font-size: 13px; line-height: 1.6; color: var(--muted); }
+.economics-results dd { margin: 7px 0 0; font-family: var(--display); font-size: 30px; line-height: 1.3; color: var(--scene-ink); }
+@media (max-width: 650px) {
+  .economics-visual { padding: 19px 20px 8px; }
+  .economics-visual img { height: 140px; }
+  .economics-board { padding: 24px 18px 18px; }
+  .economics-board h2 { font-size: 24px; }
+  .economics-results { grid-template-columns: 1fr; gap: 19px; }
+  .economics-results div { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+  .economics-results dd { margin: 0; font-size: 28px; white-space: nowrap; }
+}

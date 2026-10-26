@@ -280,8 +280,7 @@ h2 > span { color: var(--ink); }
 .project-card .card-reveal .tag-list { display: flex; margin: 18px 0 0; gap: 6px; }
 .card-reveal .tag-list span { color: #e8f5f1; background: #ffffff25; border: 1px solid #ffffff36; }
 .card-reveal-cue { margin-top: 18px; font-size: 13px; font-weight: 650; color: #cde8de; }
-.domus-card { grid-column: 2 / span 2; }
-.tikidata-card { grid-column: 4 / span 2; }
+.domus-card, .tikidata-card { grid-column: span 2; }
 .tikidata-card .card-visual { height: 265px; }
 @media (hover: none) {
   .project-card .card-reveal { position: static; height: auto; padding: 10px 0 0; background: none; color: var(--muted); opacity: 1; visibility: visible; transform: none; }
@@ -298,7 +297,6 @@ h2 > span { color: var(--ink); }
 @media (max-width: 1050px) and (min-width: 651px) {
   .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .project-card, .domus-card, .tikidata-card { grid-column: auto; }
-  .tikidata-card { grid-column: 1 / -1; width: calc(50% - 12px); justify-self: center; }
 }
 
 .about-section { grid-template-columns: .8fr 1.2fr; gap: 120px; padding-block: 135px; }

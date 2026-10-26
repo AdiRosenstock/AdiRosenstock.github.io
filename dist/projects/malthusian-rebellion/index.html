@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="An ECON 324 project by Adi Rosenstock modeling redistribution, population growth, and living standards in a Malthusian economy, with analytical equilibria and Monte Carlo simulation.">
+  <meta property="og:title" content="The Paradox of Equality | Adi Rosenstock">
+  <meta property="og:description" content="What happens after workers overthrow an elite? An economic model and 5,000 Monte Carlo simulations per scenario explore why the initial consumption gain fades.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adirosenstock.github.io/projects/malthusian-rebellion/">
+  <meta property="og:image" content="https://adirosenstock.github.io/assets/adi-avatar.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://adirosenstock.github.io/projects/malthusian-rebellion/">
+  <title>The Paradox of Equality | Adi Rosenstock</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/adi-favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;450;500;550;600;650;700&family=Outfit:wght@400;500;550;600;650;700;750&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css?v=a1caf9555590">
+  <link rel="stylesheet" href="../../projects.css?v=65e095dc62cd">
+  <link rel="stylesheet" href="../../project-scenes.css?v=8227dfbbdb65">
+  <link rel="stylesheet" href="../../economics.css?v=1e81ba888ab2">
+  <script src="../../projects.js?v=29141b03f5d4" defer></script>
+  <link rel="stylesheet" href="../../motion.css?v=c4485212f3f1">
+  <script src="../../motion.js?v=99ee663d77c3" defer></script>
+</head>
+<body class="project-page" data-theme="economics">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="wordmark" href="../../" aria-label="Adi Rosenstock home"><img src="../../assets/adi-wordmark.png" width="480" height="295" alt="adi."></a>
+      <a class="project-home" href="../../#projects">All projects</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Open navigation"><span></span><span></span></button>
+      <nav id="navigation" aria-label="Project navigation"><a href="#overview">Overview</a><a href="#build">The model</a><a href="#explore">Explore</a></nav>
+      <a class="nav-contact" href="../../#contact">Let’s talk <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 6l8 6 8-6"/></svg></a><button class="header-motion-toggle" type="button" aria-label="Pause motion" title="Pause motion" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg></button>
+    </div>
+    <div class="reading-progress" role="progressbar" aria-label="Page scroll, match minute" aria-valuemin="0" aria-valuemax="90" aria-valuenow="0" aria-valuetext="Match minute 0 of 90">
+      <span class="match-clock" aria-hidden="true"><span class="match-clock-label">MATCH</span><span class="match-minute">00′</span></span>
+      <span class="match-track" aria-hidden="true"><span class="reading-progress-fill"></span><span class="match-half">45′</span><span class="reading-progress-ball"></span></span>
+      <span class="match-full-time" aria-hidden="true">90′ <span>FT</span></span>
+    </div>
+  </header>
+  <main id="main">
+    <div class="project-banner">
+      <div class="section-wrap">
+        <div class="project-breadcrumb"><a href="../../#projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg>Selected work</a><span aria-hidden="true">/</span><span>The Paradox of Equality</span></div>
+        <section class="project-hero" aria-labelledby="project-title">
+          <div class="project-heading">
+            <p class="project-role">Individual coursework · Northwestern ECON 324</p>
+            <h1 id="project-title">The Paradox of Equality</h1>
+            <p class="project-deck">Can redistribution escape the Malthusian trap?</p>
+            <p class="project-intro">I modeled what happens when workers overthrow an elite taking half their output. Consumption doubles at first. With land and technology fixed, population growth gradually absorbs the gain.</p>
+            <div class="tag-list"><span>Python</span><span>Economic modeling</span><span>Monte Carlo</span></div>
+            <div class="project-actions"><a class="button button-primary" href="https://github.com/AdiRosenstock/malthusian-rebellion/blob/main/The_Paradox_of_Equality.pdf" target="_blank" rel="noopener noreferrer">Read the paper</a><a class="button button-outline" href="https://github.com/AdiRosenstock/malthusian-rebellion/blob/main/malthusian_rebellion.ipynb" target="_blank" rel="noopener noreferrer">Explore the notebook</a></div>
+          </div>
+          <figure class="scene-art">
+            <div class="economics-board"><h2>A permanent change.<br>A temporary gain.</h2><p>Consumption gain relative to an economy where the elite remains.</p><img src="../../assets/malthusian-rebellion/consumption-gain.svg" width="600" height="300" alt="Consumption doubles at rebellion. The deterministic gain falls to 8.37% after five generations and 0.94% after ten."><p class="economics-chart-note">Deterministic baseline · labor exponent 0.65</p></div>
+            <figcaption>Drawn from the project’s analytical model. Each generation is a model period, not a year.</figcaption>
+          </figure>
+        </section>
+      </div>
+    </div>
+    <div class="section-wrap">
+      <div class="project-tools"><span>A paper and reproducible Python notebook for Western Economic History.</span><div class="project-utility-actions"><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg><span>Pause motion</span></button><button class="copy-project-link" id="copy-project-link" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg>Copy page link</button></div></div>
+      <p class="project-copy-status" id="project-copy-status" role="status" aria-live="polite"></p>
+      <div class="project-body">
+        <aside class="story-nav" aria-label="On this page"><p>Inside the project</p><a href="#overview">The question</a><a href="#build">The model</a><a href="#results">What changes</a><a href="#simulation">Simulated economies</a><a href="#limits">Interpreting the result</a><a href="#explore">Paper & code</a></aside>
+        <div class="story-content">
+          <section class="story-section" id="overview" aria-labelledby="overview-title">
+            <h2 id="overview-title">Who keeps the gains?</h2>
+            <div class="story-overview"><div class="story-prose"><p>For ECON 324: Western Economic History at Northwestern, I studied how redistribution interacts with population growth in a preindustrial economy. Two scenarios start from the same equilibrium: the elite keeps extracting 50% of output, or workers eliminate that extraction in generation 20.</p><p>I combined an analytical equilibrium solution, deterministic transition dynamics, and 5,000 Monte Carlo simulations per scenario. The question is what happens to workers’ living standards once population has time to respond.</p></div><dl class="project-facts"><div><dt>My work</dt><dd>Economic model, simulations, analysis, and paper</dd></div><div><dt>Course</dt><dd>ECON 324: Western Economic History</dd></div><div><dt>Tools</dt><dd>Python, NumPy, pandas, Matplotlib, and Jupyter</dd></div></dl></div>
+          </section>
+          <section class="story-section" id="build" aria-labelledby="build-title">
+            <h2 id="build-title">From household choices to population</h2>
+            <ol class="build-flow"><li><h3>Produce and redistribute</h3><p>A Cobb–Douglas production function combines labor with fixed land. Removing extraction lets workers retain all their output.</p></li><li><h3>Consume and raise children</h3><p>Households divide retained income between consumption and children. Higher income increases both.</p></li><li><h3>Adjust over generations</h3><p>More workers share the same land. Diminishing returns lower output per worker until consumption returns to its original level.</p></li></ol>
+            <p class="build-note">The notebook follows generations 0–120. Harvest shocks and Poisson demographic noise add uncertainty; both scenarios share harvest shocks, with fixed random seeds for reproducibility.</p>
+          </section>
+          <section class="story-section" id="results" aria-labelledby="results-title">
+            <h2 id="results-title">More people, the same consumption per worker</h2>
+            <p>Eliminating extraction doubles consumption immediately. In the baseline model, the gain falls below 1% after ten generations. The long-run economy supports more people and produces more output, while consumption per worker returns to 0.70 in the model’s units.</p>
+            <dl class="economics-results"><div><dt>Immediate consumption gain</dt><dd>100%</dd></div><div><dt>Long-run population</dt><dd>7.25×</dd></div><div><dt>Long-run total output</dt><dd>3.62×</dd></div></dl>
+            <p class="build-note">Population and output ratios compare the analytical equilibria without and with extraction. Across the tested sensitivity settings, the average consumption gain falls below 1% within 5–15 generations.</p>
+          </section>
+          <section class="story-section" id="simulation" aria-labelledby="simulation-title">
+            <h2 id="simulation-title">Does the pattern survive uncertainty?</h2>
+            <p>The stochastic simulation adds harvest and demographic shocks. Its baseline mean consumption gain also falls below 1% after ten generations. Sensitivity experiments vary harvest volatility, the labor exponent, preferences for children, and initial extraction, using 1,000 runs per scenario.</p>
+            <figure class="project-gallery"><a class="gallery-image" href="../../assets/malthusian-rebellion/monte-carlo.png" target="_blank" rel="noopener noreferrer"><img src="../../assets/malthusian-rebellion/monte-carlo.png" width="3569" height="2069" loading="lazy" alt="Original notebook figure comparing rebellion and continued extraction across 5,000 simulations per scenario, with mean differences and 5th–95th percentile bands."></a><figcaption><span>Original Monte Carlo figure from the notebook. Bands show the 5th–95th percentiles across runs.</span><a href="../../assets/malthusian-rebellion/monte-carlo.png" target="_blank" rel="noopener noreferrer">Open full-size figure</a></figcaption></figure>
+          </section>
+          <section class="story-section" id="limits" aria-labelledby="limits-title">
+            <h2 id="limits-title">Interpreting the result</h2>
+            <div class="decision-note"><h3>The assumptions are part of the answer.</h3><p>This is an illustrative model of a Malthusian economy. Land, technology, and household preferences stay fixed; the model omits capital accumulation, migration, institutional change, and the destruction associated with conflict.</p><p>The finding concerns workers’ per-person living standards under those assumptions. It is not an empirical estimate of a historical rebellion, a prediction for a modern economy, or a measure of total social welfare.</p></div>
+          </section>
+          <section class="story-section" id="explore" aria-labelledby="explore-title">
+            <h2 id="explore-title">Read the paper. Reproduce the analysis.</h2>
+            <ul class="source-list">
+              <li><a href="https://github.com/AdiRosenstock/malthusian-rebellion/blob/main/The_Paradox_of_Equality.pdf" target="_blank" rel="noopener noreferrer"><div><strong>The Paradox of Equality — paper</strong><span>The economic argument, results, appendix, and references.</span></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 4H4v16h16v-6"/></svg></a></li>
+              <li><a href="https://github.com/AdiRosenstock/malthusian-rebellion/blob/main/malthusian_rebellion.ipynb" target="_blank" rel="noopener noreferrer"><div><strong>Python notebook</strong><span>Equilibrium checks, transition dynamics, Monte Carlo results, and sensitivity experiments, with saved outputs.</span></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 4H4v16h16v-6"/></svg></a></li>
+              <li><a href="https://github.com/AdiRosenstock/malthusian-rebellion" target="_blank" rel="noopener noreferrer"><div><strong>Repository and reproduction guide</strong><span>Source files, Python requirements, figures, tables, and instructions to run the analysis.</span></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 4H4v16h16v-6"/></svg></a></li>
+            </ul><p class="source-note">All reported results come from the public project README and notebook. The opening curve depicts the deterministic baseline; the figure above is the notebook’s original Monte Carlo output.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+    <aside class="project-next" aria-label="More projects"><div class="section-wrap"><a href="../../#projects" class="text-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg>All selected work</a><a class="next-link" href="../tuki/"><div><p>Explore another project</p><h2>TUKI</h2></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div></aside>
+  </main>
+  <footer class="site-footer section-wrap"><a class="wordmark" href="../../"><img src="../../assets/adi-wordmark.png" width="480" height="295" alt="adi."></a><span>Built with curiosity.</span><span>© <span id="year">2026</span> Adi Rosenstock</span><a href="#main">Back to top</a></footer>
+</body>
+</html>
