@@ -226,10 +226,6 @@ h2 > span { color: var(--ink); }
 .project-card .tag-list { display: none; }
 .card-links { border: 0; padding-top: 24px; font-size: 13px; }
 .card-links > a { min-height: 34px; }
-.tikidata-card { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch; }
-.tikidata-card .card-visual { height: 310px; }
-.tikidata-card .card-copy { align-self: center; }
-
 /* Project artwork becomes the preview; the complete card opens its story. */
 .project-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); align-items: stretch; gap: 34px 24px; }
 .project-card, .domus-card, .tikidata-card {
