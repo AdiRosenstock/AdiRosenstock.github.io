@@ -39,6 +39,10 @@
   in `dist/assets/` and linked from the homepage; preserve its contents.
 - This is a dependency-free static site. Run `node --check dist/script.js`, check
   changed local asset references, and verify affected interactions in the browser.
+- Open links to other pages, documents, repositories, and full-size media in a
+  new tab with `target="_blank"` and `rel="noopener noreferrer"`, so the portfolio
+  stays available. Same-page section anchors and interactive controls stay in place.
+  Paper links must open the bundled PDF directly, rather than a GitHub file page.
 - The stylesheet and script URLs include content-hash query strings to avoid stale
   browser caches. Refresh those hashes in every affected HTML page when a shared
   stylesheet or script changes, including `dist/index.html` and project pages.

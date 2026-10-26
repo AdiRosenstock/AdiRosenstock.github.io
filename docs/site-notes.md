@@ -119,6 +119,11 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
   verify the frame on `https://adirosenstock.github.io` after publishing. Preserve
   the live iframe when changing the portfolio's layout.
 - Mobile navigation opens and closes with an accessible toggle and Escape.
+- Links to other pages, project stories, documents, and full-size media open in a
+  new tab, preserving the portfolio. Same-page section anchors remain in place.
+  The ECON 324 paper links open the original PDF directly at
+  `assets/malthusian-rebellion/The_Paradox_of_Equality.pdf`; the file is copied
+  unchanged from project commit `6124b93bf4a182910daa7b60100f8433be6fcb5b`.
 - Visitors can write a message in the contact form without leaving the page.
   Name, reply email, and message are delivered to Adi’s Northwestern inbox through
   FormSubmit, with required-field validation, a spam honeypot, send progress, and

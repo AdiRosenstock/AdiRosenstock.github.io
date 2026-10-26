@@ -32,7 +32,7 @@ async function redirectPages(directory) {
   <script>window.location.replace(${JSON.stringify(target)} + window.location.search + window.location.hash);</script>
   <noscript><meta http-equiv="refresh" content="0; url=${target}"></noscript>
 </head>
-<body><p>The portfolio has moved. <a href="${target}">Continue to Adi Rosenstock’s portfolio</a>.</p></body>
+<body><p>The portfolio has moved. <a href="${target}" target="_blank" rel="noopener noreferrer">Continue to Adi Rosenstock’s portfolio</a>.</p></body>
 </html>
 `);
     }
