@@ -70,9 +70,21 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
   curve, follows it with a moving point, and highlights the below-1% milestone at
   generation 10. The eight-second cycle uses the shared visible-card observer;
   it freezes offscreen or when the document is hidden. Pause motion and system
-  reduced motion show the complete static chart. The project page retains the
-  original static SVG. Both previews use the same model coordinates; the inline
+  reduced motion show the complete static chart. Both previews use the same model coordinates; the inline
   homepage path samples every 0.1 generation and the marker every 0.5 generation.
+- The Paradox of Equality project hero has an interactive deterministic walkthrough
+  in `economics-explorer.js` and `economics-explorer.css`. Its village, graphs, and
+  equations share a timeline from immediately before rebellion through 15 generations
+  afterward. Play/pause, keyboard scrubbing, and milestone buttons update the same
+  exact model: population ratio `2^((1 - 0.65^t) / 0.35)`, consumption ratio
+  `2^(0.65^t)`, and output ratio equal to the population ratio raised to 0.65.
+  Graphs compare consumption, population, and total output against continued
+  extraction. Village people are rounded illustrations (about 3,500 workers each);
+  numerical results are calculated without rounding. Playback pauses offscreen or
+  with a hidden document; shared pause and reduced motion stop it while leaving
+  manual controls available. The static consumption SVG remains the no-JavaScript
+  fallback. “Follow the equations” expands the production, household, and equilibrium
+  derivation. These illustrations remain distinct from the original Monte Carlo figure.
 - The opening shows an animated soccer passing move above Adi’s name and a
   football visitors can kick beside the portrait. Pitch markings connect the
   football and technical sides of the portfolio. The portrait stays steady.

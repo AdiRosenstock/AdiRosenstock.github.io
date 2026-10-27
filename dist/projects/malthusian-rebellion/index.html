@@ -21,9 +21,11 @@
   <link rel="stylesheet" href="../../projects.css?v=65e095dc62cd">
   <link rel="stylesheet" href="../../project-scenes.css?v=8227dfbbdb65">
   <link rel="stylesheet" href="../../economics.css?v=963a83c103f9">
+  <link rel="stylesheet" href="../../economics-explorer.css?v=d0b2a39f773d">
   <script src="../../projects.js?v=29141b03f5d4" defer></script>
   <link rel="stylesheet" href="../../motion.css?v=c4485212f3f1">
   <script src="../../motion.js?v=99ee663d77c3" defer></script>
+  <script type="module" src="../../economics-explorer.js?v=82c9eb27fc44"></script>
 </head>
 <body class="project-page" data-theme="economics">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -56,7 +58,7 @@
           </div>
           <figure class="scene-art">
             <div class="economics-board"><h2>A permanent change.<br>A temporary gain.</h2><p>Consumption gain relative to an economy where the elite remains.</p><img src="../../assets/malthusian-rebellion/consumption-gain.svg" width="600" height="300" alt="Consumption doubles at rebellion. The deterministic gain falls to 8.37% after five generations and 0.94% after ten."><p class="economics-chart-note">Deterministic baseline · labor exponent 0.65</p></div>
-            <figcaption>Drawn from the project’s analytical model. Each generation is a model period, not a year.</figcaption>
+            <figcaption>Switch views, then play or drag through the same economy. Deterministic baseline, fixed land and technology. Generations are model periods, not years.</figcaption>
           </figure>
         </section>
       </div>
@@ -75,6 +77,15 @@
             <h2 id="build-title">From household choices to population</h2>
             <ol class="build-flow"><li><h3>Produce and redistribute</h3><p>A Cobb–Douglas production function combines labor with fixed land. Removing extraction lets workers retain all their output.</p></li><li><h3>Consume and raise children</h3><p>Households divide retained income between consumption and children. Higher income increases both.</p></li><li><h3>Adjust over generations</h3><p>More workers share the same land. Diminishing returns lower output per worker until consumption returns to its original level.</p></li></ol>
             <p class="build-note">The notebook follows generations 0–120. Harvest shocks and Poisson demographic noise add uncertainty; both scenarios share harvest shocks, with fixed random seeds for reproducibility.</p>
+            <details class="economics-derivation">
+              <summary>Follow the equations</summary>
+              <div class="economics-equations">
+                <div><h3>Production on fixed land</h3><p class="economics-equation">Y<sub>t</sub> = A L<sub>t</sub><sup>α</sup> H<sup>1−α</sup></p><p>Y is output, L is workers, H is land, and A is technology. With α = 0.65, adding workers raises total output but lowers output per worker.</p></div>
+                <div><h3>What a worker keeps</h3><p class="economics-equation">w<sub>t</sub> = (1 − τ<sub>t</sub>) Y<sub>t</sub> / L<sub>t</sub></p><p>The elite’s share τ falls from 0.50 to zero at rebellion. Output and population cannot jump immediately, so retained income w doubles.</p></div>
+                <div><h3>How households respond</h3><p class="economics-equation">c<sub>t</sub> = 0.70 w<sub>t</sub> &nbsp;·&nbsp; n<sub>t</sub> = w<sub>t</sub><br>L<sub>t+1</sub> = n<sub>t</sub> L<sub>t</sub></p><p>Households spend 70% of income on consumption and 30% on children. With child cost ρ = 0.30 and preference weight γ = 0.30, expected surviving children n equals retained income in these model units.</p></div>
+                <div><h3>Why the gain fades</h3><p class="economics-equation">c<sub>t</sub> / c* = 2<sup>(0.65<sup>t</sup>)</sup></p><p>Here t counts generations since rebellion and c* = 0.70. As t increases, 0.65<sup>t</sup> tends to zero and the consumption ratio tends to one. A stationary population requires n* = 1, so w* = ρ / γ = 1 regardless of extraction.</p></div>
+              </div>
+            </details>
           </section>
           <section class="story-section" id="results" aria-labelledby="results-title">
             <h2 id="results-title">More people, the same consumption per worker</h2>
@@ -97,7 +108,7 @@
               <li><a href="../../assets/malthusian-rebellion/The_Paradox_of_Equality.pdf" type="application/pdf" target="_blank" rel="noopener noreferrer"><div><strong>The Paradox of Equality — paper (PDF)</strong><span>The economic argument, results, appendix, and references.</span></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 4H4v16h16v-6"/></svg></a></li>
               <li><a href="https://github.com/AdiRosenstock/malthusian-rebellion/blob/main/malthusian_rebellion.ipynb" target="_blank" rel="noopener noreferrer"><div><strong>Python notebook</strong><span>Equilibrium checks, transition dynamics, Monte Carlo results, and sensitivity experiments, with saved outputs.</span></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 4H4v16h16v-6"/></svg></a></li>
               <li><a href="https://github.com/AdiRosenstock/malthusian-rebellion" target="_blank" rel="noopener noreferrer"><div><strong>Repository and reproduction guide</strong><span>Source files, Python requirements, figures, tables, and instructions to run the analysis.</span></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 4H4v16h16v-6"/></svg></a></li>
-            </ul><p class="source-note">All reported results come from the public project README and notebook. The opening curve depicts the deterministic baseline; the figure above is the notebook’s original Monte Carlo output.</p>
+            </ul><p class="source-note">All reported results come from the public project README and notebook. The interactive walkthrough uses the deterministic baseline; the figure above is the notebook’s original Monte Carlo output.</p>
           </section>
         </div>
       </div>
