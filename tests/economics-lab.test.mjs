@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { DEFAULT_PARAMETERS, runModel, validateParameters } from '../dist/economics-lab.js';
+import { stateAt } from '../dist/economics-explorer.js';
 import { PYTHON_PARAMETERS, parameterCell, pythonScript, createNotebook } from '../dist/economics-notebook.js';
 
 const pythonModel = readFileSync(new URL('../dist/assets/malthusian-rebellion/simulation.py', import.meta.url), 'utf8');
@@ -18,6 +19,12 @@ test('paper baseline agrees with its analytical transition at every generation',
   for (const row of result.history) {
     close(row.consumption, 0.7 * 2 ** (0.65 ** row.t));
     close(row.population, initialPopulation * 2 ** ((1 - 0.65 ** row.t) / 0.35));
+    const walkthrough = stateAt(row.t);
+    close(walkthrough.output, row.output);
+    close(walkthrough.output / stateAt(-1).output, walkthrough.outputRatio);
+    close(walkthrough.income, row.income);
+    close(walkthrough.consumption, row.consumption);
+    close(walkthrough.children, row.children);
   }
   close(result.history[0].consumption, 1.4);
   assert.ok(result.history[9].consumptionRatio > 1.01);

@@ -79,7 +79,13 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
   exact model: population ratio `2^((1 - 0.65^t) / 0.35)`, consumption ratio
   `2^(0.65^t)`, and output ratio equal to the population ratio raised to 0.65.
   Graphs compare consumption, population, and total output against continued
-  extraction. Village people are rounded illustrations (about 3,500 workers each);
+  extraction. The walkthrough shows six live outcomes: total output, population,
+  output per worker, retained income per worker, consumption per worker, and
+  expected surviving children per worker. Each shows its original pre-rebellion
+  value plus a population/output multiple or signed per-worker percentage change.
+  Per-worker values use three decimals so small late-generation gains stay visible.
+  All outcomes update with playback, milestone controls, and keyboard scrubbing.
+  Village people are rounded illustrations (about 3,500 workers each);
   numerical results are calculated without rounding. Playback pauses offscreen or
   with a hidden document; shared pause and reduced motion stop it while leaving
   manual controls available. The static consumption SVG remains the no-JavaScript

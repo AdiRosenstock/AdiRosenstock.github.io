@@ -10,10 +10,12 @@ export function stateAt(generation) {
   const populationRatio = before ? 1 : 2 ** ((1 - ALPHA ** generation) / (1 - ALPHA));
   const outputRatio = populationRatio ** ALPHA;
   const outputPerWorker = 2 * populationRatio ** (ALPHA - 1);
+  const population = INITIAL_POPULATION * populationRatio;
   const extraction = before ? 0.5 : 0;
   const income = (1 - extraction) * outputPerWorker;
   return {
-    population: INITIAL_POPULATION * populationRatio,
+    population,
+    output: population * outputPerWorker,
     populationRatio, outputRatio, outputPerWorker, extraction, income,
     consumption: 0.7 * income,
     consumptionRatio: income,
@@ -44,6 +46,16 @@ function mountExplorer(root) {
     population: { key: 'populationRatio', name: 'Worker population', max: 8, ticks: [0, 4, 8] },
     output: { key: 'outputRatio', name: 'Total output', max: 4, ticks: [0, 2, 4] }
   };
+  const baseline = stateAt(-1);
+  const percentage = new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 });
+  const outcomes = [
+    { key: 'output', id: 'output', label: 'Total output', total: true },
+    { key: 'population', id: 'population', label: 'Population', total: true },
+    { key: 'outputPerWorker', id: 'output-per-worker', label: 'Output / worker' },
+    { key: 'income', id: 'income', label: 'Income / worker' },
+    { key: 'consumption', id: 'consumption', label: 'Consumption / worker' },
+    { key: 'children', id: 'children', label: 'Children / worker' }
+  ];
   root.classList.add('econ-explorer');
   root.innerHTML = `
     <div class="econ-board-heading"><h2>A permanent change.<br>A temporary gain.</h2><span class="econ-model-badge">Explore the model</span></div>
@@ -111,7 +123,11 @@ function mountExplorer(root) {
       <input id="econ-generation" type="range" min="-1" max="15" step="1" value="0" aria-valuetext="At rebellion, consumption gain 100%">
       <div class="econ-milestones" role="group" aria-label="Jump to a generation"><button type="button" data-econ-generation="-1" aria-pressed="false">Before</button><button type="button" data-econ-generation="0" aria-pressed="true">Rebellion</button><button type="button" data-econ-generation="5" aria-pressed="false">+5 gen.</button><button type="button" data-econ-generation="10" aria-pressed="false">+10 gen.</button><button type="button" data-econ-generation="15" aria-pressed="false">+15 gen.</button></div>
     </div>
-    <dl class="econ-live-stats"><div><dt>Consumption / worker</dt><dd id="econ-consumption">1.40 <span>+100%</span></dd></div><div><dt>Population</dt><dd id="econ-population">13,801 <span>1.00×</span></dd></div></dl>
+    <div class="econ-outcomes">
+      <p class="econ-stats-caption">Compared with before rebellion</p>
+      <dl class="econ-live-stats" aria-label="Current outcomes and pre-rebellion values">${outcomes.map(outcome => `<div><dt>${outcome.label}</dt><dd><strong id="econ-${outcome.id}"></strong> <span id="econ-${outcome.id}-change"></span><small id="econ-${outcome.id}-before"></small></dd></div>`).join('')}</dl>
+      <p class="econ-stats-units">Output, income and consumption use model units. Children are expected surviving children per worker.</p>
+    </div>
     <p class="econ-explanation" id="econ-explanation">The elite’s share drops from 50% to zero. With the same workers and harvest, consumption doubles immediately.</p>
     <p id="econ-announcement" class="econ-sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
   `;
@@ -183,9 +199,8 @@ function mountExplorer(root) {
   function render(announce = false) {
     const state = stateAt(generation);
     const gain = state.gain < 0.01 ? '<0.01%' : `${state.gain.toFixed(state.gain >= 10 ? 0 : 2)}%`;
-    const gainLabel = generation < 0 ? 'Starting level' : `${gain} gain`;
     slider.value = String(generation);
-    slider.setAttribute('aria-valuetext', `${phase()}, consumption ${state.consumption.toFixed(2)}, population ${number.format(state.population)}, ${generation < 0 ? 'no consumption gain' : `consumption gain ${gain}`}`);
+    slider.setAttribute('aria-valuetext', `${phase()}, total output ${number.format(state.output)}, population ${number.format(state.population)}, income per worker ${state.income.toFixed(3)}, consumption ${state.consumption.toFixed(3)}, ${generation < 0 ? 'no consumption gain' : `consumption gain ${gain}`}`);
     put('#econ-time-label', phase());
     root.querySelectorAll('[data-econ-generation]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.econGeneration) === generation)));
     put('#econ-village-title', generation < 0 ? 'The elite takes half.' : generation === 0 ? 'Workers keep the harvest.' : 'Same land. More people.');
@@ -206,14 +221,16 @@ function mountExplorer(root) {
     put('#econ-math-tax', `τ = ${state.extraction.toFixed(2)} → workers keep ${100 * (1 - state.extraction)}%`);
     put('#econ-math-household', `${state.consumption.toFixed(2)} · ${state.children.toFixed(2)}`);
     put('#econ-math-next', number.format(state.children * state.population));
-    put('#econ-consumption', state.consumption.toFixed(2) + ' ');
-    const gainSpan = document.createElement('span');
-    gainSpan.textContent = gainLabel;
-    find('#econ-consumption').append(gainSpan);
-    put('#econ-population', number.format(state.population) + ' ');
-    const ratioSpan = document.createElement('span');
-    ratioSpan.textContent = `${state.populationRatio.toFixed(2)}×`;
-    find('#econ-population').append(ratioSpan);
+    for (const outcome of outcomes) {
+      const value = state[outcome.key];
+      const initial = baseline[outcome.key];
+      const relative = value / initial;
+      const change = 100 * (relative - 1);
+      const formattedChange = Math.abs(change) < 0.005 ? '0%' : `${change > 0 ? '+' : '−'}${percentage.format(Math.abs(change))}%`;
+      put(`#econ-${outcome.id}`, outcome.total ? number.format(value) : value.toFixed(3));
+      put(`#econ-${outcome.id}-change`, outcome.total ? `${relative.toFixed(2)}×` : formattedChange);
+      put(`#econ-${outcome.id}-before`, `Before: ${outcome.total ? number.format(initial) : initial.toFixed(3)}`);
+    }
     put('#econ-explanation', explanation());
     if (view === 'graph') updateGraph(state);
     if (announce) put('#econ-announcement', `${phase()}. ${explanation()}`);
