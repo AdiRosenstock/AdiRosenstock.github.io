@@ -91,7 +91,7 @@ function mountLab(root) {
         <h3>Change an assumption</h3>
         ${fields.filter(field => !field.advanced).map(fieldHTML).join('')}
         <details class="lab-advanced"><summary>Households & starting conditions</summary>${fields.filter(field => field.advanced).map(fieldHTML).join('')}</details>
-        <button class="lab-reset" type="button">Reset to the paper’s baseline</button>
+        <button class="lab-reset" data-lab-reset type="button">Restore original values</button>
       </div>
       <div class="lab-results">
         <div class="lab-results-heading"><h3>Your simulated economy</h3><span id="lab-current-time">Generation 60</span></div>
@@ -108,7 +108,7 @@ function mountLab(root) {
       <p>Change a Python variable, then run the cell with Shift+Enter. Python runs in your browser and updates the graphs above. Sliders give an instant preview of the same model.</p>
       <div class="lab-notebook-toolbar"><span class="lab-notebook-name">malthusian_experiment.ipynb</span><span class="lab-kernel" id="lab-kernel">Python · ready to load</span><button class="lab-copy" type="button" disabled>Copy Python</button><button class="lab-download" type="button" disabled>Download .ipynb</button></div>
       <div class="lab-notebook-cells">
-        <form id="lab-code-form" class="lab-notebook-cell"><span class="lab-cell-prompt" id="lab-input-prompt" aria-hidden="true">In [ ]:</span><div class="lab-cell-body"><label for="lab-config">Choose the parameters</label><textarea id="lab-config" wrap="off" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="lab-code-help lab-code-status"></textarea><p id="lab-code-help">Use decimals for rates: 0.50 means 50%. The first run loads Python; later runs reuse it.</p><div class="lab-code-actions"><button class="button button-primary" id="lab-run-python" type="submit" disabled>▶ Run cell</button><button id="lab-stop-python" type="button" hidden>Stop</button><span class="lab-shortcut">Shift+Enter</span></div><pre id="lab-code-status" role="status" aria-live="polite"></pre></div></form>
+        <form id="lab-code-form" class="lab-notebook-cell"><span class="lab-cell-prompt" id="lab-input-prompt" aria-hidden="true">In [ ]:</span><div class="lab-cell-body"><label for="lab-config">Choose the parameters</label><textarea id="lab-config" wrap="off" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="lab-code-help lab-code-status"></textarea><p id="lab-code-help">Use decimals for rates: 0.50 means 50%. The first run loads Python; later runs reuse it.</p><div class="lab-code-actions"><button class="button button-primary" id="lab-run-python" type="submit" disabled>▶ Run cell</button><button class="button button-outline" data-lab-reset type="button">Restore original values</button><button id="lab-stop-python" type="button" hidden>Stop</button><span class="lab-shortcut">Shift+Enter</span></div><pre id="lab-code-status" role="status" aria-live="polite"></pre></div></form>
         <div class="lab-notebook-cell"><span class="lab-cell-prompt" id="lab-model-prompt" aria-hidden="true">In [ ]:</span><div class="lab-cell-body lab-model-code"><p>The model · executed with your parameters</p><pre tabindex="0" aria-label="Python simulation code"><code>Loading the Python model…</code></pre></div></div>
         <div class="lab-notebook-cell lab-notebook-output"><span class="lab-cell-prompt" id="lab-output-prompt" aria-hidden="true">Out [ ]:</span><div class="lab-cell-body"><p id="lab-output-label">Preview · run the cell for Python output</p><div class="lab-output-table" tabindex="0" role="region" aria-label="Notebook simulation output"><table><thead><tr><th scope="col">Generation</th><th scope="col">Population</th><th scope="col">Income</th><th scope="col">Consumption</th></tr></thead><tbody id="lab-output-rows"></tbody></table></div><pre id="lab-stdout" hidden></pre></div></div>
       </div>
@@ -283,7 +283,13 @@ function mountLab(root) {
     drawChart();
     renderTime();
   }));
-  find('.lab-reset').addEventListener('click', () => { apply({ ...DEFAULT_PARAMETERS }, 'rebellion'); put('#lab-status', 'Paper baseline restored.'); });
+  root.querySelectorAll('[data-lab-reset]').forEach(button => button.addEventListener('click', () => {
+    apply({ ...DEFAULT_PARAMETERS }, 'rebellion');
+    const message = 'Original values restored. The Python code, sliders, and graphs match the paper’s baseline.';
+    put('#lab-code-status', message);
+    put('#lab-status', message);
+    put('#lab-kernel', pythonSource ? 'Python · ready to run' : 'Python · ready to load');
+  }));
   find('#lab-time').addEventListener('input', event => { stop(); time = Number(event.target.value); renderTime(); });
   find('#lab-play').addEventListener('click', () => {
     if (playing) { stop(); return; }

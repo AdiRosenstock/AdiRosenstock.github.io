@@ -101,6 +101,9 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
   for the graphs. Sliders use an instant JavaScript equivalent; tests compare
   every output against Python. Preview output is labeled separately from executed
   Python output. Python errors retain the previous results and editable source.
+  “Restore original values” is available beside Run cell and in the slider panel.
+  It stops an active Python run and restores all baseline parameters, the Python
+  source cell, and the corresponding graphs/output, with visible confirmation.
   A Stop button and time limits terminate long-running cells without blocking
   the page. The worker loads Pyodide 314.0.7 from jsDelivr only on the first Run
   cell action, following its [official worker documentation](https://pyodide.org/en/stable/usage/webworker.html).
