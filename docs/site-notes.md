@@ -85,6 +85,25 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
   manual controls available. The static consumption SVG remains the no-JavaScript
   fallback. “Follow the equations” expands the production, household, and equilibrium
   derivation. These illustrations remain distinct from the original Monte Carlo figure.
+- The opening defines the Malthusian feedback loop before introducing the rebellion.
+  The simulation lab near the start runs the production, household, and population
+  equations with editable extraction rates, a one-time productivity improvement,
+  ongoing technology growth, the labor exponent, preferences for children, and
+  child costs. Land and the horizon (10–120 generations) are also editable in the
+  JSON parameter editor. Each run starts at its own pre-change equilibrium;
+  changing household preferences recalculates that equilibrium. The default
+  horizon is 30 generations. Sliders, presets, the timeline, and displayed code
+  share one validated parameter object. The model function shown and copied is
+  the actual function used for the graphs. JSON edits change numeric inputs;
+  arbitrary JavaScript is not executed. Invalid edits retain the previous results.
+  Continual technology growth is explicitly labeled as an extension of the paper's
+  fixed-technology setup. Its income limit is `(rho/gamma) * (1+g)^(1/(1-alpha))`;
+  population keeps growing, so there is no stationary population in that case.
+  This lab is deterministic and is distinguished from the study's Monte Carlo
+  figure. Shared motion pause, reduced motion, and offscreen/hidden-page pauses
+  apply to transition playback. `npm run check` includes analytical-transition,
+  equilibrium, parameter-validation, and standalone-code tests in
+  `tests/economics-lab.test.mjs`.
 - The opening shows an animated soccer passing move above Adi’s name and a
   football visitors can kick beside the portrait. Pitch markings connect the
   football and technical sides of the portfolio. The portrait stays steady.
