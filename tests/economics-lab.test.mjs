@@ -1,7 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import vm from 'node:vm';
+import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { DEFAULT_PARAMETERS, runModel, validateParameters } from '../dist/economics-lab.js';
+import { PYTHON_PARAMETERS, parameterCell, pythonScript, createNotebook } from '../dist/economics-notebook.js';
+
+const pythonModel = readFileSync(new URL('../dist/assets/malthusian-rebellion/simulation.py', import.meta.url), 'utf8');
 
 const close = (actual, expected) => assert.ok(
   Math.abs(actual - expected) <= 1e-8 * Math.max(1, Math.abs(expected)),
@@ -71,9 +75,46 @@ test('editable parameters reject invalid equations and all permitted extremes st
   assert.ok(runModel(p).history.every(row => Object.values(row).every(Number.isFinite)));
 });
 
-test('the displayed model function runs independently with the copied parameters', () => {
-  const copied = `const parameters = ${JSON.stringify(DEFAULT_PARAMETERS)};\n${runModel.toString()}\nrunModel(parameters);`;
-  const output = vm.runInNewContext(copied, {}, { timeout: 1000 });
-  close(output.history[0].consumption, 1.4);
-  close(output.history.at(-1).population, runModel(DEFAULT_PARAMETERS).history.at(-1).population);
+test('real Python matches the browser preview for baseline and changed parameters', () => {
+  const scenarios = [{ ...DEFAULT_PARAMETERS },
+    { ...DEFAULT_PARAMETERS, newTax: 0.5, technologyBoost: 1.5 },
+    { ...DEFAULT_PARAMETERS, technologyGrowth: 0.02, alpha: 0.8 },
+    { ...DEFAULT_PARAMETERS, newTax: 0.75, gamma: 0.25, rho: 0.4, land: 200000 },
+    { ...DEFAULT_PARAMETERS, alpha: 0.85, gamma: 0.5, rho: 0.1, technologyBoost: 3,
+      technologyGrowth: 0.04, generations: 120, land: 1000000 }];
+  const argumentNames = PYTHON_PARAMETERS.map(([key]) => key);
+  const source = pythonModel + `\nimport json, sys\ndata = json.load(sys.stdin)\nprint(json.dumps([simulate(*[p[key] for key in data["keys"]]) for p in data["scenarios"]]))\n`;
+  const results = JSON.parse(execFileSync('python3', ['-c', source], {
+    input: JSON.stringify({ keys: argumentNames, scenarios }), encoding: 'utf8', timeout: 5000
+  }));
+  results.forEach((result, index) => {
+    const expected = runModel(scenarios[index]);
+    result.history.forEach((row, t) => Object.keys(row).forEach(key => close(row[key], expected.history[t][key])));
+    close(result.longRunConsumption, expected.longRunConsumption);
+    if (result.longRunPopulation !== null) close(result.longRunPopulation, expected.longRunPopulation);
+    else assert.equal(expected.longRunPopulation, null);
+  });
+});
+
+test('copied Python runs with arithmetic assignments and prints the model output', () => {
+  const parameters = parameterCell(DEFAULT_PARAMETERS).replace('tau_after = 0.00', 'tau_after = 1 / 4');
+  const copied = pythonScript(parameters, pythonModel);
+  const output = execFileSync('python3', ['-c', copied], { encoding: 'utf8', timeout: 5000 });
+  assert.match(output, /Generation\s+Population\s+Income\s+Consumption/);
+  assert.match(output, /1\.050/); // Initial consumption with extraction cut from 50% to 25%.
+  assert.match(output, /0\.700/);
+});
+
+test('download is a valid Python notebook with executable cells and Matplotlib plots', () => {
+  const notebook = createNotebook(parameterCell(DEFAULT_PARAMETERS), pythonModel);
+  assert.equal(notebook.nbformat, 4);
+  assert.equal(notebook.metadata.kernelspec.name, 'python3');
+  assert.ok(notebook.cells.filter(cell => cell.cell_type === 'code').every(cell => cell.execution_count === null && cell.outputs.length === 0));
+  const verify = `import ast, json, sys\nnotebook = json.load(sys.stdin)\nscope = {}\nfor cell in notebook["cells"]:\n    if cell["cell_type"] == "code":\n        ast.parse(cell["source"])\n        if cell["id"] != "graphs":\n            exec(cell["source"], scope)\nassert abs(scope["history"][0]["consumption"] - 1.4) < 1e-9\nassert "matplotlib.pyplot" in notebook["cells"][-1]["source"]\n`;
+  execFileSync('python3', ['-c', verify], { input: JSON.stringify(notebook), encoding: 'utf8', timeout: 5000 });
+});
+
+test('Python enforces the same parameter limits and identifies invalid values', () => {
+  const parameters = parameterCell(DEFAULT_PARAMETERS).replace('alpha = 0.65', 'alpha = 1.0');
+  assert.throws(() => execFileSync('python3', ['-c', pythonScript(parameters, pythonModel)], { stdio: 'pipe', timeout: 5000 }), /alpha must be a number/);
 });

@@ -50,7 +50,7 @@ We built a legal research tool for Professor Maria Amparo Grau Ruiz at Northwest
 
 ## About this site
 
-This repository is the source for [adirosenstock.github.io](https://adirosenstock.github.io/). I built it as a dependency-free static site with interactive project stories, a live BanterBoost preview, responsive layouts, keyboard-friendly controls, and a motion pause option. The football details are personal: I captained Furati FC in Costa Rica’s U20 second division, and the game still shapes what I build.
+This repository is the source for [adirosenstock.github.io](https://adirosenstock.github.io/). I built it as a static site with no build dependencies, interactive project stories, a live BanterBoost preview, responsive layouts, keyboard-friendly controls, and a motion pause option. The Malthusian project includes editable Python notebook cells, in-browser Python execution loaded on demand, and a downloadable Jupyter notebook. The football details are personal: I captained Furati FC in Costa Rica’s U20 second division, and the game still shapes what I build.
 
 ### Run it locally
 
@@ -58,7 +58,7 @@ This repository is the source for [adirosenstock.github.io](https://adirosenstoc
 npm run dev
 ```
 
-Open <http://127.0.0.1:4173>. The deployable site lives in `dist/`; there is no install or build step. Before pushing changes, run:
+Open <http://127.0.0.1:4173>. The deployable site lives in `dist/`; there is no install or build step. Before pushing changes, run the checks (Node.js and Python 3 required):
 
 ```sh
 npm run check

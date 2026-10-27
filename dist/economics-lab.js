@@ -1,3 +1,5 @@
+import { PYTHON_PARAMETERS, RUN_CELL, parameterCell, pythonScript, createNotebook, highlightPython } from './economics-notebook.js?v=7301b0cbc5bd';
+
 export const DEFAULT_PARAMETERS = Object.freeze({
   initialTax: 0.5,
   newTax: 0,
@@ -17,7 +19,7 @@ const BOUNDS = {
 };
 
 export function validateParameters(value) {
-  if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('Use a JSON object with the listed parameters.');
+  if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('Define all of the parameters in the Python cell.');
   for (const key of Object.keys(value)) {
     if (!Object.hasOwn(BOUNDS, key)) throw new Error(`Unknown parameter: ${key}. Use the names shown in the example.`);
   }
@@ -30,8 +32,8 @@ export function validateParameters(value) {
   return { ...value };
 }
 
-// This same function is displayed and copied from the page. The starting
-// population is the equilibrium for the chosen initial tax and preferences.
+// An instant slider preview of the Python model. Cross-language tests verify
+// both implementations; running the notebook cell uses actual Python results.
 export function runModel(p) {
   const { initialTax, newTax, technologyBoost, technologyGrowth,
     alpha, gamma, rho, land, generations } = p;
@@ -102,11 +104,13 @@ function mountLab(root) {
         <p class="lab-scope">This sandbox runs the deterministic model. Continual innovation extends the paper’s fixed-technology setup. The original 5,000-run Monte Carlo experiment, including harvest and demographic shocks, is shown below. Model generations are not years.</p>
       </div>
     </div>
-    <details class="lab-code" open><summary>See the code. Change the values.</summary>
-      <p>Use the sliders or edit these parameter values, then select “Run these values.” The model starts each experiment at its own initial equilibrium. Land stays fixed within a run; technology changes only as you specify.</p>
-      <div class="lab-code-layout">
-        <form id="lab-code-form"><label for="lab-config">Simulation parameters (JSON)</label><textarea id="lab-config" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="lab-code-help lab-code-status"></textarea><p id="lab-code-help">Rates are decimals: 0.50 means 50%. You can also change land and the number of generations here.</p><div class="lab-code-actions"><button class="button button-primary" type="submit">Run these values</button><button class="lab-copy" type="button">Copy runnable JS</button></div><p id="lab-code-status" role="status" aria-live="polite"></p></form>
-        <div class="lab-model-code"><p>The equations running your simulation</p><pre tabindex="0" aria-label="JavaScript simulation code"><code></code></pre></div>
+    <details class="lab-code" id="lab-notebook" open><summary>A Python notebook you can experiment with.</summary>
+      <p>Change a Python variable, then run the cell with Shift+Enter. Python runs in your browser and updates the graphs above. Sliders give an instant preview of the same model.</p>
+      <div class="lab-notebook-toolbar"><span class="lab-notebook-name">malthusian_experiment.ipynb</span><span class="lab-kernel" id="lab-kernel">Python · ready to load</span><button class="lab-copy" type="button" disabled>Copy Python</button><button class="lab-download" type="button" disabled>Download .ipynb</button></div>
+      <div class="lab-notebook-cells">
+        <form id="lab-code-form" class="lab-notebook-cell"><span class="lab-cell-prompt" id="lab-input-prompt" aria-hidden="true">In [ ]:</span><div class="lab-cell-body"><label for="lab-config">Choose the parameters</label><textarea id="lab-config" wrap="off" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="lab-code-help lab-code-status"></textarea><p id="lab-code-help">Use decimals for rates: 0.50 means 50%. The first run loads Python; later runs reuse it.</p><div class="lab-code-actions"><button class="button button-primary" id="lab-run-python" type="submit" disabled>▶ Run cell</button><button id="lab-stop-python" type="button" hidden>Stop</button><span class="lab-shortcut">Shift+Enter</span></div><pre id="lab-code-status" role="status" aria-live="polite"></pre></div></form>
+        <div class="lab-notebook-cell"><span class="lab-cell-prompt" id="lab-model-prompt" aria-hidden="true">In [ ]:</span><div class="lab-cell-body lab-model-code"><p>The model · executed with your parameters</p><pre tabindex="0" aria-label="Python simulation code"><code>Loading the Python model…</code></pre></div></div>
+        <div class="lab-notebook-cell lab-notebook-output"><span class="lab-cell-prompt" id="lab-output-prompt" aria-hidden="true">Out [ ]:</span><div class="lab-cell-body"><p id="lab-output-label">Preview · run the cell for Python output</p><div class="lab-output-table" tabindex="0" role="region" aria-label="Notebook simulation output"><table><thead><tr><th scope="col">Generation</th><th scope="col">Population</th><th scope="col">Income</th><th scope="col">Consumption</th></tr></thead><tbody id="lab-output-rows"></tbody></table></div><pre id="lab-stdout" hidden></pre></div></div>
       </div>
     </details>
     <p id="lab-status" class="econ-sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
@@ -129,6 +133,13 @@ function mountLab(root) {
   let elapsed = 0;
   let visible = true;
   let fade;
+  let pythonSource = '';
+  let pythonWorker;
+  let pythonRunning = false;
+  let pythonRunId = 0;
+  let pythonExecutionCount = 0;
+  let pythonTimeout;
+  let currentRunSource = '';
   const metricNames = { consumptionRatio: 'Consumption per worker', populationRatio: 'Worker population', outputRatio: 'Total output' };
   const pointX = t => 82 + t / parameters.generations * 418;
   let pointY = () => 0;
@@ -199,7 +210,7 @@ function mountLab(root) {
   function setPreset(selected) {
     root.querySelectorAll('[data-lab-preset]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.labPreset === selected)));
   }
-  function updateInputs() {
+  function updateInputs(keepSource = false) {
     for (const field of fields) {
       const value = parameters[field.key];
       find(`#lab-${field.key}`).value = String(value);
@@ -207,20 +218,22 @@ function mountLab(root) {
       put(`#lab-${field.key}-value`, label);
       find(`#lab-${field.key}`).setAttribute('aria-valuetext', label);
     }
-    editor.value = JSON.stringify(parameters, null, 2);
+    if (!keepSource) editor.value = parameterCell(parameters);
     editor.removeAttribute('aria-invalid');
     put('#lab-code-status', '');
   }
-  function apply(next, preset = '') {
+  function apply(next, preset = '', pythonResult = null) {
+    if (pythonRunning) cancelPython();
     stop();
     parameters = validateParameters(next);
-    result = runModel(parameters);
+    result = pythonResult || runModel(parameters);
     time = parameters.generations;
     setPreset(preset);
-    updateInputs();
+    updateInputs(Boolean(pythonResult));
     drawChart();
     renderTime();
     put('#lab-reading', reading());
+    renderNotebookOutput(Boolean(pythonResult));
     fade?.cancel();
     if (!paused()) fade = find('.lab-chart').animate([{ opacity: 0.4 }, { opacity: 1 }], { duration: 240, easing: 'ease-out' });
   }
@@ -281,22 +294,134 @@ function mountLab(root) {
     syncPlay();
     resumeClock();
   });
+  function renderNotebookOutput(fromPython = false) {
+    const count = pythonExecutionCount;
+    put('#lab-input-prompt', fromPython ? `In [${count - 1}]:` : 'In [ ]:');
+    put('#lab-model-prompt', fromPython ? `In [${count}]:` : 'In [ ]:');
+    put('#lab-output-prompt', fromPython ? `Out [${count}]:` : 'Out [ ]:');
+    put('#lab-output-label', fromPython ? `Python output · ${parameters.generations} generations calculated` : 'Preview · run the cell for Python output');
+    const rows = [0, 1, 5, 10, parameters.generations].filter((value, index, all) => value <= parameters.generations && all.indexOf(value) === index);
+    find('#lab-output-rows').replaceChildren(...rows.map(t => {
+      const row = result.history[t];
+      const element = document.createElement('tr');
+      for (const value of [t, format(row.population), row.income.toFixed(3), row.consumption.toFixed(3)]) {
+        const cell = document.createElement('td');
+        cell.textContent = String(value);
+        element.append(cell);
+      }
+      return element;
+    }));
+    find('#lab-stdout').hidden = true;
+  }
+  function setPythonBusy(busy) {
+    pythonRunning = busy;
+    editor.readOnly = busy;
+    find('#lab-code-form').setAttribute('aria-busy', String(busy));
+    find('#lab-run-python').disabled = busy || !pythonSource;
+    find('#lab-run-python').textContent = busy ? 'Running…' : '▶ Run cell';
+    find('#lab-stop-python').hidden = !busy;
+  }
+  function cancelPython(message = 'Python stopped. Your previous results are still shown.') {
+    clearTimeout(pythonTimeout);
+    pythonWorker?.terminate();
+    pythonWorker = undefined;
+    pythonRunId++;
+    setPythonBusy(false);
+    put('#lab-kernel', 'Python · ready to load');
+    put('#lab-input-prompt', 'In [ ]:');
+    put('#lab-model-prompt', 'In [ ]:');
+    put('#lab-code-status', message);
+  }
+  function setPythonTimeout(duration) {
+    clearTimeout(pythonTimeout);
+    pythonTimeout = setTimeout(() => cancelPython('Python took too long. Your code is preserved; try again or download the notebook.'), duration);
+  }
+  function pythonFailed(message) {
+    clearTimeout(pythonTimeout);
+    setPythonBusy(false);
+    editor.setAttribute('aria-invalid', 'true');
+    put('#lab-kernel', 'Python · check cell');
+    put('#lab-input-prompt', 'In [ ]:');
+    put('#lab-model-prompt', 'In [ ]:');
+    put('#lab-code-status', message);
+  }
+  function getPythonWorker() {
+    if (pythonWorker) return pythonWorker;
+    pythonWorker = new Worker(new URL('./economics-python-worker.js?v=d2c48db4408a', import.meta.url), { type: 'module' });
+    pythonWorker.onmessage = ({ data }) => {
+      if (data.id !== pythonRunId || !pythonRunning) return;
+      if (data.phase === 'loading') {
+        put('#lab-kernel', 'Python · loading');
+        put('#lab-code-status', 'Loading Python for the first run. This can take a moment.');
+      } else if (data.phase === 'running') {
+        put('#lab-kernel', 'Python · running');
+        put('#lab-code-status', 'Executing the Python cells…');
+        setPythonTimeout(15000);
+      } else if (data.phase === 'error') {
+        put('#lab-kernel', 'Python · check cell');
+        pythonFailed(data.error);
+      } else if (data.phase === 'complete') {
+        try {
+          const next = validateParameters(data.parameters);
+          if (data.result?.history?.length !== next.generations + 1 || !data.result.history.every((row, t) => row.t === t && Object.values(row).every(Number.isFinite))) throw new Error('The model must return finite simulation results for every generation.');
+          clearTimeout(pythonTimeout);
+          setPythonBusy(false);
+          pythonExecutionCount += 2;
+          apply(next, '', data.result);
+          editor.value = currentRunSource;
+          put('#lab-kernel', 'Python · ready');
+          put('#lab-code-status', `Python ran successfully. The graphs now show your ${next.generations}-generation simulation.`);
+          put('#lab-stdout', data.stdout || '');
+          find('#lab-stdout').hidden = !data.stdout;
+        } catch (error) { pythonFailed(error.message); }
+      }
+    };
+    pythonWorker.onerror = event => {
+      event.preventDefault();
+      cancelPython('Python could not load. Try Run cell again, or download the notebook to run it in Jupyter.');
+    };
+    return pythonWorker;
+  }
   find('#lab-code-form').addEventListener('submit', event => {
     event.preventDefault();
+    if (pythonRunning || !pythonSource) return;
+    stop();
+    currentRunSource = editor.value;
+    editor.removeAttribute('aria-invalid');
+    setPythonBusy(true);
+    put('#lab-input-prompt', 'In [*]:');
+    put('#lab-model-prompt', 'In [*]:');
+    put('#lab-code-status', 'Starting Python…');
+    setPythonTimeout(60000);
+    const id = ++pythonRunId;
     try {
-      const next = validateParameters(JSON.parse(editor.value));
-      apply(next);
-      put('#lab-code-status', `Simulation updated. ${parameters.generations} generations calculated.`);
-    } catch (error) {
-      editor.setAttribute('aria-invalid', 'true');
-      put('#lab-code-status', error instanceof SyntaxError ? 'Invalid JSON. Use double quotes around names and commas between parameters.' : error.message);
+      getPythonWorker().postMessage({ id, source: currentRunSource, model: pythonSource, runCell: RUN_CELL, parameterNames: PYTHON_PARAMETERS });
+    } catch { cancelPython('Python could not start. Try again or download the notebook.'); }
+  });
+  editor.addEventListener('keydown', event => {
+    if (event.key === 'Enter' && (event.shiftKey || event.ctrlKey) && !event.isComposing) {
+      event.preventDefault();
+      find('#lab-code-form').requestSubmit();
     }
   });
+  find('#lab-stop-python').addEventListener('click', () => cancelPython());
   find('.lab-copy').addEventListener('click', async () => {
     try {
-      await navigator.clipboard.writeText(`const parameters = ${JSON.stringify(parameters, null, 2)};\n\n${runModel.toString()}\n\nconsole.table(runModel(parameters).history);\n`);
-      put('#lab-code-status', 'Runnable JavaScript copied, using the parameters currently shown in the graphs.');
+      await navigator.clipboard.writeText(pythonScript(editor.value, pythonSource));
+      put('#lab-code-status', 'Python copied, including your parameter cell and the simulation model.');
     } catch { put('#lab-code-status', 'Copy is unavailable here. Select the parameters and model code to copy them manually.'); }
+  });
+  find('.lab-download').addEventListener('click', () => {
+    const notebook = createNotebook(editor.value, pythonSource);
+    const url = URL.createObjectURL(new Blob([JSON.stringify(notebook, null, 2)], { type: 'application/x-ipynb+json' }));
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'malthusian_experiment.ipynb';
+    document.body.append(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    put('#lab-code-status', 'Notebook downloaded. Open it in Jupyter and run all cells, including the Matplotlib graphs.');
   });
   function syncMotion() {
     if (paused()) { fade?.cancel(); stop(); }
@@ -313,10 +438,20 @@ function mountLab(root) {
     if (!visible) { cancelAnimationFrame(frame); frame = 0; lastTime = 0; }
     else resumeClock();
   }, { threshold: 0.12 }).observe(find('.lab-workbench'));
-  find('.lab-model-code code').textContent = runModel.toString();
+  fetch(new URL('./assets/malthusian-rebellion/simulation.py?v=98160d8cd678', import.meta.url), { cache: 'no-cache' })
+    .then(response => { if (!response.ok) throw new Error('Python model unavailable.'); return response.text(); })
+    .then(source => {
+      pythonSource = source;
+      find('.lab-model-code code').innerHTML = highlightPython(source + '\n\n' + RUN_CELL);
+      find('#lab-run-python').disabled = false;
+      find('.lab-copy').disabled = false;
+      find('.lab-download').disabled = false;
+    })
+    .catch(() => { put('#lab-code-status', 'The Python model could not load. Reload to try again; the slider preview still works.'); });
   updateInputs();
   drawChart();
   renderTime();
   put('#lab-reading', reading());
+  renderNotebookOutput();
   syncMotion();
 }
