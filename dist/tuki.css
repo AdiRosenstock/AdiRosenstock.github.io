@@ -12,8 +12,6 @@
 .tuki-brand-art{position:relative;min-width:0;aspect-ratio:1;isolation:isolate}
 .tuki-brand-orbit{position:absolute;inset:3%;border:1px solid #bbcee2;border-radius:50%;transform:rotate(-28deg) scaleY(.72)}
 .tuki-brand-orbit::after{content:'';position:absolute;top:30%;right:0;width:12px;height:12px;border-radius:50%;background:#315c8e}
-.tuki-brand-bird{position:absolute;inset:0;background:url('assets/tuki-flying.webp') 0 center / 400% auto no-repeat;transform:rotate(-8deg);clip-path:inset(0 5% 0 0)}
-.tuki-brand-note{position:absolute;bottom:-30px;left:0;width:100%;text-align:center;font-family:'Caveat',cursive;font-size:26px;color:#315c8e;transform:rotate(-4deg)}
 .tuki-page:not(.scene-enhanced) .motion-toggle,.tuki-page:not(.scene-enhanced) .copy-project-link{display:none}
 .tuki-page .project-tools>span{color:#49647e}
 .tuki-invitation{display:flex;align-items:center;justify-content:space-between;gap:32px;padding-block:60px 75px}

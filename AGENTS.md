@@ -38,6 +38,11 @@
 - Use white, ink, teal, and quiet sage surfaces. Keep consistent typography,
   spacing, and visible project summaries across the homepage. The pitch stays
   subtle and static. Keep content visible with reduced motion or JavaScript off.
+- Project pages use `project-design.css` for the same readable DM Sans type,
+  light navigation, spacing, story layout, and progress line as the homepage.
+  Keep individual project palettes and interactive demos. TUKI stays a brief
+  private teaser with its wordmark and orbital branding; the toucan is removed.
+  Preserve the old career-agent redirect and all original artifact links.
 - Adi requested a public résumé link in the hero. Keep the supplied PDF bundled
   in `dist/assets/` and linked from the homepage; preserve its contents.
 - This is a dependency-free static site. Run `node --check dist/script.js`, check

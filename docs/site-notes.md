@@ -10,7 +10,9 @@ npm run dev
 Open http://127.0.0.1:4173. There are no dependencies or build step.
 `dist/` contains the complete deployable site. Homepage spacing and visual
 refinements live in `refinement.css`; the shared homepage design refinements live in
-`portfolio.css`. Edit the relevant styles, then refresh the preview.
+`portfolio.css`. The seven project pages share `project-design.css`, loaded
+after their individual visual styles. Edit the relevant styles, then refresh
+the preview.
 
 ## Content sources
 
@@ -142,6 +144,16 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
   Captions, dimensions, button labels, and alt text update with the photo.
   The supplied professional headshot leads the hero. The AI office portrait
   and its disclosure are not used on the homepage.
+- Project pages carry the homepage’s typography, light navigation, spacing,
+  button styles, reading progress, and footer. Each keeps its own accent and demo.
+  Story pages use a narrow section index, readable prose, a separate facts row,
+  and simpler process and decision sections. Mobile stacks these in reading order.
+  The old match clock is replaced by a thin progress line with 0–100% accessible
+  values. Trading sketches, validation folds, guest/host journeys, tactical
+  playback, the economics walkthrough, and the executable notebook are preserved.
+  TUKI’s short private teaser uses the existing wordmark and orbital language,
+  without the toucan or any additional product details. The career-agent redirect
+  still preserves query strings and anchors.
 - Prominent Northwestern and Bloomberg hero buttons open résumé-grounded details.
   BanterBoost retains its existing website link and native detail dialog.
 - Brief Intelligence, TUKI, IMC Prosperity 3, Airbnb classification, DOMUS, TikiData FC, and The Paradox of Equality
@@ -151,7 +163,7 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
   TUKI is a compact private-project teaser, with a contact invitation instead of a case study.
   Pages have section navigation, copy-link feedback, and links to the next project.
   Every page respects the shared motion preference and has a pause control.
-  TUKI uses branding and the existing toucan mascot; IMC has
+  TUKI uses its wordmark and orbital branding; IMC has
   switchable strategy sketches; Airbnb illustrates five-fold validation; DOMUS
   switches between guest and host journeys; TikiData has a playable passing move.
   SVG backgrounds and page-specific palettes relate each scene to its project.
