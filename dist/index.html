@@ -15,21 +15,20 @@
   <link rel="icon" type="image/svg+xml" href="assets/adi-favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="assets/jabulani.png" as="image" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;450;500;550;600;650;700&family=Outfit:wght@400;500;550;600;650;700;750&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=a1caf9555590">
   <link rel="stylesheet" href="toolkit.css?v=495e7fa69b26">
-  <script src="script.js?v=c06ed2765bda" defer></script>
+  <script src="script.js?v=9c4b27e0ee16" defer></script>
   <script src="contact.js?v=0df259927064" defer></script>
-  <link rel="stylesheet" href="motion.css?v=c4485212f3f1">
-  <link rel="stylesheet" href="refinement.css?v=7e1f7f8607a5">
+  <link rel="stylesheet" href="motion.css?v=5cd01fae773b">
+  <link rel="stylesheet" href="refinement.css?v=2431c7edca8a">
   <link rel="stylesheet" href="brief-intelligence.css?v=bbef64c9c557">
-  <link rel="stylesheet" href="tuki-intro.css?v=a7c1318feb10">
   <link rel="stylesheet" href="tuki.css?v=010211d5c7c0">
   <link rel="stylesheet" href="economics.css?v=963a83c103f9">
-  <script src="motion.js?v=99ee663d77c3" defer></script>
+  <link rel="stylesheet" href="portfolio.css?v=6a3241f6f43e">
+  <script src="motion.js?v=67bec0718938" defer></script>
 </head>
-<body>
+<body class="portfolio-home">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="nav-wrap">
@@ -40,30 +39,10 @@
       </nav>
       <a class="nav-contact" href="#contact">Let’s talk <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 6l8 6 8-6"/></svg></a><button class="header-motion-toggle" type="button" aria-label="Pause motion" title="Pause motion" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg></button>
     </div>
-    <div class="reading-progress" role="progressbar" aria-label="Page scroll, match minute" aria-valuemin="0" aria-valuemax="90" aria-valuenow="0" aria-valuetext="Match minute 0 of 90">
-      <span class="match-clock" aria-hidden="true"><span class="match-clock-label">MATCH</span><span class="match-minute">00′</span></span>
-      <span class="match-track" aria-hidden="true"><span class="reading-progress-fill"></span><span class="match-half">45′</span><span class="reading-progress-ball"></span></span>
-      <span class="match-full-time" aria-hidden="true">90′ <span>FT</span></span>
-    </div>
+    <div class="portfolio-progress" role="progressbar" aria-label="Page progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0% explored"><span class="progress-fill" aria-hidden="true"></span></div>
   </header>
   <main id="main">
     <div class="hero-scene">
-      <svg class="opening-play" viewBox="0 0 1440 900" preserveAspectRatio="xMinYMin slice" aria-hidden="true">
-        <defs><clipPath id="jabulani-desktop-clip"><circle r="18"/></clipPath></defs>
-        <g transform="translate(25 210)">
-        <path class="opening-route" id="opening-pass-path" pathLength="1000" d="M0 0 C120 -85 240 -82 360 -5 S623 146 740 15 S1010 -110 1170 8 S1395 185 1485 102"/>
-        <g class="opening-ball"><image href="assets/jabulani.png" x="-21.5" y="-20" width="43" height="43" clip-path="url(#jabulani-desktop-clip)"/><circle r="18" fill="none" stroke="#354447" stroke-width="1.2"/><animateMotion dur="9s" repeatCount="indefinite" calcMode="paced" rotate="auto"><mpath href="#opening-pass-path"/></animateMotion></g>
-        </g>
-        <g class="opening-markers"><circle cx="127" cy="148" r="7"/><circle cx="580" cy="287" r="7"/><circle cx="973" cy="139" r="7"/><circle cx="1373" cy="337" r="7"/></g>
-      </svg>
-      <svg class="opening-play opening-play-mobile" viewBox="0 0 390 790" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
-        <defs><clipPath id="jabulani-mobile-clip"><circle r="12"/></clipPath></defs>
-        <g transform="translate(20 132)">
-        <path class="opening-route" id="opening-pass-mobile-path" pathLength="1000" d="M0 0 C55 -78 123 -72 179 1 S293 70 404 -36"/>
-        <g class="opening-ball"><image href="assets/jabulani.png" x="-14.35" y="-13.3" width="28.7" height="28.7" clip-path="url(#jabulani-mobile-clip)"/><circle r="12" fill="none" stroke="#354447" stroke-width="1.1"/><animateMotion dur="5.8s" repeatCount="indefinite" calcMode="paced" rotate="auto"><mpath href="#opening-pass-mobile-path"/></animateMotion></g>
-        </g>
-        <g class="opening-markers"><circle cx="81" cy="82" r="5"/><circle cx="245" cy="176" r="5"/><circle cx="364" cy="139" r="5"/></g>
-      </svg>
       <svg class="pitch-backdrop" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
         <defs><pattern id="pitch-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#43735c" stroke-width=".6" opacity=".12"/></pattern></defs>
         <rect width="1440" height="900" fill="url(#pitch-grid)"/>
@@ -74,8 +53,8 @@
       <div class="hero-copy">
         <p class="hello">Hey, I’m</p>
         <h1 id="hero-title">Adi<br>Rosenstock<span class="name-period">.</span></h1>
-        <p class="hero-role"><span>Software engineer, data scientist</span><span>Product management, finance &amp; quant</span></p>
-        <p class="hero-description">I build data systems and products, most recently at Bloomberg and through BanterBoost.</p>
+        <p class="hero-role">Software engineer &amp; data scientist.</p>
+        <p class="hero-description">I study Computer Science, Data Science, and Economics at Northwestern. I’ve built financial data systems at Bloomberg and founded BanterBoost.</p>
         <div class="hero-actions"><a class="button button-primary" href="#projects">Explore my work</a><a class="button button-outline" href="#contact">Get in touch</a><a class="resume-link" href="assets/Adi_Rosenstock_Resume.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf" aria-label="View résumé (PDF)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg><span>View résumé</span><span class="resume-format">PDF</span></a></div>
         <div class="social-links">
           <a href="https://github.com/AdiRosenstock" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.87c-2.78.6-3.37-1.18-3.37-1.18-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03A9.56 9.56 0 0 1 12 6.82c.85 0 1.71.11 2.51.34 1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>GitHub</a>
@@ -83,50 +62,22 @@
           <span class="hero-location">Costa Rica to Evanston</span>
         </div>
       </div>
-      <div class="hero-person">
-        <div class="portrait-scene">
-        <div class="photo-float ambient-motion">
-        <div class="portrait-photo" data-scene="matchday">
-        <button class="portrait-frame portrait-photo-button" id="portrait-photo-button" type="button" data-portrait-switch aria-label="Show the family photo at Cerro Chirripó in 2017" aria-controls="hero-portrait portrait-caption">
-          <img id="hero-portrait" src="assets/adi-and-eitan-matchday.jpg?v=ce1a99056b9c" width="640" height="640" alt="Adi Rosenstock on the left with his dad, Eitan Rosenstock, on the right at the 2022 Qatar World Cup" fetchpriority="high">
-        </button>
-        <div class="parent-annotation" id="dad-annotation">
-          <a class="parent-link" href="https://www.linkedin.com/in/eitan-rosenstock-87425671/" target="_blank" rel="noopener noreferrer" aria-label="My dad, Eitan Rosenstock — view his LinkedIn profile (opens in a new tab)"><span class="parent-label">My dad,<span> Eitan</span></span><span class="parent-link-label">LinkedIn <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
-          <svg class="parent-arrow" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="parent-arrow-outline" d="M84 1 C96 13 91 25 77 33 Q70 37 67 43 M66 37 67 43 73 41"/><path d="M84 1 C96 13 91 25 77 33 Q70 37 67 43 M66 37 67 43 73 41"/></svg>
-        </div>
-        <div class="parent-annotation" id="mom-annotation" hidden>
-          <a class="parent-link" href="https://www.linkedin.com/in/katherinegutreiman/" target="_blank" rel="noopener noreferrer" aria-label="My mom, Katherine Gutreiman — view her LinkedIn profile (opens in a new tab)"><span class="parent-label">My mom,<span> Katherine</span></span><span class="parent-link-label">LinkedIn <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
-          <svg class="parent-arrow" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="parent-arrow-outline" d="M84 1 C99 10 100 30 86 44 M87 38 86 44 92 42"/><path d="M84 1 C99 10 100 30 86 44 M87 38 86 44 92 42"/></svg>
-        </div>
-        </div>
-        <div class="portrait-caption"><span id="portrait-caption" aria-live="polite">With my dad at the 2022 Qatar World Cup.</span><button id="portrait-switch" type="button" data-portrait-switch aria-label="Show the family photo at Cerro Chirripó in 2017" aria-controls="hero-portrait portrait-caption">Click photo to switch <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16m-4-4 4 4-4 4M20 16H4m4-4-4 4 4 4"/></svg></button></div>
-        </div>
-        <div class="football-play"><button id="kick-football" class="football-button" type="button" aria-label="Kick the Brazuca football"><span class="football-drawing brazuca-button-art ambient-motion" aria-hidden="true"></span></button><span class="football-hint" id="football-hint">Go on, give it a kick.</span></div>
-        <p class="sr-only" id="football-status" aria-live="polite"></p>
-        </div>
-      </div>
+      <figure class="hero-portrait">
+        <div class="hero-photo-frame"><img src="assets/adi-professional-enhanced.jpg" width="1069" height="1472" alt="Portrait of Adi Rosenstock" fetchpriority="high"></div>
+        <figcaption><span>From Costa Rica. At home building things.</span><a href="#about">A little more about me <span aria-hidden="true">↗</span></a></figcaption>
+      </figure>
       <div class="hero-credentials" aria-label="Education and experience">
-        <button class="credential-button northwestern-credential" type="button" data-project="northwestern"><span class="credential-context">Education</span><strong>Northwestern</strong><span class="credential-caption">Computer Science, Data Science & Economics<br>Class of 2027</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span class="sr-only"> — view education details</span></button>
-        <button class="credential-button bloomberg-credential" type="button" data-project="bloomberg"><span class="credential-context">Experience</span><strong>Bloomberg</strong><span class="credential-caption">Data Engineer Intern<br>Summer 2026</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span class="sr-only"> — view internship details</span></button>
+        <button class="credential-button northwestern-credential" type="button" data-project="northwestern"><span class="credential-context">Education</span><strong>Northwestern</strong><span class="credential-caption">Class of 2027</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span class="sr-only"> — view education details</span></button>
+        <button class="credential-button bloomberg-credential" type="button" data-project="bloomberg"><span class="credential-context">Experience</span><strong>Bloomberg</strong><span class="credential-caption">Data Engineer Intern · 2026</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span class="sr-only"> — view internship details</span></button>
       </div>
       <div class="hero-bottom"><span>Scroll to explore</span><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg><span>Pause motion</span></button><a href="#projects" aria-label="Scroll to selected work"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-5-5 5 5 5-5"/></svg></a></div>
     </section>
-      <details class="tuki-intro chiqui-intro">
-        <summary class="tuki-trigger" aria-label="Meet Chiqui" aria-controls="chiqui-description">
-          <span class="tuki-sprite" aria-hidden="true"></span>
-          <span class="tuki-prompt">Meet Chiqui</span>
-        </summary>
-        <div class="tuki-note" id="chiqui-description">
-          <p><strong>Meet Chiqui.</strong> My personal assistant, with a little Costa Rican flair.</p>
-          <p>Named after Randall “Chiqui” Brenes, a Club Sport Cartaginés legend. Same shirt. Same spirit.</p>
-          <a class="chiqui-goal-link" id="chiqui-goal-link" href="https://www.youtube.com/watch?v=FVC9uSXpPK8&amp;t=236s" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7Z"/></svg><span>Watch his goal vs. Iker Casillas<small>3:56–5:32</small></span></a>
-        </div>
-      </details>
+
     </div>
 
     <section class="projects-section" id="projects" aria-labelledby="projects-title">
       <div class="section-wrap">
-        <div class="section-heading"><div><p class="section-kicker">Things I’ve put into the world</p><h2 id="projects-title">Selected work</h2></div><a class="text-link" href="https://github.com/AdiRosenstock?tab=repositories" target="_blank" rel="noopener noreferrer">More on GitHub <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 4H4v16h16v-6"/></svg></a></div>
+        <div class="section-heading"><div><h2 id="projects-title">Selected work</h2><p class="section-intro">Products, research, and a few things built out of curiosity.</p></div><a class="text-link" href="https://github.com/AdiRosenstock?tab=repositories" target="_blank" rel="noopener noreferrer">More on GitHub <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 4H4v16h16v-6"/></svg></a></div>
         <article class="featured-project">
           <div class="featured-copy"><div class="project-type"><img src="assets/banterboost-mark.webp" width="36" height="36" alt="">Founder & sole engineer</div><h3>BanterBoost</h3><p class="project-tagline">Live league analysis, forecasts, and an AI pundit for Fantasy Premier League.</p><div class="tag-list"><span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>AI</span></div><div class="project-actions"><a class="button button-primary" href="https://fplbanterboost.com" target="_blank" rel="noopener noreferrer" aria-describedby="banterboost-summary">Visit BanterBoost</a><button class="text-link" type="button" data-project="banterboost" aria-label="BanterBoost details">Details <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div></div>
           <div class="featured-preview">
@@ -215,16 +166,27 @@
         <div class="about-intro">
         <h2 id="about-title">About me</h2>
         <div class="personal-details">
-          <span>🇨🇷 Costa Rican</span>
-          <span>🇺🇸 English · 🇪🇸 Spanish · 🇮🇱 Hebrew</span>
-          <span>⚽ Former Professional Soccer Player</span>
-          <span>💻 Tech, Data and Finance</span>
+          <span>From Costa Rica</span>
+          <span>Now in Evanston, Illinois</span>
+          <span>Former football captain</span>
         </div>
         </div>
-        <figure class="about-stadium-photo">
-          <div class="about-stadium-frame"><img src="assets/adi-matchday.webp" width="1448" height="1086" alt="Adi Rosenstock kissing the Club Sport Cartaginés crest at a football stadium" loading="lazy"></div>
-          <figcaption>Football before fantasy.</figcaption>
-        </figure>
+        <div class="about-family-scene">
+        <div class="portrait-photo" data-scene="matchday">
+        <button class="portrait-frame portrait-photo-button" id="portrait-photo-button" type="button" data-portrait-switch aria-label="Show the family photo at Cerro Chirripó in 2017" aria-controls="hero-portrait portrait-caption">
+          <img id="hero-portrait" src="assets/adi-and-eitan-matchday.jpg?v=ce1a99056b9c" width="640" height="640" alt="Adi Rosenstock on the left with his dad, Eitan Rosenstock, on the right at the 2022 Qatar World Cup" loading="lazy">
+        </button>
+        <div class="parent-annotation" id="dad-annotation">
+          <a class="parent-link" href="https://www.linkedin.com/in/eitan-rosenstock-87425671/" target="_blank" rel="noopener noreferrer" aria-label="My dad, Eitan Rosenstock — view his LinkedIn profile (opens in a new tab)"><span class="parent-label">My dad,<span> Eitan</span></span><span class="parent-link-label">LinkedIn <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
+          <svg class="parent-arrow" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="parent-arrow-outline" d="M84 1 C96 13 91 25 77 33 Q70 37 67 43 M66 37 67 43 73 41"/><path d="M84 1 C96 13 91 25 77 33 Q70 37 67 43 M66 37 67 43 73 41"/></svg>
+        </div>
+        <div class="parent-annotation" id="mom-annotation" hidden>
+          <a class="parent-link" href="https://www.linkedin.com/in/katherinegutreiman/" target="_blank" rel="noopener noreferrer" aria-label="My mom, Katherine Gutreiman — view her LinkedIn profile (opens in a new tab)"><span class="parent-label">My mom,<span> Katherine</span></span><span class="parent-link-label">LinkedIn <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
+          <svg class="parent-arrow" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="parent-arrow-outline" d="M84 1 C99 10 100 30 86 44 M87 38 86 44 92 42"/><path d="M84 1 C99 10 100 30 86 44 M87 38 86 44 92 42"/></svg>
+        </div>
+        </div>
+        <div class="portrait-caption"><span id="portrait-caption" aria-live="polite">With my dad at the 2022 Qatar World Cup.</span><button id="portrait-switch" type="button" data-portrait-switch aria-label="Show the family photo at Cerro Chirripó in 2017" aria-controls="hero-portrait portrait-caption">Click photo to switch <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16m-4-4 4 4-4 4M20 16H4m4-4-4 4 4 4"/></svg></button></div>
+        </div>
       </div>
       <div class="about-copy">
         <p class="about-lead">I’m a senior at Northwestern studying Computer Science, Data Science, and Economics.</p>
@@ -240,7 +202,7 @@
     </section>
 
     <section class="experience-section" id="experience" aria-labelledby="experience-title"><div class="section-wrap">
-      <div class="section-heading"><div><p class="section-kicker">Where I’ve learned by doing</p><h2 id="experience-title">Experience</h2></div></div>
+      <div class="section-heading"><div><h2 id="experience-title">Experience</h2><p class="section-intro">What I’ve worked on, and what I’ve learned along the way.</p></div></div>
       <div class="experience-list">
         <article class="experience-row bloomberg-experience" id="bloomberg-experience"><div class="company-logo bloomberg-logo"><img src="assets/bloomberg-logo.png" width="512" height="512" alt="" loading="lazy"></div><div class="experience-main"><div class="experience-head"><h3><a href="https://www.bloomberg.com/" target="_blank" rel="noopener noreferrer">Bloomberg <span class="company-link-icon" aria-hidden="true">↗</span></a></h3><span>Jun – Aug 2026</span></div><p class="job-title">Data Engineer Intern <span>Princeton, NJ</span></p><div class="impact-row"><span><strong>2.3M+</strong> records reconciled</span><span><strong>860</strong> companies covered</span><span><strong>71%</strong> of flagged cases automated</span></div><details class="role-details"><summary>Role details<span class="sr-only"> at Bloomberg</span></summary><div class="detail-copy"><p>Built Python and SQL pipelines to reconcile financial records, plus AI agents and a custom MCP server to investigate discrepancies against SEC filings.</p></div></details><a class="recommendation-link" href="assets/bloomberg-recommendation-letter.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">View recommendation letter <span aria-hidden="true">↗</span></a></div></article>
         <article class="experience-row"><div class="company-logo impakt-logo"><img src="assets/impakt-logo.png" width="600" height="170" alt="" loading="lazy"></div><div class="experience-main"><div class="experience-head"><h3><a href="https://www.impakt.ai/" target="_blank" rel="noopener noreferrer">impaKt <span class="company-link-icon" aria-hidden="true">↗</span></a></h3><span>Jul – Sep 2025</span></div><p class="job-title">Software Engineer Intern <span>Miami, FL</span></p><div class="impact-row"><span><strong>54%</strong> less lead-search time</span></div><details class="role-details"><summary>Role details<span class="sr-only"> at impaKt</span></summary><div class="detail-copy"><p>Developed an ensemble model for lead conversion and a conversational assistant for customer data, helping a B2B platform serving 100+ businesses.</p></div></details></div></article>
@@ -252,7 +214,7 @@
     </div></section>
 
     <section class="skills-section section-wrap" id="skills" aria-labelledby="skills-title">
-      <div class="skills-intro"><p class="section-kicker">What I build with</p><h2 id="skills-title">My toolkit</h2></div>
+      <div class="skills-intro"><h2 id="skills-title">My toolkit</h2><p class="section-intro">The tools behind the work.</p></div>
       <div class="skill-groups">
         <div class="skill-group"><h3>Software</h3><div class="tag-list"><span class="skill-pill"><img src="assets/skills/python.svg" width="23" height="23" alt="" loading="lazy"><span>Python</span></span><span class="skill-pill"><img src="assets/skills/typescript.svg" width="23" height="23" alt="" loading="lazy"><span>TypeScript</span></span><span class="skill-pill"><img src="assets/skills/javascript.svg" width="23" height="23" alt="" loading="lazy"><span>JavaScript</span></span><span class="skill-pill"><img src="assets/skills/react.svg" width="23" height="23" alt="" loading="lazy"><span>React</span></span><span class="skill-pill"><img src="assets/skills/nextjs.svg" width="23" height="23" alt="" loading="lazy"><span>Next.js</span></span><span class="skill-pill"><img src="assets/skills/git.svg" width="23" height="23" alt="" loading="lazy"><span>Git</span></span><span class="skill-pill"><img src="assets/skills/cplusplus.svg" width="23" height="23" alt="" loading="lazy"><span>C++</span></span><span class="skill-pill"><img src="assets/skills/c.svg" width="23" height="23" alt="" loading="lazy"><span>C</span></span><span class="skill-pill"><img src="assets/skills/java.svg" width="23" height="23" alt="" loading="lazy"><span>Java</span></span></div></div>
         <div class="skill-group"><h3>Data &amp; AI</h3><div class="tag-list"><span class="skill-pill"><span>SQL</span></span><span class="skill-pill"><img src="assets/skills/postgresql.svg" width="23" height="23" alt="" loading="lazy"><span>PostgreSQL</span></span><span class="skill-pill"><img src="assets/skills/pandas.svg" width="23" height="23" alt="" loading="lazy"><span>Pandas</span></span><span class="skill-pill"><img src="assets/skills/r.svg" width="23" height="23" alt="" loading="lazy"><span>R</span></span><span class="skill-pill"><img src="assets/skills/scikitlearn.svg" width="23" height="23" alt="" loading="lazy"><span>Scikit-learn</span></span><span class="skill-pill"><img src="assets/skills/jupyter.svg" width="23" height="23" alt="" loading="lazy"><span>Jupyter</span></span><span class="skill-pill"><img src="assets/skills/numpy.svg" width="23" height="23" alt="" loading="lazy"><span>NumPy</span></span><span class="skill-pill"><img src="assets/skills/matplotlib.svg" width="23" height="23" alt="" loading="lazy"><span>Matplotlib</span></span><span class="skill-pill"><span>CatBoost</span></span><span class="skill-pill"><span>XGBoost</span></span><span class="skill-pill"><span>Apache Iceberg</span></span><span class="skill-pill"><span>LLMs</span></span><span class="skill-pill"><span>Agentic AI</span></span><span class="skill-pill"><span>MCP</span></span></div></div>
@@ -319,12 +281,5 @@
   </main>
   <footer class="site-footer section-wrap"><a class="wordmark" href="#home"><img src="assets/adi-wordmark.png" width="480" height="295" alt="adi."></a><span>© <span id="year">2026</span> Adi Rosenstock</span><a href="#home">Back to top</a></footer>
   <dialog id="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" type="button" aria-label="Close details"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button><div id="dialog-content"></div></dialog>
-  <dialog class="chiqui-goal-dialog" id="chiqui-goal-dialog" aria-labelledby="chiqui-goal-title" aria-describedby="chiqui-goal-description">
-    <button class="dialog-close chiqui-goal-close" type="button" aria-label="Close goal video"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
-    <h2 id="chiqui-goal-title">The goal behind the name.</h2>
-    <p id="chiqui-goal-description">Randall “Chiqui” Brenes vs. Iker Casillas. Costa Rica vs. Spain, 2011. Clip: 3:56–5:32.</p>
-    <iframe id="chiqui-goal-frame" title="Randall Chiqui Brenes scores against Iker Casillas, from 3:56 to 5:32" data-src="https://www.youtube-nocookie.com/embed/FVC9uSXpPK8?start=236&amp;end=332&amp;autoplay=1&amp;rel=0" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <a class="chiqui-youtube-link" href="https://www.youtube.com/watch?v=FVC9uSXpPK8&amp;t=236s" target="_blank" rel="noopener noreferrer">Watch on YouTube from 3:56<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 4H4v16h16v-6"/></svg></a>
-  </dialog>
 </body>
 </html>

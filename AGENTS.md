@@ -23,18 +23,21 @@
   Keep redirects from the previous `/AdiRosenstock.io/` paths, including project
   pages, query strings, and section anchors. `.pages/` is generated and ignored.
   Preserve the unused Sites identity in `.openai/hosting.json`; do not deploy there.
-- Keep the personal, playful motion in the hero and provide a motion pause control.
-  The personal assistant/toucan is Chiqui, named after Randall “Chiqui” Brenes
-  of Club Sport Cartaginés. TUKI remains the separate career project’s name.
-  Keep Chiqui’s goal-video link and the requested 3:56–5:32 segment.
+- The opening leads with Adi’s real professional portrait and an approachable,
+  plain-language introduction. Adi rejected the code/terminal hero because it was
+  hard for nontechnical visitors to understand. Keep the pitch as a faint static
+  backdrop. Chiqui, the moving hero football, kick control, and match clock were
+  removed at Adi’s request. Keep a shared motion pause control for project previews.
+  TUKI remains the separate private career project; preserve its branding.
 - Keep the Northwestern education card purple; the general site palette uses ink and teal.
 - Northwestern education and Bloomberg experience lead the hero. Football is a
   personal interest, not the whole identity. Keep the overview short and title-led;
-  put project stories and role descriptions behind explicit detail controls. Keep
+  show brief project summaries and put deeper stories and role descriptions
+  behind explicit detail controls. Keep
   the About me biography visible without opening a disclosure.
-- Use the football/tech visual direction: pitch markings, passing routes, and data
-  points. The user rejected the travel/sky background. Reveal content as it enters
-  the viewport; keep content visible with reduced motion or when JavaScript is off.
+- Use white, ink, teal, and quiet sage surfaces. Keep consistent typography,
+  spacing, and visible project summaries across the homepage. The pitch stays
+  subtle and static. Keep content visible with reduced motion or JavaScript off.
 - Adi requested a public résumé link in the hero. Keep the supplied PDF bundled
   in `dist/assets/` and linked from the homepage; preserve its contents.
 - This is a dependency-free static site. Run `node --check dist/script.js`, check
@@ -54,10 +57,12 @@
   An activation-required response is a failure, not a sent message.
 
 - Keep the user’s design direction: smooth, spacious, and personal, inspired by
-  David Wei (https://dawei25.github.io/davidwei/) and Jose Vergara
-  (https://www.joseavergara.com/). The opening should show a soccer passing
-  animation immediately on desktop and mobile. Preserve soccer motion when
-  simplifying the page, along with the pause and reduced-motion behavior.
+  David Wei (https://dawei25.github.io/davidwei/), Jose Vergara
+  (https://www.joseavergara.com/), Rauno Freiberg (https://rauno.me/), and Emil
+  Kowalski (https://emilkowal.ski/). The opening leads with software, financial
+  data, and economics in plain language, alongside the professional portrait.
+  Family photos and the personal football story live in About; preserve the
+  photo switch and parent links. Avoid a code-heavy or terminal-themed opening.
 - The Reading section includes real book covers, current-reading and favorite
   markers, and the user’s two favorite podcasts: How to Take Over the World
   (Ben Wilson) and Founders (David Senra), linked to the supplied Spotify shows.

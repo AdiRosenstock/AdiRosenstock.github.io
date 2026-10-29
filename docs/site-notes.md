@@ -9,7 +9,8 @@ npm run dev
 
 Open http://127.0.0.1:4173. There are no dependencies or build step.
 `dist/` contains the complete deployable site. Homepage spacing and visual
-refinements live in `refinement.css`; edit the files there, then refresh the preview.
+refinements live in `refinement.css`; the shared homepage design refinements live in
+`portfolio.css`. Edit the relevant styles, then refresh the preview.
 
 ## Content sources
 
@@ -50,20 +51,21 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
 
 ## Interactions
 
-- Chiqui is Adi’s personal assistant and the toucan above the hero, named after
-  Randall “Chiqui” Brenes, the Club Sport Cartaginés legend. Keep his shirt and
-  flight animation. His native disclosure works on touch, keyboard, and without
-  JavaScript. The goal video loads only when requested, plays the supplied
-  YouTube segment from 236 to 332 seconds (3:56–5:32), stops when the dialog
-  closes, and retains a direct timestamped YouTube link as a fallback.
-  TUKI remains the private career project’s name.
-
-- A football/tech hero combines pitch markings, a data grid, an animated passing
-  pattern, a portrait, and a football visitors can kick.
+- The opening uses Adi’s supplied professional portrait with a plain-language
+  introduction. A quiet static pitch backdrop keeps the personal reference.
+  Adi rejected a code/terminal treatment on October 29, 2026 because it was too
+  technical for a general audience. There is no code panel or simulated data feed.
+- Chiqui, the passing-ball animation, the kick control, and the match clock were
+  removed at Adi’s request. A thin line indicates page progress. The switchable
+  family photos and parent links live in About alongside the football biography.
+- Design references reviewed: [Rauno Freiberg](https://rauno.me/) for deliberate
+  typography and [Emil Kowalski](https://emilkowal.ski/) for restraint. The final
+  design uses white, ink, teal, and sage; readable project summaries; consistent
+  experience and toolkit layouts; a compact bookshelf; and a clear contact form.
 - Selected work features Brief Intelligence, with a full project page and public video demo. Its homepage preview cycles through searching, filtering, and matching only while visible; the existing motion pause and reduced-motion preference stop the cycle. The selected-work grid includes TUKI, IMC Prosperity 3, the Airbnb model,
   DOMUS, TikiData FC, and The Paradox of Equality, beneath the featured BanterBoost preview. On pointer
-  devices, each card reveals its description and stack on hover or keyboard focus;
-  touch layouts show descriptions below the artwork. Each of those six cards
+  devices and touch screens, every card shows its description below the artwork;
+  project pages provide the deeper technical detail. Each of those six cards
   links to its project page. Public projects retain separate source links; TUKI shows its private development status. The main palette
   uses ink and teal; project previews keep their own colors and imagery.
 - The Paradox of Equality homepage preview traces its deterministic consumption
@@ -125,26 +127,21 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
   apply to transition playback. `npm run check` includes analytical-transition,
   equilibrium, parameter-validation, cross-language, copied-Python, and notebook
   tests in `tests/economics-lab.test.mjs`; Python 3 is required for those checks.
-- The opening shows an animated soccer passing move above Adi’s name and a
-  football visitors can kick beside the portrait. Pitch markings connect the
-  football and technical sides of the portfolio. The portrait stays steady.
 - Homepage scroll entrances use one restrained movement; content reveals once,
   and keyboard focus makes pending content visible immediately. The header
   keeps the motion pause control available throughout the page.
 - A persistent pause control and system reduced-motion preference stop ambient motion.
   Pausing also reveals all content immediately. Hero motion pauses offscreen,
   and all content remains visible when JavaScript is disabled.
-- The hero cycles between Adi’s supplied matchday photo with his dad and the
-  family photo at Cerro Chirripó. Both are copied unchanged into `dist/assets/`.
+- The About section cycles between Adi’s supplied matchday photo with his dad
+  and the family photo at Cerro Chirripó. Both are copied unchanged into `dist/assets/`.
   Click the photo or its caption control to switch; both controls support keyboard
   activation and the existing motion-aware fade. Handwritten notes and arrows
   link Eitan Rosenstock and Katherine Gutreiman to their LinkedIn profiles, with
   the arrows repositioned for each photo and the mom note only shown on the hike.
   Captions, dimensions, button labels, and alt text update with the photo.
-  The crest-kissing stadium photo sits beneath the About me details in the left
-  column, with an independent scroll reveal and subtle hover zoom that respects
-  motion pause and reduced motion. The professional headshot is no longer used.
-  The AI office portrait and its disclosure are no longer used on the homepage.
+  The supplied professional headshot leads the hero. The AI office portrait
+  and its disclosure are not used on the homepage.
 - Prominent Northwestern and Bloomberg hero buttons open résumé-grounded details.
   BanterBoost retains its existing website link and native detail dialog.
 - Brief Intelligence, TUKI, IMC Prosperity 3, Airbnb classification, DOMUS, TikiData FC, and The Paradox of Equality
@@ -165,8 +162,8 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
 - Project cards lead with titles and visuals. The About biography is always shown. Role descriptions and leadership
   use native disclosure controls so visitors choose the depth. All toolkit tags are
   visible within their categories, with no extra disclosure controls.
-- The homepage hero names software engineering, data science, product management,
-  and finance/quant interests. A Reading section lists books Adi supplied; *Good to
+- The homepage hero introduces software engineering and data science in plain
+  language; experience and skills retain the finance and product details. A Reading section lists books Adi supplied; *Good to
   Great* is marked currently reading and *Never Split the Difference* is marked
   as his all-time favorite. Covers come from the Open Library Covers API, with
   original image URLs in `dist/assets/books/sources.json`. The section also

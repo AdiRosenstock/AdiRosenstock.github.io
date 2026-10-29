@@ -38,54 +38,6 @@ document.addEventListener('keydown', event => {
     menuButton.focus();
   }
 });
-// The name story works as a native disclosure; video loads only when requested.
-const chiquiIntro = document.querySelector('.chiqui-intro');
-const chiquiGoalLink = document.querySelector('#chiqui-goal-link');
-const chiquiGoalDialog = document.querySelector('#chiqui-goal-dialog');
-const chiquiGoalFrame = document.querySelector('#chiqui-goal-frame');
-let chiquiPreviousOverflow = '';
-if (typeof chiquiGoalDialog.showModal === 'function') {
-  chiquiGoalLink.setAttribute('aria-haspopup', 'dialog');
-  chiquiGoalLink.setAttribute('aria-controls', 'chiqui-goal-dialog');
-}
-function positionChiquiNote() {
-  if (!chiquiIntro.open) return;
-  const bounds = chiquiIntro.getBoundingClientRect();
-  const width = chiquiIntro.querySelector('.tuki-note').getBoundingClientRect().width;
-  const center = Math.max(width / 2 + 12, Math.min(window.innerWidth - width / 2 - 12, bounds.left + bounds.width / 2));
-  chiquiIntro.style.setProperty('--chiqui-note-left', `${center - bounds.left}px`);
-  chiquiIntro.style.setProperty('--chiqui-arrow-left', `${bounds.left + bounds.width / 2 - center + width / 2 - 6}px`);
-}
-chiquiIntro.addEventListener('toggle', positionChiquiNote);
-window.addEventListener('resize', positionChiquiNote);
-
-chiquiGoalLink.addEventListener('click', event => {
-  if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || typeof chiquiGoalDialog.showModal !== 'function') return;
-  event.preventDefault();
-  chiquiPreviousOverflow = document.body.style.overflow;
-  chiquiGoalDialog.showModal();
-  document.body.style.overflow = 'hidden';
-  chiquiGoalFrame.src = chiquiGoalFrame.dataset.src;
-});
-chiquiGoalDialog.querySelector('.chiqui-goal-close').addEventListener('click', () => chiquiGoalDialog.close());
-chiquiGoalDialog.addEventListener('click', event => {
-  const box = chiquiGoalDialog.getBoundingClientRect();
-  if (event.target === chiquiGoalDialog && (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom)) chiquiGoalDialog.close();
-});
-chiquiGoalDialog.addEventListener('close', () => {
-  chiquiGoalFrame.removeAttribute('src');
-  document.body.style.overflow = chiquiPreviousOverflow;
-  chiquiGoalLink.focus({ preventScroll: true });
-});
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && chiquiIntro.open && !chiquiGoalDialog.open) {
-    chiquiIntro.open = false;
-    chiquiIntro.querySelector('summary').focus({ preventScroll: true });
-  }
-});
-document.addEventListener('click', event => {
-  if (!chiquiGoalDialog.open && !chiquiIntro.contains(event.target) && !chiquiGoalDialog.contains(event.target)) chiquiIntro.open = false;
-});
 const portraitControls = document.querySelectorAll('[data-portrait-switch]');
 const familyPhotos = [
   {
@@ -268,7 +220,6 @@ function revealAll() {
 }
 const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 const motionToggle = document.querySelector('#motion-toggle');
-const football = document.querySelector('#kick-football');
 let motionPaused = false;
 try { motionPaused = localStorage.getItem('adi-motion-paused') === 'true'; } catch { /* Optional preference storage. */ }
 function updateMotion() {
@@ -279,7 +230,6 @@ function updateMotion() {
   motionToggle.querySelector('span').textContent = motionPreference.matches ? 'Motion reduced' : paused ? 'Resume motion' : 'Pause motion';
   motionToggle.querySelector('path').setAttribute('d', paused ? 'm8 5 11 7-11 7Z' : 'M9 5v14M15 5v14');
   if (paused) {
-    football.classList.remove('is-kicking');
     revealAll();
   }
 }
@@ -292,19 +242,6 @@ function toggleMotion() {
 motionToggle.addEventListener('click', toggleMotion);
 document.addEventListener('portfolio:toggle-motion', toggleMotion);
 motionPreference.addEventListener('change', updateMotion);
-let touches = 0;
-football.addEventListener('click', () => {
-  if (football.classList.contains('is-kicking')) return;
-  touches += 1;
-  const reactions = ['Nice touch.', 'Still got it.', 'One more before the next project?'];
-  const reaction = reactions[(touches - 1) % reactions.length];
-  document.querySelector('#football-hint').textContent = reaction;
-  document.querySelector('#football-status').textContent = reaction;
-  if (!motionPaused && !motionPreference.matches) football.classList.add('is-kicking');
-});
-football.addEventListener('animationend', event => {
-  if (event.target === football) football.classList.remove('is-kicking');
-});
 const sceneObserver = new IntersectionObserver(([entry]) => {
   document.querySelector('.hero-scene').classList.toggle('motion-offscreen', !entry.isIntersecting);
 });
@@ -323,7 +260,7 @@ function initializeReveals() {
     ['.projects-section .section-heading, .about-intro, .experience-section .section-heading, .skills-intro', 'heading'],
     ['.featured-project', 'feature'],
     ['.project-card', 'card'],
-    ['.more-projects > a, .about-copy, .about-stadium-photo, .leadership-note, .reading-intro, .book-list, .podcast-recs', 'copy'],
+    ['.more-projects > a, .about-copy, .about-family-scene, .leadership-note, .reading-intro, .book-list, .podcast-recs', 'copy'],
     ['.experience-row', 'timeline'],
     ['.skill-group', 'toolkit'],
     ['.contact-inner > div', 'contact']
@@ -352,19 +289,17 @@ document.addEventListener('focusin', event => {
 });
 
 const experienceTrack = document.querySelector('.experience-list');
-const matchProgress = document.querySelector('.reading-progress');
-const matchMinute = document.querySelector('.match-minute');
+const pageProgressBar = document.querySelector('.portfolio-progress');
 let progressFrame = 0;
 function updateScrollProgress() {
   progressFrame = 0;
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
   const pageProgress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
-  const minute = Math.round(pageProgress * 90);
+  const percentage = Math.round(pageProgress * 100);
   document.documentElement.style.setProperty('--page-progress', String(pageProgress));
   document.documentElement.style.setProperty('--page-progress-percent', `${pageProgress * 100}%`);
-  matchMinute.textContent = `${String(minute).padStart(2, '0')}′`;
-  matchProgress.setAttribute('aria-valuenow', String(minute));
-  matchProgress.setAttribute('aria-valuetext', `Match minute ${minute} of 90`);
+  pageProgressBar.setAttribute('aria-valuenow', String(percentage));
+  pageProgressBar.setAttribute('aria-valuetext', `${percentage}% explored`);
   const timeline = experienceTrack.getBoundingClientRect();
   const experienceProgress = Math.min(1, Math.max(0, (window.innerHeight * 0.76 - timeline.top) / timeline.height));
   experienceTrack.style.setProperty('--experience-progress', String(experienceProgress));

@@ -5,7 +5,6 @@
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
   const pageMotionToggle = document.querySelector('#motion-toggle');
   const headerMotionToggle = document.querySelector('.header-motion-toggle');
-  const openingPlays = [...document.querySelectorAll('.opening-play')];
   const paused = () => body.classList.contains('motion-paused') || reducedMotion.matches;
   const surfaces = [...document.querySelectorAll('.project-card')];
   const previewAnimations = new Set();
@@ -50,10 +49,6 @@
   finePointer.addEventListener('change', resetPointer);
 
   function syncMotion() {
-    openingPlays.forEach(play => {
-      if (paused() || document.hidden) play.pauseAnimations();
-      else play.unpauseAnimations();
-    });
     if (headerMotionToggle && pageMotionToggle) {
       const label = pageMotionToggle.querySelector('span').textContent;
       headerMotionToggle.setAttribute('aria-label', label);
