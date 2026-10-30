@@ -25,8 +25,9 @@
   <link rel="stylesheet" href="brief-intelligence.css?v=bbef64c9c557">
   <link rel="stylesheet" href="tuki.css?v=e46983c2c9ad">
   <link rel="stylesheet" href="economics.css?v=963a83c103f9">
-  <link rel="stylesheet" href="portfolio.css?v=fa3dfb75b592">
+  <link rel="stylesheet" href="portfolio.css?v=2c92792a663b">
   <script src="motion.js?v=67bec0718938" defer></script>
+  <script src="home-scroll.js?v=0be421b46853" defer></script>
 </head>
 <body class="portfolio-home">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -82,10 +83,10 @@
         <article class="featured-project">
           <div class="featured-copy"><div class="project-type"><img src="assets/banterboost-mark.webp" width="36" height="36" alt="">Founder & sole engineer</div><h3>BanterBoost</h3><p class="project-tagline">Live league analysis, forecasts, and an AI pundit for Fantasy Premier League.</p><div class="tag-list"><span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>AI</span></div><div class="project-actions"><a class="button button-primary" href="https://fplbanterboost.com" target="_blank" rel="noopener noreferrer" aria-describedby="banterboost-summary">Visit BanterBoost</a><button class="text-link" type="button" data-project="banterboost" aria-label="BanterBoost details">Details <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div></div>
           <div class="featured-preview">
-            <div class="preview-browser"><span>Live product</span><a id="banterboost-open" href="https://fplbanterboost.com/l/2267404/analytics" target="_blank" rel="noopener noreferrer" aria-label="Open BanterBoost analytics and odds in a new tab">Open live site <span aria-hidden="true">↗</span></a></div>
-            <div class="featured-image"><iframe id="banterboost-preview" src="https://fplbanterboost.com/l/2267404/analytics" title="BanterBoost live analytics and odds" width="979" height="560" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" aria-describedby="banterboost-preview-caption"></iframe><p class="sr-only" id="banterboost-summary">Live FPL mini-leagues, player forecasts, and an AI analyst that explains the numbers behind the banter.</p></div>
-            <div class="preview-switcher" role="group" aria-label="BanterBoost live pages"><button type="button" data-banter-view="analytics" aria-pressed="true">Analytics & odds</button><button type="button" data-banter-view="league" aria-pressed="false">Mini-league</button></div>
-            <span class="preview-label" id="banterboost-preview-caption" aria-live="polite">Explore the live analytics. Sign-in opens BanterBoost in a new tab.</span>
+            <div class="preview-browser"><span>Try the live app</span><a id="banterboost-open" href="https://fplbanterboost.com/l/2267404" target="_blank" rel="noopener noreferrer" aria-label="Open BanterBoost mini-league in a new tab">Open live site <span aria-hidden="true">↗</span></a></div>
+            <div class="featured-image"><iframe id="banterboost-preview" src="https://fplbanterboost.com/l/2267404" title="BanterBoost live mini-league" width="360" height="660" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" aria-describedby="banterboost-preview-caption"></iframe><p class="sr-only" id="banterboost-summary">Live FPL mini-leagues, player forecasts, and an AI analyst that explains the numbers behind the banter.</p></div>
+            <div class="preview-switcher" role="group" aria-label="BanterBoost live pages"><button type="button" data-banter-view="league" aria-pressed="true">Mini-league</button><button type="button" data-banter-view="analytics" aria-pressed="false">Analytics & odds</button></div>
+            <span class="preview-label" id="banterboost-preview-caption" aria-live="polite">Scroll inside to explore. Sign-in opens BanterBoost in a new tab.</span>
           </div>
         </article>
         <article class="brief-feature" aria-labelledby="brief-feature-title">
@@ -96,14 +97,16 @@
             <div class="tag-list"><span>React</span><span>Lunr.js</span><span>Legal research</span></div>
             <div class="brief-feature-actions"><a class="button button-primary" href="projects/brief-intelligence/">Explore the project</a><a class="brief-demo-link" href="https://www.youtube.com/watch?v=GVULpFCQ97A" target="_blank" rel="noopener noreferrer">Watch the 2:39 demo <span aria-hidden="true">↗</span></a></div>
           </div>
-          <div class="brief-feature-visual" role="img" aria-label="Illustration of the Brief Intelligence workflow: search cases, narrow by topic or year, and inspect a result">
-            <div class="brief-preview-window">
-              <div class="brief-preview-head"><span class="brief-preview-mark">BI</span><strong>Brief Intelligence</strong><span>Case research</span></div>
-              <div class="brief-preview-query"><span>Search titles, identifiers, and abstracts</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.2"/><path d="m15.5 15.5 5 5"/></svg></div>
-              <div class="brief-preview-filters"><span>Topic</span><span>Year</span><span>Relevance</span></div>
-              <div class="brief-preview-results"><div><i></i><span><b></b><small></small></span></div><div><i></i><span><b></b><small></small></span></div><div><i></i><span><b></b><small></small></span></div></div>
+          <div class="brief-feature-visual">
+            <div class="brief-demo-screen">
+              <button class="brief-demo-poster" type="button" data-brief-play aria-label="Play the Brief Intelligence product demo, 2 minutes 39 seconds">
+                <span class="brief-demo-brand">BI <span>Brief Intelligence</span></span>
+                <strong>A clearer way<br>into EU case law.</strong>
+                <span class="brief-demo-action"><span class="brief-play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z"/></svg></span><span>Play the product demo</span><small>2:39</small></span>
+              </button>
+              <iframe id="brief-home-demo" title="Brief Intelligence product demo" width="560" height="315" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" hidden></iframe>
             </div>
-            <p>From a broad corpus to a case worth reading.</p>
+            <p>See the search experience, filters, and case details in action.</p>
           </div>
         </article>
         <div class="project-grid">

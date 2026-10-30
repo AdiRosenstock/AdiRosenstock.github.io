@@ -9,7 +9,9 @@
 - Check the current live BanterBoost website before updating its screenshots or
   product descriptions. Do not reuse the old repository screenshots.
 - Keep BanterBoost's preview as the actual live iframe, with working analytics and
-  mini-league controls. Preserve it when restyling the portfolio; do not replace it
+  mini-league controls. Use a tall phone frame with a real mobile viewport, without
+  scaling down a desktop page. The mini-league is the initial view. Preserve it
+  when restyling the portfolio; do not replace it
   with screenshots. BanterBoost permits framing only from
   `https://adirosenstock.github.io`, so a blocked localhost frame is expected:
   verify the live embed on the published portfolio. Sign-in opens the full
@@ -43,11 +45,16 @@
   spacing, and visible project summaries across the homepage. The pitch stays
   subtle and static. Keep content visible with reduced motion or JavaScript off.
 - Favor open compositions over decorative boxes: a compact portrait introduction,
-  a full-width live product preview, an aligned two-column project gallery,
+  a live phone product preview, an aligned two-column project gallery,
   unframed diagrams, and simple text tabs. Keep homepage content visible while
   scrolling; avoid delayed fades that leave blank areas. Avoid
   nested panels, tinted credential tiles, and a card around the contact form.
   Keep meaningful controls, editor fields, and authentic product previews usable.
+- Adi requested more motion while scrolling: short artwork and heading entrances,
+  gentle scroll depth, and book-cover movement. Keep text readable throughout,
+  suspend work offscreen/in hidden tabs, and honor shared pause and reduced motion.
+  Brief Intelligence has an inline product demo behind an explicit Play action;
+  do not restore the placeholder search mockup or autoplay the video on scroll.
 - The opening explicitly includes software engineering, data engineering, data
   science, product management, finance, and quantitative research. Keep these
   visible as text rather than rotating words or a row of skill badges.

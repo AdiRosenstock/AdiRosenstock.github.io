@@ -307,7 +307,16 @@ started automatically.
 The homepage uses a white base with ink and teal, quiet neutral section surfaces,
 and individual project colors in the artwork. The sage/olive page and dark contact
 section were rejected. The opening pairs a compact introduction with the real
-portrait; the live BanterBoost preview fills the content width. Smaller projects
+portrait; the live BanterBoost preview uses an unscaled mobile viewport inside a
+tall phone frame, starting with the mini-league. Analytics remains available from
+the preview controls. Smaller projects
 use an aligned two-column gallery with artwork above unboxed descriptions.
-Experience and toolkit headings sit beside their content on desktop. Homepage
-scroll reveals stay fully visible, without delayed fades or blank regions.
+Experience and toolkit headings sit beside their content on desktop. Brief
+Intelligence uses an inline YouTube product demo with a custom play cover, rather
+than a placeholder search interface. The player loads only when Play is clicked.
+
+`home-scroll.js` adds artwork entrances, heading slides, book-cover lifts, and
+small scroll offsets for visible artwork. Text stays visible throughout; there
+are no delayed blank regions. It stops animations and resets offsets for shared
+pause, reduced motion, and hidden tabs. Scroll updates use one scheduled animation
+frame and only measure visible scenes.
