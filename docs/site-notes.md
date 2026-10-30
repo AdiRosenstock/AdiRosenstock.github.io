@@ -291,3 +291,13 @@ Twenty-one SVG logos are bundled in `dist/assets/skills/` from
 and original source URLs/checksums in `sources.json`. Concepts without a suitable
 brand logo keep their readable text label. `dist/toolkit.css` is scoped to this
 section and its URL is versioned with its content hash.
+
+### Automatic demos and navigation
+
+Visual project demos start on entry: the football move loops with Replay, trading
+strategies and validation folds cycle, guest/host journeys alternate, and the
+economics walkthrough starts its timeline. Manual control takes over. Shared
+pause, reduced motion, offscreen state, and hidden tabs suspend automatic work.
+Internal portfolio pages and anchors stay in the current tab; external sites and
+original documents remain separate tabs. No Python cell or external video is
+started automatically.

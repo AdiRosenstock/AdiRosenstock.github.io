@@ -242,6 +242,11 @@ function toggleMotion() {
 motionToggle.addEventListener('click', toggleMotion);
 document.addEventListener('portfolio:toggle-motion', toggleMotion);
 motionPreference.addEventListener('change', updateMotion);
+window.addEventListener('storage', event => {
+  if (event.key !== 'adi-motion-paused') return;
+  motionPaused = event.newValue === 'true';
+  updateMotion();
+});
 const sceneObserver = new IntersectionObserver(([entry]) => {
   document.querySelector('.hero-scene').classList.toggle('motion-offscreen', !entry.isIntersecting);
 });

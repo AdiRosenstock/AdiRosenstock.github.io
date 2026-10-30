@@ -38,7 +38,8 @@ function mountExplorer(root) {
   let lastTime = 0;
   let elapsed = 0;
   let playing = false;
-  let visible = true;
+  let visible = !('IntersectionObserver' in window);
+  let automaticPlayback = true;
   let sceneAnimation;
   const paused = () => document.body.classList.contains('motion-paused') || reducedMotion.matches;
   const metrics = {
@@ -273,6 +274,7 @@ function mountExplorer(root) {
     frame = requestAnimationFrame(tick);
   }
   function resumeClock() {
+    if (automaticPlayback && visible && !document.hidden && !paused() && generation < LAST_GENERATION) playing = true;
     syncPlayButton();
     if (playing && visible && !document.hidden && !frame) frame = requestAnimationFrame(tick);
   }
@@ -291,6 +293,7 @@ function mountExplorer(root) {
     updateGraph(stateAt(generation));
   }));
   root.querySelectorAll('[data-econ-generation]').forEach(button => button.addEventListener('click', () => {
+    automaticPlayback = false;
     stop();
     elapsed = 0;
     generation = Number(button.dataset.econGeneration);
@@ -298,6 +301,7 @@ function mountExplorer(root) {
     syncPlayButton();
   }));
   slider.addEventListener('input', () => {
+    automaticPlayback = false;
     stop();
     elapsed = 0;
     generation = Number(slider.value);
@@ -306,6 +310,7 @@ function mountExplorer(root) {
   });
   slider.addEventListener('change', () => render(true));
   playButton.addEventListener('click', () => {
+    automaticPlayback = false;
     if (playing) { stop(); return; }
     if (paused()) return;
     if (generation === LAST_GENERATION) { generation = -1; render(); }
@@ -316,7 +321,7 @@ function mountExplorer(root) {
   });
   function syncMotionPreference() {
     if (paused()) { sceneAnimation?.cancel(); stop(); }
-    else syncPlayButton();
+    else resumeClock();
   }
   new MutationObserver(syncMotionPreference).observe(document.body, { attributes: true, attributeFilter: ['class'] });
   reducedMotion.addEventListener('change', syncMotionPreference);

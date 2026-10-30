@@ -55,10 +55,14 @@
   in `dist/assets/` and linked from the homepage; preserve its contents.
 - This is a dependency-free static site. Run `node --check dist/script.js`, check
   changed local asset references, and verify affected interactions in the browser.
-- Open links to other pages, documents, repositories, and full-size media in a
-  new tab with `target="_blank"` and `rel="noopener noreferrer"`, so the portfolio
-  stays available. Same-page section anchors and interactive controls stay in place.
-  Paper links must open the bundled PDF directly, rather than a GitHub file page.
+- Internal portfolio navigation stays in the same tab, including project links,
+  the home wordmark, contact anchors, and next-project links. External sites,
+  repositories, documents, and full-size media open in a new tab with
+  `target="_blank"` and `rel="noopener noreferrer"`. Paper links open the bundled PDF.
+- Visual project demos start automatically when visible. Keep Replay for the
+  football move; cycle strategy, validation, and journey views. The economics
+  walkthrough starts automatically, while manual input takes control. Pause
+  offscreen and in hidden tabs; honor shared pause and reduced motion.
 - The stylesheet and script URLs include content-hash query strings to avoid stale
   browser caches. Refresh those hashes in every affected HTML page when a shared
   stylesheet or script changes, including `dist/index.html` and project pages.

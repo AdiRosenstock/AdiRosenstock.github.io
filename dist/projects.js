@@ -62,6 +62,11 @@ function toggleMotion() {
 motionToggle?.addEventListener('click', toggleMotion);
 document.addEventListener('portfolio:toggle-motion', toggleMotion);
 motionPreference.addEventListener('change', updateMotion);
+window.addEventListener('storage', event => {
+  if (event.key !== 'adi-motion-paused') return;
+  motionPaused = event.newValue === 'true';
+  updateMotion();
+});
 if ('IntersectionObserver' in window) {
   const storyNavigation = document.querySelector('.story-nav');
   const observer = new IntersectionObserver(entries => {
@@ -185,6 +190,68 @@ tacticBall?.addEventListener('animationend', () => {
   tacticBall.classList.add('is-finished');
   document.querySelector('#tactics-caption').textContent = 'Move complete. The final pass finds the space.';
 });
+
+// Visual demos start on entry and pause offscreen, in hidden tabs, or by preference.
+// A visitor using a demo's controls takes over its automatic sequence.
+const automaticScenes = [];
+function autoplayScene(root, advance, delay, startOnEntry = false) {
+  if (!root) return;
+  let visible = !('IntersectionObserver' in window);
+  let timer = 0;
+  let manual = false;
+  const caption = root.querySelector('.scene-caption');
+  if (caption) caption.setAttribute('aria-live', 'off');
+  function sync(immediate = false) {
+    clearTimeout(timer);
+    timer = 0;
+    const blocked = !visible || document.hidden || manual || motionPaused || motionPreference.matches || root.contains(document.activeElement);
+    if (blocked) return;
+    timer = setTimeout(() => {
+      advance();
+      sync();
+    }, immediate ? 0 : delay);
+  }
+  function takeControl(event) {
+    if (!event.isTrusted || !event.target.closest('button, input')) return;
+    manual = true;
+    if (caption) caption.setAttribute('aria-live', 'polite');
+    sync();
+  }
+  root.addEventListener('click', takeControl, true);
+  root.addEventListener('input', takeControl, true);
+  root.addEventListener('focusin', () => sync());
+  root.addEventListener('focusout', () => setTimeout(() => sync(), 0));
+  automaticScenes.push(() => sync(startOnEntry));
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      root.classList.toggle('scene-offscreen', !visible);
+      sync(startOnEntry);
+    }, { threshold: 0.2 }).observe(root);
+  } else sync(startOnEntry);
+}
+function cycleControls(selector) {
+  const buttons = [...document.querySelectorAll(selector)];
+  if (!buttons.length) return;
+  const current = buttons.findIndex(button => button.getAttribute('aria-pressed') === 'true');
+  buttons[(current + 1) % buttons.length].click();
+}
+autoplayScene(document.querySelector('.market-screen'), () => cycleControls('[data-trade]'), 5500);
+autoplayScene(document.querySelector('.validation-lab'), () => cycleControls('[data-fold]'), 2800);
+autoplayScene(document.querySelector('.gathering-card'), () => cycleControls('[data-gathering]'), 6500);
+autoplayScene(document.querySelector('.tactics-board'), () => {
+  if (!tacticBall.classList.contains('is-playing')) playMove.click();
+}, 6500, true);
+function syncAutomaticScenes() { automaticScenes.forEach(sync => sync()); }
+let automaticMotionPaused = document.body.classList.contains('motion-paused');
+new MutationObserver(() => {
+  const nextPaused = document.body.classList.contains('motion-paused');
+  if (nextPaused === automaticMotionPaused) return;
+  automaticMotionPaused = nextPaused;
+  syncAutomaticScenes();
+}).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+motionPreference.addEventListener('change', syncAutomaticScenes);
+document.addEventListener('visibilitychange', syncAutomaticScenes);
 
 // Only observed sections receive pending styles. A blocked script or reduced
 // motion never hides the source content. Each section reveals once.

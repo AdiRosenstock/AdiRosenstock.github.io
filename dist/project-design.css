@@ -348,3 +348,5 @@
   .project-page .market-screen .scene-controls button { font-size: 9px; }
   .tuki-page .project-heading h1 { font-size: 96px; }
 }
+
+.project-page .scene-offscreen .tactic-ball, .project-page.motion-document-hidden .tactic-ball { animation-play-state: paused; }
