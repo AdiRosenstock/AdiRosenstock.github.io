@@ -29,7 +29,8 @@
   backdrop. Chiqui, the moving hero football, kick control, and match clock were
   removed at Adi’s request. Keep a shared motion pause control for project previews.
   TUKI remains the separate private career project; preserve its branding.
-- Keep the Northwestern education card purple; the general site palette uses ink and teal.
+- Keep Northwestern education purple through its type and accent rule; the
+  general site palette uses ink and teal. Credentials use open text rows.
 - Northwestern education and Bloomberg experience lead the hero. Football is a
   personal interest, not the whole identity. Keep the overview short and title-led;
   show brief project summaries and put deeper stories and role descriptions
@@ -38,6 +39,13 @@
 - Use white, ink, teal, and quiet sage surfaces. Keep consistent typography,
   spacing, and visible project summaries across the homepage. The pitch stays
   subtle and static. Keep content visible with reduced motion or JavaScript off.
+- Favor open compositions over decorative boxes: featured image/text spreads,
+  an asymmetric project gallery, unframed diagrams, and simple text tabs. Avoid
+  nested panels, tinted credential tiles, and a card around the contact form.
+  Keep meaningful controls, editor fields, and authentic product previews usable.
+- The opening explicitly includes software engineering, data engineering, data
+  science, product management, finance, and quantitative research. Keep these
+  visible as text rather than rotating words or a row of skill badges.
 - Project pages use `project-design.css` for the same readable DM Sans type,
   light navigation, spacing, story layout, and progress line as the homepage.
   Keep individual project palettes and interactive demos. TUKI stays a brief

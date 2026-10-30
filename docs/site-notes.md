@@ -60,6 +60,11 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
 - Chiqui, the passing-ball animation, the kick control, and the match clock were
   removed at Adi’s request. A thin line indicates page progress. The switchable
   family photos and parent links live in About alongside the football biography.
+- The opening names software engineering, data engineering, data science,
+  product management, finance, and quantitative research. The design favors
+  open image/text spreads and a staggered project gallery. Credential rows,
+  preview diagrams, project lessons, and the contact form have no decorative
+  outer cards. Tabs use underlines; real controls and artifacts remain legible.
 - Design references reviewed: [Rauno Freiberg](https://rauno.me/) for deliberate
   typography and [Emil Kowalski](https://emilkowal.ski/) for restraint. The final
   design uses white, ink, teal, and sage; readable project summaries; consistent
