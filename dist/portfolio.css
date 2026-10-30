@@ -116,7 +116,8 @@
 .portfolio-home .project-card .career-visual { background: #edf3fb; }
 .portfolio-home .project-card .trading-visual { padding: 26px; background: #eaf0f7; }
 .portfolio-home .project-card .airbnb-visual { padding: 26px; background: #faefec; }
-.portfolio-home .airbnb-visual .model-preview-folds { top: 108px; bottom: auto; right: 26px; }
+.portfolio-home .model-score-caption { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.portfolio-home .airbnb-visual .model-preview-folds { position: static; height: 25px; flex-shrink: 0; }
 .portfolio-home .project-card .economics-visual { padding: 23px 24px 10px; background: #edf4f2; }
 .portfolio-home .project-card .tikidata-visual { background: #e8f0e9; }
 .portfolio-home .project-card .domus-visual { background: #f4eee2; }
