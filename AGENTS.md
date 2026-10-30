@@ -36,7 +36,9 @@
   show brief project summaries and put deeper stories and role descriptions
   behind explicit detail controls. Keep
   the About me biography visible without opening a disclosure.
-- Use white, ink, teal, and quiet sage surfaces. Keep consistent typography,
+- The homepage uses mineral, sage, and pale olive surfaces with a deep forest
+  contact section. Adi found the all-white version too flat; keep distinct section
+  tones and the open layouts. Keep consistent typography,
   spacing, and visible project summaries across the homepage. The pitch stays
   subtle and static. Keep content visible with reduced motion or JavaScript off.
 - Favor open compositions over decorative boxes: featured image/text spreads,

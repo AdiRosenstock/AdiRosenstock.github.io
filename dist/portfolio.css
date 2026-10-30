@@ -4,9 +4,12 @@
   --muted: #5c6b66;
   --accent: #266453;
   --accent-dark: #194d3f;
-  --line: #dce5df;
-  --section: #f5f7f5;
+  --paper: #edf1e9;
+  --line: #c6d3c9;
+  --section: #f3f5ee;
+  --sage: #dce8df;
   color: var(--ink);
+  background: var(--paper);
 }
 .portfolio-home .section-wrap { width: min(1120px, calc(100% - 112px)); }
 .portfolio-home h1, .portfolio-home h2, .portfolio-home h3 { letter-spacing: -.045em; }
@@ -17,13 +20,13 @@
 .portfolio-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; overflow: hidden; }
 .progress-fill { position: absolute; inset: 0; background: var(--accent); transform: scaleX(var(--page-progress, 0)); transform-origin: left; }
 .portfolio-home .nav-wrap { height: 78px; }
-.portfolio-home .site-header { border-color: #e4eae5; }
+.portfolio-home .site-header { background: rgb(237 241 233 / .94); border-color: var(--line); }
 .portfolio-home .header-motion-toggle { width: 34px; height: 34px; border-color: transparent; }
 .portfolio-home .header-motion-toggle:hover { border-color: var(--line); }
 
 /* The portrait and plain-language introduction share the opening. */
-.portfolio-home .hero-scene { background: #fff; }
-.portfolio-home .pitch-backdrop { opacity: .25; }
+.portfolio-home .hero-scene { background: var(--sage); }
+.portfolio-home .pitch-backdrop { opacity: .48; }
 .portfolio-home .pitch-network { opacity: .35; }
 .portfolio-home .hero {
   grid-template-columns: minmax(0, 1.25fr) minmax(0, .85fr);
@@ -65,7 +68,7 @@
 .portfolio-home .hero-bottom { padding: 24px 0 30px; margin: 0; font-size: 12px; }
 
 /* Project summaries stay readable; visual previews keep their own identity. */
-.portfolio-home .projects-section { padding: 80px 0 96px; background: #fff; }
+.portfolio-home .projects-section { padding: 80px 0 96px; background: var(--section); }
 .portfolio-home .section-heading { margin-bottom: 48px; align-items: end; }
 .section-intro { max-width: 50ch; color: var(--muted); font-size: 16px; line-height: 1.7; margin-top: 14px; }
 .portfolio-home .featured-project { grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: 60px; border: 0; border-radius: 0; background: none; overflow: visible; }
@@ -146,9 +149,9 @@
 .portfolio-home .football-video { margin-top: 28px; }
 .portfolio-home .football-video-frame { border-radius: 2px; }
 
-.portfolio-home .experience-section { background: #fff; padding-block: 92px; border-top: 1px solid var(--line); }
+.portfolio-home .experience-section { background: #dfe8e2; padding-block: 92px; border-top: 0; }
 .portfolio-home .experience-list { margin-top: 0; }
-.portfolio-home .experience-row { grid-template-columns: 92px minmax(0, 1fr); gap: 28px; padding-block: 32px; border-color: #dce5df; }
+.portfolio-home .experience-row { grid-template-columns: 92px minmax(0, 1fr); gap: 28px; padding-block: 32px; border-color: #becfc3; }
 .portfolio-home .company-logo { width: 82px; height: 62px; padding: 9px; border-radius: 7px; }
 .portfolio-home .hanoar-logo img { width: 57px; height: 57px; }
 .portfolio-home .experience-head h3, .portfolio-home .bloomberg-experience .experience-head h3 { font-size: 25px; font-weight: 600; }
@@ -173,7 +176,7 @@
 .portfolio-home .skill-pill:hover img { animation: none; }
 
 /* Reading feels like a small bookshelf, rather than another résumé. */
-.portfolio-home .reading-section { background: #f5f7f5; padding-block: 88px; }
+.portfolio-home .reading-section { background: #e1e7d8; padding-block: 88px; }
 .portfolio-home .reading-layout { display: block; }
 .portfolio-home .reading-intro { position: static; display: flex; align-items: start; justify-content: space-between; gap: 36px; }
 .portfolio-home .reading-intro p { margin-top: 3px; max-width: 37ch; font-size: 16px; line-height: 1.75; }
@@ -185,11 +188,21 @@
 .portfolio-home .book-status { font-size: 10px; font-weight: 550; margin-top: 8px; }
 .portfolio-home .podcast-recs { margin-top: 46px; display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; }
 .portfolio-home .podcast-recs h3 { grid-column: 1 / -1; font-size: 21px; font-weight: 550; margin-bottom: 18px; }
-.portfolio-home .podcast-entry { padding-block: 18px; border-bottom: 1px solid #d3ddd5; border-top: 1px solid #d3ddd5; }
+.portfolio-home .podcast-entry { padding-block: 18px; border-bottom: 1px solid #bac8b6; border-top: 1px solid #bac8b6; }
 .portfolio-home .podcast-entry strong { font-size: 15px; }
 .portfolio-home .podcast-entry small { font-size: 12px; }
 
-.portfolio-home .contact-section { background: #eaf1ec; padding-block: 88px; }
+.portfolio-home .contact-section {
+  --ink: #f1f5ed;
+  --muted: #c1d1c7;
+  --accent: #d2e5b5;
+  --accent-dark: #e3efce;
+  --line: #668277;
+  color: var(--ink);
+  background: #203f38;
+  padding-block: 88px;
+  color-scheme: dark;
+}
 .portfolio-home .contact-inner { grid-template-columns: .85fr 1.15fr; gap: 90px; }
 .portfolio-home .contact-inner h2 { font-size: 49px; }
 .portfolio-home .contact-intro > p { font-size: 16px; max-width: 29ch; line-height: 1.75; }
@@ -197,7 +210,11 @@
 .portfolio-home .contact-form { padding: 0; border: 0; border-radius: 0; background: none; }
 .portfolio-home .contact-form h3 { font-size: 23px; font-weight: 550; }
 .portfolio-home .contact-field label { font-size: 12px; }
-.portfolio-home .contact-field input, .portfolio-home .contact-field textarea { padding: 10px 0; border: 0; border-bottom: 1px solid #a5baac; background: none; border-radius: 0; }
+.portfolio-home .contact-field input, .portfolio-home .contact-field textarea { padding: 10px 0; border: 0; border-bottom: 1px solid var(--line); background: none; border-radius: 0; }
+.portfolio-home .contact-field textarea::placeholder { color: #b2c5ba; }
+.portfolio-home .contact-section .button-primary { color: #203f38; }
+.portfolio-home .contact-section .copy-email { color: var(--accent); border-color: var(--line); }
+.portfolio-home .contact-form-status[data-state=error] { color: #ffbbc2; }
 .portfolio-home .contact-form-footer > p { font-size: 11px; }
 .portfolio-home .site-footer { padding-block: 30px; }
 

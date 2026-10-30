@@ -301,3 +301,11 @@ pause, reduced motion, offscreen state, and hidden tabs suspend automatic work.
 Internal portfolio pages and anchors stay in the current tab; external sites and
 original documents remain separate tabs. No Python cell or external video is
 started automatically.
+
+### Homepage color
+
+The opening uses a mineral sage background, with a pale green work section,
+deeper sage experience section, olive reading section, and forest green contact
+section. The open layouts remain; color separates sections rather than creating
+more panels. The contact section defines its own light text, input, focus, status,
+and button colors so the form stays readable on the dark surface.
