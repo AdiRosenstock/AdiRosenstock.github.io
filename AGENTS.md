@@ -36,13 +36,16 @@
   show brief project summaries and put deeper stories and role descriptions
   behind explicit detail controls. Keep
   the About me biography visible without opening a disclosure.
-- The homepage uses mineral, sage, and pale olive surfaces with a deep forest
-  contact section. Adi found the all-white version too flat; keep distinct section
-  tones and the open layouts. Keep consistent typography,
+- Adi rejected the sage/olive homepage and dark contact section. Keep the base
+  white, with ink and teal accents, quiet neutral section surfaces, and color
+  inside project artwork. Improve balance through layout rather than recoloring
+  the page. Keep consistent typography,
   spacing, and visible project summaries across the homepage. The pitch stays
   subtle and static. Keep content visible with reduced motion or JavaScript off.
-- Favor open compositions over decorative boxes: featured image/text spreads,
-  an asymmetric project gallery, unframed diagrams, and simple text tabs. Avoid
+- Favor open compositions over decorative boxes: a compact portrait introduction,
+  a full-width live product preview, an aligned two-column project gallery,
+  unframed diagrams, and simple text tabs. Keep homepage content visible while
+  scrolling; avoid delayed fades that leave blank areas. Avoid
   nested panels, tinted credential tiles, and a card around the contact form.
   Keep meaningful controls, editor fields, and authentic product previews usable.
 - The opening explicitly includes software engineering, data engineering, data

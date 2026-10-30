@@ -302,10 +302,12 @@ Internal portfolio pages and anchors stay in the current tab; external sites and
 original documents remain separate tabs. No Python cell or external video is
 started automatically.
 
-### Homepage color
+### Homepage composition
 
-The opening uses a mineral sage background, with a pale green work section,
-deeper sage experience section, olive reading section, and forest green contact
-section. The open layouts remain; color separates sections rather than creating
-more panels. The contact section defines its own light text, input, focus, status,
-and button colors so the form stays readable on the dark surface.
+The homepage uses a white base with ink and teal, quiet neutral section surfaces,
+and individual project colors in the artwork. The sage/olive page and dark contact
+section were rejected. The opening pairs a compact introduction with the real
+portrait; the live BanterBoost preview fills the content width. Smaller projects
+use an aligned two-column gallery with artwork above unboxed descriptions.
+Experience and toolkit headings sit beside their content on desktop. Homepage
+scroll reveals stay fully visible, without delayed fades or blank regions.
