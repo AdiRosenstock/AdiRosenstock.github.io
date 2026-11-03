@@ -226,16 +226,70 @@
 .portfolio-home .contact-form-footer > p { font-size: 11px; }
 .portfolio-home .site-footer { padding-block: 30px; }
 
-/* A quiet entrance; the work itself provides the detail. */
-.portfolio-home.motion-ready:not(.motion-intro-complete) .hero-copy > h1 { animation: welcome-in .65s ease .08s both; }
-.portfolio-home.motion-ready:not(.motion-intro-complete) .hero-role { animation-delay: .12s; }
-.portfolio-home.motion-ready:not(.motion-intro-complete) .hero-description { animation-delay: .18s; }
-.portfolio-home.motion-ready:not(.motion-intro-complete) .hero-actions { animation-delay: .22s; }
-.portfolio-home.motion-ready:not(.motion-intro-complete) .social-links { animation-delay: .26s; }
-.portfolio-home.motion-ready:not(.motion-intro-complete) .hero-credentials > button { animation-delay: .3s; }
+/* Let the portrait lead the arrival. Keep the introduction readable as it settles. */
+.portfolio-home.motion-ready:not(.motion-intro-complete) .hero-copy {
+  animation: hero-settle .54s cubic-bezier(.22,1,.36,1) both;
+}
+.portfolio-home.motion-ready:not(.motion-intro-complete) .hero-copy > *,
+.portfolio-home.motion-ready:not(.motion-intro-complete) .hero-credentials > button {
+  animation: none;
+}
+.portfolio-home.motion-document-hidden .hero-copy { animation-play-state: paused; }
+@keyframes hero-settle {
+  from { opacity: .86; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
 .portfolio-home .reveal-target, .portfolio-home .reveal-target.is-pending { opacity: 1; transform: none; transition: none; }
 .portfolio-home .scroll-art { translate: 0 var(--scroll-drift, 0px); }
 .portfolio-home.motion-paused .scroll-art, .portfolio-home.motion-document-hidden .scroll-art { translate: none; }
+
+/* Give the preview selection and project affordances a quick physical response. */
+@media (prefers-reduced-motion: no-preference) {
+  .portfolio-home.motion-ready:not(.motion-paused, .motion-document-hidden) .preview-switcher button {
+    position: relative;
+    border-bottom-color: transparent;
+  }
+  .portfolio-home.motion-ready:not(.motion-paused, .motion-document-hidden) .preview-switcher button::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 -2px;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(.45);
+    opacity: 0;
+    transition: transform .2s cubic-bezier(.22,1,.36,1), opacity .15s ease;
+  }
+  .portfolio-home.motion-ready:not(.motion-paused, .motion-document-hidden) .preview-switcher button[aria-pressed=true]::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  .portfolio-home.motion-ready:not(.motion-paused, .motion-document-hidden)
+    :is(.hero-actions .button, .preview-switcher button, .brief-play-icon) {
+    transition: scale .16s ease-out, transform .2s cubic-bezier(.22,1,.36,1),
+      translate .22s ease, background-color .22s ease, border-color .22s ease;
+  }
+  .portfolio-home.motion-ready:not(.motion-paused, .motion-document-hidden)
+    :is(.hero-actions .button:active, .preview-switcher button:active, .brief-demo-poster:active .brief-play-icon) {
+    scale: .97;
+  }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .portfolio-home.motion-ready:not(.motion-paused, .motion-document-hidden) .book-cover {
+    transform-origin: left bottom;
+    transition: rotate .24s cubic-bezier(.22,1,.36,1), scale .24s cubic-bezier(.22,1,.36,1);
+  }
+  .portfolio-home.motion-ready:not(.motion-paused, .motion-document-hidden) .book-entry:hover .book-cover {
+    rotate: -5deg;
+    scale: 1.045;
+  }
+  .portfolio-home.motion-ready:not(.motion-paused, .motion-document-hidden) .credential-button > svg {
+    transition: rotate .2s cubic-bezier(.22,1,.36,1);
+  }
+  .portfolio-home.motion-ready:not(.motion-paused, .motion-document-hidden) .credential-button:hover > svg {
+    rotate: 15deg;
+  }
+}
 
 @media (max-width: 1050px) {
   .portfolio-home .section-wrap { width: calc(100% - 80px); }
