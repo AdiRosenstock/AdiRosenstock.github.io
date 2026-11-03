@@ -38,9 +38,22 @@
       ], 760);
     } else if (scene.kind === 'phone') {
       animate(scene, scene.art, [
-        { transform: 'translateY(30px) rotate(-2deg)', opacity: .92 },
-        { transform: 'none', opacity: 1 }
-      ], 620);
+        { transform: narrowScreen.matches ? 'translateY(28px) scale(.97)' : 'translateY(48px) rotate(-4deg) scale(.95)' },
+        { transform: 'translateY(-4px) rotate(0deg) scale(1)', offset: .68 },
+        { transform: 'none' }
+      ], 720);
+    } else if (scene.kind === 'screen') {
+      if (scene.art.classList.contains('is-playing')) return;
+      animate(scene, scene.art, [
+        { transform: narrowScreen.matches ? 'translateY(24px) scale(.96)' : 'perspective(950px) translateY(36px) rotateX(14deg) scale(.94)' },
+        { transform: 'none' }
+      ], 660);
+    } else if (scene.kind === 'gallery') {
+      const direction = scene.index % 2 ? 1 : -1;
+      const start = narrowScreen.matches
+        ? 'translateY(25px) scale(.96)'
+        : `translate(${direction * 14}px, 38px) rotate(${direction * 2.5}deg) scale(.95)`;
+      animate(scene, scene.art, [{ transform: start }, { transform: 'none' }], 620);
     } else if (scene.kind === 'heading') {
       animate(scene, scene.root, [{ transform: 'translateX(-10px)' }, { transform: 'none' }], 420);
     } else if (scene.kind === 'book') {
@@ -79,7 +92,7 @@
   function add(selector, artSelector, kind = 'art', drift = 0) {
     document.querySelectorAll(selector).forEach((root, index) => {
       const art = artSelector ? root.querySelector(artSelector) : null;
-      const scene = { root, art, kind, drift, delay: index % 3 * 35 };
+      const scene = { root, art, kind, drift, index, delay: index % 3 * 35 };
       if (art && drift) art.classList.add('scroll-art');
       scenes.set(root, scene);
       const box = root.getBoundingClientRect();
@@ -90,9 +103,9 @@
   }
 
   add('.hero-portrait', '.hero-photo-frame', 'portrait', 18);
-  add('.featured-preview', '.featured-image', 'phone', 19);
-  add('.brief-feature', '.brief-demo-screen', 'art', 10);
-  add('.project-card', '.card-visual', 'art', 13);
+  add('.featured-preview', '.featured-image', 'phone', 25);
+  add('.brief-feature-visual', '.brief-demo-screen', 'screen', 18);
+  add('.project-card', '.card-visual', 'gallery', 19);
   add('.about-family-scene', '.portrait-frame', 'art', 6);
   add('.experience-row', '.company-logo');
   add('.book-entry', '.book-cover', 'book', 9);
@@ -143,8 +156,12 @@
     video.src = 'https://www.youtube-nocookie.com/embed/GVULpFCQ97A?playsinline=1&autoplay=1&rel=0';
     video.hidden = false;
     play.hidden = true;
-    video.parentElement.classList.add('is-playing');
-    video.parentElement.style.removeProperty('--scroll-drift');
+    const screen = video.parentElement;
+    screen.classList.add('is-playing');
+    screen.style.removeProperty('--scroll-drift');
+    animations.forEach((scene, animation) => {
+      if (scene.art === screen) animation.cancel();
+    });
     video.focus({ preventScroll: true });
   });
 })();
