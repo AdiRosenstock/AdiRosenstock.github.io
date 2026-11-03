@@ -83,9 +83,8 @@
 .portfolio-home .featured-preview { width: min(100%, 374px); justify-self: center; margin: 0; padding: 0; border: 0; border-radius: 0; background: none; }
 .portfolio-home .featured-preview .preview-browser { padding: 0 0 12px; border-radius: 0; background: none; }
 .portfolio-home .featured-image { border: 7px solid #25332f; border-radius: 32px; background: #0b1220; box-shadow: 0 18px 42px #20352d18; }
-.portfolio-home .preview-switcher { justify-content: center; gap: 25px; margin-top: 15px; }
 .portfolio-home .preview-switcher button { min-height: 38px; padding: 6px 0; border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: none; color: var(--muted); }
-.portfolio-home .preview-switcher button[aria-pressed=true] { background: none; color: var(--accent); border-bottom-color: var(--accent); }
+.portfolio-home .preview-switcher button[aria-pressed=true] { background: none; color: var(--accent); }
 .portfolio-home .featured-image > iframe { display: block; width: 100%; height: 660px; border: 0; border-radius: 25px; }
 .portfolio-home .preview-label { font-size: 11px; text-align: center; }
 .portfolio-home .brief-feature { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); margin-top: 60px; padding: 56px 0 0; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: none; gap: 60px; overflow: visible; }
@@ -244,25 +243,80 @@
 .portfolio-home .scroll-art { translate: 0 var(--scroll-drift, 0px); }
 .portfolio-home.motion-paused .scroll-art, .portfolio-home.motion-document-hidden .scroll-art { translate: none; }
 
-/* Give the preview selection and project affordances a quick physical response. */
+/* Scroll follows the artwork within its frame. The chapter rule draws in as a unit. */
+.portfolio-home #projects .section-heading { position: relative; }
+.portfolio-home #projects .section-heading::after {
+  content: '';
+  position: absolute;
+  inset: auto auto -16px 0;
+  width: 76px;
+  height: 2px;
+  background: var(--accent);
+  transform-origin: left;
+  pointer-events: none;
+}
+.portfolio-home .domus-card .domus-visual > img,
+.portfolio-home .domus-card .domus-card-wordmark,
+.portfolio-home .trading-card :is(.preview-trace-line, .preview-trace-signal) {
+  animation: none;
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .portfolio-home.motion-ready:not(.motion-paused, .motion-document-hidden) #projects .section-heading::after {
+      animation: work-rule linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 32%;
+    }
+    .portfolio-home .domus-visual { view-timeline-name: --domus-art; }
+    .portfolio-home .trading-visual { view-timeline-name: --trading-art; }
+    .portfolio-home.motion-ready:not(.motion-paused, .motion-document-hidden) .trading-card .preview-trace-line {
+      animation: preview-trace linear both;
+      animation-timeline: --trading-art;
+      animation-range: entry 0% entry 100%;
+    }
+    .portfolio-home.motion-ready:not(.motion-paused, .motion-document-hidden) .domus-card .domus-visual > img {
+      animation: work-crop linear both;
+      animation-timeline: --domus-art;
+      animation-range: entry 0% entry 100%;
+    }
+  }
+}
+@keyframes work-rule {
+  from { transform: scaleX(.18); }
+  to { transform: scaleX(1); }
+}
+@keyframes work-crop {
+  from { scale: 1.13; }
+  to { scale: 1; }
+}
+
+/* A single underline preserves the relationship between the two live views. */
+.portfolio-home .preview-switcher {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(100%, 270px);
+  margin: 15px auto 0;
+  gap: 0;
+  border-bottom: 1px solid var(--line);
+}
+.portfolio-home .preview-switcher::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 50%;
+  height: 2px;
+  background: var(--accent);
+  pointer-events: none;
+}
+.portfolio-home .preview-switcher:has([data-banter-view=analytics][aria-pressed=true])::after {
+  transform: translateX(100%);
+}
 @media (prefers-reduced-motion: no-preference) {
-  .portfolio-home.motion-ready:not(.motion-paused, .motion-document-hidden) .preview-switcher button {
-    position: relative;
-    border-bottom-color: transparent;
-  }
-  .portfolio-home.motion-ready:not(.motion-paused, .motion-document-hidden) .preview-switcher button::after {
-    content: '';
-    position: absolute;
-    inset: auto 0 -2px;
-    height: 2px;
-    background: currentColor;
-    transform: scaleX(.45);
-    opacity: 0;
-    transition: transform .2s cubic-bezier(.22,1,.36,1), opacity .15s ease;
-  }
-  .portfolio-home.motion-ready:not(.motion-paused, .motion-document-hidden) .preview-switcher button[aria-pressed=true]::after {
-    transform: scaleX(1);
-    opacity: 1;
+  .portfolio-home.motion-ready:not(.motion-paused, .motion-document-hidden) .preview-switcher::after {
+    transition: transform .2s cubic-bezier(.22,1,.36,1);
   }
   .portfolio-home.motion-ready:not(.motion-paused, .motion-document-hidden)
     :is(.hero-actions .button, .preview-switcher button, .brief-play-icon) {
