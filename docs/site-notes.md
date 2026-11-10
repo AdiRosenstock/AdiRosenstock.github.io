@@ -191,6 +191,10 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
   opens BanterBoost in a new tab. Its origin restriction blocks localhost embeds;
   verify the frame on `https://adirosenstock.github.io` after publishing. Preserve
   the live iframe when changing the portfolio's layout.
+  Its companion chart compares 2023/24 Fantasy Premier League points for Cole
+  Palmer, Bukayo Saka, Erling Haaland, and Marcus Rashford using
+  [archived FPL season data](https://github.com/vaastav/Fantasy-Premier-League/blob/master/data/2023-24/players_raw.csv).
+  The chart is historical and independent of the live preview's view controls.
 - Mobile navigation opens and closes with an accessible toggle and Escape.
 - Links to other pages, project stories, documents, and full-size media open in a
   new tab, preserving the portfolio. Same-page section anchors remain in place.
