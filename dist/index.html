@@ -25,8 +25,8 @@
   <link rel="stylesheet" href="brief-intelligence.css?v=bbef64c9c557">
   <link rel="stylesheet" href="tuki.css?v=e46983c2c9ad">
   <link rel="stylesheet" href="economics.css?v=963a83c103f9">
-  <link rel="stylesheet" href="portfolio.css?v=d70200e10534">
-  <script src="motion.js?v=67bec0718938" defer></script>
+  <link rel="stylesheet" href="portfolio.css?v=f05b0775ac13">
+  <script src="motion.js?v=3f4d1c420ef5" defer></script>
   <script src="home-scroll.js?v=cbfd1d5b0490" defer></script>
 </head>
 <body class="portfolio-home">
@@ -83,14 +83,34 @@
         <article class="featured-project">
           <div class="featured-copy"><div class="project-type"><img src="assets/banterboost-mark.webp" width="36" height="36" alt="">Founder & sole engineer</div><h3>BanterBoost</h3><p class="project-tagline">Live league analysis, forecasts, and an AI pundit for Fantasy Premier League.</p><div class="tag-list"><span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>AI</span></div><div class="project-actions"><a class="button button-primary" href="https://fplbanterboost.com" target="_blank" rel="noopener noreferrer" aria-describedby="banterboost-summary">Visit BanterBoost</a><button class="text-link" type="button" data-project="banterboost" aria-label="BanterBoost details">Details <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div>
             <figure class="banter-player-chart" aria-labelledby="banter-player-title">
-              <figcaption class="banter-player-heading"><span id="banter-player-title">Fantasy Premier League points</span><span class="banter-player-season">2023/24 season</span></figcaption>
-              <ul class="banter-player-list" role="list">
-                <li><span>Cole Palmer</span><strong>244</strong><span class="banter-player-bar" style="--share: 97.6%" aria-hidden="true"></span></li>
-                <li><span>Bukayo Saka</span><strong>226</strong><span class="banter-player-bar" style="--share: 90.4%" aria-hidden="true"></span></li>
-                <li><span>Erling Haaland</span><strong>217</strong><span class="banter-player-bar" style="--share: 86.8%" aria-hidden="true"></span></li>
-                <li><span>Marcus Rashford</span><strong>108</strong><span class="banter-player-bar" style="--share: 43.2%" aria-hidden="true"></span></li>
-              </ul>
-              <p class="banter-player-note">Palmer led the league in Fantasy points that season. <a href="https://github.com/vaastav/Fantasy-Premier-League/blob/master/data/2023-24/players_raw.csv" target="_blank" rel="noopener noreferrer">Season data</a></p>
+              <figcaption class="banter-player-heading"><span id="banter-player-title">BanterBoost player outlook</span><time datetime="2026-11-10">Nov 10, 2026</time></figcaption>
+              <table class="banter-player-table" aria-describedby="banter-player-scope">
+                <thead><tr><th scope="col">Player</th><th scope="col">Season<br>points</th><th scope="col">GW11<br>forecast</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <th scope="row"><div class="banter-player-identity"><img src="assets/banterboost-players/haaland.webp" width="48" height="48" alt="" loading="lazy"><div>Erling Haaland<span class="banter-player-fixture">Fulham (H)</span></div></div></th>
+                    <td>70<span class="banter-player-bar" style="--share: 0.8750" aria-hidden="true"></span></td>
+                    <td class="banter-player-estimate">5.5</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><div class="banter-player-identity"><img src="assets/banterboost-players/palmer.webp" width="48" height="48" alt="" loading="lazy"><div>Cole Palmer<span class="banter-player-fixture">Leeds (H)</span></div></div></th>
+                    <td>47<span class="banter-player-bar" style="--share: 0.5875" aria-hidden="true"></span></td>
+                    <td class="banter-player-estimate">4.1</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><div class="banter-player-identity"><img src="assets/banterboost-players/saka.webp" width="48" height="48" alt="" loading="lazy"><div>Bukayo Saka<span class="banter-player-fixture">Newcastle (A) <span class="banter-player-injury">· Injured</span></span></div></div></th>
+                    <td>37<span class="banter-player-bar" style="--share: 0.4625" aria-hidden="true"></span></td>
+                    <td class="banter-player-estimate">0.0</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><div class="banter-player-identity"><img src="assets/banterboost-players/rashford.webp" width="48" height="48" alt="" loading="lazy"><div>Marcus Rashford<span class="banter-player-fixture">Liverpool (A) <span class="banter-player-injury">· Injured</span></span></div></div></th>
+                    <td>11<span class="banter-player-bar" style="--share: 0.1375" aria-hidden="true"></span></td>
+                    <td class="banter-player-estimate">0.0</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="banter-player-note" id="banter-player-scope">2026/27 Fantasy Premier League points through GW10 and projected points for GW11. Portraits are AI illustrations.</p>
+              <a class="banter-player-source" href="https://fplbanterboost.com/l/2267404/analytics" target="_blank" rel="noopener noreferrer">See live forecasts <span aria-hidden="true">↗</span></a>
             </figure>
           </div>
           <div class="featured-preview">

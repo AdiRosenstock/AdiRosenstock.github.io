@@ -100,11 +100,11 @@
   }
 }
 
-/* Historical FPL points use the same zero-to-250 scale for every player. */
+/* The bars compare season points on a shared zero-to-80 scale. */
 .banter-player-chart {
-  margin: 42px 0 0;
-  padding: 18px clamp(14px, 2vw, 24px);
-  border: 1px solid #393052;
+  margin: 34px 0 0;
+  padding: 17px clamp(12px, 2vw, 22px);
+  border: 1px solid #493d60;
   border-radius: 12px;
   color: #f5f0ff;
   background: #231b37;
@@ -114,35 +114,67 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
-  gap: 4px 12px;
-  font-size: 15px;
+  gap: 2px 12px;
+  font-size: 16px;
   font-weight: 650;
 }
-.banter-player-season, .banter-player-note { color: #d5caec; font-size: 12px; font-weight: 400; }
-.banter-player-season { white-space: nowrap; }
-.banter-player-list { display: grid; gap: 12px; margin: 16px 0; padding: 0; list-style: none; }
-.banter-player-list li {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 4px 12px;
-  align-items: baseline;
-  font-size: 13px;
-  line-height: 1.35;
+.banter-player-heading time,
+.banter-player-note { color: #d5caec; font-size: 11px; font-weight: 400; }
+.banter-player-table { width: 100%; margin: 12px 0 10px; border-collapse: collapse; }
+.banter-player-table :is(th, td) { text-align: left; vertical-align: middle; }
+.banter-player-table thead th {
+  padding: 0 0 6px;
+  color: #d5caec;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.25;
 }
-.banter-player-list strong { font-size: 14px; font-variant-numeric: tabular-nums; }
-.banter-player-bar { grid-column: 1 / -1; height: 4px; border-radius: 4px; background: #493d60; }
+.banter-player-table :is(th, td):not(:first-child) {
+  width: clamp(48px, 5.5vw, 65px);
+  padding-left: 8px;
+  text-align: right;
+}
+.banter-player-table tbody :is(th, td) { padding-block: 7px; border-top: 1px solid #493d60; }
+.banter-player-table tbody th { padding-right: 4px; }
+.banter-player-table td { font-size: 15px; font-variant-numeric: tabular-nums; font-weight: 650; }
+.banter-player-identity { display: flex; align-items: center; gap: clamp(6px, 1vw, 10px); font-size: 13px; line-height: 1.25; }
+.banter-player-identity img {
+  flex: none;
+  width: clamp(34px, 9vw, 48px);
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 5px;
+  background: #342749;
+}
+.banter-player-fixture { display: block; margin-top: 3px; color: #d5caec; font-size: 11px; font-weight: 400; }
+.banter-player-injury { color: #ffc7ad; white-space: nowrap; }
+.banter-player-estimate { color: #a9e9cc; }
+.banter-player-bar { display: block; height: 3px; margin-top: 2px; border-radius: 3px; background: #493d60; }
 .banter-player-bar::before {
   content: '';
   display: block;
-  width: var(--share);
   height: 100%;
   border-radius: inherit;
   background: #bba3f6;
+  transform: scaleX(var(--share));
+  transform-origin: left;
 }
-.banter-player-list li:first-child .banter-player-bar::before { background: #a9e9cc; }
-.banter-player-note { margin: 0; line-height: 1.6; }
-.banter-player-note a { color: #f5f0ff; text-decoration: underline; text-underline-offset: .2em; white-space: nowrap; }
-.banter-player-note a:focus-visible { outline: 2px solid #a9e9cc; outline-offset: 3px; }
+.banter-player-note { margin: 0 0 5px; line-height: 1.5; }
+.banter-player-source { color: #f5f0ff; font-size: 12px; text-decoration: underline; text-underline-offset: .2em; }
+.banter-player-source:focus-visible { outline: 2px solid #a9e9cc; outline-offset: 3px; }
+@media (prefers-reduced-motion: no-preference) {
+  .banter-player-table tr:nth-child(2) { --player-delay: 90ms; }
+  .banter-player-table tr:nth-child(3) { --player-delay: 180ms; }
+  .banter-player-table tr:nth-child(4) { --player-delay: 270ms; }
+  .motion-ready:not(.motion-paused, .motion-document-hidden) .banter-player-chart.motion-visible .banter-player-bar::before {
+    animation: banter-points-fill 620ms cubic-bezier(.2, .75, .25, 1) var(--player-delay, 0ms) backwards;
+  }
+  .motion-ready:not(.motion-paused, .motion-document-hidden) .banter-player-chart.motion-visible .banter-player-identity img {
+    animation: banter-portrait-arrive 420ms ease-out var(--player-delay, 0ms) backwards;
+  }
+}
+@keyframes banter-points-fill { from { transform: scaleX(0); } }
+@keyframes banter-portrait-arrive { from { opacity: .5; transform: translateY(4px); } }
 .portfolio-home .brief-feature { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); margin-top: 60px; padding: 56px 0 0; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: none; gap: 60px; overflow: visible; }
 .portfolio-home .brief-feature-context { font-size: 12px; font-weight: 500; color: var(--muted); }
 .portfolio-home .brief-feature-copy h3 { color: var(--ink); font-size: 34px; font-weight: 600; }

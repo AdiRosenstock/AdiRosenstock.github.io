@@ -200,10 +200,11 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
   opens BanterBoost in a new tab. Its origin restriction blocks localhost embeds;
   verify the frame on `https://adirosenstock.github.io` after publishing. Preserve
   the live iframe when changing the portfolio's layout.
-  Its companion chart compares 2023/24 Fantasy Premier League points for Cole
-  Palmer, Bukayo Saka, Erling Haaland, and Marcus Rashford using
-  [archived FPL season data](https://github.com/vaastav/Fantasy-Premier-League/blob/master/data/2023-24/players_raw.csv).
-  The chart is historical and independent of the live preview's view controls.
+  Its companion compares 2026/27 points through Gameweek 10 and BanterBoost
+  Gameweek 11 model forecasts for Haaland, Palmer, Saka, and Rashford. The values
+  are a November 10, 2026 snapshot from BanterBoost's public player outlook
+  (one fixture per club). The link below the chart opens current forecasts.
+  Player portraits are original AI illustrations.
 - Mobile navigation opens and closes with an accessible toggle and Escape.
 - Links to other pages, project stories, documents, and full-size media open in a
   new tab, preserving the portfolio. Same-page section anchors remain in place.
