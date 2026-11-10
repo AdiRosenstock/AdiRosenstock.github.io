@@ -39,6 +39,15 @@ the preview.
   come from the résumé. The Bloomberg experience links to Adi’s supplied
   recommendation letter, bundled as a public PDF in `dist/assets/`.
 
+- Toolkit logos are served locally. The ChatGPT, Codex, Claude, Claude Code,
+  and MCP marks come from [Lobe Icons](https://github.com/lobehub/lobe-icons)
+  (`@lobehub/icons-static-svg` 1.102.0); the HTML, CSS, GitHub Actions, and
+  GitHub marks come from [Devicon](https://github.com/devicons/devicon) 2.18.0.
+  Cursor uses the cube from its [brand kit](https://cursor.com/brand). Muse,
+  Stripe, CatBoost, and Apache Iceberg use the icons published by their own
+  sites ([Muse](https://muse.ai/), [Stripe](https://stripe.com/newsroom/information),
+  [CatBoost](https://catboost.ai/docs/en/), [Apache Iceberg](https://iceberg.apache.org/)).
+
 - Project logos: IMC’s wordmark SVG from [its official site](https://www.imc.com/us),
   Airbnb’s original Bélo SVG from [its Newsroom](https://news.airbnb.com/images/belo.svg),
   and TikiData FC’s profile badge from [its public Instagram](https://www.instagram.com/tikidata.fc/).
