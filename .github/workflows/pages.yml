@@ -3,6 +3,8 @@ name: Publish portfolio to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '23 */6 * * *'
   workflow_dispatch:
 
 permissions:
@@ -26,7 +28,7 @@ jobs:
       - name: Check JavaScript
         run: npm run check
       - name: Prepare portfolio and legacy redirects
-        run: npm run prepare:pages
+        run: npm run prepare:pages -- --refresh-banterboost
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static website

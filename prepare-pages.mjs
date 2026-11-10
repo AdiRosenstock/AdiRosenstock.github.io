@@ -1,11 +1,22 @@
-import { cp, mkdir, readdir, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { fetchBanterBoostOutlook, refreshBanterBoostCard } from './banterboost-outlook.mjs';
 
 const source = fileURLToPath(new URL('./dist/', import.meta.url));
 const output = fileURLToPath(new URL('./.pages/', import.meta.url));
 const legacy = join(output, 'AdiRosenstock.io');
 const site = 'https://adirosenstock.github.io/';
+
+// Fetch and validate before writing anything so a failed refresh cannot publish stale data.
+let refreshedHome;
+if (process.argv.includes('--refresh-banterboost')) {
+  const [home, outlook] = await Promise.all([
+    readFile(join(source, 'index.html'), 'utf8'),
+    fetchBanterBoostOutlook()
+  ]);
+  refreshedHome = refreshBanterBoostCard(home, outlook);
+}
 
 // The generated artifact retains old asset paths for cached pages and replaces
 // old HTML routes with redirects that preserve section anchors and query strings.
@@ -13,6 +24,7 @@ await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 await cp(source, output, { recursive: true });
 await cp(source, legacy, { recursive: true });
+if (refreshedHome) await writeFile(join(output, 'index.html'), refreshedHome);
 
 async function redirectPages(directory) {
   for (const entry of await readdir(directory, { withFileTypes: true })) {
