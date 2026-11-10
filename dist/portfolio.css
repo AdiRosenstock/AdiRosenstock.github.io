@@ -345,7 +345,8 @@
 .portfolio-home .skills-section { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 70px; padding-block: 80px; }
 .portfolio-home .skills-section .skill-groups { margin-top: 0; }
 .portfolio-home .skills-section .skill-group + .skill-group { margin-top: 0; }
-.portfolio-home .skill-groups { gap: 32px 60px; margin-top: 37px; }
+.portfolio-home .skill-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 32px 60px; }
+.portfolio-home .skill-column { display: grid; row-gap: inherit; min-width: 0; }
 .portfolio-home .skill-group { padding-top: 20px; }
 .portfolio-home .skill-group h3 { font-size: 18px; font-weight: 600; }
 .portfolio-home .skills-section .skill-group .tag-list { gap: 5px 8px; }
@@ -618,7 +619,7 @@
   .portfolio-home .job-title span { display: block; margin-left: 0; margin-top: 3px; font-size: 12px; }
   .portfolio-home .impact-row { font-size: 11px; gap: 9px 18px; }
   .portfolio-home .impact-row strong, .portfolio-home .bloomberg-experience .impact-row strong { font-size: 17px; }
-  .portfolio-home .skill-groups { grid-template-columns: 1fr; gap: 27px; margin-top: 30px; }
+  .portfolio-home .skill-groups { grid-template-columns: minmax(0, 1fr); gap: 27px; }
   .portfolio-home .reading-intro { display: block; }
   .portfolio-home .reading-intro p { margin-top: 14px; font-size: 15px; }
   .portfolio-home .book-list { grid-template-columns: 1fr 1fr; gap: 29px 22px; margin-top: 30px; }
