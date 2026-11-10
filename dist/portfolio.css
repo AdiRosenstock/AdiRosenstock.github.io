@@ -100,7 +100,7 @@
   }
 }
 
-/* The bars compare season points on a shared zero-to-80 scale. */
+/* The bars compare season points on a shared scale. */
 .banter-player-chart {
   margin: 34px 0 0;
   padding: 17px clamp(12px, 2vw, 22px);
@@ -137,7 +137,31 @@
 .banter-player-table tbody :is(th, td) { padding-block: 7px; border-top: 1px solid #493d60; }
 .banter-player-table tbody th { padding-right: 4px; }
 .banter-player-table td { font-size: 15px; font-variant-numeric: tabular-nums; font-weight: 650; }
-.banter-player-identity { display: flex; align-items: center; gap: clamp(6px, 1vw, 10px); font-size: 13px; line-height: 1.25; }
+.banter-player-identity {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1vw, 10px);
+  color: #f5f0ff;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.25;
+  cursor: pointer;
+  list-style: none;
+}
+.banter-player-identity::-webkit-details-marker { display: none; }
+.banter-player-details > .banter-player-identity::after {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 6px;
+  margin-inline-start: auto;
+  border-right: 1.5px solid #d5caec;
+  border-bottom: 1.5px solid #d5caec;
+  transform: translateY(-2px) rotate(45deg);
+}
+.banter-player-details[open] > .banter-player-identity::after { transform: translateY(2px) rotate(225deg); }
+.banter-player-identity:is(:hover, :focus-visible) { color: #a9e9cc; }
+.banter-player-identity:focus-visible { outline: 2px solid #a9e9cc; outline-offset: 2px; border-radius: 4px; }
 .banter-player-identity img {
   flex: none;
   width: clamp(34px, 9vw, 48px);
@@ -146,6 +170,18 @@
   border-radius: 5px;
   background: #342749;
 }
+.banter-player-chances {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px clamp(12px, 3vw, 24px);
+  margin: 8px 0 2px;
+  padding: 7px 9px;
+  border-left: 2px solid #a9e9cc;
+  background: #302443;
+}
+.banter-player-chances dt { color: #d5caec; font-size: 11px; font-weight: 400; }
+.banter-player-chances dd { margin: 0; color: #a9e9cc; font-size: 13px; font-variant-numeric: tabular-nums; }
+.banter-player-table tr:has(details[open]) td { vertical-align: top; padding-top: clamp(13px, 4.5vw, 22px); }
 .banter-player-fixture { display: block; margin-top: 3px; color: #d5caec; font-size: 11px; font-weight: 400; }
 .banter-player-injury { color: #ffc7ad; white-space: nowrap; }
 .banter-player-estimate { color: #a9e9cc; }

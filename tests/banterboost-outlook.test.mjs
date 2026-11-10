@@ -11,15 +11,15 @@ const outlook = {
   players: [
     {
       player: { code: 176297, totalPoints: 20, status: 'i' },
-      fixtures: [{ gameweek: 13, opponent: 'NEW', isHome: false, expectedPoints: 0 }]
+      fixtures: [{ gameweek: 13, opponent: 'NEW', isHome: false, expectedPoints: 0, goal: 0, assist: 0 }]
     },
     {
       player: { code: 223094, totalPoints: 140, status: 'a' },
-      fixtures: [{ gameweek: 12, opponent: 'NEW', isHome: true, expectedPoints: 7.18 }]
+      fixtures: [{ gameweek: 12, opponent: 'NEW', isHome: true, expectedPoints: 7.18, goal: 0.3929, assist: 0.0799 }]
     },
     {
       player: { code: 244851, totalPoints: 63, status: 'a' },
-      fixtures: [{ gameweek: 12, opponent: 'NEW', isHome: false, expectedPoints: null }]
+      fixtures: [{ gameweek: 12, opponent: 'NEW', isHome: false, expectedPoints: null, goal: null, assist: null }]
     }
   ]
 };
@@ -38,6 +38,18 @@ test('refresh uses stable player codes, fixture gameweeks, and a shared points s
   assert.match(html, /rashford-man-united\.webp/);
   assert.ok(html.indexOf('Erling Haaland') < html.indexOf('Cole Palmer'));
   assert.ok(html.endsWith('<a>Live forecasts</a></figure>'));
+});
+
+test('player disclosures show fixture probabilities and distinguish unavailable data from zero', () => {
+  const html = refreshBanterBoostCard(home, outlook);
+  const details = [...html.matchAll(/<details class="banter-player-details">([\s\S]*?)<\/details>/g)]
+    .map(([, content]) => content);
+  assert.equal(details.length, 4);
+  assert.match(details[0], /<dt>Score 1\+<\/dt><dd>39%<\/dd>/);
+  assert.match(details[0], /<dt>Assist 1\+<\/dt><dd>8%<\/dd>/);
+  assert.equal((details[2].match(/<dd>0%<\/dd>/g) ?? []).length, 2);
+  assert.equal((details[1].match(/<dd>Unavailable<\/dd>/g) ?? []).length, 2);
+  assert.equal((details[3].match(/<dd>Unavailable<\/dd>/g) ?? []).length, 2);
 });
 
 test('a failed or incomplete feed cannot replace the published card', () => {

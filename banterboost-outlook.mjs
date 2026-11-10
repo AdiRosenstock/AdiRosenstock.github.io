@@ -12,6 +12,12 @@ function escapeHtml(text) {
   return String(text).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 }
 
+function formatProbability(value) {
+  return Number.isFinite(value) && value >= 0 && value <= 1
+    ? `${Math.round(value * 100)}%`
+    : 'Unavailable';
+}
+
 export async function fetchBanterBoostOutlook() {
   const response = await fetch(outlookUrl, { signal: AbortSignal.timeout(20_000) });
   if (!response.ok) throw new Error(`BanterBoost outlook returned HTTP ${response.status}`);
@@ -49,7 +55,10 @@ export function refreshBanterBoostCard(html, outlook) {
     const fixtureLabel = fixture
       ? `${teams.get(fixture.opponent) ?? fixture.opponent} (${fixture.isHome ? 'H' : 'A'})`
       : 'No upcoming fixture';
-    return { ...player, totalPoints, gameweek, estimate, fixtureLabel, injured: status === 'i' };
+    return {
+      ...player, totalPoints, gameweek, estimate, fixtureLabel, injured: status === 'i',
+      goal: fixture?.goal, assist: fixture?.assist
+    };
   }).sort((a, b) => (b.totalPoints ?? -Infinity) - (a.totalPoints ?? -Infinity));
 
   const scale = Math.max(80, ...rows.map(row => row.totalPoints ?? 0));
@@ -63,7 +72,15 @@ export function refreshBanterBoostCard(html, outlook) {
     const injury = row.injured ? ' <span class="banter-player-injury">· Injured</span>' : '';
     const bar = row.totalPoints == null ? '' : `<span class="banter-player-bar" style="--share: ${(Math.max(0, row.totalPoints) / scale).toFixed(4)}" aria-hidden="true"></span>`;
     return `                  <tr>
-                    <th scope="row"><div class="banter-player-identity"><img src="assets/banterboost-players/${row.portrait}" width="48" height="48" alt="" loading="lazy"><div>${row.name}<span class="banter-player-fixture">${week}${escapeHtml(row.fixtureLabel)}${injury}</span></div></div></th>
+                    <th scope="row">
+                      <details class="banter-player-details">
+                        <summary class="banter-player-identity"><img src="assets/banterboost-players/${row.portrait}" width="48" height="48" alt="" loading="lazy"><span>${row.name}<span class="banter-player-fixture">${week}${escapeHtml(row.fixtureLabel)}${injury}</span></span></summary>
+                        <dl class="banter-player-chances">
+                          <div><dt>Score 1+</dt><dd>${formatProbability(row.goal)}</dd></div>
+                          <div><dt>Assist 1+</dt><dd>${formatProbability(row.assist)}</dd></div>
+                        </dl>
+                      </details>
+                    </th>
                     <td>${row.totalPoints ?? '—'}${bar}</td>
                     <td class="banter-player-estimate">${row.estimate?.toFixed(1) ?? '—'}</td>
                   </tr>`;
