@@ -31,7 +31,7 @@ the preview.
 - TUKI: a private AI career project by Adi. Its public presence leads with “Building the future of job search.” and stays a brief branded teaser. Keep product mechanics, stack, integrations, roadmap, screenshots, and implementation details out of all published copy, scripts, assets, and metadata. Offer contact and portfolio links; do not invent performance claims or a release date.
 - [Recruiting Agent](https://github.com/AdiRosenstock/Recruiting_Agent) public README: startup-focused discovery, explainable scoring, fact-checked research, and human-reviewed outreach. Its drafts are never sent automatically.
 - [README Preview](https://github.com/AdiRosenstock/readme-reader) public source: a single HTML file with GitHub-flavored Markdown preview, local drafts, import, and export. The original HTML is copied into `dist/tools/readme-preview/` as a live demo. Its rendering libraries load from a CDN; the source repository is the canonical place for updates.
-- [STAT 362: Advanced Machine Learning](https://github.com/AdiRosenstock/STAT-362-Advanced-Machine-Learning) public coursework repository: running Python notebooks cover gradient descent and SVMs; Homework 1 includes a logistic regression implementation using gradient descent. Present it as coursework, not a standalone product or case study.
+- [STAT 362: Advanced Machine Learning](https://github.com/AdiRosenstock/STAT-362-Advanced-Machine-Learning) public coursework repository. The toolkit draws on completed notebooks covering gradient descent (Homework 1), SVMs and cross-validation (Homework 2), and clustering, dimensionality reduction, and anomaly detection (Homework 3).
 - [The Paradox of Equality](https://github.com/AdiRosenstock/malthusian-rebellion), reviewed October 26, 2026: individual ECON 324: Western Economic History coursework. The public README supplies the model, analytical equilibria, 5,000 Monte Carlo runs per scenario, and sensitivity results. Present the findings within the fixed-land, fixed-technology Malthusian assumptions; do not describe them as empirical historical estimates or modern policy predictions. The original `Appendix/Figure2.png` is bundled unchanged as `dist/assets/malthusian-rebellion/monte-carlo.png`, from commit `6124b93bf4a182910daa7b60100f8433be6fcb5b`. The custom SVG plots the deterministic baseline consumption gain, `100 × (2^(0.65^t) − 1)`, for generations 0–15 after rebellion; it is distinct from the Monte Carlo output.
 - Brief Intelligence: Adi's [public demo](https://www.youtube.com/watch?v=GVULpFCQ97A), the team's [public data/classification pipeline](https://github.com/ZBraffmanNorthwestern/briefintelligence), private app commit history, and the team's final report support the project page. Northwestern's [faculty profile](https://www.law.northwestern.edu/faculty/profiles/AmparoGrauRuiz/) confirms Professor Maria Amparo Grau Ruiz's affiliation. Credit the three-person team, distinguish Adi's search/interface work, and keep private app files and configuration out of the site.
 - Organization logos supplied by Adi, with official links to Bloomberg, impaKt,
@@ -47,6 +47,9 @@ the preview.
   Stripe, CatBoost, and Apache Iceberg use the icons published by their own
   sites ([Muse](https://muse.ai/), [Stripe](https://stripe.com/newsroom/information),
   [CatBoost](https://catboost.ai/docs/en/), [Apache Iceberg](https://iceberg.apache.org/)).
+  The Pyodide badge is extracted from the [Pyodide documentation logo](https://pyodide.org/en/stable/_static/pyodide-logo-light.svg),
+  and the XGBoost symbol is based on the blue X in the [XGBoost wordmark](https://xgboost.ai/images/logo/xgboost-logo.png).
+  The portfolio uses its own symbols for concepts such as SQL and for entries such as Dots and Lunr.js.
 
 - Project logos: IMC’s wordmark SVG from [its official site](https://www.imc.com/us),
   Airbnb’s original Bélo SVG from [its Newsroom](https://news.airbnb.com/images/belo.svg),
@@ -200,11 +203,9 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
   opens BanterBoost in a new tab. Its origin restriction blocks localhost embeds;
   verify the frame on `https://adirosenstock.github.io` after publishing. Preserve
   the live iframe when changing the portfolio's layout.
-  Its companion compares 2026/27 points through Gameweek 10 and BanterBoost
-  Gameweek 11 model forecasts for Haaland, Palmer, Saka, and Rashford. The values
-  are a November 10, 2026 snapshot from BanterBoost's public player outlook
-  (one fixture per club). The link below the chart opens current forecasts.
-  Player portraits are original AI illustrations.
+  Its companion compares season points and next-match forecasts for Haaland,
+  Palmer, Saka, and Rashford. The date reflects BanterBoost's data snapshot.
+  The link below the chart opens current forecasts. The portraits are AI illustrations.
 - Mobile navigation opens and closes with an accessible toggle and Escape.
 - Links to other pages, project stories, documents, and full-size media open in a
   new tab, preserving the portfolio. Same-page section anchors remain in place.
@@ -224,8 +225,11 @@ Adi’s supplied résumé PDF is bundled in `dist/assets/` for the hero’s publ
 Hosted on [GitHub Pages](https://adirosenstock.github.io/).
 The repository is [AdiRosenstock.github.io](https://github.com/AdiRosenstock/AdiRosenstock.github.io),
 which makes GitHub Pages serve the portfolio at the account's root address.
-Every push to `main` runs `.github/workflows/pages.yml`, checks the JavaScript,
-and prepares `.pages/` from `dist/` with `npm run prepare:pages` before publishing.
+The Pages workflow runs on pushes to `main`, every six hours, and on manual
+dispatch. It runs the JavaScript checks and prepares `.pages/` from `dist/`.
+`npm run prepare:pages -- --refresh-banterboost` also refreshes the homepage
+card from BanterBoost's public player outlook. A failed fetch or invalid
+response stops publication and leaves the last successful site live.
 Relative asset and navigation paths work at the root without a build dependency.
 
 The generated artifact also retains `/AdiRosenstock.io/` asset paths and redirects
