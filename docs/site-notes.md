@@ -50,6 +50,10 @@ the preview.
   The Pyodide badge is extracted from the [Pyodide documentation logo](https://pyodide.org/en/stable/_static/pyodide-logo-light.svg),
   and the XGBoost symbol is based on the blue X in the [XGBoost wordmark](https://xgboost.ai/images/logo/xgboost-logo.png).
   The portfolio uses its own symbols for concepts such as SQL and for entries such as Dots and Lunr.js.
+  Devicon also supplies the Tailwind CSS, Vite, Playwright, pytest, FastAPI,
+  and SQLAlchemy marks. Lobe Icons supplies the Anthropic mark. TanStack
+  Start and SciPy use assets from the [TanStack brand guide](https://tanstack.com/brand-guide)
+  and the [SciPy website](https://scipy.org/).
 
 - Project logos: IMC’s wordmark SVG from [its official site](https://www.imc.com/us),
   Airbnb’s original Bélo SVG from [its Newsroom](https://news.airbnb.com/images/belo.svg),
@@ -306,8 +310,8 @@ classification notebook/methodology. No proficiency ratings are invented.
 Twenty-one SVG logos are bundled in `dist/assets/skills/` from
 [Devicon](https://github.com/devicons/devicon), pinned to revision
 `7330accdbc47e2dc0c19789a48533c4a3c50fe58`. That folder contains the MIT license
-and original source URLs/checksums in `sources.json`. Concepts without a suitable
-brand logo keep their readable text label. `dist/toolkit.css` is scoped to this
+and original source URLs/checksums in `sources.json`. Entries without a suitable
+brand logo use a custom symbol alongside the text label. `dist/toolkit.css` is scoped to this
 section and its URL is versioned with its content hash.
 
 ### Automatic demos and navigation
